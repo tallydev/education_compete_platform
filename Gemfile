@@ -32,6 +32,8 @@ gem 'will_paginate', '~> 3.0.6'
 gem 'devise'
 gem 'simple_form'
 
+gem 'responders'
+
 # Http Etc.
 gem 'rest-client'
 gem 'multi_json'

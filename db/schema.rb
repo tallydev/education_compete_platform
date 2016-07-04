@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160704104615) do
+ActiveRecord::Schema.define(version: 20160704114338) do
+
+  create_table "activities", force: :cascade do |t|
+    t.string   "name",       limit: 255, null: false
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "departments", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -21,6 +29,13 @@ ActiveRecord::Schema.define(version: 20160704104615) do
   end
 
   add_index "departments", ["school_id"], name: "index_departments_on_school_id", using: :btree
+
+  create_table "recruits", force: :cascade do |t|
+    t.integer  "activities_id", limit: 4
+    t.integer  "players_id",    limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
 
   create_table "schools", force: :cascade do |t|
     t.string   "name",       limit: 255
