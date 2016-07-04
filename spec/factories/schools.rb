@@ -11,6 +11,7 @@
 
 FactoryGirl.define do
   factory :school do
-    
+    name "school 1"
+    address "address 1"
   end
 end
