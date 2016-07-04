@@ -14,69 +14,72 @@
 ActiveRecord::Schema.define(version: 20160704114338) do
 
   create_table "activities", force: :cascade do |t|
-    t.string   "name",       limit: 255, null: false
+    t.string   "name",       null: false
     t.datetime "start_time"
     t.datetime "end_time"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "departments", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.integer  "school_id",  limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name"
+    t.integer  "school_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "departments", ["school_id"], name: "index_departments_on_school_id", using: :btree
+  add_index "departments", ["school_id"], name: "index_departments_on_school_id"
 
   create_table "recruits", force: :cascade do |t|
-    t.integer  "activities_id", limit: 4
-    t.integer  "players_id",    limit: 4
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.integer  "activities_id"
+    t.integer  "player_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
+  add_index "recruits", ["activities_id"], name: "index_recruits_on_activities_id"
+  add_index "recruits", ["player_id"], name: "index_recruits_on_player_id"
+
   create_table "schools", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "address",    limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name"
+    t.string   "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "user_infos", force: :cascade do |t|
-    t.string   "name",         limit: 255, null: false
-    t.integer  "id_card_type", limit: 4
-    t.string   "id_card",      limit: 255
-    t.string   "nation",       limit: 255
-    t.string   "gender",       limit: 255
-    t.string   "tel",          limit: 255
-    t.integer  "player_id",    limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "name",         null: false
+    t.integer  "id_card_type"
+    t.string   "id_card"
+    t.string   "nation"
+    t.string   "gender"
+    t.string   "tel"
+    t.integer  "player_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
-  add_index "user_infos", ["player_id"], name: "index_user_infos_on_player_id", using: :btree
+  add_index "user_infos", ["player_id"], name: "index_user_infos_on_player_id"
 
   create_table "users", force: :cascade do |t|
-    t.string   "phone",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "email",                  limit: 255
-    t.string   "reset_password_token",   limit: 255
+    t.string   "phone",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email"
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
-    t.integer  "schools_id",             limit: 4
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "school_id"
   end
 
-  add_index "users", ["phone"], name: "index_users_on_phone", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["schools_id"], name: "index_users_on_schools_id", using: :btree
+  add_index "users", ["phone"], name: "index_users_on_phone", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["school_id"], name: "index_users_on_school_id"
 
 end
