@@ -67,6 +67,9 @@ gem 'by_star', git: "git://github.com/radar/by_star"
 # AASM - State machines for Ruby classes (plain Ruby, ActiveRecord, Mongoid, MongoMapper)
 gem 'aasm'
 
+# Annotate Rails classes with schema and routes info
+gem 'annotate'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
