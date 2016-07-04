@@ -23,51 +23,49 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# the font-awesome font bundled as an asset for the rails asset pipeline
 gem 'font-awesome-rails'
+# Official Sass port of Bootstrap 2 and 3.
 gem 'bootstrap-sass'
+# Rails asset pipeline packaging for the Backstretch jQuery plugin
 gem 'backstretch-rails'
 
+# Pagination library for Rails, Sinatra, Merb, DataMapper, and more
 gem 'will_paginate', '~> 3.0.6'
-# Authentication
+# Flexible authentication solution for Rails with Warden.
 gem 'devise'
+# Forms made easy for Rails! It's tied to a simple DSL, with no opinion on markup.
 gem 'simple_form'
-
+# A set of Rails responders to dry up your application
 gem 'responders'
 
-# Http Etc.
-gem 'rest-client'
+# Simple, but flexible HTTP client library, with support for multiple backends.
+gem 'faraday'
+# A generic swappable back-end for JSON handling.
 gem 'multi_json'
-
+# jQuery File Upload integrated for Rails
 gem 'jquery-fileupload-rails'
-
-gem 'rmagick', :require => 'RMagick'
-gem 'mini_magick'
-
-gem 'redis', '3.2.1'
-gem "redis-namespace"
-
-gem 'rmmseg-cpp'
-
+# Seedbank gives your Rails seed data a little structure. 
 gem 'seedbank'
 
+# A simple and straightforward settings solution that uses an ERB enabled YAML file and a singleton design pattern.
 gem 'settingslogic'
-gem 'whenever', :require => false
-
+# Ckeditor integration gem for rails
 gem 'ckeditor', github: 'galetahub/ckeditor'
 
-gem "paperclip"#, :git => "git://github.com/thoughtbot/paperclip.git"
+# Easy file attachment management for ActiveRecord
+gem "paperclip"
+# Audio/Video Transcoder for Paperclip using FFMPEG/Avconv
 gem 'paperclip-av-transcoder'
 
+# Object-based searching.
 gem 'ransack'
 
-gem 'acts_as_votable', '~> 0.10.0'
+# Lets you find ActiveRecord + Mongoid objects by year, month, fortnight, week and more!
+gem 'by_star', git: "git://github.com/radar/by_star"
 
-gem 'by_star', '~> 2.2.1'
-
-gem 'faraday'
-
-gem 'state_machine'
-gem 'ruby-graphviz', :require => 'graphviz'
+# AASM - State machines for Ruby classes (plain Ruby, ActiveRecord, Mongoid, MongoMapper)
+gem 'aasm'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
