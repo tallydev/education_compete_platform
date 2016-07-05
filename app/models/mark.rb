@@ -3,7 +3,6 @@
 # Table name: marks
 #
 #  id         :integer          not null, primary key
-#  name       :string(255)
 #  score      :float(24)
 #  recruit_id :integer
 #  created_at :datetime         not null

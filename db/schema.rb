@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160705025438) do
+ActiveRecord::Schema.define(version: 20160705095052) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",       limit: 255, null: false
@@ -31,11 +31,10 @@ ActiveRecord::Schema.define(version: 20160705025438) do
   add_index "departments", ["school_id"], name: "index_departments_on_school_id", using: :btree
 
   create_table "marks", force: :cascade do |t|
-    t.string   "name",       limit: 255
     t.float    "score",      limit: 24
     t.integer  "recruit_id", limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   add_index "marks", ["recruit_id"], name: "index_marks_on_recruit_id", using: :btree
@@ -61,6 +60,22 @@ ActiveRecord::Schema.define(version: 20160705025438) do
     t.datetime "updated_at",                    null: false
   end
 
+  create_table "players", force: :cascade do |t|
+    t.string   "phone",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
+  end
+
+  add_index "players", ["phone"], name: "index_players_on_phone", unique: true, using: :btree
+  add_index "players", ["reset_password_token"], name: "index_players_on_reset_password_token", unique: true, using: :btree
+
   create_table "recruits", force: :cascade do |t|
     t.integer  "activities_id", limit: 4
     t.integer  "player_id",     limit: 4
@@ -81,12 +96,14 @@ ActiveRecord::Schema.define(version: 20160705025438) do
   create_table "tasks", force: :cascade do |t|
     t.integer  "mark_id",    limit: 4
     t.integer  "expert_id",  limit: 4
+    t.integer  "recruit_id", limit: 4
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
 
   add_index "tasks", ["expert_id"], name: "index_tasks_on_expert_id", using: :btree
   add_index "tasks", ["mark_id"], name: "index_tasks_on_mark_id", using: :btree
+  add_index "tasks", ["recruit_id"], name: "index_tasks_on_recruit_id", using: :btree
 
   create_table "user_infos", force: :cascade do |t|
     t.string   "name",         limit: 255, null: false

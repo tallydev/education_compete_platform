@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         authentication_keys: [:phone]
+         authentication_keys: [:name]
   
   belongs_to :school
 
