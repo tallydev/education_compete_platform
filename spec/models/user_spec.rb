@@ -23,4 +23,17 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   it { should belong_to(:school) } 
+
+  describe 'user model test' do
+    let(:school) { create(:school) }
+    let(:user) { create(:user, school: school) }
+    
+    it 'should be not empty' do
+      expect(user).not_to be_nil
+    end
+
+    it 'should relate school correct' do
+      expect(user.school).to eq(school)
+    end
+  end
 end
