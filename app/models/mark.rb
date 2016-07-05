@@ -1,15 +1,18 @@
 # == Schema Information
 #
-# Table name: schools
+# Table name: marks
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
-#  address    :string(255)
+#  score      :float(24)
+#  recruit_id :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
+# Indexes
+#
+#  index_marks_on_recruit_id  (recruit_id)
+#
 
-class School < ActiveRecord::Base
-  has_many :users
-  has_many :departments, dependent: :destroy
+class Mark < ActiveRecord::Base
 end

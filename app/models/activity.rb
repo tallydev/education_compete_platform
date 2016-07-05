@@ -3,7 +3,7 @@
 # Table name: activities
 #
 #  id         :integer          not null, primary key
-#  name       :string           not null
+#  name       :string(255)      not null
 #  start_time :datetime
 #  end_time   :datetime
 #  created_at :datetime         not null
@@ -11,4 +11,5 @@
 #
 
 class Activity < ActiveRecord::Base
+  has_many :news, dependent: :destroy
 end

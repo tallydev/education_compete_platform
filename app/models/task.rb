@@ -1,18 +1,18 @@
 # == Schema Information
 #
-# Table name: departments
+# Table name: tasks
 #
 #  id         :integer          not null, primary key
-#  name       :string(255)
-#  school_id  :integer
+#  mark_id    :integer
+#  expert_id  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 # Indexes
 #
-#  index_departments_on_school_id  (school_id)
+#  index_tasks_on_expert_id  (expert_id)
+#  index_tasks_on_mark_id    (mark_id)
 #
 
-class Department < ActiveRecord::Base
-  belongs_to :school
+class Task < ActiveRecord::Base
 end

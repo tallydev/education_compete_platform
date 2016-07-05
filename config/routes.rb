@@ -21,10 +21,19 @@
 
 Rails.application.routes.draw do
 
+  devise_for :players
   root to: "home#index"
   
   devise_for :users
 
   resource :home, only: [:index]
+
+  namespace :admin do 
+    root to: "home#index"
+    resources :users
+    resources :activities
+    resources :news
+    resources :bulletins
+  end
 
 end
