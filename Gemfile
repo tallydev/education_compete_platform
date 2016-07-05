@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # the font-awesome font bundled as an asset for the rails asset pipeline
-gem 'font-awesome-rails'
+gem 'font-awesome-sass-rails'
 # Official Sass port of Bootstrap 2 and 3.
 gem 'bootstrap-sass'
 # Rails asset pipeline packaging for the Backstretch jQuery plugin
@@ -32,6 +32,7 @@ gem 'backstretch-rails'
 
 # Pagination library for Rails, Sinatra, Merb, DataMapper, and more
 gem 'will_paginate', '~> 3.0.6'
+gem 'will_paginate-bootstrap'
 # Flexible authentication solution for Rails with Warden.
 gem 'devise'
 # Forms made easy for Rails! It's tied to a simple DSL, with no opinion on markup.
