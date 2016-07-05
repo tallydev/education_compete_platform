@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EducationCompetePlatform</title>
+  <%= stylesheet_link_tag    'admin/login', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'admin/login', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="login">
+  <%= yield %>
+  <%= yield :scripts %>
+</body>
+</html>

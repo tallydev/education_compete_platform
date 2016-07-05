@@ -1,0 +1,24 @@
+.login {
+  background-color: #666!important;
+  .logo {
+    width: 247px;
+    margin: 60px auto;
+    padding: 15px;
+    text-align: center;
+  }
+  .content {
+    background: image_url('bg-white-lock.png');
+    width: 291px;
+    margin: 0 auto;
+    margin-bottom: 0px;
+    padding: 20px 30px 15px 30px;
+    h3,
+    h4 {
+      color: #eee;
+    }
+    p,
+    label {
+      color: #fff;
+    }
+  }
+}

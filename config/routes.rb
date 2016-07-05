@@ -21,10 +21,17 @@
 
 Rails.application.routes.draw do
 
-  devise_for :players
   root to: "home#index"
   
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'user/sessions',
+    passwords: 'user/passwords'
+  }
+
+  devise_for :players, controllers: {
+    sessions: 'players/sessions',
+    password: 'players/passwords'
+  }
 
   resource :home, only: [:index]
 

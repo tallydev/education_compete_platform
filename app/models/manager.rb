@@ -26,30 +26,6 @@
 #  index_users_on_school_id             (school_id)
 #
 
-class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         authentication_keys: [:sign_in]
-         
-  has_one :user_info
-  belongs_to :school
+class Manager < User
 
-  def self.find_for_database_authentication(warden_conditions)
-    conditions = warden_conditions.dup
-    p "==================#{conditions}===================="
-    sign_in = conditions.delete(:sign_in)
-    #where(conditions).where(["phone = :value OR name = :value", { :value => login.strip }]).first
-       where(conditions).where(["phone = :value or email = :value", { :value => sign_in.strip }]).first
-  end
-
-  protected
-  def email_required?
-    false
-  end
-
-  def email_changed?
-    false
-  end
 end

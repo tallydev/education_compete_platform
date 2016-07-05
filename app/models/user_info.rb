@@ -9,15 +9,11 @@
 #  nation       :string(255)
 #  gender       :string(255)
 #  tel          :string(255)
-#  player_id    :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#
-# Indexes
-#
-#  index_user_infos_on_player_id  (player_id)
+#  user_id      :integer
 #
 
 class UserInfo < ActiveRecord::Base
-  belongs_to :player
+  belongs_to :user
 end
