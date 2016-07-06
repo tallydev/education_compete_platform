@@ -29,6 +29,7 @@ class Player < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          authentication_keys: [:phone]
 
+
   belongs_to :school
   has_one :player_info, dependent: :destroy
   
