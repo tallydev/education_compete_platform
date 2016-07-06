@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706044947) do
+ActiveRecord::Schema.define(version: 20160706054446) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",                   null: false
@@ -159,6 +159,18 @@ ActiveRecord::Schema.define(version: 20160706044947) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "talk_competition_recruits", force: :cascade do |t|
+    t.integer  "player_id"
+    t.integer  "school_id"
+    t.integer  "activity_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "talk_competition_recruits", ["activity_id"], name: "index_talk_competition_recruits_on_activity_id"
+  add_index "talk_competition_recruits", ["player_id"], name: "index_talk_competition_recruits_on_player_id"
+  add_index "talk_competition_recruits", ["school_id"], name: "index_talk_competition_recruits_on_school_id"
 
   create_table "tasks", force: :cascade do |t|
     t.integer  "mark_id"
