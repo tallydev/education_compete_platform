@@ -35,6 +35,10 @@ class Paper < ActiveRecord::Base
 
   after_commit :translate_file, :on => :create
 
+  def url
+    file.try(:url)
+  end
+
   def translate_file
     unless self.file_content_type.eql?('application/pdf')  
       SharpOffice.process(self.file.path)
