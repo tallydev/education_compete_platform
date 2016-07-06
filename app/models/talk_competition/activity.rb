@@ -10,6 +10,7 @@
 #  updated_at :datetime         not null
 #  status     :integer          default(0)
 #  type       :string
+#  short_name :string
 #
 
 class TalkCompetition::Activity < Activity

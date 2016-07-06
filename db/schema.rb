@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706073347) do
+ActiveRecord::Schema.define(version: 20160706105100) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",                   null: false
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20160706073347) do
     t.datetime "updated_at",             null: false
     t.integer  "status",     default: 0
     t.string   "type"
+    t.string   "short_name"
   end
 
   create_table "bulletins", force: :cascade do |t|
