@@ -17,6 +17,8 @@
 #
 
 class TalkCompetition::Recruit < ActiveRecord::Base
+  include RecruitConcern
+  
   belongs_to :player
   belongs_to :school
   belongs_to :activity

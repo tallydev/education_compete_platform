@@ -17,13 +17,10 @@
 #
 
 class InfoCompetition::Recruit < ActiveRecord::Base
+  include RecruitConcern
+
   belongs_to :player
   belongs_to :school
   belongs_to :activity
-  before_save :set_school
-
-  private
-    def set_school
-      self.school = player.try(:school)
-    end
+  
 end

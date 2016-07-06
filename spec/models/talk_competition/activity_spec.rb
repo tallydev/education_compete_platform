@@ -17,4 +17,25 @@ require 'rails_helper'
 RSpec.describe TalkCompetition::Activity, type: :model do
   it { should have_many(:recruits) } 
   it { should have_many(:players).through(:recruits) } 
+
+  describe "Activity & Recruit & Player" do
+    let(:school) { create(:school) }
+    let(:activity) { create(:talk_competition_activity) }
+    let(:player) { create(:player, school: school) }
+    
+    it 'should set school before_save' do
+      recruit = activity.recruits.build(player: player)
+      recruit.save
+      activity.reload
+      expect(activity.players.last).to eq player
+    end
+
+    it 'should set school before_save' do
+      recruit = activity.recruits.build(player: player)
+      recruit.save
+      activity.reload
+      expect(recruit.school).to eq school
+    end
+
+  end
 end
