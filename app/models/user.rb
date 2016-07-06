@@ -12,21 +12,12 @@
 #  sign_in_count          :integer          default(0), not null
 #  current_sign_in_at     :datetime
 #  last_sign_in_at        :datetime
-<<<<<<< HEAD
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  school_id              :integer
 #  type                   :string(255)
-=======
-#  current_sign_in_ip     :string
-#  last_sign_in_ip        :string
-#  school_id              :integer
-#  created_at             :datetime         not null
-#  updated_at             :datetime         not null
-#  type                   :string
->>>>>>> e5f86b40d573938d062cd407ec5cf1f19dc1a786
 #
 # Indexes
 #
@@ -49,10 +40,9 @@ class User < ActiveRecord::Base
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
-    p "==================#{conditions}===================="
     sign_in = conditions.delete(:sign_in)
     #where(conditions).where(["phone = :value OR name = :value", { :value => login.strip }]).first
-       where(conditions).where(["phone = :value or email = :value", { :value => sign_in.strip }]).first
+    where(conditions).where(["phone = :value or email = :value", { :value => sign_in.strip }]).first
   end
 
   protected
