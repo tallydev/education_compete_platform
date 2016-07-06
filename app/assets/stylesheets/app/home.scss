@@ -1,5 +1,6 @@
 
 .home__index {
+	// 轮播
 	.slide {
 		height: auto;
 		margin-bottom: 30px;
@@ -23,13 +24,14 @@
 			right: 15%;
 		}
 	}
-
+	// 比赛入口
 	.compete-entry {
 		height: auto;
 		width: 100%;
 		background: image-url("compete_bg.png");
 		padding-top: 30px;
 		padding-bottom: 12px;
+		margin-bottom: 30px;
 		.compete-info {
 			height: 139px;
 			width: 405px;
