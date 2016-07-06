@@ -1,0 +1,2 @@
+module TalkCompetition::ActivitiesHelper
+end
