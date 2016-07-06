@@ -3,12 +3,12 @@
 # Table name: news
 #
 #  id          :integer          not null, primary key
-#  title       :string(255)
-#  content     :text(65535)
+#  title       :string
+#  content     :text
 #  activity_id :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  summary     :text(65535)
+#  summary     :text
 #
 # Indexes
 #

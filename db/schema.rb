@@ -14,23 +14,23 @@
 ActiveRecord::Schema.define(version: 20160705161548) do
 
   create_table "activities", force: :cascade do |t|
-    t.string   "name",       limit: 255,             null: false
+    t.string   "name",                   null: false
     t.datetime "start_time"
     t.datetime "end_time"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
-    t.integer  "status",     limit: 4,   default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "status",     default: 0
   end
 
   create_table "bulletins", force: :cascade do |t|
-    t.string   "title",       limit: 255
-    t.text     "content",     limit: 65535
-    t.integer  "activity_id", limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "title"
+    t.text     "content"
+    t.integer  "activity_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_index "bulletins", ["activity_id"], name: "index_bulletins_on_activity_id", using: :btree
+  add_index "bulletins", ["activity_id"], name: "index_bulletins_on_activity_id"
 
   create_table "departments", force: :cascade do |t|
     t.string   "name"
@@ -42,19 +42,19 @@ ActiveRecord::Schema.define(version: 20160705161548) do
   add_index "departments", ["school_id"], name: "index_departments_on_school_id"
 
   create_table "images", force: :cascade do |t|
-    t.string   "type",              limit: 255
-    t.string   "photo_type",        limit: 255
-    t.integer  "imageable_id",      limit: 4
-    t.string   "imageable_type",    limit: 255
-    t.string   "file_file_name",    limit: 255
-    t.string   "file_content_type", limit: 255
-    t.integer  "file_file_size",    limit: 4
+    t.string   "type"
+    t.string   "photo_type"
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
     t.datetime "file_updated_at"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
-  add_index "images", ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id", using: :btree
+  add_index "images", ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id"
 
   create_table "marks", force: :cascade do |t|
     t.float    "score"
@@ -66,51 +66,51 @@ ActiveRecord::Schema.define(version: 20160705161548) do
   add_index "marks", ["recruit_id"], name: "index_marks_on_recruit_id"
 
   create_table "media", force: :cascade do |t|
-    t.string   "type",              limit: 255
-    t.string   "media_type",        limit: 255
-    t.integer  "mediaable_id",      limit: 4
-    t.string   "mediaable_type",    limit: 255
-    t.string   "file_file_name",    limit: 255
-    t.string   "file_content_type", limit: 255
-    t.integer  "file_file_size",    limit: 4
-    t.datetime "file_updated_at"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-  end
-
-  add_index "media", ["mediaable_type", "mediaable_id"], name: "index_media_on_mediaable_type_and_mediaable_id", using: :btree
-
-  create_table "news", force: :cascade do |t|
-    t.string   "title",       limit: 255
-    t.text     "content",     limit: 65535
-    t.integer  "activity_id", limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.text     "summary",     limit: 65535
-  end
-
-  add_index "news", ["activity_id"], name: "index_news_on_activity_id"
-
-  create_table "opus", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  create_table "papers", force: :cascade do |t|
-    t.string   "type",              limit: 255
-    t.string   "paper_type",        limit: 255
-    t.integer  "paperable_id",      limit: 4
-    t.string   "paperable_type",    limit: 255
-    t.string   "file_file_name",    limit: 255
-    t.string   "file_content_type", limit: 255
-    t.integer  "file_file_size",    limit: 4
+    t.string   "type"
+    t.string   "media_type"
+    t.integer  "mediaable_id"
+    t.string   "mediaable_type"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
     t.datetime "file_updated_at"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
 
-  add_index "papers", ["paperable_type", "paperable_id"], name: "index_papers_on_paperable_type_and_paperable_id", using: :btree
+  add_index "media", ["mediaable_type", "mediaable_id"], name: "index_media_on_mediaable_type_and_mediaable_id"
+
+  create_table "news", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "activity_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.text     "summary"
+  end
+
+  add_index "news", ["activity_id"], name: "index_news_on_activity_id"
+
+  create_table "opus", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "papers", force: :cascade do |t|
+    t.string   "type"
+    t.string   "paper_type"
+    t.integer  "paperable_id"
+    t.string   "paperable_type"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "papers", ["paperable_type", "paperable_id"], name: "index_papers_on_paperable_type_and_paperable_id"
 
   create_table "players", force: :cascade do |t|
     t.string   "phone",                  default: "", null: false
