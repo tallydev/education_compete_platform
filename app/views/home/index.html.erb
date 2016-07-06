@@ -26,30 +26,20 @@
 	<!-- 比赛倒计时 -->
 	<div class="compete-entry clearfix">
 		<div class="vertical-line"></div>
-		<div class="col-md-6 text-center">
-			<div class="compete-info">
-				<span class="title">
-					<%= link_to "距上海市职业院校信息化教学大赛报名截止日期", "#" %>
-				</span>
-				<span class="apply">
-					<%= link_to "马上报名", "#" %>
-				</span>
-				<span class="date">8</span>
-				<span class="unit">天</span>
+		<% @activities.last(2).each do |activity| %>
+			<div class="col-md-6 text-center">
+				<div class="compete-info">
+					<span class="title">
+						<%= link_to "距上海市高职院校信息化教学大赛报名截止日期", notification_path(activity.id) %>
+					</span>
+					<span class="apply">
+						<%= link_to "马上报名", new_info_competition_activity_recruit_path(activity) %>
+					</span>
+					<span class="date"><%= activity.left_days %></span>
+					<span class="unit">天</span>
+				</div>
 			</div>
-		</div>
-		<div class="col-md-6 text-center">
-			<div class="compete-info">
-				<span class="title">
-					<%= link_to "距上海市职业院校信息化教学大赛报名截止日期", "#" %>
-				</span>
-				<span class="apply">
-					<%= link_to "马上报名", "#" %>
-				</span>
-				<span class="date">8</span>
-				<span class="unit">天</span>
-			</div>
-		</div>
+		<% end %>
 	</div>
 	<!-- 赛事公告 -->
 	<div class="global-tab broad-cast">
@@ -62,26 +52,17 @@
 		<div class="global-tab-content">
 			<div class="vertical-line"></div>
 			<div class="row">
-				<div class="col-md-6">
-					<p class="content-title">
-						【公告】2016年上海市高等职业院校信息化教学大赛选拔方案
-					</p>
-					<p class="content-abstract">
-						各有关单位、参评老师：<br>
-全国中小学微课征集评选活动开展以来，在评选活动组委会的指导推动下，各地教育行政部门积极行动，广大教师参选热情高涨。现本届参选作品提交期限将至，鉴于“本届活动上传微课作品数量较多，集中上传审核压力大，且有多个地区的教师反映‘提交时间太短…全国中小学微课征集评选活动开展以来，在评选活动组委会的指导推动....
-					</p>
-					<%= link_to "阅读更多》", "#", class: "content-more" %>
-				</div>
-				<div class="col-md-6">
-					<p class="content-title">
-						【公告】2016年上海市高等职业院校信息化教学大赛选拔方案
-					</p>
-					<p class="content-abstract">
-						各有关单位、参评老师：<br>
-全国中小学微课征集评选活动开展以来，在评选活动组委会的指导推动下，各地教育行政部门积极行动，广大教师参选热情高涨。现本届参选作品提交期限将至，鉴于“本届活动上传微课作品数量较多，集中上传审核压力大，且有多个地区的教师反映‘提交时间太短…全国中小学微课征集评选活动开展以来，在评选活动组委会的指导推动....
-					</p>
-					<%= link_to "阅读更多》", "#", class: "content-more" %>
-				</div>
+				<% @notifications.last(2).each do |notification| %>
+					<div class="col-md-6">
+						<p class="content-title">
+							<%= notification.title %>
+						</p>
+						<p class="content-abstract">
+							<%= notification.content.truncate(200) %>
+						</p>
+						<%= link_to "阅读更多》", notification_path(notification.id), class: "content-more" %>
+					</div>
+				<% end %>
 			</div>
 		</div>
 	</div>
