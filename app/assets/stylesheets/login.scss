@@ -1,0 +1,78 @@
+.tab_cotent {
+  border-radius: 0 !important;
+  .tab_head {
+    position: relative;
+    padding: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-color: #3D96D5 !important;
+    border-width: 2px !important;
+    .bg_image {
+
+    }
+    .tab_title_text {
+      font-size: 18px;
+      color: #fff;
+      position: absolute;
+      top: 4px;
+      left: 75px;
+    }
+  }
+  .tab_body {
+    padding-top: 29px;
+    .new_player {
+      text-align: center;
+      .player_phone {
+        margin-bottom: 30px;
+        #player_phone {
+          height: 40px;
+          width: 50%;
+        }
+        label.tel {
+          padding-right: 20px;
+        }
+      }
+      .player_password {
+        margin-bottom: 50px;
+        #player_password {
+          height: 40px;
+          width: 50%;
+        }
+        label.password {
+          padding-right: 30px;
+        }
+      }
+    }
+    .login_tab_nav {
+      padding-left: 18%;
+      li {
+        width: 40%;
+        text-align: center;
+        a {
+          color: #000;
+          font-size: 14px;
+        }
+      }
+      li.active {
+        a  {
+          color: #3D96D5;
+          border-radius: 0;
+          border-top-width: 4px;
+          border-top-color: #3D96D5;
+          :hover {
+            border: 0;
+          }
+        }
+      }
+
+    }
+    .login_tab_content {
+      padding-top: 30px;
+      .btn-login {
+        background-color: #F5A623;
+        border-radius: 0;
+        padding: 
+      }
+    }
+  }
+}

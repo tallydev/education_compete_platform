@@ -1,15 +1,46 @@
 <h2>Log in</h2>
+<div class="container">
+  <div class="panel panel-default tab_cotent">
+    <div class="panel-heading tab_head">
+      <%= image_tag("TabTitleBg.png", class: "bg_image")%>
+      <div class="tab_title_text">登 录</div>
+    </div>
+    <div class="panel-body tab_body row">
+      <div class="col-md-6 col-md-offset-3">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs login_tab_nav" role="tablist">
+          <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">参赛选手</a></li>
+          <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">评审专家</a></li>
+        </ul>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email, required: false, autofocus: true %>
-    <%= f.input :password, required: false %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        <!-- Tab panes -->
+        <div class="tab-content login_tab_content">
+
+          <div role="tabpanel" class="tab-pane active" id="home">
+            <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <%= f.input :phone, label:" 用户名 ", placeholder: " 手机号",required: false, autofocus: true %>
+              <%= f.input :password, label: "密 码", required: false %>
+              <%= f.button :submit, "登 录", data: {disable_with: '登录中...'}, class: "btn-login" %>
+              <div>
+                <%= link_to "注册新账号", new_registration_path(resource_name), class: " " %>
+                <%= link_to "忘记密码?", new_password_path(resource_name) %></td>
+              </div>
+            <% end %>
+          </div>
+
+          <div role="tabpanel" class="tab-pane" id="profile">
+            <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <%= f.input :phone, label:" 用户名 ",required: false, autofocus: true %>
+              <%= f.input :password, label: "密 码", required: false %>
+                <%= f.button :submit, "登录", data: {disable_with: '登录中...'}, class: "btn btn-success" %>
+                <%= link_to "注册新账号", new_registration_path(resource_name), class: "" %>
+                <%= link_to "忘记密码?", new_password_path(resource_name), class: "" %></td>
+            <% end %>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
-
-<%= render "players/shared/links" %>
+</div>
