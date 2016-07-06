@@ -29,6 +29,14 @@ Rails.application.routes.draw do
     resources :recruits
   end
 
+  # 说课大赛相关路由
+  namespace :talk_competition do
+    resources :activities do
+      resources :recruits
+    end
+    resources :recruits
+  end
+
   namespace :admin do 
     root to: "home#index"
     resources :users
