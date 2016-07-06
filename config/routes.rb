@@ -1,7 +1,46 @@
+Rails.application.routes.draw do
+
+  root to: "home#index"
+  
+  devise_for :users, controllers: {
+    sessions: 'user/sessions',
+    passwords: 'user/passwords'
+  }
+
+  devise_for :players, controllers: {
+    sessions: 'players/sessions',
+    password: 'players/passwords'
+  }
+
+  # 主页面
+  resource :home, only: [:index]
+  # 赛事公告
+  resources :notifications
+
+  # 用户信息资料
+  resources :player_infos, only: [:new, :show, :create]
+
+  # 信息大赛相关路由
+  namespace :info_competition do
+    resources :activities do
+      resources :recruits
+    end
+    resources :recruits
+  end
+
+  namespace :admin do 
+    root to: "home#index"
+    resources :users
+    resources :activities
+    resources :news
+    resources :bulletins
+  end
+
+end
+
 # == Route Map
 #
 #                     Prefix Verb   URI Pattern                          Controller#Action
-#                      pdfjs        /pdfjs                               PdfjsViewer::Rails::Engine
 #                       root GET    /                                    home#index
 #           new_user_session GET    /users/sign_in(.:format)             user/sessions#new
 #               user_session POST   /users/sign_in(.:format)             user/sessions#create
@@ -78,38 +117,3 @@
 #                            PUT    /admin/bulletins/:id(.:format)       admin/bulletins#update
 #                            DELETE /admin/bulletins/:id(.:format)       admin/bulletins#destroy
 #
-# Routes for PdfjsViewer::Rails::Engine:
-# minimal GET  /minimal(.:format) pdfjs_viewer/viewer#minimal
-#    full GET  /full(.:format)    pdfjs_viewer/viewer#full
-#
-
-Rails.application.routes.draw do
-  mount PdfjsViewer::Rails::Engine => "/pdfjs", as: 'pdfjs'
-  
-  root to: "home#index"
-  
-  devise_for :users, controllers: {
-    sessions: 'user/sessions',
-    passwords: 'user/passwords'
-  }
-
-  devise_for :players, controllers: {
-    sessions: 'players/sessions',
-    password: 'players/passwords'
-  }
-
-  resource :home, only: [:index]
-  # 赛事公告
-  resources :notifications
-
-  resources :player_infos, only: [:new, :show, :create]
-
-  namespace :admin do 
-    root to: "home#index"
-    resources :users
-    resources :activities
-    resources :news
-    resources :bulletins
-  end
-
-end
