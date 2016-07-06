@@ -1,3 +1,4 @@
+
 .home__index {
 	.slide {
 		height: auto;
@@ -20,6 +21,52 @@
 		}
 		.right img {
 			right: 15%;
+		}
+	}
+
+	.compete-entry {
+		height: auto;
+		width: 100%;
+		background: image-url("compete_bg.png");
+		padding-top: 30px;
+		padding-bottom: 12px;
+		.compete-info {
+			height: 139px;
+			width: 405px;
+			display: inline-block;
+			position: relative;
+			background: image-url("compete_info_bg.png") no-repeat;
+			color: #fff;
+			font-size: 16px;
+			span {
+				position: absolute;
+			}
+			.title {
+				top: 13px;
+				left: 18px;
+			}
+			.apply {
+				top: 72px;
+				left: 118px;
+				a {
+					color: #fff;
+					text-decoration: none;
+					&:hover {
+						color: #fff;
+						text-decoration: underline;
+					}
+				}
+			}
+			.date {
+				font-size: 60px;
+				bottom: 5px;
+				line-height: 60px;
+				right: 85px;
+			}
+			.unit {
+				bottom: 10px;
+				right: 60px;
+			}
 		}
 	}
 }
