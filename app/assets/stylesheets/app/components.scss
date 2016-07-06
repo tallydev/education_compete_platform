@@ -107,3 +107,54 @@
 		}
 	}
 }
+
+// 通用面板
+.global-tab {
+		background-color: #F8F8F8;
+		border: 1px solid #E8E8E8;
+		&:before, &:after {
+			content: " ";
+	    display: table;
+	    clear: both;
+		}
+	.global-tab-head {
+		height: 32px;
+		line-height: 32px;
+		border-bottom: 2px solid #3D96D5;
+		background: image-url("TabTitleBg.png") no-repeat;
+		.title {
+			width: 200px;
+			float: left;
+			text-align: center;
+			color: #fff;
+			font-size: 18px;			
+		}
+		.more {
+			a {
+				float: right;
+				margin-right: 12px;
+				color: #3E3E3E;
+			}
+		}
+	}
+	.global-tab-content {
+		background-color: #fff;
+		padding: 18px;
+		color: #363636;
+		font-size: 16px;
+		position: relative;
+		min-height: 210px;
+	}
+}
+
+// 140px 竖线
+.vertical-line {
+	position: absolute;
+	width: 1px;
+	height: 140px;
+	margin-top: -70px;
+	top: 50%;
+	left: 50%;
+	background-color: #59C8FF;
+}
+// 竖线

@@ -26,6 +26,7 @@
 	}
 	// 比赛入口
 	.compete-entry {
+		position: relative;
 		height: auto;
 		width: 100%;
 		background: image-url("compete_bg.png");
@@ -46,6 +47,14 @@
 			.title {
 				top: 13px;
 				left: 18px;
+				a {
+					color: #fff;
+					text-decoration: none;
+					&:hover {
+						color: #fff;
+						text-decoration: underline;
+					}
+				}
 			}
 			.apply {
 				top: 72px;
@@ -69,6 +78,22 @@
 				bottom: 10px;
 				right: 60px;
 			}
+		}
+	}
+	// 赛事公告
+	.broad-cast {
+		margin-bottom: 77px;
+		.content-title {
+			margin-bottom: 10px;
+		}
+		.content-abstract {
+			color: #9B9B9B;
+			font-size: 14px;
+		}
+		.content-more {
+			display: block;
+			text-align: right;
+			color: #3E3E3E;
 		}
 	}
 }
