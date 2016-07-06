@@ -184,6 +184,7 @@ ActiveRecord::Schema.define(version: 20160705161548) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "school_id"
+
     t.string   "type"
   end
 
