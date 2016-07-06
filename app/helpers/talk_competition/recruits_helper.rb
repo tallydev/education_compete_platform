@@ -1,0 +1,2 @@
+module TalkCompetition::RecruitsHelper
+end
