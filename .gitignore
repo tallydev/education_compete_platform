@@ -19,8 +19,10 @@ config/database.yml
 
 Gemfile.lock
 
-public/assets
-/public/system
+/doc/*
+/public/system/*
+/public/*
+/vendor/*
 
 # .DS_Store
 .DS_Store
