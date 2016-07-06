@@ -3,13 +3,13 @@
 # Table name: activities
 #
 #  id         :integer          not null, primary key
-#  name       :string           not null
+#  name       :string(255)      not null
 #  start_time :datetime
 #  end_time   :datetime
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  status     :integer          default(0)
-#  type       :string
+#  type       :string(255)
 #
 
 class Activity < ActiveRecord::Base

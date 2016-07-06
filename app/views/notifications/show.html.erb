@@ -8,7 +8,8 @@
 	<div class="row notification-show">
 		<div class="col-md-9">
 			<div class="notification-pdf">
-				
+				<%#= pdfjs_viewer pdf_url: "/sample.pdf", style: :minial %>
+				<%#= pdfjs_viewer pdf_url: "/pdfs/web.pdf", style: :full %>
 			</div>
 		</div>
 		<div class="col-md-3">
@@ -35,10 +36,10 @@
 				</div>
 				<!-- 比赛通知下载，报名入口 -->
 				<div class="info-bottom">				
-					<a src="#" class="btn info-download">
+					<a href="#" class="btn info-download">
 						<%= image_tag "download.svg" %>&nbsp;&nbsp;比赛通知下载
 					</a>
-					<a src="#" class="btn apply-entry">
+					<a href="/pdfs/web.pdf" class="btn apply-entry">
 						<%= image_tag "entry.svg" %>&nbsp;&nbsp;报名入口
 					</a>
 				</div>

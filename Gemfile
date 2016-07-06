@@ -71,6 +71,9 @@ gem 'aasm'
 # Annotate Rails classes with schema and routes info
 gem 'annotate'
 
+# PDF.js viewer packaged as a Rails engine.
+gem 'pdfjs_viewer-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

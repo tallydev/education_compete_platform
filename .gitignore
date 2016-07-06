@@ -21,6 +21,7 @@ Gemfile.lock
 
 /doc/*
 /public/system/*
+/public/pdfs
 /public/*
 /vendor/*
 

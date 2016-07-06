@@ -1,6 +1,7 @@
 # == Route Map
 #
 #                     Prefix Verb   URI Pattern                          Controller#Action
+#                      pdfjs        /pdfjs                               PdfjsViewer::Rails::Engine
 #                       root GET    /                                    home#index
 #           new_user_session GET    /users/sign_in(.:format)             user/sessions#new
 #               user_session POST   /users/sign_in(.:format)             user/sessions#create
@@ -32,6 +33,17 @@
 #                            PATCH  /players(.:format)                   devise/registrations#update
 #                            PUT    /players(.:format)                   devise/registrations#update
 #                            DELETE /players(.:format)                   devise/registrations#destroy
+#              notifications GET    /notifications(.:format)             notifications#index
+#                            POST   /notifications(.:format)             notifications#create
+#           new_notification GET    /notifications/new(.:format)         notifications#new
+#          edit_notification GET    /notifications/:id/edit(.:format)    notifications#edit
+#               notification GET    /notifications/:id(.:format)         notifications#show
+#                            PATCH  /notifications/:id(.:format)         notifications#update
+#                            PUT    /notifications/:id(.:format)         notifications#update
+#                            DELETE /notifications/:id(.:format)         notifications#destroy
+#               player_infos POST   /player_infos(.:format)              player_infos#create
+#            new_player_info GET    /player_infos/new(.:format)          player_infos#new
+#                player_info GET    /player_infos/:id(.:format)          player_infos#show
 #                 admin_root GET    /admin(.:format)                     admin/home#index
 #                admin_users GET    /admin/users(.:format)               admin/users#index
 #                            POST   /admin/users(.:format)               admin/users#create
@@ -66,9 +78,14 @@
 #                            PUT    /admin/bulletins/:id(.:format)       admin/bulletins#update
 #                            DELETE /admin/bulletins/:id(.:format)       admin/bulletins#destroy
 #
+# Routes for PdfjsViewer::Rails::Engine:
+# minimal GET  /minimal(.:format) pdfjs_viewer/viewer#minimal
+#    full GET  /full(.:format)    pdfjs_viewer/viewer#full
+#
 
 Rails.application.routes.draw do
-
+  mount PdfjsViewer::Rails::Engine => "/pdfjs", as: 'pdfjs'
+  
   root to: "home#index"
   
   devise_for :users, controllers: {
