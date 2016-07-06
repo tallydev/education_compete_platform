@@ -27,5 +27,9 @@ class Image < ActiveRecord::Base
   validates_attachment_presence :file
   validates_attachment_size     :file, less_than: 5.megabytes
   validates_attachment_content_type :file, content_type: /image\/.*\Z/
+
+  def url mode
+    file.present? ? file.url(mode) : ""
+  end
   
 end

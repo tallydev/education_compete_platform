@@ -11,9 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706073347) do
+ActiveRecord::Schema.define(version: 20160706105100) do
 
   create_table "activities", force: :cascade do |t|
+<<<<<<< HEAD
     t.string   "name",       limit: 255,             null: false
     t.datetime "start_time"
     t.datetime "end_time"
@@ -21,7 +22,20 @@ ActiveRecord::Schema.define(version: 20160706073347) do
     t.datetime "updated_at",                         null: false
     t.integer  "status",     limit: 4,   default: 0
     t.string   "type",       limit: 255
+=======
+    t.string   "name",                    null: false
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "status",      default: 0
+    t.string   "type"
+    t.integer  "bulletin_id"
+    t.string   "short_name"
+>>>>>>> e5f86b40d573938d062cd407ec5cf1f19dc1a786
   end
+
+  add_index "activities", ["bulletin_id"], name: "index_activities_on_bulletin_id"
 
   create_table "bulletins", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -222,6 +236,7 @@ ActiveRecord::Schema.define(version: 20160706073347) do
     t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
+<<<<<<< HEAD
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at",                                      null: false
@@ -243,4 +258,18 @@ ActiveRecord::Schema.define(version: 20160706073347) do
   add_foreign_key "talk_competition_recruits", "activities"
   add_foreign_key "talk_competition_recruits", "players"
   add_foreign_key "talk_competition_recruits", "schools"
+=======
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.integer  "school_id"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "type"
+  end
+
+  add_index "users", ["phone"], name: "index_users_on_phone", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["school_id"], name: "index_users_on_school_id"
+
+>>>>>>> e5f86b40d573938d062cd407ec5cf1f19dc1a786
 end
