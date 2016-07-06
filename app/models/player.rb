@@ -30,9 +30,12 @@ class Player < ActiveRecord::Base
          authentication_keys: [:phone]
 
   belongs_to :school
+  #################   InfoCompetition     ########################
   has_many :info_competition_recruits, class_name: "InfoCompetition::Recruit", dependent: :destroy
   has_many :info_competition_activities, class_name: "InfoCompetition::Activity",
       through: :info_competition_recruits, source: :activity
+
+  #################   TalkCompetition     ########################
   has_many :talk_competition_recruits, class_name: "TalkCompetition::Recruit", dependent: :destroy
   has_many :talk_competition_activities, class_name: "TalkCompetition::Activity",
       through: :talk_competition_recruits, source: :activity

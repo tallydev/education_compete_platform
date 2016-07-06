@@ -15,4 +15,8 @@
 class Activity < ActiveRecord::Base
   has_many :news, dependent: :destroy
   enum status: [:activate, :stop]
+
+  def school_recruits school
+    recruits.school_filter school
+  end
 end

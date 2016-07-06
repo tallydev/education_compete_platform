@@ -3,6 +3,7 @@ module RecruitConcern
 
   included do
     before_save :set_school
+    scope :school_filter, ->(school) { where school: school }
   end
 
   def set_school
