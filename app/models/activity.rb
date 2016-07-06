@@ -21,6 +21,10 @@ class Activity < ActiveRecord::Base
   has_many :news, dependent: :destroy
   enum status: [:activate, :stop]
 
+  def left_days
+    end_time.day - Time.zone.now.day
+  end
+
   def school_recruits school
     recruits.school_filter school
   end
