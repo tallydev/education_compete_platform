@@ -15,12 +15,6 @@
 #  index_talk_competition_recruits_on_player_id    (player_id)
 #  index_talk_competition_recruits_on_school_id    (school_id)
 #
-# Foreign Keys
-#
-#  fk_rails_6d2d0e9c4d  (activity_id => activities.id)
-#  fk_rails_7b0a6c0542  (school_id => schools.id)
-#  fk_rails_fb78ac0920  (player_id => players.id)
-#
 
 class TalkCompetition::Recruit < ActiveRecord::Base
   include RecruitConcern

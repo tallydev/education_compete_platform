@@ -3,7 +3,7 @@
 # Table name: departments
 #
 #  id         :integer          not null, primary key
-#  name       :string(255)
+#  name       :string
 #  school_id  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

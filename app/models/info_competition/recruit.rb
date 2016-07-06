@@ -15,12 +15,6 @@
 #  index_info_competition_recruits_on_player_id    (player_id)
 #  index_info_competition_recruits_on_school_id    (school_id)
 #
-# Foreign Keys
-#
-#  fk_rails_4d26a3dde0  (activity_id => activities.id)
-#  fk_rails_e9f4dc1858  (player_id => players.id)
-#  fk_rails_f14689aa2f  (school_id => schools.id)
-#
 
 class InfoCompetition::Recruit < ActiveRecord::Base
   include RecruitConcern

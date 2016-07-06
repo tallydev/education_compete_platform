@@ -11,6 +11,7 @@
 #  status      :integer          default(0)
 #  type        :string
 #  bulletin_id :integer
+#  short_name  :string
 #
 # Indexes
 #

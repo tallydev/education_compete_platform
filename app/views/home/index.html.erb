@@ -30,7 +30,7 @@
 			<div class="col-md-6 text-center">
 				<div class="compete-info">
 					<span class="title">
-						<%= link_to "距上海市高职院校信息化教学大赛报名截止日期", notification_path(activity.id) %>
+						<%= link_to "距#{activity.short_name}报名截止", notification_path(activity.id) %>
 					</span>
 					<span class="apply">
 						<%= link_to "马上报名", new_info_competition_activity_recruit_path(activity) %>
