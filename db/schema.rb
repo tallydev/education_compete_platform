@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160705161548) do
+ActiveRecord::Schema.define(version: 20160706043949) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",                   null: false
@@ -123,10 +123,12 @@ ActiveRecord::Schema.define(version: 20160705161548) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "school_id"
   end
 
   add_index "players", ["phone"], name: "index_players_on_phone", unique: true
   add_index "players", ["reset_password_token"], name: "index_players_on_reset_password_token", unique: true
+  add_index "players", ["school_id"], name: "index_players_on_school_id"
 
   create_table "recruits", force: :cascade do |t|
     t.integer  "activities_id"

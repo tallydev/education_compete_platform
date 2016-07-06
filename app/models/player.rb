@@ -13,11 +13,13 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string
 #  last_sign_in_ip        :string
+#  school_id              :integer
 #
 # Indexes
 #
 #  index_players_on_phone                 (phone) UNIQUE
 #  index_players_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_players_on_school_id             (school_id)
 #
 
 class Player < ActiveRecord::Base
