@@ -85,6 +85,8 @@ Rails.application.routes.draw do
   # 赛事公告
   resources :notifications
 
+  resources :player_infos, only: [:new, :show, :create]
+
   namespace :admin do 
     root to: "home#index"
     resources :users

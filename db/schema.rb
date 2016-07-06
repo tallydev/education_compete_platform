@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706054446) do
+ActiveRecord::Schema.define(version: 20160706073347) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",                   null: false
@@ -124,6 +124,22 @@ ActiveRecord::Schema.define(version: 20160706054446) do
   end
 
   add_index "papers", ["paperable_type", "paperable_id"], name: "index_papers_on_paperable_type_and_paperable_id"
+
+  create_table "player_infos", force: :cascade do |t|
+    t.string   "name"
+    t.string   "card_number"
+    t.string   "address"
+    t.string   "code"
+    t.integer  "sex"
+    t.string   "nation"
+    t.integer  "player_id"
+    t.integer  "school_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "player_infos", ["player_id"], name: "index_player_infos_on_player_id"
+  add_index "player_infos", ["school_id"], name: "index_player_infos_on_school_id"
 
   create_table "players", force: :cascade do |t|
     t.string   "phone",                  default: "", null: false
