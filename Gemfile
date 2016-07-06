@@ -70,7 +70,7 @@ gem 'by_star', git: "git://github.com/radar/by_star"
 gem 'aasm'
 
 # A ruby web server built for concurrency
-gem 'puma'
+gem 'puma', '2.15.3'
 
 # Annotate Rails classes with schema and routes info
 gem 'annotate'
