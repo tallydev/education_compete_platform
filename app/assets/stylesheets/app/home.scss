@@ -1,3 +1,25 @@
 .home__index {
-
+	.slide {
+		height: auto;
+		margin-bottom: 30px;
+		.item {
+			img {
+				height: auto;
+				width: 100%;
+			}
+		}
+		.carousel-control {
+			img {
+				position: absolute;
+				margin-top: -37px;
+				top: 50%;
+			}
+		}
+		.left img {
+			left: 15%;
+		}
+		.right img {
+			right: 15%;
+		}
+	}
 }

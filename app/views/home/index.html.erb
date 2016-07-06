@@ -1,2 +1,27 @@
+<div class="container">
+	<div id="slide_banner" class="carousel slide" data-ride="carousel">
+	  <ol class="carousel-indicators">
+	    <li data-target="#slide_banner" data-slide-to="0" class="active"></li>
+	    <li data-target="#slide_banner" data-slide-to="1" class=""></li>
+	  </ol>
+	  <div class="carousel-inner" role="listbox">
+	    <div class="item active">
+	      <%= image_tag "banner_one.png" %>
+	    </div>
+	    <div class="item">
+	      <%= image_tag "banner_one.png" %>
+	    </div>
+	  </div>
+	  <a class="left carousel-control" href="#slide_banner" role="button" data-slide="prev">
+			<img src="<%= asset_path "banner_left_icon.svg" %>" aria-hidden="true" alt="left">
+		  
+	    <span class="sr-only">Previous</span>
+	  </a>
+	  <a class="right carousel-control" href="#slide_banner" role="button" data-slide="next">
+	    <img src="<%= asset_path "banner_right_icon.svg" %>" aria-hidden="true" alt="left">
+	    <span class="sr-only">Next</span>
+	  </a>
+	</div>
 
-
+	<%= image_tag "advertise.png" %>
+</div>
