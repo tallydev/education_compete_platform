@@ -32,6 +32,17 @@
 #                            PATCH  /players(.:format)                   devise/registrations#update
 #                            PUT    /players(.:format)                   devise/registrations#update
 #                            DELETE /players(.:format)                   devise/registrations#destroy
+#              notifications GET    /notifications(.:format)             notifications#index
+#                            POST   /notifications(.:format)             notifications#create
+#           new_notification GET    /notifications/new(.:format)         notifications#new
+#          edit_notification GET    /notifications/:id/edit(.:format)    notifications#edit
+#               notification GET    /notifications/:id(.:format)         notifications#show
+#                            PATCH  /notifications/:id(.:format)         notifications#update
+#                            PUT    /notifications/:id(.:format)         notifications#update
+#                            DELETE /notifications/:id(.:format)         notifications#destroy
+#               player_infos POST   /player_infos(.:format)              player_infos#create
+#            new_player_info GET    /player_infos/new(.:format)          player_infos#new
+#                player_info GET    /player_infos/:id(.:format)          player_infos#show
 #                 admin_root GET    /admin(.:format)                     admin/home#index
 #                admin_users GET    /admin/users(.:format)               admin/users#index
 #                            POST   /admin/users(.:format)               admin/users#create

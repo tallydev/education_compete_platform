@@ -24,7 +24,7 @@ module Admin
 
     private
     def news_params
-      params.require(:news).permit(:title, :summary, :activity_id, image_attributes: [:id, :file, :_destroy] )
+      params.require(:news).permit(:title, :summary, :activity_id, paper_attributes: [:id, :file, :_destroy] )
     end
   end
 end

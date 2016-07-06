@@ -38,9 +38,9 @@
             
             <div class="form-group">
               <div class="input-group input-padding" style="width: 100%;">
-                <%= f.label :image_attributes, "上传附件：" %>
-                <%= f.fields_for :image_attributes, class: 'form-control' do |image| %>
-                  <%= image.file_field :file %>
+                <%= f.label :paper_attributes, "上传附件：" %>
+                <%= f.fields_for :paper_attributes do |image| %>
+                  <%= image.file_field :file, class: 'form-control' %>
                 <% end %>
               </div>
             </div>
