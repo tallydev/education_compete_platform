@@ -13,4 +13,6 @@
 #
 
 class InfoCompetition::Activity < Activity
+  has_many :recruits, dependent: :destroy
+  has_many :players, through: :recruits
 end

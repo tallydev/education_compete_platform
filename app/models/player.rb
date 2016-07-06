@@ -30,6 +30,9 @@ class Player < ActiveRecord::Base
          authentication_keys: [:phone]
 
   belongs_to :school
+  has_many :info_competition_recruits, class_name: "InfoCompetition::Recruit", dependent: :destroy
+  has_many :info_competition_activities, class_name: "InfoCompetition::Activity",
+      through: :info_competition_recruits, source: :activity
 
   protected
   def email_required?

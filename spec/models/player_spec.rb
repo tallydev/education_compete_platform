@@ -26,4 +26,6 @@ require 'rails_helper'
 
 RSpec.describe Player, type: :model do
   it { should belong_to(:school) } 
+  it { should have_many(:info_competition_recruits) } 
+  it { should have_many(:info_competition_activities).through(:info_competition_recruits) } 
 end
