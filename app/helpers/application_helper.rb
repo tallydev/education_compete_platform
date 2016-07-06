@@ -15,4 +15,12 @@ module ApplicationHelper
     end
     _title
   end
+
+  def controller_action_to? params, controller_name, action_name
+    params[:controller] == controller_name && params[:action] == action_name
+  end
+
+  def controller_to? params, controller_name
+    params[:controller] == controller_name
+  end
 end

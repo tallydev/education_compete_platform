@@ -8,16 +8,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand brand-active" href="#">&nbsp;&nbsp;&nbsp; 首页 &nbsp;&nbsp;&nbsp;</a>
+      <a class="navbar-brand <%= "brand-active" if controller_action_to? params, "home", "index" %>" href="<%= root_path %>">&nbsp;&nbsp;&nbsp; 首页 &nbsp;&nbsp;&nbsp;</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="">
-          <a href="#">赛事公告</a>
+        <li class="<%= "active" if controller_to? params, "notifications" %>">
+          <%= link_to "赛事公告", notifications_path %>
         </li>
-        <li class="active">
+        <li>
           <a href="#">比赛入口</a>
         </li>
         <li>

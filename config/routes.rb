@@ -34,6 +34,8 @@ Rails.application.routes.draw do
   }
 
   resource :home, only: [:index]
+  # 赛事公告
+  resources :notifications
 
   namespace :admin do 
     root to: "home#index"
