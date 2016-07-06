@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706105100) do
+ActiveRecord::Schema.define(version: 20160706132513) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",                   null: false
@@ -62,8 +62,21 @@ ActiveRecord::Schema.define(version: 20160706105100) do
     t.integer  "player_id"
     t.integer  "school_id"
     t.integer  "activity_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "project"
+    t.string   "name"
+    t.string   "version"
+    t.text     "comment"
+    t.string   "cooperater_1"
+    t.string   "school_1"
+    t.string   "course_1"
+    t.string   "cooperater_2"
+    t.string   "school_2"
+    t.string   "course_2"
+    t.string   "cooperater_3"
+    t.string   "school_3"
+    t.string   "course_3"
   end
 
   add_index "info_competition_recruits", ["activity_id"], name: "index_info_competition_recruits_on_activity_id"
@@ -135,8 +148,13 @@ ActiveRecord::Schema.define(version: 20160706105100) do
     t.string   "nation"
     t.integer  "player_id"
     t.integer  "school_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.date     "birth"
+    t.string   "professional_title"
+    t.string   "degree"
+    t.string   "special"
+    t.string   "email"
   end
 
   add_index "player_infos", ["player_id"], name: "index_player_infos_on_player_id"
