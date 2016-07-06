@@ -1,0 +1,7 @@
+<% if @bulletin.errors.present? %>
+  $(".modal-backdrop").remove();
+  $("#bulletinModalContent").html("<%= escape_javascript( render "bulletin_modal", bulletin: @bulletin )%>");
+  $('#bulletinModal').modal('show');
+<% else %>
+  location.href = "<%= admin_bulletin_index_path %>"
+<% end  %>

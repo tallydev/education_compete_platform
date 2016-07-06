@@ -1,0 +1,4 @@
+// swal({type: 'success', title: '', text: '[] 刷新成功.'});
+$(".modal-backdrop").remove();
+$("#bulletinModalContent").html("<%= escape_javascript( render "bulletin_modal", bulletin: @bulletin )%>");
+$('#bulletinModal').modal('show');

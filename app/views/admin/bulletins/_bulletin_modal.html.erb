@@ -1,0 +1,61 @@
+<div id="bulletinModal" class="modal fade bulletin-modal" aria-hidden="true" style="margin-top: 80px;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title"><span class="text-primary"></span>赛事公告创建</h3>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <%= form_for [:admin, bulletin], remote: true, format: :js do |f| %>
+            <div class="form-group">
+              <div class="input-group input-padding" style="width: 100%;">
+                <%= f.text_field :title, class: 'form-control', placeholder: '标题' %>
+              </div>
+              <% if bulletin.errors[:title].any? %>
+                <dd class="error text-danger"><%= bulletin.errors[:title][0] %></dd>
+              <% end %>
+            </div>
+
+            <div class="form-group">
+              <div class="input-group input-padding" style="width: 100%;">
+                <%= f.text_area :content, class: 'form-control', placeholder: '概要' %>
+              </div>
+              <% if bulletin.errors[:content].any? %>
+                <dd class="error text-danger"><%= bulletin.errors[:content][0] %></dd>
+              <% end %>
+            </div>
+
+            <div class="form-group">
+              <div class="input-group input-padding" style="width: 100%;">
+                <%= f.select :activity_id, Activity.all.pluck(:name, :id), {prompt: '请选择赛事'}, class: 'form-control', required: true %>
+              </div>
+              <% if bulletin.errors[:activity].any? %>
+                <dd class="error text-danger"><%= bulletin.errors[:activity][0] %></dd>
+              <% end %>
+            </div>
+            
+            <div class="form-group">
+              <div class="input-group input-padding" style="width: 100%;">
+                <%= f.label :paper_attributes, "上传附件：" %>
+                <%= f.fields_for :paper_attributes do |image| %>
+                  <%= image.file_field :file, class: 'form-control' %>
+                <% end %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="text-center"><button class="btn sub-btn btn-primary" type="submit"><strong>提交</strong></button></div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  
+</script>
+

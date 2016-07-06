@@ -17,6 +17,6 @@
 class Bulletin < ActiveRecord::Base
   belongs_to :activity
 
-  has_one :image, -> { where photo_type: "image" }, class_name: "Image", as: :imageable, dependent: :destroy
-  accepts_nested_attributes_for :image, allow_destroy: true
+  has_one :paper, -> { where paper_type: "paper" }, class_name: "Paper", as: :paperable, dependent: :destroy
+  accepts_nested_attributes_for :paper, allow_destroy: true
 end
