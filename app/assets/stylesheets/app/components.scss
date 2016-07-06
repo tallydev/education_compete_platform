@@ -89,3 +89,21 @@
 	margin-bottom: 10px;
 	background: image-url("navbar_shadow.png") repeat-x;
 }
+
+// footer
+.footer {
+	height: 160px;
+	width: 100%;
+	background: #4A4A4A;
+	padding-top: 37px;
+	color: #fff;
+	font-size: 16px;
+	.info {
+		width: 700px;
+		margin: 0 auto;
+		p {
+			margin-bottom: 0;
+
+		}
+	}
+}
