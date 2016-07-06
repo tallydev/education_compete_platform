@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   # 主页面
   resource :home, only: [:index]
+
   # 赛事公告
   resources :notifications
 
