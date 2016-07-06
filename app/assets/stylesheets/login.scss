@@ -22,6 +22,7 @@
     padding-top: 29px;
     .new_player {
       text-align: center;
+      margin-left: -40px;
       .player_phone {
         margin-bottom: 30px;
         #player_phone {
@@ -68,10 +69,23 @@
     }
     .login_tab_content {
       padding-top: 30px;
+      padding-bottom: 160px;
+      input {
+        padding-left: 20px;
+      }
       .btn-login {
+        color: #fff;
         background-color: #F5A623;
         border-radius: 0;
-        padding: 5px 20px 5px 20px;
+        margin-left: 60px;
+        margin-bottom: 20px;
+        padding: 10px 103px 10px 103px;
+      }
+      .sign_up_text {
+        padding-left: 55px;
+        .forget_pass {
+          margin-left: 100px;
+        }
       }
     }
   }
