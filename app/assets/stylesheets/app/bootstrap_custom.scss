@@ -3,6 +3,9 @@ $text-color: #4A4A4A;
 
 $container-large-desktop: 1000px;
 
+// grid system
+$grid-gutter-width: 12px;
+
 $navbar-height: 50px;
 $navbar-margin-bottom: 0;
 $navbar-border-radius: 0;
@@ -16,5 +19,11 @@ $navbar-default-link-active-color: #fff;
 $breadcrumb-padding-vertical: 0;
 $breadcrumb-padding-horizontal: 0;
 $breadcrumb-separator: ">";
+$breadcrumb-bg: transparent;
+$breadcrumb-color: #4A4A4A;
+$breadcrumb-active-color: #4A4A4A;
+
+// buttons
+$btn-border-radius-base: 0;
 
 $carousel-control-opacity: 0.3;

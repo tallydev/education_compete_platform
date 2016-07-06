@@ -1,0 +1,43 @@
+.notifications__show {
+	.notification-show {
+		margin-bottom: 138px;
+		.notification-pdf {
+			height: 620px;
+			background-color: #D8D8D8;
+			border: 1px solid #E8E8E8;
+		}
+		.notification-info {
+			height: 620px;
+			background-color: #fff;
+			border: 1px solid #E8E8E8;
+			position: relative;
+			.info-bottom {
+				padding: 0px 9px;
+				position: absolute;
+				bottom: 19px;
+				width: 100%;
+				left: 0;
+				text-align: center;
+				.info-download {
+					background-color: #4A90E2;
+					color: #fff;
+					font-size: 16px;
+					padding: 0;
+					height: 44px;
+					line-height: 44px;
+					width: 100%;
+				}
+				.apply-entry {
+					background-color: #F9BF00;
+					color: #fff;
+					font-size: 16px;
+					padding: 0;
+					height: 44px;
+					line-height: 44px;
+					width: 100%;
+					margin-top: 9px;
+				}
+			}
+		}
+	}
+}

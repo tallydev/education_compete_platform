@@ -120,4 +120,24 @@
 	left: 50%;
 	background-color: #59C8FF;
 }
-// 竖线
+
+// 通知右侧面板
+.info-tab {
+	background-color: #F8F8F8;
+	.info-tab-head {
+		border-bottom: 1px solid #3D96D5;
+		height: 32px;
+		line-height: 32px;
+		background: image-url("info_bg.png") no-repeat;
+		font-size: 18px;
+		color: #3D96D5;
+		padding-left: 45px;
+	}
+	.info-tab-content {
+		background-color: #fff;
+		padding: 10px;
+		padding-bottom: 20px;
+		color: #787878;
+		font-size: 13px;
+	}
+}

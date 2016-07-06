@@ -1,7 +1,49 @@
 <div class="container">
+	<!-- 路径导航 -->
 	<ol class="breadcrumb">
-	  <li><a href="#">Home</a></li>
-	  <li><a href="#">Library</a></li>
-	  <li class="active">Data</li>
+	  <li><%= link_to "首页", root_path %></li>
+	  <li><%= link_to "赛事公告", notifications_path %></li>
+	  <li class="active">详情</li>
 	</ol>
+	<div class="row notification-show">
+		<div class="col-md-9">
+			<div class="notification-pdf">
+				
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="notification-info">
+				<!-- 信息 -->
+				<div class="info-tab">
+					<div class="info-tab-head">比赛名称</div>
+					<div class="info-tab-content">上海市职业院校信息化教学大赛</div>
+				</div>
+				<div class="info-tab">
+					<div class="info-tab-head">比赛报名截止日期</div>
+					<div class="info-tab-content">2016年7月15日</div>
+				</div>
+				<div class="info-tab">
+					<div class="info-tab-head">比赛报名形式</div>
+					<div class="info-tab-content">网上报名</div>
+				</div>
+				<div class="info-tab">
+					<div class="info-tab-head">已报名人数</div>
+					<div class="info-tab-content">
+						<%= image_tag "user.svg" %>
+						已有2000人报名
+					</div>
+				</div>
+				<!-- 比赛通知下载，报名入口 -->
+				<div class="info-bottom">				
+					<a src="#" class="btn info-download">
+						<%= image_tag "download.svg" %>&nbsp;&nbsp;比赛通知下载
+					</a>
+					<a src="#" class="btn apply-entry">
+						<%= image_tag "entry.svg" %>&nbsp;&nbsp;报名入口
+					</a>
+				</div>
+
+			</div>
+		</div>
+	</div>
 </div>
