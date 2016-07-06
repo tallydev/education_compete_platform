@@ -1,0 +1,10 @@
+<div role="tabpanel" class="tab-pane active" id="judge">
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= f.input :phone, label:" 用户名 ", placeholder: " 手机号",required: false, autofocus: true %>
+    <%= f.input :password, label: "密 码", required: false %>
+    <%= f.button :submit, "登 录", data: {disable_with: '登录中...'}, class: "btn-login" %>
+    <div class="sign_up_text">
+      <%= link_to "忘记密码?", new_player_password_path, class: "forget_pass" %></td>
+    </div>
+  <% end %>
+</div>

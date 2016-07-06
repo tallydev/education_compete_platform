@@ -1,15 +1,23 @@
-<h2>Forgot your password?</h2>
+<div class="container">
+  <div class="panel panel-default tab_cotent">
+    <div class="panel-heading tab_head">
+      <%= image_tag("TabTitleBg.png", class: "bg_image")%>
+      <div class="tab_title_text">忘记密码</div>
+    </div>
+    <div class="panel-body tab_body row">
+      <div class="col-md-6 col-md-offset-3">
+        <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+          <%= f.error_notification %>
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
+          <div class="form-inputs">
+            <%= f.input :phone, required: true, autofocus: true %>
+          </div>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+          <div class="form-actions login_tab_content">
+            <%= f.button :submit, "Send me reset password instructions", class: "btn-login" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "players/shared/links" %>
+</div>

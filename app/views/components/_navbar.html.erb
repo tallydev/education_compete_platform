@@ -31,17 +31,36 @@
         </li>
       </ul>
 
-      <ul class="nav navbar-nav navbar-right nav-sign">
-        <li>
-          <a href="#"><%= image_tag "user.svg" %><span>登录</span></a>
-        </li>
-        <li>
-          <a href="#"><%= image_tag "edit.svg" %><span>注册</span></a> 
-        </li>
-        <li>
-          <a href="#"><%= image_tag "list.svg" %><span>管理</span></a>
-        </li>
-      </ul>
+      <% if current_player %>
+        <ul class="nav navbar-nav navbar-right nav-sign">
+          <li>
+            <%= link_to new_player_password_path do %>
+              <%= image_tag "user.svg" %><span><%= current_player.phone %></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to('[ 退出 ]', destroy_player_session_path, :method => :delete) %>
+          </li>
+        </ul>
+      <% else %>
+        <ul class="nav navbar-nav navbar-right nav-sign">
+          <li>
+            <%= link_to new_player_session_path(role:"player") do %>
+              <%= image_tag "user.svg" %><span>登录</span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_player_registration_path do %>
+              <%= image_tag "edit.svg" %><span>注册</span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_player_session_path(role:"user") do %>
+              <%= image_tag "list.svg" %><span>管理</span>
+            <% end %>
+          </li>
+        </ul>
+      <% end %>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

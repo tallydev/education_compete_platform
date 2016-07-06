@@ -9,7 +9,8 @@ Rails.application.routes.draw do
 
   devise_for :players, controllers: {
     sessions: 'players/sessions',
-    password: 'players/passwords'
+    passwords: 'players/passwords',
+    registrations: 'players/registrations'
   }
 
   # 主页面
