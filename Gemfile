@@ -60,6 +60,9 @@ gem "paperclip"
 # Audio/Video Transcoder for Paperclip using FFMPEG/Avconv
 gem 'paperclip-av-transcoder'
 
+# Break Apart Documents into Images, Text, Pages and PDFs
+gem 'docsplit'
+
 # Object-based searching.
 gem 'ransack'
 
@@ -76,7 +79,7 @@ gem 'puma', '2.15.3'
 gem 'annotate'
 
 # Convert office document to pdf and swf
-gem 'sharp_office'
+# gem 'sharp_office'
 # PDF.js viewer packaged as a Rails engine.
 gem 'pdfjs_viewer-rails'
 
