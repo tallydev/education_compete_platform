@@ -16,14 +16,14 @@
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  school_id              :integer
+#  schools_id             :integer
 #  type                   :string(255)
 #
 # Indexes
 #
 #  index_users_on_phone                 (phone) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
-#  index_users_on_school_id             (school_id)
+#  index_users_on_schools_id            (schools_id)
 #
 
 class Manager < User

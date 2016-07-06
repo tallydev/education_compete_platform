@@ -130,13 +130,10 @@ ActiveRecord::Schema.define(version: 20160705161548) do
 
   create_table "recruits", force: :cascade do |t|
     t.integer  "activities_id", limit: 4
-    t.integer  "player_id",     limit: 4
+    t.integer  "players_id",    limit: 4
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
-
-  add_index "recruits", ["activities_id"], name: "index_recruits_on_activities_id", using: :btree
-  add_index "recruits", ["player_id"], name: "index_recruits_on_player_id", using: :btree
 
   create_table "schools", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -183,12 +180,12 @@ ActiveRecord::Schema.define(version: 20160705161548) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
-    t.integer  "school_id",              limit: 4
+    t.integer  "schools_id",             limit: 4
     t.string   "type",                   limit: 255
   end
 
   add_index "users", ["phone"], name: "index_users_on_phone", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["school_id"], name: "index_users_on_school_id", using: :btree
+  add_index "users", ["schools_id"], name: "index_users_on_schools_id", using: :btree
 
 end

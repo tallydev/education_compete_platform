@@ -20,6 +20,10 @@
     <![endif]-->
   </head>
   <body class="<%= controller.controller_path.gsub('/','__') + '__' + controller.action_name %>">
+
+    <%= render partial: "components/logo_banner" %>
+    <%= render partial: "components/navbar" %>
 		<%= yield %>
+    
   </body>
 </html>
