@@ -71,6 +71,8 @@ gem 'aasm'
 # Annotate Rails classes with schema and routes info
 gem 'annotate'
 
+# Convert office document to pdf and swf
+gem 'sharp_office'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
