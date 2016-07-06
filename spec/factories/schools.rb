@@ -3,8 +3,8 @@
 # Table name: schools
 #
 #  id         :integer          not null, primary key
-#  name       :string(255)
-#  address    :string(255)
+#  name       :string
+#  address    :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

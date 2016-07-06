@@ -1,15 +1,18 @@
 # == Schema Information
 #
-# Table name: opus
+# Table name: activities
 #
 #  id         :integer          not null, primary key
-#  name       :string
+#  name       :string           not null
+#  start_time :datetime
+#  end_time   :datetime
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  status     :integer          default(0)
 #
 
 require 'rails_helper'
 
-RSpec.describe Opu, type: :model do
+RSpec.describe InfoCompetition::Activity, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"
 end
