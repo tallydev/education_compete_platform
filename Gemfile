@@ -72,14 +72,11 @@ gem 'aasm'
 # Annotate Rails classes with schema and routes info
 gem 'annotate'
 
-<<<<<<< HEAD
 # Convert office document to pdf and swf
 gem 'sharp_office'
-=======
 # PDF.js viewer packaged as a Rails engine.
 gem 'pdfjs_viewer-rails'
 
->>>>>>> e5f86b40d573938d062cd407ec5cf1f19dc1a786
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
