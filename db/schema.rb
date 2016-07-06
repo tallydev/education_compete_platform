@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706044442) do
+ActiveRecord::Schema.define(version: 20160706044947) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",                   null: false
@@ -56,6 +56,18 @@ ActiveRecord::Schema.define(version: 20160706044442) do
   end
 
   add_index "images", ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id"
+
+  create_table "info_competition_recruits", force: :cascade do |t|
+    t.integer  "player_id"
+    t.integer  "school_id"
+    t.integer  "activity_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "info_competition_recruits", ["activity_id"], name: "index_info_competition_recruits_on_activity_id"
+  add_index "info_competition_recruits", ["player_id"], name: "index_info_competition_recruits_on_player_id"
+  add_index "info_competition_recruits", ["school_id"], name: "index_info_competition_recruits_on_school_id"
 
   create_table "marks", force: :cascade do |t|
     t.float    "score"
