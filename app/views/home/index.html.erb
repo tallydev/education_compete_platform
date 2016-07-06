@@ -33,7 +33,7 @@
 						<%= link_to "距#{activity.short_name}报名截止", notification_path(activity.id) %>
 					</span>
 					<span class="apply">
-						<%= link_to "马上报名", new_info_competition_activity_recruit_path(activity) %>
+						<%= link_to "马上报名", [:new, activity, :recruit] %>
 					</span>
 					<span class="date"><%= activity.left_days %></span>
 					<span class="unit">天</span>
