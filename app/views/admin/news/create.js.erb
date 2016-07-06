@@ -1,0 +1,7 @@
+<% if @news.errors.present? %>
+  $(".modal-backdrop").remove();
+  $("#newsModalContent").html("<%= escape_javascript( render "news_modal", news: @news )%>");
+  $('#newsModal').modal('show');
+<% else %>
+  location.href = "<%= admin_news_index_path %>"
+<% end  %>

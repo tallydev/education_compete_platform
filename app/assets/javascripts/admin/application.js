@@ -15,4 +15,6 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require ./framework/app
-//= require_tree .
+//= require ./framework/sweetalert.min
+//= require ./framework/bootstrap-datetimepicker
+//= require ./framework/locales/bootstrap-datetimepicker.zh-CN

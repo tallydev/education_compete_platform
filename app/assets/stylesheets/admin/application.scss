@@ -13,6 +13,8 @@
  *= require ./framework/default
  *= require ./framework/style
  *= require ./framework/style-responsive
+ *= require ./framework/sweetalert
+ *= require ./framework/bootstrap-datetimepicker.min
  *= require_self
  */
 
@@ -22,7 +24,6 @@
 
 a {
   text-shadow: none !important;
-  color: #fff !important;
 }
 
 a:active,
@@ -43,4 +44,10 @@ h1, h2, h3, h4, h5, h6 {
 
 h1.block, h2.block, h3.block, h4.block, h5.block, h6.block {
   padding-bottom: 10px;
+}
+
+.btn-primary:active,
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #286090!important;
 }

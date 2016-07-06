@@ -8,8 +8,10 @@
 #  end_time   :datetime
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  status     :integer          default(0)
 #
 
 class Activity < ActiveRecord::Base
   has_many :news, dependent: :destroy
+  enum status: [:activate, :stop]
 end

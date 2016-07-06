@@ -1,0 +1,7 @@
+<% if @activity.errors.present? %>
+  $(".modal-backdrop").remove();
+  $("#activityModalContent").html("<%= escape_javascript( render "activity_modal", activity: @activity )%>");
+  $('#activityModal').modal('show');
+<% else %>
+  location.href = "<%= admin_activities_path %>"
+<% end  %>

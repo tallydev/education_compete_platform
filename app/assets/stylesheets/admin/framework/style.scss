@@ -7,6 +7,10 @@ body {
   direction: ltr;
 }
 
+.tool-bar {
+  margin-bottom: 10px;
+}
+
 /***
 General backgrounds
 ***/
@@ -39,7 +43,10 @@ General backgrounds
   background-image: none !important;
   background-color: #555555 !important;
 }
-
+.avatar-img {
+  width: 29px;
+  height: 29px;
+}
 /***
 Apply fix for font awesome icons.
 ***/
@@ -1726,6 +1733,7 @@ Custom icon buttons
   clear: both;
   font-weight: normal;
   line-height: 20px;
+  color: #333!important;
   white-space: normal !important;
 }
 

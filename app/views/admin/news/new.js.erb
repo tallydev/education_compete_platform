@@ -1,0 +1,4 @@
+// swal({type: 'success', title: '', text: '[] 刷新成功.'});
+$(".modal-backdrop").remove();
+$("#newsModalContent").html("<%= escape_javascript( render "news_modal", news: @news )%>");
+$('#newsModal').modal('show');

@@ -32,7 +32,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          authentication_keys: [:sign_in]
-         
+
+  attr_accessor :sign_in
+  
   has_one :user_info
   belongs_to :school
 
