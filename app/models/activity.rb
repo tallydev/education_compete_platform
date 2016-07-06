@@ -9,6 +9,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  status     :integer          default(0)
+#  type       :string
 #
 
 class Activity < ActiveRecord::Base
