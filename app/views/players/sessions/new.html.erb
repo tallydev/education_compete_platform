@@ -15,18 +15,7 @@
           </ul>
           <!-- Tab panes -->
           <div class="tab-content login_tab_content">
-
-            <div role="tabpanel" class="tab-pane active" id="home">
-              <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                <%= f.input :phone, label:" 用户名 ", placeholder: " 手机号",required: false, autofocus: true %>
-                <%= f.input :password, label: "密 码", required: false %>
-                <%= f.button :submit, "登 录", data: {disable_with: '登录中...'}, class: "btn-login" %>
-                <div class="sign_up_text">
-                  <%= link_to "注册新账号", new_player_registration_path, class: "sign_up" %>
-                  <%= link_to "忘记密码?", new_player_password_path, class: "forget_pass" %></td>
-                </div>
-              <% end %>
-            </div>
+            <%=  render partial: "player_sign_form"%>
           </div>
         </div>
       <% else %>
@@ -35,44 +24,11 @@
           <ul class="nav nav-tabs login_tab_nav" role="tablist">
             <li role="presentation" class="active"><a href="#judge" aria-controls="judge" role="tab" data-toggle="tab">评审专家</a></li>
             <li role="presentation"><a href="#school" aria-controls="school" role="tab" data-toggle="tab">学校管理员</a></li>
-            <li role="presentation"><a href="#train" aria-controls="train" role="tab" data-toggle="tab">培训管理</a></li>
           </ul>
           <!-- Tab panes -->
           <div class="tab-content login_tab_content">
-
-            <div role="tabpanel" class="tab-pane active" id="judge">
-              <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                <%= f.input :phone, label:" 用户名 ", placeholder: " 手机号",required: false, autofocus: true %>
-                <%= f.input :password, label: "密 码", required: false %>
-                <%= f.button :submit, "登 录", data: {disable_with: '登录中...'}, class: "btn-login" %>
-                <div class="sign_up_text">
-                  <%= link_to "忘记密码?", new_player_password_path, class: "forget_pass" %></td>
-                </div>
-              <% end %>
-            </div>
-
-            <div role="tabpanel" class="tab-pane" id="school">
-              <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                <%= f.input :phone, label:" 用户名 ", placeholder: " 手机号",required: false, autofocus: true %>
-                <%= f.input :password, label: "密 码", required: false %>
-                <%= f.button :submit, "登 录", data: {disable_with: '登录中...'}, class: "btn-login" %>
-                <div class="sign_up_text">
-                  <%= link_to "忘记密码?", new_player_password_path, class: "forget_pass" %></td>
-                </div>
-              <% end %>
-            </div>
-
-            <div role="tabpanel" class="tab-pane" id="train">
-              <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                <%= f.input :phone, label:" 用户名 ", placeholder: " 手机号",required: false, autofocus: true %>
-                <%= f.input :password, label: "密 码", required: false %>
-                <%= f.button :submit, "登 录", data: {disable_with: '登录中...'}, class: "btn-login" %>
-                <div class="sign_up_text">
-                  <%= link_to "忘记密码?", new_player_password_path, class: "forget_pass" %></td>
-                </div>
-              <% end %>
-            </div>
-
+            <%=  render partial: "judge_sign_form"%>
+            <%=  render partial: "school_sign_form"%>
           </div>
         </div>
       <% end %>
@@ -80,3 +36,9 @@
 
   </div>
 </div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $("#player_school_id").select2();
+});
+</script>

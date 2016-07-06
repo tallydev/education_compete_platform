@@ -17,7 +17,7 @@
 
             <%= f.button :submit, "提交注册", data: {disable_with: '注册中...'}, class: "btn-login" %>
             <div class="sign_up_text">
-              <%= link_to "已有账号，立即登录", new_player_session_path, class: "sign_up" %>
+              <%= link_to "已有账号，立即登录", new_player_session_path(role:"player"), class: "sign_up" %>
             </div>
           </div>
         <% end %>
