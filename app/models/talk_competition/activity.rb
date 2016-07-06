@@ -12,8 +12,5 @@
 #  type       :string
 #
 
-FactoryGirl.define do
-  factory :activity do
-    
-  end
+class TalkCompetition::Activity < Activity
 end

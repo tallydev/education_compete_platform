@@ -12,8 +12,8 @@
 #  type       :string
 #
 
-FactoryGirl.define do
-  factory :activity do
-    
-  end
+require 'rails_helper'
+
+RSpec.describe TalkCompetition::Activity, type: :model do
+  pending "add some examples to (or delete) #{__FILE__}"
 end
