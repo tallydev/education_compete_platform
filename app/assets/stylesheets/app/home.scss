@@ -28,8 +28,9 @@
 	.compete-entry {
 		position: relative;
 		height: auto;
+		min-height: 160px;
 		width: 100%;
-		background: image-url("compete_bg.png");
+		background: image-url("compete_bg.png") no-repeat;
 		padding-top: 30px;
 		padding-bottom: 12px;
 		margin-bottom: 30px;
@@ -90,6 +91,7 @@
 	// 赛事公告
 	.broad-cast {
 		margin-bottom: 77px;
+		min-height: 160px;
 		.content-title {
 			margin-bottom: 10px;
 			padding: 0px 10px;
