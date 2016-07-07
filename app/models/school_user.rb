@@ -29,14 +29,14 @@
 class SchoolUser < User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         authentication_keys: [:school]
+         authentication_keys: [:sign_in]
   
   belongs_to :school
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
-    school = conditions.delete(:school)
+    sign_in = conditions.delete(:sign_in)
     #where(conditions).where(["phone = :value OR name = :value", { :value => login.strip }]).first
-    where(conditions).where(["phone = :value or email = :value", { :value => school.strip }]).first
+    where(conditions).where(["phone = :value or email = :value", { :value => sign_in.strip }]).first
     end
 end
