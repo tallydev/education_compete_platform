@@ -6,7 +6,7 @@ zh-CN:
           attributes:
             phone:
               blank: 手机号不能为空！
-              taken: 用户已存在！
+              taken: 用户手机号已注册!
             password:
               blank: 密码不能为空！
               too_short: "最短%{count}个字符"
