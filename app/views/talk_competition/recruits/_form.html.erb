@@ -41,7 +41,7 @@
 				</div>
 				<div class="col-md-6">
 					<%= f.simple_fields_for("player_info") do |r| %>
-						<%= r.input "birth", label: "出生日期", wrapper: :apply_horizontal_form, required: true, input_html: { value: @player.try(:birth)} %>
+						<%= r.input "birth", label: "出生日期", wrapper: :apply_horizontal_form, input_html: { value: @player.try(:birth)} %>
 					<% end %>
 				</div>
 			</div>
@@ -140,14 +140,11 @@
 	};
 	$('#talk_competition_recruit_player_info_birth').datetimepicker({
 		format: 'yyyy-mm-dd',
-    language:  'fr',
-    weekStart: 1,
     todayBtn:  1,
-		autoclose: 1,
+		autoclose: true,
 		todayHighlight: 1,
-		startView: 2,
+		startView: 4,
 		minView: 2,
-		forceParse: 0,
 		language: 'zh-CN',
 	});
 </script>
