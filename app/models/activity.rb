@@ -28,4 +28,8 @@ class Activity < ActiveRecord::Base
   def recruit? player
     players.try(:include?, player)
   end
+
+  def player_recruit player
+    recruits.player_filter(player).try(:first)
+  end
 end
