@@ -37,6 +37,23 @@
 #  last_sign_in_ip        :string
 #  school_id              :integer -->
 
+<!-- #  id                 :integer          not null, primary key
+#  name               :string
+#  card_number        :string 身份证号码
+#  address            :string 地址
+#  code               :string 邮编
+#  sex                :integer 性别
+#  nation             :string
+#  player_id          :integer
+#  school_id          :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  birth              :date
+#  professional_title :string
+#  degree             :string
+#  special            :string
+#  email              :string -->
+
 <%= simple_form_for([@info_competition_activity, @info_competition_recruit], url:info_competition_activity_recruits_path , wrapper: :apply_horizontal_form) do |f| %>
   <%= f.error_notification %>
 
@@ -44,14 +61,14 @@
 		<div class="form-left">参赛院校</div>
 		<div class="form-right">
 			<div class="row">
-				<div class="col-md-4">
-					<%= f.association :school, label: false %>
+				<div class="col-md-3">
+					<%= f.association :school, label: false, required: true, wrapper: :vertical_form %>
+				</div>
+				<div class="col-md-5">
+					<%= f.input :school_person, label: "院校联系人", required: true, wrapper: :apply_form %>
 				</div>
 				<div class="col-md-4">
-					<%= f.input :school_person, label: "院校联系人" %>
-				</div>
-				<div class="col-md-4">
-					<%= f.input :school_phone, label: "院校联系人手机" %>
+					<%= f.input :school_phone, type: "phone", label: "联系人手机", wrapper: :apply_form, required: true %>
 				</div>
 			</div>
 		</div>
@@ -64,13 +81,23 @@
 		<div class="form-right">
 			<div class="row">
 				<div class="col-md-6">
-					<%= f.simple_fields_for("player_info") do |r| %>
-						<%= r.input "name", label: false %>
-					<% end %>
+					<div class="row">
+						<div class="col-xs-5">
+							<%= f.simple_fields_for("player_info") do |r| %>
+								<%= r.input "name", label: false,required: true %>
+							<% end %>
+						</div>
+						<div class="col-xs-7 form-sex">
+							<%= f.simple_fields_for("player_info") do |r| %>
+								性别：<%= r.collection_radio_buttons "sex", [[true, '男'] ,[false, '女']], :first, :last, required: true %>
+							<% end %>
+						</div>
+					</div>
+
 				</div>
 				<div class="col-md-6">
 					<%= f.simple_fields_for("player_info") do |r| %>
-						<%= r.input "birth", label: "生日" %>							
+						<%= r.input "birth", label: "生日", as: :date, html5: true, wrapper: :apply_horizontal_form, required: true %>							
 					<% end %>
 				</div>
 			</div>
@@ -83,12 +110,12 @@
 			<div class="row">
 				<div class="col-md-6">
 					<%= f.simple_fields_for("player_info") do |r| %>
-						<%= r.input "professional_title", label: false %>	
+						<%= r.input "professional_title", label: false, required: true %>	
 					<% end %>
 				</div>
 				<div class="col-md-6">
 					<%= f.simple_fields_for("player_info") do |r| %>
-						<%= r.input "email", label: "电子邮箱" %>
+						<%= r.input "email", label: "电子邮箱", required: true %>
 					<% end %>
 				</div>
 			</div>
@@ -100,11 +127,11 @@
 		<div class="form-right">
 			<div class="row">
 				<div class="col-md-6">
-					<%= f.input :project, label: false %>
+					<%= f.input :project, label: false, required: true %>
 				</div>
 				<div class="col-md-6">
 					<%= f.simple_fields_for("player_info") do |r| %>
-						<%= r.input :special, label: "专业名称" %>
+						<%= r.input :special, label: "专业名称", required: true %>
 					<% end %>
 				</div>
 			</div>
@@ -116,10 +143,10 @@
 		<div class="form-right">
 			<div class="row">
 				<div class="col-md-6">
-					<%= f.input :name, label: false %>		
+					<%= f.input :name, label: false, required: true %>		
 				</div>
 				<div class="col-md-6">
-					<%= f.input :version, label: "教材版本" %>
+					<%= f.input :version, label: "教材版本", required: true %>
 				</div>
 			</div>
 		</div>
@@ -128,7 +155,7 @@
 	<div class="form-row">
 		<div class="form-left">创作说明</div>
 		<div class="form-right">
-			<%= f.input :comment, as: :text, label: false, wrapper: :vertical_form, input_html: {rows: 8} %>
+			<%= f.input :comment, as: :text, label: false, wrapper: :vertical_form, input_html: {rows: 8}, required: true %>
 		</div>
 	</div>
 	
@@ -143,25 +170,30 @@
 		<div class="form-left">&nbsp;</div>
 		<div class="form-right black-label">
 			<div class="row">
-				<div class="col-md-2"><%= f.input :cooperater_1, wrapper: :vertical_form, label: "作者姓名" %></div>
-				<div class="col-md-4"><%= f.input :school_1, wrapper: :vertical_form, label: "单位名称" %></div>
-				<div class="col-md-6"><%= f.input :course_1, wrapper: :vertical_form, label: "任教课程" %></div>
+				<div class="col-md-2"><%= f.input :cooperater_1, wrapper: :vertical_form, label: "作者姓名", required: true %></div>
+				<div class="col-md-4"><%= f.input :school_1, wrapper: :vertical_form, label: "单位名称", required: true %></div>
+				<div class="col-md-6"><%= f.input :course_1, wrapper: :vertical_form, label: "任教课程", required: true %></div>
 			</div>
 			<div class="row">
-				<div class="col-md-2"><%= f.input :cooperater_2, wrapper: :vertical_form, label: "作者姓名" %></div>
-				<div class="col-md-4"><%= f.input :school_2, wrapper: :vertical_form, label: "单位名称" %></div>
-				<div class="col-md-6"><%= f.input :course_2, wrapper: :vertical_form, label: "任教课程" %></div>
+				<div class="col-md-2"><%= f.input :cooperater_2, wrapper: :vertical_form, label: "作者姓名", required: true %></div>
+				<div class="col-md-4"><%= f.input :school_2, wrapper: :vertical_form, label: "单位名称", required: true %></div>
+				<div class="col-md-6"><%= f.input :course_2, wrapper: :vertical_form, label: "任教课程", required: true %></div>
 			</div>
 			<div class="row">
-				<div class="col-md-2"><%= f.input :cooperater_3, wrapper: :vertical_form, label: "作者姓名" %></div>
-				<div class="col-md-4"><%= f.input :school_3, wrapper: :vertical_form, label: "单位名称" %></div>
-				<div class="col-md-6"><%= f.input :course_3, wrapper: :vertical_form, label: "任教课程" %></div>
+				<div class="col-md-2"><%= f.input :cooperater_3, wrapper: :vertical_form, label: "作者姓名", required: true %></div>
+				<div class="col-md-4"><%= f.input :school_3, wrapper: :vertical_form, label: "单位名称", required: true %></div>
+				<div class="col-md-6"><%= f.input :course_3, wrapper: :vertical_form, label: "任教课程", required: true%></div>
 			</div>
 		</div>
 	</div>
   
   <div class="text-center form-bottom">
-		<%= f.input :name, as: :boolean, boolean_style: :inline, wrapper_html: {class: 'choice'}, label: "是否保证您所报送的作品无任何版权异议或纠纷" %>
+<!-- 	  <div class="form-group choice">
+	  	<div class="checkbox">
+	  		<%= check_box_tag 'accept' %>
+	  		<label class="boolean optional" for="accept">是否保证您所报送的作品无任何版权异议或纠纷</label>
+	  	</div>
+	  </div> -->
   	<%= f.button :submit, "提交报名", class: "apply-btn" %>
   </div>
 <% end %>
