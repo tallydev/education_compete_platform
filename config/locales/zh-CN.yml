@@ -9,5 +9,8 @@ zh-CN:
               taken: 用户已存在！
             password:
               blank: 密码不能为空！
+              too_short: "最短%{count}个字符"
+              too_long:  "最长%{count}个字符"
             password_confirmation:
               confirmation: 两次输入密码不同！
+              blank: "重置密码不能为空"
