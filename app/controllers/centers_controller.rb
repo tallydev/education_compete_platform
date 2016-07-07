@@ -4,6 +4,6 @@ class CentersController < ApplicationController
   respond_to :html
 
   def show
-    
+    @activities = current_player.activities
   end
 end

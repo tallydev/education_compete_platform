@@ -49,15 +49,15 @@ class Player < ActiveRecord::Base
 
   def recruits
     recruits = []
-    recruits << self.info_competition_recruits
-    recruits << self.talk_competition_recruits
+    recruits.concat self.info_competition_recruits
+    recruits.concat self.talk_competition_recruits
     recruits
   end
 
   def activities
     activities = []
-    activities << self.info_competition_activities
-    activities << self.talk_competition_activities
+    activities.concat self.info_competition_activities
+    activities.concat self.talk_competition_activities
     activities
   end
 

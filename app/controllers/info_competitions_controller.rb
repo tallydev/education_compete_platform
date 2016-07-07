@@ -1,10 +1,11 @@
-class Center::TalkCompetitionsController < ApplicationController
+class InfoCompetitionsController < ApplicationController
   before_action :authenticate_player!, only: [:show]
   before_action :authenticate_school_user!, only: [:index]
   before_action :set_activity, only: [:show, :index]
 
   respond_to :html
 
+  # 给学校管理员查看所有本学校报名的列表
   def index
     @recruits = @activity.school_recruits current_school_user.try(:school)
     respond_with(@recruits)
@@ -17,6 +18,6 @@ class Center::TalkCompetitionsController < ApplicationController
 
   private
     def set_activity
-      @center_talk_competition = Center::TalkCompetition.find(params[:id])
+      @activity = InfoCompetition::Activity.find(params[:activity_id])
     end
 end
