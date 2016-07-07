@@ -31,7 +31,7 @@
             <td><%= recruit.player.info.name %></td>
             <td><%= recruit.school.name %></td>
             <td><%= recruit.player.info.special %></td>
-            <td><%= recruit.name %></td>
+            <td><%= recruit.try(:name) %></td>
             <td><%= recruit.school_phone %></td>
           </tr>
         <% end %>
