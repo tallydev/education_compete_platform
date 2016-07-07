@@ -116,6 +116,30 @@ end
 #                                        PATCH  /info_competition/recruits/:id(.:format)                              info_competition/recruits#update
 #                                        PUT    /info_competition/recruits/:id(.:format)                              info_competition/recruits#update
 #                                        DELETE /info_competition/recruits/:id(.:format)                              info_competition/recruits#destroy
+#     talk_competition_activity_recruits GET    /talk_competition/activities/:activity_id/recruits(.:format)          talk_competition/recruits#index
+#                                        POST   /talk_competition/activities/:activity_id/recruits(.:format)          talk_competition/recruits#create
+#  new_talk_competition_activity_recruit GET    /talk_competition/activities/:activity_id/recruits/new(.:format)      talk_competition/recruits#new
+# edit_talk_competition_activity_recruit GET    /talk_competition/activities/:activity_id/recruits/:id/edit(.:format) talk_competition/recruits#edit
+#      talk_competition_activity_recruit GET    /talk_competition/activities/:activity_id/recruits/:id(.:format)      talk_competition/recruits#show
+#                                        PATCH  /talk_competition/activities/:activity_id/recruits/:id(.:format)      talk_competition/recruits#update
+#                                        PUT    /talk_competition/activities/:activity_id/recruits/:id(.:format)      talk_competition/recruits#update
+#                                        DELETE /talk_competition/activities/:activity_id/recruits/:id(.:format)      talk_competition/recruits#destroy
+#            talk_competition_activities GET    /talk_competition/activities(.:format)                                talk_competition/activities#index
+#                                        POST   /talk_competition/activities(.:format)                                talk_competition/activities#create
+#          new_talk_competition_activity GET    /talk_competition/activities/new(.:format)                            talk_competition/activities#new
+#         edit_talk_competition_activity GET    /talk_competition/activities/:id/edit(.:format)                       talk_competition/activities#edit
+#              talk_competition_activity GET    /talk_competition/activities/:id(.:format)                            talk_competition/activities#show
+#                                        PATCH  /talk_competition/activities/:id(.:format)                            talk_competition/activities#update
+#                                        PUT    /talk_competition/activities/:id(.:format)                            talk_competition/activities#update
+#                                        DELETE /talk_competition/activities/:id(.:format)                            talk_competition/activities#destroy
+#              talk_competition_recruits GET    /talk_competition/recruits(.:format)                                  talk_competition/recruits#index
+#                                        POST   /talk_competition/recruits(.:format)                                  talk_competition/recruits#create
+#           new_talk_competition_recruit GET    /talk_competition/recruits/new(.:format)                              talk_competition/recruits#new
+#          edit_talk_competition_recruit GET    /talk_competition/recruits/:id/edit(.:format)                         talk_competition/recruits#edit
+#               talk_competition_recruit GET    /talk_competition/recruits/:id(.:format)                              talk_competition/recruits#show
+#                                        PATCH  /talk_competition/recruits/:id(.:format)                              talk_competition/recruits#update
+#                                        PUT    /talk_competition/recruits/:id(.:format)                              talk_competition/recruits#update
+#                                        DELETE /talk_competition/recruits/:id(.:format)                              talk_competition/recruits#destroy
 #                             admin_root GET    /admin(.:format)                                                      admin/home#index
 #                            admin_users GET    /admin/users(.:format)                                                admin/users#index
 #                                        POST   /admin/users(.:format)                                                admin/users#create

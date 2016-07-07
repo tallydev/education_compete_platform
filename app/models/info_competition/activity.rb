@@ -9,8 +9,8 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  status     :integer          default(0)
-#  type       :string(255)
-#  short_name :string(255)
+#  type       :string
+#  short_name :string
 #
 
 class InfoCompetition::Activity < Activity

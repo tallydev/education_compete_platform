@@ -1,5 +1,154 @@
-<%= simple_form_for(@info_competition_recruit) do |f| %>
+<!-- # == Schema Information
+#
+# Table name: info_competition_recruits
+#
+#  id           :integer          not null, primary key
+#  player_id    :integer
+#  school_id    :integer
+#  activity_id  :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  project      :string
+#  name         :string
+#  version      :string
+#  comment      :text
+#  cooperater_1 :string
+#  school_1     :string
+#  course_1     :string
+#  cooperater_2 :string
+#  school_2     :string
+#  course_2     :string
+#  cooperater_3 :string
+#  school_3     :string
+#  course_3     :string
+#
+# Indexes
+#
+#  index_info_competition_recruits_on_activity_id  (activity_id)
+#  index_info_competition_recruits_on_player_id    (player_id)
+#  index_info_competition_recruits_on_school_id    (school_id)
+# -->
+
+<%= simple_form_for(@info_competition_recruit, wrapper: :apply_horizontal_form) do |f| %>
   <%= f.error_notification %>
 
-  <%= f.button :submit %>
+	<div class="form-row">
+		<div class="form-left">参赛院校</div>
+		<div class="form-right">
+			<div class="row">
+				<div class="col-md-4">
+					<%= f.association :school, label: false %>
+				</div>
+				<div class="col-md-4">
+					<%= f.input :name %>
+				</div>
+				<div class="col-md-4">
+					<%= f.input :name %>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<hr>
+
+	<div class="form-row">
+		<div class="form-left">姓名</div>
+		<div class="form-right">
+			<div class="row">
+				<div class="col-md-6"><%= f.input :name, label: false %></div>
+				<div class="col-md-6"><%= f.input :name %></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-row">
+		<div class="form-left">姓名</div>
+		<div class="form-right">
+			<div class="row">
+				<div class="col-md-6"><%= f.input :name, label: false %></div>
+				<div class="col-md-6"><%= f.input :name %></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-row">
+		<div class="form-left">姓名</div>
+		<div class="form-right">
+			<div class="row">
+				<div class="col-md-6"><%= f.input :name, label: false %></div>
+				<div class="col-md-6"><%= f.input :name %></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-row">
+		<div class="form-left">姓名</div>
+		<div class="form-right">
+			<div class="row">
+				<div class="col-md-6"><%= f.input :name, label: false %></div>
+				<div class="col-md-6"><%= f.input :name %></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-row">
+		<div class="form-left">姓名</div>
+		<div class="form-right">
+			<div class="row">
+				<div class="col-md-6"><%= f.input :name, label: false %></div>
+				<div class="col-md-6"><%= f.input :name %></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-row">
+		<div class="form-left">姓名</div>
+		<div class="form-right">
+			<div class="row">
+				<div class="col-md-6"><%= f.input :name, label: false %></div>
+				<div class="col-md-6"><%= f.input :name %></div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="form-row">
+		<div class="form-left">创作说明</div>
+		<div class="form-right">
+			<%= f.input :comment, as: :text, label: false, wrapper: :vertical_form, input_html: {rows: 8} %>
+		</div>
+	</div>
+	
+	<div class="form-row">
+		<div class="form-left">作者排序</div>
+		<div class="form-right">
+			<div class="gray-text">限信息化教学设计比赛、网络课程比赛填写</div>
+		</div>
+	</div>
+
+	<div class="form-row">
+		<div class="form-left">&nbsp;</div>
+		<div class="form-right black-label">
+			<div class="row">
+				<div class="col-md-2"><%= f.input :name, wrapper: :vertical_form %></div>
+				<div class="col-md-4"><%= f.input :name, wrapper: :vertical_form %></div>
+				<div class="col-md-6"><%= f.input :name, wrapper: :vertical_form %></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"><%= f.input :name, wrapper: :vertical_form %></div>
+				<div class="col-md-4"><%= f.input :name, wrapper: :vertical_form %></div>
+				<div class="col-md-6"><%= f.input :name, wrapper: :vertical_form %></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"><%= f.input :name, wrapper: :vertical_form %></div>
+				<div class="col-md-4"><%= f.input :name, wrapper: :vertical_form %></div>
+				<div class="col-md-6"><%= f.input :name, wrapper: :vertical_form %></div>
+			</div>
+		</div>
+	</div>
+  
+  <div class="text-center form-bottom">
+		<%= f.input :name, as: :boolean, boolean_style: :inline, wrapper_html: {class: 'choice'} %>
+  	<%= f.button :submit, "提交报名", class: "apply-btn" %>
+  </div>
 <% end %>

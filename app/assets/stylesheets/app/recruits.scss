@@ -1,0 +1,82 @@
+.info_competition__recruits__new {
+	.title {
+		color: #4A4A4A;
+		font-size: 18px;
+		line-height: 28px;
+		margin-bottom: 20px;
+	}
+	.new_info_competition_recruit {
+		width: 900px;
+		margin: 0 auto;
+		.no-padding {
+			padding: 0 !important;
+		}
+		.form-row {
+			&:before, &:after {
+				content: " ";
+				display: table;
+				clear: both;
+			}
+			.form-left {
+				width: 100px;
+				float: left;
+				text-align: right;
+				padding-right: 8px;
+				color: #4A90E2;
+				font-size: 14px;
+				line-height: 30px;
+			}
+			.form-right {
+				width: 770px;
+				float: left;
+				.gray-text {
+					color: #9B9B9B;
+					font-size: 13px;
+					line-height: 30px;
+					height: 30px;
+					margin-bottom: 10px;
+				}
+			}
+			.black-label label {
+				font-size: 13px;
+				color: #4A4A4A !important;
+			}
+		}
+
+		label {
+			color: #4A90E2;
+			height: 30px;
+			font-size: 14px;
+			line-height: 30px;
+			font-weight: normal;
+			margin-bottom: 0;
+		}
+
+		.choice {
+			margin-bottom: 0;
+			label {
+				padding-left: 0;
+				color: #000;
+			}
+		}
+
+		.form-bottom {
+			margin-top: 80px;
+			.checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
+				margin-top: 8px;
+			}
+		}
+
+		.apply-btn {
+			background-color: #F5A623;
+			color: #fff;
+			margin: 14px auto;
+			padding: 0;
+			width: 317px;
+			height: 41px;
+			line-height: 41px;
+			border: none;
+			margin-top: 0;
+		}
+	}
+}
