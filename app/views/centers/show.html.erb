@@ -20,6 +20,14 @@
               <strong class="left_nav_left_line">|</strong>我的资料
             <% end %>
           </li>
+          <% @activities.each do |activity| %>
+            <% type =  %>
+            <li class="<%= "active" if params[:controller] == 'center' && params[:action] == 'show'%>">
+              <%=link_to "/center/activities/#{activity.id}/#{activity.route_type}/1" do %>
+                <strong class="left_nav_left_line">|</strong><%= activity.short_name %>
+              <% end %>
+            </li>  
+          <% end %>
         </ul>
       </div>
 
