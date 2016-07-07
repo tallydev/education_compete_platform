@@ -8,9 +8,18 @@
 	  <div class="carousel-inner" role="listbox">
 	    <div class="item active">
 	      <%= image_tag "banner_one.png" %>
+	      <div class="carousel-caption">
+	      	<%= link_to "查看详情", notification_path(2), class: "btn detail-one-btn", "data-turbolinks" => false %>
+	      	<%= link_to "立即报名", new_info_competition_activity_recruit_path(1), class: "btn apply-one-btn" %>
+			  </div>
 	    </div>
 	    <div class="item">
-	      <%= image_tag "banner_one.png" %>
+	      <%= image_tag "banner_two.png" %>
+	      <div class="carousel-caption">
+	        <%= link_to "", notification_path(1), class: "btn detail-two-btn", "data-turbolinks" => false %>
+	      	<%= link_to "", new_info_competition_activity_recruit_path(2), class: "btn apply-two-btn" %>
+		    	<br><br>
+			  </div>
 	    </div>
 	  </div>
 	  <a class="left carousel-control" href="#slide_banner" role="button" data-slide="prev">

@@ -9,6 +9,38 @@
 				height: auto;
 				width: 100%;
 			}
+			.apply-one-btn {
+				background: image-url("btn_bg2.png") no-repeat;
+				height: 58px;
+				width: 192px;
+				font-size: 22px;
+				padding-top: 6px;
+				vertical-align: top;
+				color: #fff;
+			}
+			.detail-one-btn {
+				background: image-url("btn_bg1.png") no-repeat;
+				height: 58px;
+				width: 192px;
+				font-size: 22px;
+				padding-top: 6px;
+				vertical-align: top;
+				color: #fff;
+				margin-left: 150px;
+				margin-right: 20px;
+			}
+			.apply-two-btn {
+				background: image-url("btn_bg3.png") no-repeat;
+				height: 65px;
+				width: 170px;
+				vertical-align: top;
+			}
+			.detail-two-btn {
+				background: image-url("btn_bg4.png") no-repeat;
+				height: 65px;
+				width: 170px;
+				vertical-align: top;
+			}
 		}
 		.carousel-control {
 			img {
@@ -94,7 +126,7 @@
 		min-height: 160px;
 		.content-title {
 			margin-bottom: 10px;
-			padding: 0px 10px;
+			padding: 0px 25px;
 		}
 		.content-abstract {
 			color: #9B9B9B;
