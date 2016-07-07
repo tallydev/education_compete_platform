@@ -90,6 +90,17 @@ end
 #                                        PATCH  /players(.:format)                                                    players/registrations#update
 #                                        PUT    /players(.:format)                                                    players/registrations#update
 #                                        DELETE /players(.:format)                                                    players/registrations#destroy
+#          info_competition_center_index GET    /center/info_competition(.:format)                                    center#info_competition
+#          talk_competition_center_index GET    /center/talk_competition(.:format)                                    center#talk_competition
+#             personal_info_center_index GET    /center/personal_info(.:format)                                       center#personal_info
+#                           center_index GET    /center(.:format)                                                     center#index
+#                                        POST   /center(.:format)                                                     center#create
+#                             new_center GET    /center/new(.:format)                                                 center#new
+#                            edit_center GET    /center/:id/edit(.:format)                                            center#edit
+#                                 center GET    /center/:id(.:format)                                                 center#show
+#                                        PATCH  /center/:id(.:format)                                                 center#update
+#                                        PUT    /center/:id(.:format)                                                 center#update
+#                                        DELETE /center/:id(.:format)                                                 center#destroy
 #                          notifications GET    /notifications(.:format)                                              notifications#index
 #                                        POST   /notifications(.:format)                                              notifications#create
 #                       new_notification GET    /notifications/new(.:format)                                          notifications#new
