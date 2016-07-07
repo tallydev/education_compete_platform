@@ -39,6 +39,10 @@ class PlayerInfo < ActiveRecord::Base
     Time.zone.now.year - birth.year
   end
 
+  def sex_name
+    self.sex == :male ? "男" : "女"
+  end
+
   private
     def set_school
       self.player.update(school: self.school) if self.school.present?

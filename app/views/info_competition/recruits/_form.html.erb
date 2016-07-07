@@ -141,11 +141,11 @@
 	</div>
 
 	<div class="form-row">
-		<div class="form-left">参与项目</div>
+		<div class="form-left">参赛项目</div>
 		<div class="form-right">
 			<div class="row">
 				<div class="col-md-6">
-					<%= f.input :project, label: false, required: true %>
+					<%= f.input :project, collection: ["信息化教学设计比赛", "信息化课堂教学比赛", "信息化实训教学比赛"], label: false, required: true %>
 				</div>
 				<div class="col-md-6">
 					<%= f.simple_fields_for("player_info") do |r| %>
@@ -206,19 +206,19 @@
 		<div class="form-left">&nbsp;</div>
 		<div class="form-right black-label">
 			<div class="row">
-				<div class="col-md-2"><%= f.input :cooperater_1, wrapper: :vertical_form, label: "作者姓名", required: true %></div>
-				<div class="col-md-4"><%= f.input :school_1, wrapper: :vertical_form, label: "单位名称", required: true %></div>
-				<div class="col-md-6"><%= f.input :course_1, wrapper: :vertical_form, label: "任教课程", required: true %></div>
+				<div class="col-md-2"><%= f.input :cooperater_1, wrapper: :vertical_form, label: "作者姓名" %></div>
+				<div class="col-md-4"><%= f.input :school_1, wrapper: :vertical_form, label: "单位名称" %></div>
+				<div class="col-md-6"><%= f.input :course_1, wrapper: :vertical_form, label: "任教课程" %></div>
 			</div>
 			<div class="row">
-				<div class="col-md-2"><%= f.input :cooperater_2, wrapper: :vertical_form, label: "作者姓名", required: true %></div>
-				<div class="col-md-4"><%= f.input :school_2, wrapper: :vertical_form, label: "单位名称", required: true %></div>
-				<div class="col-md-6"><%= f.input :course_2, wrapper: :vertical_form, label: "任教课程", required: true %></div>
+				<div class="col-md-2"><%= f.input :cooperater_2, wrapper: :vertical_form, label: "作者姓名" %></div>
+				<div class="col-md-4"><%= f.input :school_2, wrapper: :vertical_form, label: "单位名称" %></div>
+				<div class="col-md-6"><%= f.input :course_2, wrapper: :vertical_form, label: "任教课程" %></div>
 			</div>
 			<div class="row">
-				<div class="col-md-2"><%= f.input :cooperater_3, wrapper: :vertical_form, label: "作者姓名", required: true %></div>
-				<div class="col-md-4"><%= f.input :school_3, wrapper: :vertical_form, label: "单位名称", required: true %></div>
-				<div class="col-md-6"><%= f.input :course_3, wrapper: :vertical_form, label: "任教课程", required: true%></div>
+				<div class="col-md-2"><%= f.input :cooperater_3, wrapper: :vertical_form, label: "作者姓名" %></div>
+				<div class="col-md-4"><%= f.input :school_3, wrapper: :vertical_form, label: "单位名称" %></div>
+				<div class="col-md-6"><%= f.input :course_3, wrapper: :vertical_form, label: "任教课程"%></div>
 			</div>
 		</div>
 	</div>
