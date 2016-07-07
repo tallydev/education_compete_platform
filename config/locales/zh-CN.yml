@@ -1,0 +1,13 @@
+zh-CN:
+  activerecord:
+    errors:
+      models:
+        player:
+          attributes:
+            phone:
+              blank: 手机号不能为空！
+              taken: 用户已存在！
+            password:
+              blank: 密码不能为空！
+            password_confirmation:
+              confirmation: 两次输入密码不同！
