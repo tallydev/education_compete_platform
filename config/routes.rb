@@ -108,17 +108,50 @@ end
 #                                        PATCH  /players(.:format)                                                    players/registrations#update
 #                                        PUT    /players(.:format)                                                    players/registrations#update
 #                                        DELETE /players(.:format)                                                    players/registrations#destroy
-#          info_competition_center_index GET    /center/info_competition(.:format)                                    center#info_competition
-#          talk_competition_center_index GET    /center/talk_competition(.:format)                                    center#talk_competition
-#             personal_info_center_index GET    /center/personal_info(.:format)                                       center#personal_info
-#                           center_index GET    /center(.:format)                                                     center#index
-#                                        POST   /center(.:format)                                                     center#create
-#                             new_center GET    /center/new(.:format)                                                 center#new
-#                            edit_center GET    /center/:id/edit(.:format)                                            center#edit
-#                                 center GET    /center/:id(.:format)                                                 center#show
-#                                        PATCH  /center/:id(.:format)                                                 center#update
-#                                        PUT    /center/:id(.:format)                                                 center#update
-#                                        DELETE /center/:id(.:format)                                                 center#destroy
+#                     new_expert_session GET    /experts/sign_in(.:format)                                            experts/sessions#new
+#                         expert_session POST   /experts/sign_in(.:format)                                            experts/sessions#create
+#                 destroy_expert_session DELETE /experts/sign_out(.:format)                                           experts/sessions#destroy
+#                        expert_password POST   /experts/password(.:format)                                           devise/passwords#create
+#                    new_expert_password GET    /experts/password/new(.:format)                                       devise/passwords#new
+#                   edit_expert_password GET    /experts/password/edit(.:format)                                      devise/passwords#edit
+#                                        PATCH  /experts/password(.:format)                                           devise/passwords#update
+#                                        PUT    /experts/password(.:format)                                           devise/passwords#update
+#             cancel_expert_registration GET    /experts/cancel(.:format)                                             devise/registrations#cancel
+#                    expert_registration POST   /experts(.:format)                                                    devise/registrations#create
+#                new_expert_registration GET    /experts/sign_up(.:format)                                            devise/registrations#new
+#               edit_expert_registration GET    /experts/edit(.:format)                                               devise/registrations#edit
+#                                        PATCH  /experts(.:format)                                                    devise/registrations#update
+#                                        PUT    /experts(.:format)                                                    devise/registrations#update
+#                                        DELETE /experts(.:format)                                                    devise/registrations#destroy
+#                new_school_user_session GET    /school_users/sign_in(.:format)                                       school_users/sessions#new
+#                    school_user_session POST   /school_users/sign_in(.:format)                                       school_users/sessions#create
+#            destroy_school_user_session DELETE /school_users/sign_out(.:format)                                      school_users/sessions#destroy
+#                   school_user_password POST   /school_users/password(.:format)                                      devise/passwords#create
+#               new_school_user_password GET    /school_users/password/new(.:format)                                  devise/passwords#new
+#              edit_school_user_password GET    /school_users/password/edit(.:format)                                 devise/passwords#edit
+#                                        PATCH  /school_users/password(.:format)                                      devise/passwords#update
+#                                        PUT    /school_users/password(.:format)                                      devise/passwords#update
+#        cancel_school_user_registration GET    /school_users/cancel(.:format)                                        devise/registrations#cancel
+#               school_user_registration POST   /school_users(.:format)                                               devise/registrations#create
+#           new_school_user_registration GET    /school_users/sign_up(.:format)                                       devise/registrations#new
+#          edit_school_user_registration GET    /school_users/edit(.:format)                                          devise/registrations#edit
+#                                        PATCH  /school_users(.:format)                                               devise/registrations#update
+#                                        PUT    /school_users(.:format)                                               devise/registrations#update
+#                                        DELETE /school_users(.:format)                                               devise/registrations#destroy
+#      center_activity_info_competitions GET    /center/activities/:activity_id/info_competitions(.:format)           info_competitions#index
+#       center_activity_info_competition GET    /center/activities/:activity_id/info_competitions/:id(.:format)       info_competitions#show
+#      center_activity_talk_competitions GET    /center/activities/:activity_id/talk_competitions(.:format)           talk_competitions#index
+#       center_activity_talk_competition GET    /center/activities/:activity_id/talk_competitions/:id(.:format)       talk_competitions#show
+#                        center_activity GET    /center/activities/:id(.:format)                                      activities#show
+#                     center_player_info POST   /center/player_info(.:format)                                         player_infos#create
+#                 new_center_player_info GET    /center/player_info/new(.:format)                                     player_infos#new
+#                edit_center_player_info GET    /center/player_info/edit(.:format)                                    player_infos#edit
+#                                        GET    /center/player_info(.:format)                                         player_infos#show
+#                                        PATCH  /center/player_info(.:format)                                         player_infos#update
+#                                        PUT    /center/player_info(.:format)                                         player_infos#update
+#                                        DELETE /center/player_info(.:format)                                         player_infos#destroy
+#                                 center GET    /center(.:format)                                                     centers#show
+#                          school_center GET    /school_center(.:format)                                              school_centers#show
 #                          notifications GET    /notifications(.:format)                                              notifications#index
 #                                        POST   /notifications(.:format)                                              notifications#create
 #                       new_notification GET    /notifications/new(.:format)                                          notifications#new

@@ -40,7 +40,7 @@
 						<%= image_tag "download.svg" %>&nbsp;&nbsp;比赛通知下载
 					<% end %>
 					<%= link_to([:new, @activity, :recruit], class: "btn apply-entry") do %>
-						<%= image_tag "entry.svg" %>&nbsp;&nbsp;比赛报名入口
+						<%= image_tag "entry.svg" %>&nbsp;&nbsp;<%= @activity.recruit?(current_player) ? "查看报名表格" : "比赛报名入口" %>
 					<% end %>
 				</div>
 
