@@ -45,7 +45,9 @@
 		<div class="form-right">
 			<div class="row">
 				<div class="col-md-4">
-					<%= f.association :school, label: false %>
+					<%= f.simple_fields_for("recruit") do |r| %>
+						<%= f.association :school, label: false %>
+					<% end %>
 				</div>
 				<div class="col-md-4">
 					<%= f.input :name, label: "院校联系人" %>
@@ -73,7 +75,11 @@
 		<div class="form-left">职称</div>
 		<div class="form-right">
 			<div class="row">
-				<div class="col-md-6"><%= f.input :name, label: false %></div>
+				<div class="col-md-6">
+					<%= f.simple_fields_for("recruit") do |r| %>
+						<%= r.input "test", label: false %>	
+					<% end %>
+				</div>
 				<div class="col-md-6"><%= f.input :name, label: "电子邮箱" %></div>
 			</div>
 		</div>

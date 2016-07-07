@@ -11,18 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706132513) do
+ActiveRecord::Schema.define(version: 20160707080948) do
 
   create_table "activities", force: :cascade do |t|
-    t.string   "name",                   null: false
+    t.string   "name",                    null: false
     t.datetime "start_time"
     t.datetime "end_time"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "status",     default: 0
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "status",      default: 0
     t.string   "type"
+    t.integer  "bulletin_id"
     t.string   "short_name"
   end
+
+  add_index "activities", ["bulletin_id"], name: "index_activities_on_bulletin_id"
 
   create_table "bulletins", force: :cascade do |t|
     t.string   "title"
@@ -62,8 +65,8 @@ ActiveRecord::Schema.define(version: 20160706132513) do
     t.integer  "player_id"
     t.integer  "school_id"
     t.integer  "activity_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "project"
     t.string   "name"
     t.string   "version"
@@ -77,6 +80,8 @@ ActiveRecord::Schema.define(version: 20160706132513) do
     t.string   "cooperater_3"
     t.string   "school_3"
     t.string   "course_3"
+    t.string   "school_person"
+    t.string   "school_phone"
   end
 
   add_index "info_competition_recruits", ["activity_id"], name: "index_info_competition_recruits_on_activity_id"
@@ -178,6 +183,16 @@ ActiveRecord::Schema.define(version: 20160706132513) do
   add_index "players", ["reset_password_token"], name: "index_players_on_reset_password_token", unique: true
   add_index "players", ["school_id"], name: "index_players_on_school_id"
 
+  create_table "recruits", force: :cascade do |t|
+    t.integer  "activities_id"
+    t.integer  "player_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "recruits", ["activities_id"], name: "index_recruits_on_activities_id"
+  add_index "recruits", ["player_id"], name: "index_recruits_on_player_id"
+
   create_table "schools", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
@@ -189,8 +204,10 @@ ActiveRecord::Schema.define(version: 20160706132513) do
     t.integer  "player_id"
     t.integer  "school_id"
     t.integer  "activity_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "school_person"
+    t.string   "school_phone"
   end
 
   add_index "talk_competition_recruits", ["activity_id"], name: "index_talk_competition_recruits_on_activity_id"
@@ -233,9 +250,9 @@ ActiveRecord::Schema.define(version: 20160706132513) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "school_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.integer  "school_id"
     t.string   "type"
   end
 
