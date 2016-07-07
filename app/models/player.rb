@@ -29,6 +29,7 @@ class Player < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          authentication_keys: [:phone]
 
+  validates_uniqueness_of :phone, on: :create, message: "用户手机号已注册"
 
   belongs_to :school
   has_one :player_info, dependent: :destroy
