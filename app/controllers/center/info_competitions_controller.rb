@@ -1,47 +1,23 @@
 class Center::InfoCompetitionsController < ApplicationController
-  before_action :set_center_info_competition, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_player!, only: [:show]
+  before_action :authenticate_school_user!, only: [:index]
+  before_action :set_activity, only: [:show, :index]
 
   respond_to :html
 
+  # 给学校管理员查看所有本学校报名的列表
   def index
-    @center_info_competitions = Center::InfoCompetition.all
-    respond_with(@center_info_competitions)
+    @recruits = @activity.school_recruits current_school_user.try(:school)
+    respond_with(@recruits)
   end
 
   def show
-    respond_with(@center_info_competition)
-  end
-
-  def new
-    @center_info_competition = Center::InfoCompetition.new
-    respond_with(@center_info_competition)
-  end
-
-  def edit
-  end
-
-  def create
-    @center_info_competition = Center::InfoCompetition.new(center_info_competition_params)
-    @center_info_competition.save
-    respond_with(@center_info_competition)
-  end
-
-  def update
-    @center_info_competition.update(center_info_competition_params)
-    respond_with(@center_info_competition)
-  end
-
-  def destroy
-    @center_info_competition.destroy
-    respond_with(@center_info_competition)
+    @recruit = @activity.player_recruit current_player
+    respond_with(@recruit)
   end
 
   private
-    def set_center_info_competition
-      @center_info_competition = Center::InfoCompetition.find(params[:id])
-    end
-
-    def center_info_competition_params
-      params[:center_info_competition]
+    def set_activity
+      @activity = InfoCompetition::Activity.find(params[:activity_id])
     end
 end

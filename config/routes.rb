@@ -25,8 +25,10 @@ Rails.application.routes.draw do
   # end
 
   namespace :center do
-    resources :info_competitions
-    resources :talk_competitions
+    resources :activities, only: [:show] do
+      resources :info_competitions, only: [:show, :index]
+      resources :talk_competitions, only: [:show, :index]  
+    end
     resource :player_info
   end
 

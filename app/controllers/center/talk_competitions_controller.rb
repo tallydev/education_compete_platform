@@ -1,47 +1,22 @@
 class Center::TalkCompetitionsController < ApplicationController
-  before_action :set_center_talk_competition, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_player!, only: [:show]
+  before_action :authenticate_school_user!, only: [:index]
+  before_action :set_activity, only: [:show, :index]
 
   respond_to :html
 
   def index
-    @center_talk_competitions = Center::TalkCompetition.all
-    respond_with(@center_talk_competitions)
+    @recruits = @activity.school_recruits current_school_user.try(:school)
+    respond_with(@recruits)
   end
 
   def show
-    respond_with(@center_talk_competition)
-  end
-
-  def new
-    @center_talk_competition = Center::TalkCompetition.new
-    respond_with(@center_talk_competition)
-  end
-
-  def edit
-  end
-
-  def create
-    @center_talk_competition = Center::TalkCompetition.new(center_talk_competition_params)
-    @center_talk_competition.save
-    respond_with(@center_talk_competition)
-  end
-
-  def update
-    @center_talk_competition.update(center_talk_competition_params)
-    respond_with(@center_talk_competition)
-  end
-
-  def destroy
-    @center_talk_competition.destroy
-    respond_with(@center_talk_competition)
+    @recruit = @activity.player_recruit current_player
+    respond_with(@recruit)
   end
 
   private
-    def set_center_talk_competition
+    def set_activity
       @center_talk_competition = Center::TalkCompetition.find(params[:id])
-    end
-
-    def center_talk_competition_params
-      params[:center_talk_competition]
     end
 end
