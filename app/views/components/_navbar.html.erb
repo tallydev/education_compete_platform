@@ -27,7 +27,7 @@
           <a href="#">作品展示</a>
         </li> -->
         <li>
-          <a class="<%= "brand-active" if controller_action_to? params, "center", "index" %>" href="<%= info_competition_center_index_path %>">&nbsp;&nbsp;&nbsp; 个人中心 &nbsp;&nbsp;&nbsp;</a>
+          <a class="<%= "brand-active" if controller_action_to? params, "center", "index" %>" href="<%= center_info_competition_path(id:[1]) %>">&nbsp;&nbsp;&nbsp; 个人中心 &nbsp;&nbsp;&nbsp;</a>
         </li>
       </ul>
 
@@ -45,7 +45,7 @@
       <% else %>
         <ul class="nav navbar-nav navbar-right nav-sign">
           <li>
-            <%= link_to new_player_session_path(role:"player") do %>
+            <%= link_to new_player_session_path do %>
               <%= image_tag "user.svg" %><span>登录</span>
             <% end %>
           </li>
@@ -55,7 +55,7 @@
             <% end %>
           </li>
           <li>
-            <%= link_to new_player_session_path(role:"user") do %>
+            <%= link_to new_expert_session_path do %>
               <%= image_tag "list.svg" %><span>管理</span>
             <% end %>
           </li>

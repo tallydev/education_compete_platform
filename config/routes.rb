@@ -13,6 +13,14 @@ Rails.application.routes.draw do
     registrations: 'players/registrations'
   }
 
+  devise_for :experts, controllers: {
+    sessions: 'experts/sessions'
+  }
+
+  devise_for :school_users, controllers: {
+    sessions: 'school_users/sessions'
+  }
+
   # 主页面
   resource :home, only: [:index]
 

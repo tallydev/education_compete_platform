@@ -39,28 +39,87 @@
   }
   .tab_body {
     padding-top: 29px;
-    .school_id_select2 {
-      margin-bottom: 30px;
-      span.select2 {
-        width: 100% !important;
-        span.select2-selection {
-          height: 40px !important;
-          border-radius: 0;
-          border-color: #ccc;
-          span.select2-selection__arrow {
-            height: 36px;
-          }
-          span.select2-selection__rendered {
-            line-height: 36px;
+    .new_player, .new_expert, .new_school_user {
+      text-align: center;
+      margin-left: -40px;
+      padding-right: 10px;
+      input {
+        border-radius: 0;
+      }
+      //用户名表单样式
+      .player_phone, .expert_phone {
+        margin-bottom: 30px;
+        #player_phone, #expert_phone {
+          height: 40px;
+          // width: 50%;
+        }
+        label.tel {
+          padding-right: 8px;
+          text-align: right;
+          line-height: 36px;
+        }
+        span.error {
+          color: red;
+        } 
+      }
+      // 密码表单样式
+      .player_password, .expert_password, .school_user_password {
+        margin-bottom: 30px;
+        #player_password, #expert_password, #school_user_password {
+          height: 40px;
+          // width: 50%;
+        }
+        label.password {
+          padding-right: 8px;
+          text-align: right;
+          line-height: 36px;
+        }
+        .error {
+          color: red;
+        } 
+      }
+      // 密码确认表单样式
+      .player_password_confirmation, .expert_password_confirmation {
+        margin-bottom: 30px;
+        #player_password_confirmation, .expert_password_confirmation {
+          height: 40px;
+          // width: 50%;
+        }
+        label.password {
+          text-align: right;
+          padding-right: 8px;
+          line-height: 36px;
+        }
+        .error {
+          color: red;
+        } 
+      }
+      // 学校名称表单样式
+      .school_user_school_id {
+        margin-bottom: 30px;
+        span.select2 {
+          width: 100% !important;
+          span.select2-selection {
+            height: 40px !important;
+            border-radius: 0;
+            border-color: #ccc;
+            span.select2-selection__arrow {
+              height: 36px;
+            }
+            span.select2-selection__rendered {
+              line-height: 36px;
+            }
           }
         }
+        label.select {
+          padding-right: 8px;
+          text-align: right;
+          line-height: 36px;
+        }
+        .error {
+          color: red;
+        } 
       }
-      label.select {
-        padding-right: 8px;
-      }
-      .error {
-        color: red;
-      } 
     }
     .login_tab_nav {
       padding-left: 18%;
@@ -97,15 +156,24 @@
         color: #fff;
         background-color: #F5A623;
         border-radius: 0;
-        margin-left: 60px;
+        margin-left: 125px;
         margin-top: 20px;
         margin-bottom: 20px;
-        padding: 10px 103px 10px 103px;
+        padding: 10px 156px 10px 156px;
+      }
+      .btn-signup {
+        color: #fff;
+        background-color: #F5A623;
+        border-radius: 0;
+        margin-left: 125px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 10px 144px 10px 144px;
       }
       .sign_up_text {
-        padding-left: 55px;
+        padding-left: 120px;
         .forget_pass {
-          margin-left: 100px;
+          margin-left: 220px;
         }
       }
     }

@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="panel panel-default tab_cotent">
+
+    <div class="panel-heading tab_head">
+      <%= image_tag("TabTitleBg.png", class: "bg_image")%>
+      <div class="tab_title_text">登 录</div>
+    </div>
+
+    <div class="panel-body tab_body row">
+      <div class="col-md-6 col-md-offset-3">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs login_tab_nav" role="tablist">
+          <li role="presentation"><%= link_to "评审专家", new_expert_session_path %></li>
+          <li role="presentation" class="active"><a href="new_school_user_session_path" aria-controls="school" role="tab" data-toggle="tab">学校管理员</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content login_tab_content">
+          <%=  render partial: "school_sign_form"%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#school_user_school_id").select2();
+  });
+</script>

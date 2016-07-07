@@ -7,7 +7,7 @@
     </div>
 
     <div class="panel-body tab_body row">
-      <% if params[:role] == "player" %>
+      <%#= if params[:role] == "player" %>
         <div class="col-md-6 col-md-offset-3">
           <!-- Nav tabs -->
           <ul class="nav nav-tabs login_tab_nav" role="tablist">
@@ -18,20 +18,9 @@
             <%=  render partial: "player_sign_form"%>
           </div>
         </div>
-      <% else %>
-        <div class="col-md-6 col-md-offset-3">
-          <!-- Nav tabs -->
-          <ul class="nav nav-tabs login_tab_nav" role="tablist">
-            <li role="presentation" class="active"><a href="#judge" aria-controls="judge" role="tab" data-toggle="tab">评审专家</a></li>
-            <li role="presentation"><a href="#school" aria-controls="school" role="tab" data-toggle="tab">学校管理员</a></li>
-          </ul>
-          <!-- Tab panes -->
-          <div class="tab-content login_tab_content">
-            <%=  render partial: "judge_sign_form"%>
-            <%=  render partial: "school_sign_form"%>
-          </div>
-        </div>
-      <% end %>
+      <%#= else %>
+        
+      <%#= end %>
     </div>
   </div>
 </div>
