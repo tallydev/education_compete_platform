@@ -1,11 +1,11 @@
 <div class="container">
 	<button class="btn btn-info btn-block" onclick="preview();">打印</button>
 </div>
-<!-- startprint -->
+<!--startprint-->
 <div class="container">
 	<div class="word-one">
-		<h4 class="text-center">2016年上海市高等职业院校（其他类专业）</h4>
-		<h4 class="text-center">教师说课大赛报名表</h4>
+		<h4 class="text-center"><%= @talk_competition_recruit.activity.name %></h4>
+		<h4 class="text-center">报名表</h4>
 
 		<div class="base-info text-center">
 			参赛院校：<%= @talk_competition_recruit.school.try(:name) %>&nbsp;&nbsp;&nbsp;&nbsp;联系人：<%= @talk_competition_recruit.school_person %>&nbsp;&nbsp;&nbsp;&nbsp;手机：<%= @talk_competition_recruit.school_phone %>
@@ -17,7 +17,7 @@
 	        <td class="left-td">&nbsp;姓&nbsp;&nbsp;名&nbsp;</td>
 	        <td><%= @player_info.name %></td>
 	        <td class="td-width">性别</td>
-	        <td><%= @player_info.sex %></td>
+	        <td><%= @player_info.sex_name %></td>
 	        <td class="td-width">最高学位</td>
           <td><%= @player_info.degree %></td>
           <td rowspan="4" class="photo">照片</td>
@@ -28,7 +28,7 @@
           <td class="td-width">职称</td>
           <td><%= @player_info.professional_title %></td>
           <td class="td-width">参加教学工作年月</td>
-          <td></td>
+          <td><%= @talk_competition_recruit.work_time %></td>
         </tr>
         <tr class="left-td">
           <td>电子邮箱</td>
@@ -38,13 +38,13 @@
         </tr>
         <tr class="left-td">
           <td>参赛课程</td>
-          <td><%#= @info_competition_recruit.name %></td>
+          <td><%= @talk_competition_recruit.name %></td>
           <td class="td-width">所属专业</td>
           <td colspan="3"><%= @player_info.special %></td>
         </tr>
         <tr class="text-td">
           <td class="left-td">近三年主讲课程情况</td>
-          <td colspan="6"><%#= @info_competition_recruit.comment %></td>
+          <td colspan="6" style="text-align: left; vertical-align: top;"><%= @talk_competition_recruit.comment %></td>
         </tr>
         <tr class="text-td">
           <td class="left-td">推荐院校意见</td>
