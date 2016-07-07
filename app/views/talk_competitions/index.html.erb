@@ -1,25 +1,17 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Center Talk Competitions</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @center_talk_competitions.each do |center_talk_competition| %>
-      <tr>
-        <td><%= link_to 'Show', center_talk_competition %></td>
-        <td><%= link_to 'Edit', edit_center_talk_competition_path(center_talk_competition) %></td>
-        <td><%= link_to 'Destroy', center_talk_competition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Talk competition', new_center_talk_competition_path %>
+<div class="container">
+  <ol class="breadcrumb">
+    <span>您的位置</span>
+    <li><%= link_to "首页", root_path %></li>
+    <li class="active">个人中心</li>
+  </ol>
+  <div class="panel panel-default tab_cotent">
+    <div class="panel-heading tab_head">
+      <%= image_tag("TabTitleBg.png", class: "bg_image")%>
+      <div class="tab_title_text">个人中心</div>
+    </div>
+    <div class="center_cotent row">
+      <%=  render partial: "school_centers/center_left_nav"%>
+      <%=  render partial: "school_centers/center_right_content"%>
+    </div>
+  </div>
+</div>

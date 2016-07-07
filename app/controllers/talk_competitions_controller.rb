@@ -11,12 +11,14 @@ class TalkCompetitionsController < ApplicationController
   end
 
   def show
+    @notifications = Bulletin.all
     @recruit = @activity.player_recruit current_player
     respond_with(@recruit)
   end
 
   private
     def set_activity
-      @center_talk_competition = Center::TalkCompetition.find(params[:id])
+      @activities = Activity.all
+      @activity = TalkCompetition::Activity.find(params[:activity_id])
     end
 end

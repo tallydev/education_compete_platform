@@ -1,0 +1,65 @@
+<div class="panel panel-default tab_cotent">
+  <div class="panel-heading tab_head center_right_panel_heading">
+    <%= image_tag("info_bg.png", class: "bg_image")%>
+    <div class="tab_title_text color_label">报名汇总表</div>
+    <div class="tab_title_right_text">
+      <ul>
+        <!-- <li>批量选择 ｜</li> -->
+        <!-- <li>打印单项报名表 ｜</li> -->
+        <li><a href="">打印汇总</a></li>
+        <!-- <li>导出</li> -->
+      </ul>
+    </div>
+  </div>
+  <div class="center_cotent row">
+    <table class="table">
+      <thead class="color_label">
+        <tr>
+          <th>
+            <input type="button" name="select" onclick="javascript:selectAll()" value="全选"/>
+          </th>
+          <th>序号</th>
+          <th>参赛项目</th>
+          <th>姓名</th>
+          <th>课程名称</th>
+          <th>手机</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @recruits.each_with_index do |recruit, index| %>
+        <tr>
+          <th>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+              </label>
+            </div>
+          </th>
+          <td><%= index+1 %></td>
+          <td><%= recruit.project %></td>
+          <td><%= recruit.try(:player).try(:info).try(:name) %></td>
+          <td><%= recruit.name %></td>
+          <td><%= recruit.try(:player).try(:phone) %></td>
+          <td><button class="btn btn-info btn-sm">打印</button></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script language=javascript>
+function selectAll(){
+  var a = document.getElementsByTagName("input");
+  if(a[1].checked){
+    for(var i = 0;i<a.length;i++){
+      if(a[i].type == "checkbox") a[i].checked = false;
+    }
+  }else{
+    for(var i = 0;i<a.length;i++){
+      if(a[i].type == "checkbox") a[i].checked = true;
+    }
+  }
+}
+</script>

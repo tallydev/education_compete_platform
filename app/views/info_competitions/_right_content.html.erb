@@ -1,0 +1,23 @@
+<div class="center_right_content col-md-10">
+  <div class="col-md-1 col-md-offset-1">
+    <%= image_tag "time_line.svg" %>
+  </div>
+  <div class="col-md-1 time_line_tip">
+    <p class="apple_states">报名</p>
+    <p class="uploading_states">上传作品</p>
+    <p class="result_states">比赛结果</p>
+    <p class="end_states">比赛结束</p>
+  </div>
+  <div class="col-md-6 center_tip">
+    <br>
+    <p><span class="color_label">比赛名称: </span><span><%= @activity.short_name %></span></p>
+    <p><span class="color_label">报名截止时间: </span><span><%= @activity.end_time.strftime("%Y年%m月%d日") %></span></p>
+    <p>
+      <span class="color_label">已报名人数: </span><span><%= @activity.recruits.count %>人</span>
+      <%= link_to [:new, @activity, :recruit] do %>
+        <button class="btn btn-info btn-join">查看报名表</button>
+      <% end %>
+    </p>
+    <p><span class="color_label">主办单位: </span><span>上海市信息化教学委员会</span></p><br>
+  </div>
+</div>

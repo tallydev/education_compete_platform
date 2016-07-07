@@ -4,6 +4,7 @@ class CentersController < ApplicationController
   respond_to :html
 
   def show
+    @notifications = Bulletin.all
     @activities = current_player.activities
   end
 end

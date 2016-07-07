@@ -19,14 +19,14 @@
             <input type="button" name="select" onclick="javascript:selectAll()" value="全选"/>
           </th>
           <th>序号</th>
-          <th>参赛项目</th>
           <th>姓名</th>
-          <th>课程名称</th>
+          <th>参赛课程</th>
           <th>手机</th>
           <th>操作</th>
         </tr>
       </thead>
       <tbody>
+      <% @recruits.each_with_index do |recruit, index| %>
         <tr>
           <th>
             <div class="checkbox">
@@ -35,28 +35,13 @@
               </label>
             </div>
           </th>
-          <td>1</td>
-          <td>信息化教学设计比赛</td>
-          <td>黎明</td>
-          <td>计算机研究</td>
-          <td>15802356678</td>
+          <td><%= index+1 %></td>
+          <td><%= recruit.try(:player).try(:info).try(:name) %></td>
+          <td><%= recruit.name %></td>
+          <td><%= recruit.try(:player).try(:phone) %></td>
           <td><button class="btn btn-info btn-sm">打印</button></td>
         </tr>
-        <tr>
-          <th>
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-              </label>
-            </div>
-          </th>
-          <td>2</td>
-          <td>信息化教学设计比赛</td>
-          <td>黎明</td>
-          <td>计算机研究</td>
-          <td>15802356678</td>
-          <td><button class="btn btn-info btn-sm">打印</button></td>
-        </tr>
+      <% end %>
       </tbody>
     </table>
   </div>

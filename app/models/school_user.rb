@@ -30,6 +30,8 @@ class SchoolUser < User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          authentication_keys: [:school]
+  
+  belongs_to :school
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
