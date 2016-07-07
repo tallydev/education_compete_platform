@@ -6,7 +6,7 @@
       <ul>
         <!-- <li>批量选择 ｜</li> -->
         <!-- <li>打印单项报名表 ｜</li> -->
-        <li>打印汇总</li>
+        <li><a href="">打印汇总</a></li>
         <!-- <li>导出</li> -->
       </ul>
     </div>
@@ -15,7 +15,9 @@
     <table class="table">
       <thead class="color_label">
         <tr>
-          <th>选择</th>
+          <th>
+            <input type="button" name="select" onclick="javascript:selectAll()" value="全选"/>
+          </th>
           <th>序号</th>
           <th>参赛项目</th>
           <th>姓名</th>
@@ -59,3 +61,18 @@
     </table>
   </div>
 </div>
+
+<script language=javascript>
+function selectAll(){
+  var a = document.getElementsByTagName("input");
+  if(a[1].checked){
+    for(var i = 0;i<a.length;i++){
+      if(a[i].type == "checkbox") a[i].checked = false;
+    }
+  }else{
+    for(var i = 0;i<a.length;i++){
+      if(a[i].type == "checkbox") a[i].checked = true;
+    }
+  }
+}
+</script>

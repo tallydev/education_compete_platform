@@ -1,3 +1,6 @@
+a {
+  text-decoration: none !important;
+}
 .color_label {
   color: #3D96D5 !important;
 }
@@ -35,7 +38,9 @@
       // border-left: 3px solid #F5A623;
       padding: 5px;
       // padding-left: 10px;
-
+      a {
+        padding: 10px 50px 10px 0;
+      }
       a:hover, a:focus{
         text-decoration: none;
       }
@@ -92,8 +97,15 @@
       top: 530px;
     }
   }
-  thead {
-    // background-color: #f5f5f5;
+  table {
+    td {
+      line-height: 42px !important;
+    }
+    tbody {
+      th {
+        text-align: center;
+      }
+    }
   }
   .join_table_form {
     padding: 30px 0 10px 70px;
