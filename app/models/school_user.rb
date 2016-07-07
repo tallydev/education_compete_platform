@@ -28,4 +28,11 @@
 
 class SchoolUser < User
   
+  def self.find_for_database_authentication(warden_conditions)
+    p "===========#{warden_conditions}=========="
+    conditions = warden_conditions.dup
+    sign_in = conditions.delete(:sign_in)
+    #where(conditions).where(["phone = :value OR name = :value", { :value => login.strip }]).first
+    where(conditions).where(["phone = :value or email = :value", { :value => sign_in.strip }]).first
+  end
 end

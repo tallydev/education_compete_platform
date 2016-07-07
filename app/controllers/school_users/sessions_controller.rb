@@ -7,9 +7,10 @@ class SchoolUsers::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    p "==========#{params}==========="
+    super
+  end
 
   # DELETE /resource/sign_out
   # def destroy
@@ -22,4 +23,7 @@ class SchoolUsers::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+  def configure_sign_in_params
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:phone, :password, :password_confirmation, :name) }
+  end
 end

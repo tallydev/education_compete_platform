@@ -1,6 +1,6 @@
 <div role="tabpanel" class="tab-pane active" id="school">
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), class: "school_id_select2", wrapper: :apply_horizontal_form) do |f| %>
-    <%= f.input :school_id, label:"学校名称", required: false, as: :select, collection: School.all.pluck(:name, :id), class: "school_id_select2" %>
+    <%= f.input :phone, label:"学校名称", required: false, as: :select, collection: School.all.pluck(:name), class: "school_id_select2" %>
     <%= f.input :password, label: "密 码", required: false %>
     <%= f.button :submit, "登 录", data: {disable_with: '登录中...'}, class: "btn-login" %>
     <div class="sign_up_text">
