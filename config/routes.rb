@@ -32,13 +32,15 @@ Rails.application.routes.draw do
   #   end
   # end
 
-  namespace :center do
+  resource :center, only: [:show] do
     resources :activities, only: [:show] do
       resources :info_competitions, only: [:show, :index]
       resources :talk_competitions, only: [:show, :index]  
     end
     resource :player_info
   end
+
+  resource :school_center, only: [:show]
 
   # 赛事公告
   resources :notifications
