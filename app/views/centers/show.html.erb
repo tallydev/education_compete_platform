@@ -1,0 +1,31 @@
+<div class="container">
+  <ol class="breadcrumb">
+    <span>您的位置</span>
+    <li><%= link_to "首页", root_path %></li>
+    <li class="active">个人中心</li>
+  </ol>
+  <%=  render partial: "center/player_info_tab"%>
+  <div class="panel panel-default tab_cotent">
+    <% if current_player.present? %>
+      <div class="panel-heading tab_head">
+        <%= image_tag("TabTitleBg.png", class: "bg_image")%>
+        <div class="tab_title_text">个人中心</div>
+      </div>
+    <% end %>
+    <div class="center_cotent row">
+      <div class="center_left_nav col-md-2">
+        <ul>
+          <li class="<%= "active" if params[:controller] == 'center' && params[:action] == 'show'%>">
+            <%=link_to "#{}" do %>
+              <strong class="left_nav_left_line">|</strong>我的资料
+            <% end %>
+          </li>
+        </ul>
+      </div>
+
+      <div class="center_right_content col-md-10">
+        <h4>完善个人信息</h4>
+      </div>
+    </div>
+  </div>
+</div>
