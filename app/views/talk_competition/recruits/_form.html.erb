@@ -6,13 +6,13 @@
 		<div class="form-right">
 			<div class="row">
 				<div class="col-md-3">
-					<%= f.association :school, label: false, required: true, wrapper: :vertical_form %>
+					<%= f.association :school, label: false, required: true, wrapper: :vertical_form, selected: @first_recruit.try(:school).try(:id), prompt: "选择院校" %>
 				</div>
 				<div class="col-md-5">
-					<%= f.input :school_person, label: "院校联系人", required: true, wrapper: :apply_form %>
+					<%= f.input :school_person, label: "院校联系人", required: true, wrapper: :apply_form, input_html: {value: @first_recruit.try(:school_person)} %>
 				</div>
 				<div class="col-md-4">
-					<%= f.input :school_phone, type: "phone", label: "联系人手机", wrapper: :apply_form, required: true %>
+					<%= f.input :school_phone, type: "phone", label: "联系人手机", wrapper: :apply_form, required: true, input_html: {value: @first_recruit.try(:school_phone)} %>
 				</div>
 			</div>
 		</div>
@@ -28,12 +28,12 @@
 					<div class="row">
 						<div class="col-xs-5">
 							<%= f.simple_fields_for("player_info") do |r| %>
-								<%= r.input "name", label: false,required: true %>
+								<%= r.input "name", label: false,required: true, input_html: {value: @player.try(:name)} %>
 							<% end %>
 						</div>
 						<div class="col-xs-7 form-sex">
 							<%= f.simple_fields_for("player_info") do |r| %>
-								性别：<%= r.collection_radio_buttons "sex", [[:male, '男'] ,[:female, '女']], :first, :last, required: true %>
+								性别：<%= r.collection_radio_buttons "sex", [[:male, '男'] ,[:female, '女']], :first, :last, required: true, checked: @player.try(:sex) %>
 							<% end %>
 						</div>
 					</div>
@@ -41,7 +41,7 @@
 				</div>
 				<div class="col-md-6">
 					<%= f.simple_fields_for("player_info") do |r| %>
-						<%= r.input "birth", label: "生日", as: :date, html5: true, wrapper: :apply_horizontal_form, required: true %>
+						<%= r.input "birth", label: "出生日期", as: :date, html5: true, wrapper: :apply_horizontal_form, required: true, input_html: { value: @player.try(:birth)} %>
 					<% end %>
 				</div>
 			</div>
@@ -49,11 +49,11 @@
 	</div>
 
 	<div class="form-row">
-		<div class="form-left">教学工作年月</div>
+		<div class="form-left">开始工作年月</div>
 		<div class="form-right">
 			<div class="row">
 				<div class="col-md-6">
-					<%= f.input :work_time, label: false, required: true %>
+					<%= f.input :work_time, label: false, required: true, placeholder: "2006-05" %>
 				</div>
 				<div class="col-md-6">
 					<%= f.input :name, label: "参赛课程", required: true %>
@@ -68,12 +68,12 @@
 			<div class="row">
 				<div class="col-md-6">
 					<%= f.simple_fields_for("player_info") do |r| %>
-						<%= r.input "degree", label: false, required: true %>	
+						<%= r.input "degree", label: false, required: true, input_html: {value: @player.try(:degree)} %>	
 					<% end %>
 				</div>
 				<div class="col-md-6">
 					<%= f.simple_fields_for("player_info") do |r| %>
-						<%= r.input "nation", label: "民族", required: true %>
+						<%= r.input "nation", label: "民族", required: true, input_html: {value: @player.try(:nation)} %>
 					<% end %>
 				</div>
 			</div>
@@ -86,12 +86,12 @@
 			<div class="row">
 				<div class="col-md-6">
 					<%= f.simple_fields_for("player_info") do |r| %>
-						<%= r.input "email", label: false, required: true %>
+						<%= r.input "email", label: false, required: true, input_html: {value: @player.try(:email)} %>
 					<% end %>
 				</div>
 				<div class="col-md-6">
 					<%= f.simple_fields_for("player_info") do |r| %>
-						<%= r.input "card_number", label: "身份证号码", required: true %>
+						<%= r.input "card_number", label: "身份证号码", required: true, input_html: {value: @player.try(:card_number)} %>
 					<% end %>
 				</div>
 			</div>
@@ -104,12 +104,12 @@
 			<div class="row">
 				<div class="col-md-6">
 					<%= f.simple_fields_for("player_info") do |r| %>
-						<%= r.input "professional_title", label: false, required: true %>	
+						<%= r.input "professional_title", label: false, required: true, input_html: {value: @player.try(:professional_title)} %>	
 					<% end %>
 				</div>
 				<div class="col-md-6">
 					<%= f.simple_fields_for("player_info") do |r| %>
-						<%= r.input :special, label: "专业名称", required: true %>
+						<%= r.input :special, label: "专业名称", required: true, input_html: {value: @player.try(:special)} %>
 					<% end %>
 				</div>
 			</div>

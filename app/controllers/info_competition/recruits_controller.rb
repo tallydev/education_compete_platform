@@ -15,6 +15,9 @@ class InfoCompetition::RecruitsController < ApplicationController
   end
 
   def new
+    @first_recruit = current_player.recruits.blank? ? nil : current_player.recruits.first
+    @player = current_player.try(:info)
+
     @info_competition_activity = InfoCompetition::Activity.find(params[:activity_id])
     if @info_competition_activity.recruit? current_player
       @info_competition_recruit = @info_competition_activity.player_recruit current_player
@@ -31,13 +34,18 @@ class InfoCompetition::RecruitsController < ApplicationController
   def create
     @info_competition_activity = InfoCompetition::Activity.find(params[:activity_id])
     @info_competition_recruit = @info_competition_activity.recruits.build(recruit_params)
-    @info_competition_recruit.player = Player.first
+    @info_competition_recruit.player = current_player
+    puts "school_id is:#{recruit_params[:school_id]}"
     @info_competition_recruit.save
 
-    @player_info = Player.first.info
+    @player_info = current_player.info
     @player_info.school_id = recruit_params[:school_id] if recruit_params[:school_id].present?
     @player_info.update(player_params)
     @player_info.save
+
+    p recruit_params
+    p "-------------"
+    p player_params
     
     respond_with(@info_competition_recruit)
   end

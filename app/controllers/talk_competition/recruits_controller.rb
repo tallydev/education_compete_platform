@@ -15,6 +15,9 @@ class TalkCompetition::RecruitsController < ApplicationController
   end
 
   def new
+    @first_recruit = current_player.recruits.blank? ? nil : current_player.recruits.first
+    @player = current_player.try(:info)
+
     @talk_competition_activity = TalkCompetition::Activity.find(params[:activity_id])
     if @talk_competition_activity.recruit? current_player
       @talk_competition_recruit = @talk_competition_activity.player_recruit current_player
@@ -38,6 +41,10 @@ class TalkCompetition::RecruitsController < ApplicationController
     @player_info.school_id = recruit_params[:school_id] if recruit_params[:school_id].present?
     @player_info.update(player_params)
     @player_info.save
+
+    p recruit_params
+    p "-------------"
+    p player_params
 
     respond_with(@talk_competition_recruit)
   end

@@ -4,15 +4,15 @@
 <!--startprint-->
 <div class="container">
   <div class="word-one">
-    <h4 class="text-center">2016年上海市高等职业院校信息化教学大赛暨2016年全国职业院校信息化教学大赛上海市选拔赛</h4>
+    <h4 class="text-center">
+      <%= @info_competition_recruits.first.activity.name %>
+    </h4>
     <h4 class="text-center">报名汇总表</h4>
 
     <div class="base-info text-left">
-      院校名称（盖章）：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      院校联系人：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      电话（手机）：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      电子信箱：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp;
+      院校名称（盖章）：<%= @info_competition_recruits.try(:first).try(:school).try(:name) %>&nbsp;&nbsp;&nbsp;&nbsp;
+      院校联系人：<%= @info_competition_recruits.first.school_person %>&nbsp;&nbsp;&nbsp;&nbsp;
+      电话（手机）：<%= @info_competition_recruits.first.school_phone %>
     </div>
 
     <table class="table table-bordered print-table">
@@ -26,15 +26,17 @@
           <td>课程名称</td>
           <td>&nbsp;&nbsp;手机&nbsp;&nbsp;</td>
         </tr>
-        <tr>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-        </tr>
+        <% @info_competition_recruits.each_with_index do |recruit, index| %>
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><%= recruit.project %></td>
+            <td><%= recruit.player.info.name %></td>
+            <td><%= recruit.school.try(:name) %></td>
+            <td><%= recruit.player.info.special %></td>
+            <td><%= recruit.name %></td>
+            <td><%= recruit.school_phone %></td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </div>
