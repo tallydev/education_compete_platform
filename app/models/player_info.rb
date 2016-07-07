@@ -29,9 +29,15 @@ class PlayerInfo < ActiveRecord::Base
   belongs_to :player
   belongs_to :school
 
+  delegate :phone, to: :player
+
   enum sex: [:male, :female]
 
   after_save :set_school
+
+  def age
+    Time.zone.now.year - birth.year
+  end
 
   private
     def set_school
