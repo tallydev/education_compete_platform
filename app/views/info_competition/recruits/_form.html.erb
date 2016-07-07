@@ -89,7 +89,7 @@
 						</div>
 						<div class="col-xs-7 form-sex">
 							<%= f.simple_fields_for("player_info") do |r| %>
-								性别：<%= r.collection_radio_buttons "sex", [[true, '男'] ,[false, '女']], :first, :last, required: true %>
+								性别：<%= r.collection_radio_buttons "sex", [[:male, '男'] ,[:female, '女']], :first, :last, required: true %>
 							<% end %>
 						</div>
 					</div>

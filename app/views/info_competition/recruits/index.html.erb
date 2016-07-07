@@ -1,25 +1,56 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <button class="btn btn-info btn-block" onclick="preview();">打印</button> 
+</div>
+<!--startprint-->
+<div class="container">
+  <div class="word-one">
+    <h4 class="text-center">2016年上海市高等职业院校信息化教学大赛暨2016年全国职业院校信息化教学大赛上海市选拔赛</h4>
+    <h4 class="text-center">报名汇总表</h4>
 
-<h1>Listing Info Competition Recruits</h1>
+    <div class="base-info text-left">
+      院校名称（盖章）：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      院校联系人：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      电话（手机）：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      电子信箱：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <table class="table table-bordered print-table">
+      <tbody>
+        <tr>
+          <td style="width: 56px;">序号</td>
+          <td>参赛项目</td>
+          <td style="width: 56px;">姓名</td>
+          <td>院校名称</td>
+          <td>专业大类名称</td>
+          <td>课程名称</td>
+          <td>&nbsp;&nbsp;手机&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-  <tbody>
-    <% @info_competition_recruits.each do |info_competition_recruit| %>
-      <tr>
-        <td><%= link_to 'Show', info_competition_recruit %></td>
-        <td><%= link_to 'Edit', edit_info_competition_recruit_path(info_competition_recruit) %></td>
-        <td><%= link_to 'Destroy', info_competition_recruit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+</div>
+<!--endprint-->
 
-<br>
-
-<%= link_to 'New Recruit', new_info_competition_recruit_path %>
+<script>
+  function preview()    
+  {    
+    bdhtml=window.document.body.innerHTML;    
+    sprnstr="<!--startprint-->";    
+    eprnstr="<!--endprint-->";    
+    prnhtml=bdhtml.substring(bdhtml.indexOf(sprnstr)+17);
+    prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr));  
+    window.document.body.innerHTML=prnhtml;    
+    window.print();    
+  }  
+</script>

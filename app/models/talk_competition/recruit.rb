@@ -24,4 +24,8 @@ class TalkCompetition::Recruit < ActiveRecord::Base
   belongs_to :player
   belongs_to :school
   belongs_to :activity
+
+  def player_info
+    player.try(:player_info)
+  end
 end

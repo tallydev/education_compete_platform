@@ -1,4 +1,5 @@
 class InfoCompetition::RecruitsController < ApplicationController
+  before_action :authenticate_player!, only: [:new, :create]
   before_action :set_info_competition_recruit, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
@@ -15,8 +16,13 @@ class InfoCompetition::RecruitsController < ApplicationController
 
   def new
     @info_competition_activity = InfoCompetition::Activity.find(params[:activity_id])
-    @info_competition_recruit = @info_competition_activity.recruits.build
-    respond_with(@info_competition_recruit)
+    if @info_competition_activity.recruit? current_player
+      @info_competition_recruit = @info_competition_activity.player_recruit current_player
+      redirect_to @info_competition_recruit
+    else
+      @info_competition_recruit = @info_competition_activity.recruits.build
+      respond_with(@info_competition_recruit)
+    end
   end
 
   def edit
