@@ -1,0 +1,21 @@
+<div class="center_left_nav col-md-2">
+  <ul>
+    <li class="<%= "active" if params[:controller] == 'center' && params[:action] == 'info_competition'%>">
+      <%=link_to info_competition_center_index_path do %>
+        <strong class="left_nav_left_line">|</strong>教学信息化教学大赛
+      <% end %>
+    </li>
+    <hr class="left_nav_line">
+    <li class="<%= "active" if params[:controller] == 'center' && params[:action] == 'talk_competition'%>">
+      <%=link_to talk_competition_center_index_path do %>
+        <strong class="left_nav_left_line">|</strong>信息化说课大赛
+      <% end %>
+    </li>
+    <hr class="left_nav_line">
+    <li class="<%= "active" if params[:controller] == 'center' && params[:action] == 'personal_info'%>">
+      <%=link_to personal_info_center_index_path do %>
+        <strong class="left_nav_left_line">|</strong>我的资料
+      <% end %>
+    </li>
+  </ul>
+</div>

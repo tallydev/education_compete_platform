@@ -2,6 +2,7 @@
 #
 # Table name: activities
 #
+<<<<<<< HEAD
 #  id          :integer          not null, primary key
 #  name        :string           not null
 #  start_time  :datetime
@@ -16,6 +17,17 @@
 # Indexes
 #
 #  index_activities_on_bulletin_id  (bulletin_id)
+=======
+#  id         :integer          not null, primary key
+#  name       :string           not null
+#  start_time :datetime
+#  end_time   :datetime
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  status     :integer          default(0)
+#  type       :string
+#  short_name :string
+>>>>>>> add personal center
 #
 
 class TalkCompetition::Activity < Activity

@@ -1,0 +1,25 @@
+<% unless current_player.present? %>
+  <div class="panel panel-default tab_cotent">
+    <div class="panel-heading tab_head">
+      <%= image_tag("TabTitleBg.png", class: "bg_image")%>
+      <div class="tab_title_text">个人中心</div>
+    </div>
+    <div class="panel-body row">
+      
+        <div class="col-md-4 center_info">
+          <span class="color_label">姓名: </span><span>李月</span><br><br><br>
+          <span class="color_label">用户名: </span><span>李月</span><br><br><br>
+          <span class="color_label">学校: </span><span>七宝中学</span><br><br>
+        </div>
+        <div class="col-md-4 center_info">
+          <p><%= image_tag "message_icon.png" %><span>  报名通知</span></p>
+          <p><span class="color_label">[通知] </span><span class="thin_text"> 信息杯比赛开始报名</span></p>
+          <br><br><br><br><br>
+        </div>
+        <div class="col-md-4">
+          <%= image_tag "user_icon.png" %><span>  当前我参与的</span>
+        </div>
+      
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<div class="container">
+  <ol class="breadcrumb">
+    <span>您的位置</span>
+    <li><%= link_to "首页", root_path %></li>
+    <li class="active">个人中心</li>
+  </ol>
+  <%=  render partial: "player_info_tab"%>
+  <div class="panel panel-default tab_cotent">
+    <div class="center_cotent row">
+      <%=  render partial: "center_left_nav"%>
+      <%=  render partial: "center_right_content"%>
+    </div>
+  </div>
+</div>

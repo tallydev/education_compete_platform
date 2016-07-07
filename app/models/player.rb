@@ -52,6 +52,10 @@ class Player < ActiveRecord::Base
     false
   end
 
+  def phone_required?
+    true
+  end
+
   def email_changed?
     false
   end
