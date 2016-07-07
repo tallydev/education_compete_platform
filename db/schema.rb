@@ -183,6 +183,15 @@ ActiveRecord::Schema.define(version: 20160707080948) do
   add_index "players", ["reset_password_token"], name: "index_players_on_reset_password_token", unique: true
   add_index "players", ["school_id"], name: "index_players_on_school_id"
 
+  create_table "recruits", force: :cascade do |t|
+    t.integer  "activities_id"
+    t.integer  "player_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "recruits", ["activities_id"], name: "index_recruits_on_activities_id"
+  add_index "recruits", ["player_id"], name: "index_recruits_on_player_id"
 
   create_table "recruits", force: :cascade do |t|
     t.integer  "activities_id"
