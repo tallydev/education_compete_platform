@@ -30,7 +30,7 @@
 			<div class="col-md-6 text-center">
 				<div class="compete-info">
 					<span class="title">
-						<%= link_to "距#{activity.short_name}报名截止", notification_path(activity.id) %>
+						<%= link_to "距#{activity.short_name}报名截止", notification_path(activity.id), "data-turbolinks" => false %>
 					</span>
 					<span class="apply">
 						<%= link_to "马上报名", [:new, activity, :recruit] %>
@@ -60,7 +60,7 @@
 						<p class="content-abstract">
 							<%= notification.content.truncate(200) %>
 						</p>
-						<%= link_to "阅读更多》", notification_path(notification.id), class: "content-more" %>
+						<%= link_to "阅读更多》", notification_path(notification.id), class: "content-more", "data-turbolinks" => false %>
 					</div>
 				<% end %>
 			</div>
