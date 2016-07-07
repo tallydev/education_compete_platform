@@ -49,6 +49,20 @@
 	</div>
 
 	<div class="form-row">
+		<div class="form-left">教学工作年月</div>
+		<div class="form-right">
+			<div class="row">
+				<div class="col-md-6">
+					<%= f.input :work_time, label: false, required: true %>
+				</div>
+				<div class="col-md-6">
+					<%= f.input :name, label: "参赛课程", required: true %>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-row">
 		<div class="form-left">学历</div>
 		<div class="form-right">
 			<div class="row">
@@ -67,12 +81,12 @@
 	</div>
 
 	<div class="form-row">
-		<div class="form-left">邮编</div>
+		<div class="form-left">电子邮箱</div>
 		<div class="form-right">
 			<div class="row">
 				<div class="col-md-6">
 					<%= f.simple_fields_for("player_info") do |r| %>
-						<%= r.input "code", label: false, required: true %>	
+						<%= r.input "email", label: false, required: true %>
 					<% end %>
 				</div>
 				<div class="col-md-6">
@@ -103,17 +117,12 @@
 	</div>
 
 	<div class="form-row">
-		<div class="form-left">电子邮箱</div>
+		<div class="form-left">主讲课程情况</div>
 		<div class="form-right">
-			<div class="row">
-				<div class="col-md-6">
-					<%= f.simple_fields_for("player_info") do |r| %>
-						<%= r.input "email", label: false, required: true %>
-					<% end %>
-				</div>
-			</div>
+			<%= f.input :comment, as: :text, label: false, wrapper: :vertical_form, input_html: {rows: 8}, required: true %>
 		</div>
 	</div>
+
   
   <div class="text-center form-bottom">
   	<%= f.button :submit, "提交报名", class: "apply-btn" %>

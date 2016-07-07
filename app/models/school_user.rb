@@ -36,5 +36,5 @@ class SchoolUser < User
     school = conditions.delete(:school)
     #where(conditions).where(["phone = :value OR name = :value", { :value => login.strip }]).first
     where(conditions).where(["phone = :value or email = :value", { :value => school.strip }]).first
-  end
+    end
 end

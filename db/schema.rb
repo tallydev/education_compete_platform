@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160707080948) do
+ActiveRecord::Schema.define(version: 20160707182423) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",                   null: false
@@ -195,6 +195,9 @@ ActiveRecord::Schema.define(version: 20160707080948) do
     t.datetime "updated_at",    null: false
     t.string   "school_person"
     t.string   "school_phone"
+    t.string   "name"
+    t.text     "comment"
+    t.string   "work_time"
   end
 
   add_index "talk_competition_recruits", ["activity_id"], name: "index_talk_competition_recruits_on_activity_id"

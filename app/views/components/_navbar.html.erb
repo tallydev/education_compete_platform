@@ -26,9 +26,17 @@
         <li>
           <a href="#">作品展示</a>
         </li> -->
-        <li>
-          <a class="<%#= "brand-active" if controller_action_to? params, "center", "index" %>" href="<%#= center_info_competition_path(id:[1]) %>">&nbsp;&nbsp;&nbsp; 个人中心 &nbsp;&nbsp;&nbsp;</a>
-        </li>
+
+        <% if current_player.present? %>
+          <li>
+            <a class="<%= "brand-active" if controller_action_to? params, "centers", "show" %>" href="<%= center_path %>">&nbsp;&nbsp;&nbsp; 个人中心 &nbsp;&nbsp;&nbsp;</a>
+          </li>
+        <% elsif current_user.present? %>
+          <li>
+            <a class="<%= "brand-active" if controller_action_to? params, "center", "index" %>" href="<%= school_center_path %>">&nbsp;&nbsp;&nbsp; 个人中心 &nbsp;&nbsp;&nbsp;</a>
+          </li>
+        <% else %>
+        <% end %>
       </ul>
 
       <% if current_player %>

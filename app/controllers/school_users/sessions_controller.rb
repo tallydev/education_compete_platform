@@ -7,9 +7,10 @@ before_action :configure_sign_in_params, only: [:create]
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    p "==========#{params}==========="
+    super
+  end
 
   # DELETE /resource/sign_out
   # def destroy
@@ -20,7 +21,6 @@ before_action :configure_sign_in_params, only: [:create]
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_in_params
-    devise_parameter_sanitizer.permit(:sign_in, keys: [:school])
-    # devise_parameter_sanitizer.for(:sign_in) << :school_id
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:phone, :password, :password_confirmation, :name) }
   end
 end

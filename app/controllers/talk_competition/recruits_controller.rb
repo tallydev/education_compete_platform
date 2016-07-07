@@ -59,7 +59,7 @@ class TalkCompetition::RecruitsController < ApplicationController
 
     def recruit_params
       params.require(:talk_competition_recruit)
-          .permit(:school_phone, :school_person, :school_id)
+          .permit(:school_phone, :school_person, :school_id, :name, :comment, :work_time)
     end
 
     def player_params
