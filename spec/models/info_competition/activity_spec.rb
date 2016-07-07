@@ -23,6 +23,7 @@ RSpec.describe InfoCompetition::Activity, type: :model do
     let(:school1) { create(:school) }
     let(:activity) { create(:info_competition_activity) }
     let(:player) { create(:player, school: school) }
+    let(:player1) { create(:player1, school: school) }
     
     it 'should set player correctly' do
       recruit = activity.recruits.build(player: player)
@@ -71,6 +72,14 @@ RSpec.describe InfoCompetition::Activity, type: :model do
       recruit.save
       activity.reload
       expect(activity.school_recruits(school1).last).to be_nil
+    end
+
+    it 'should include player when have recruit the activity' do
+      recruit = activity.recruits.build(player: player)
+      recruit.save
+      activity.reload
+      expect(activity.recruit? player).to be true
+      expect(activity.recruit? player1).to be false
     end
 
   end

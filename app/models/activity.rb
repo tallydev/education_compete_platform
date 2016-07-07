@@ -24,4 +24,8 @@ class Activity < ActiveRecord::Base
   def school_recruits school
     recruits.school_filter school
   end
+
+  def recruit? player
+    players.try(:include?, player)
+  end
 end

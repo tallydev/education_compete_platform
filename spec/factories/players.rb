@@ -27,4 +27,9 @@ FactoryGirl.define do
     phone "123456"
     password "123456"
   end
+
+  factory :player1, class: Player do
+    phone "123457"
+    password "123456"
+  end
 end
