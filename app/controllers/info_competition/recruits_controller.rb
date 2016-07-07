@@ -1,11 +1,13 @@
 class InfoCompetition::RecruitsController < ApplicationController
   before_action :authenticate_player!, only: [:new, :create]
+  before_action :authenticate_school_user!, only: [:index]
   before_action :set_info_competition_recruit, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
 
   def index
-    @info_competition_recruits = InfoCompetition::Recruit.all
+    @activity = InfoCompetition::Activity.find params[:activity_id]
+    @info_competition_recruits = @activity.school_recruits current_school_user.school
     respond_with(@info_competition_recruits)
   end
 

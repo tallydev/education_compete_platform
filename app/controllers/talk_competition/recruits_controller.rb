@@ -1,11 +1,13 @@
 class TalkCompetition::RecruitsController < ApplicationController
   before_action :authenticate_player!, only: [:new, :create]
+  before_action :authenticate_school_user!, only: [:index]
   before_action :set_talk_competition_recruit, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
 
   def index
-    @talk_competition_recruits = TalkCompetition::Recruit.all
+    @activity = TalkCompetition::Activity.find params[:activity_id]
+    @talk_competition_recruits = @activity.school_recruits current_school_user.school
     respond_with(@talk_competition_recruits)
   end
 

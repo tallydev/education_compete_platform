@@ -6,7 +6,9 @@
       <ul>
         <!-- <li>批量选择 ｜</li> -->
         <!-- <li>打印单项报名表 ｜</li> -->
-        <li><a href="">打印汇总</a></li>
+        <li>
+          <%= link_to "打印汇总", [@activity, :recruits]  %>
+        </li>
         <!-- <li>导出</li> -->
       </ul>
     </div>
@@ -39,7 +41,9 @@
           <td><%= recruit.try(:player).try(:info).try(:name) %></td>
           <td><%= recruit.name %></td>
           <td><%= recruit.try(:player).try(:phone) %></td>
-          <td><button class="btn btn-info btn-sm">打印</button></td>
+          <td>
+            <%= link_to "打印", recruit, class:"btn btn-info btn-sm" %>
+          </td>
         </tr>
       <% end %>
       </tbody>
