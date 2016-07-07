@@ -57,6 +57,7 @@
 			label {
 				padding-left: 0;
 				color: #000;
+				padding-left: 18px;
 			}
 		}
 
@@ -64,6 +65,7 @@
 			margin-top: 80px;
 			.checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
 				margin-top: 8px;
+				margin-left: 0 !important;
 			}
 		}
 
