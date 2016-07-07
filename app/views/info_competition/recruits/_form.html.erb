@@ -37,7 +37,7 @@
 #  last_sign_in_ip        :string
 #  school_id              :integer -->
 
-<%= simple_form_for(@info_competition_recruit, wrapper: :apply_horizontal_form) do |f| %>
+<%= simple_form_for([@info_competition_activity, @info_competition_recruit], url:info_competition_activity_recruits_path , wrapper: :apply_horizontal_form) do |f| %>
   <%= f.error_notification %>
 
 	<div class="form-row">
@@ -45,15 +45,13 @@
 		<div class="form-right">
 			<div class="row">
 				<div class="col-md-4">
-					<%= f.simple_fields_for("recruit") do |r| %>
-						<%= f.association :school, label: false %>
-					<% end %>
+					<%= f.association :school, label: false %>
 				</div>
 				<div class="col-md-4">
-					<%= f.input :name, label: "院校联系人" %>
+					<%= f.input :school_person, label: "院校联系人" %>
 				</div>
 				<div class="col-md-4">
-					<%= f.input :name, label: "院校联系人手机" %>
+					<%= f.input :school_phone, label: "院校联系人手机" %>
 				</div>
 			</div>
 		</div>
@@ -65,8 +63,16 @@
 		<div class="form-left">姓名</div>
 		<div class="form-right">
 			<div class="row">
-				<div class="col-md-6"><%= f.input :name, label: false %></div>
-				<div class="col-md-6"><%= f.input :name, label: "生日" %></div>
+				<div class="col-md-6">
+					<%= f.simple_fields_for("player_info") do |r| %>
+						<%= r.input "name", label: false %>
+					<% end %>
+				</div>
+				<div class="col-md-6">
+					<%= f.simple_fields_for("player_info") do |r| %>
+						<%= r.input "birth", label: "生日" %>							
+					<% end %>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -76,11 +82,15 @@
 		<div class="form-right">
 			<div class="row">
 				<div class="col-md-6">
-					<%= f.simple_fields_for("recruit") do |r| %>
-						<%= r.input "test", label: false %>	
+					<%= f.simple_fields_for("player_info") do |r| %>
+						<%= r.input "professional_title", label: false %>	
 					<% end %>
 				</div>
-				<div class="col-md-6"><%= f.input :name, label: "电子邮箱" %></div>
+				<div class="col-md-6">
+					<%= f.simple_fields_for("player_info") do |r| %>
+						<%= r.input "email", label: "电子邮箱" %>
+					<% end %>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -89,8 +99,14 @@
 		<div class="form-left">参与项目</div>
 		<div class="form-right">
 			<div class="row">
-				<div class="col-md-6"><%= f.input :project, label: false %></div>
-				<div class="col-md-6"><%= f.input :name, label: "专业名称" %></div>
+				<div class="col-md-6">
+					<%= f.input :project, label: false %>
+				</div>
+				<div class="col-md-6">
+					<%= f.simple_fields_for("player_info") do |r| %>
+						<%= r.input :special, label: "专业名称" %>
+					<% end %>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -99,8 +115,12 @@
 		<div class="form-left">课程名称</div>
 		<div class="form-right">
 			<div class="row">
-				<div class="col-md-6"><%= f.input :name, label: false %></div>
-				<div class="col-md-6"><%= f.input :version, label: "教材版本" %></div>
+				<div class="col-md-6">
+					<%= f.input :name, label: false %>		
+				</div>
+				<div class="col-md-6">
+					<%= f.input :version, label: "教材版本" %>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -42,6 +42,10 @@ class Player < ActiveRecord::Base
   has_many :talk_competition_activities, class_name: "TalkCompetition::Activity",
       through: :talk_competition_recruits, source: :activity
 
+  def info
+    self.player_info || self.create_player_info
+  end
+
   protected
   def email_required?
     false

@@ -31,10 +31,10 @@ class PlayerInfo < ActiveRecord::Base
 
   enum sex: [:male, :female]
 
-  after_create :set_school
+  after_save :set_school
 
   private
     def set_school
-      self.player.update_attrubites(school: self.school)
+      self.player.update(school: self.school) if self.school.present?
     end
 end
