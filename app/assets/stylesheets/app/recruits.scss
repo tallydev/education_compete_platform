@@ -1,3 +1,42 @@
+.info_competition__recruits__show {
+	.word-one {
+		background-color: #fff;
+		padding: 40px 30px;
+		margin-bottom: 30px;
+		.base-info {
+			margin: 30px 0 10px;
+			text-align: center;
+		}
+		.print-table {
+			td {
+				vertical-align: middle;
+				text-align: center;
+			}
+			* {
+				border-color: #000;
+			}
+			.left-td {
+				width: 120px;
+				padding: 15px;
+				text-align: center;
+			}
+			.photo {
+				width: 140px;
+			}
+			.td-width {
+				width: 80px;
+			}
+			.text-td {
+				height: 250px;
+			}
+			.stamp {
+				float: right;
+				width: 250px;
+			}
+		}
+	}
+}
+
 .info_competition__recruits__new {
 	.title {
 		color: #4A4A4A;
