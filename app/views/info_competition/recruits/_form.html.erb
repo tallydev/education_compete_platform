@@ -37,21 +37,21 @@
 #  last_sign_in_ip        :string
 #  school_id              :integer -->
 
-<!-- #  id                 :integer          not null, primary key
+<!-- Player info #  id                 :integer          not null, primary key
 #  name               :string
-#  card_number        :string 身份证号码
-#  address            :string 地址
-#  code               :string 邮编
-#  sex                :integer 性别
-#  nation             :string
-#  player_id          :integer
+#  card_number        :string 			身份证号码
+#  address            :string 			地址
+#  code               :string 			邮编
+#  sex                :integer  		性别
+#  nation             :string				民族
+#  player_id          :integer			
 #  school_id          :integer
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
-#  birth              :date
-#  professional_title :string
-#  degree             :string
-#  special            :string
+#  birth              :date					生日
+#  professional_title :string				职称
+#  degree             :string				学历
+#  special            :string				专业
 #  email              :string -->
 
 <%= simple_form_for([@info_competition_activity, @info_competition_recruit], url:info_competition_activity_recruits_path , wrapper: :apply_horizontal_form) do |f| %>
@@ -97,7 +97,59 @@
 				</div>
 				<div class="col-md-6">
 					<%= f.simple_fields_for("player_info") do |r| %>
-						<%= r.input "birth", label: "生日", as: :date, html5: true, wrapper: :apply_horizontal_form, required: true %>							
+						<%= r.input "birth", label: "生日", as: :date, html5: true, wrapper: :apply_horizontal_form, required: true %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-row">
+		<div class="form-left">学历</div>
+		<div class="form-right">
+			<div class="row">
+				<div class="col-md-6">
+					<%= f.simple_fields_for("player_info") do |r| %>
+						<%= r.input "degree", label: false, required: true %>	
+					<% end %>
+				</div>
+				<div class="col-md-6">
+					<%= f.simple_fields_for("player_info") do |r| %>
+						<%= r.input "nation", label: "民族", required: true %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-row">
+		<div class="form-left">邮编</div>
+		<div class="form-right">
+			<div class="row">
+				<div class="col-md-6">
+					<%= f.simple_fields_for("player_info") do |r| %>
+						<%= r.input "code", label: false, required: true %>	
+					<% end %>
+				</div>
+				<div class="col-md-6">
+					<%= f.simple_fields_for("player_info") do |r| %>
+						<%= r.input "card_number", label: "身份证号码", required: true %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-row">
+		<div class="form-left">参与项目</div>
+		<div class="form-right">
+			<div class="row">
+				<div class="col-md-6">
+					<%= f.input :project, label: false, required: true %>
+				</div>
+				<div class="col-md-6">
+					<%= f.simple_fields_for("player_info") do |r| %>
+						<%= r.input "email", label: "电子邮箱", required: true %>
 					<% end %>
 				</div>
 			</div>
@@ -112,22 +164,6 @@
 					<%= f.simple_fields_for("player_info") do |r| %>
 						<%= r.input "professional_title", label: false, required: true %>	
 					<% end %>
-				</div>
-				<div class="col-md-6">
-					<%= f.simple_fields_for("player_info") do |r| %>
-						<%= r.input "email", label: "电子邮箱", required: true %>
-					<% end %>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="form-row">
-		<div class="form-left">参与项目</div>
-		<div class="form-right">
-			<div class="row">
-				<div class="col-md-6">
-					<%= f.input :project, label: false, required: true %>
 				</div>
 				<div class="col-md-6">
 					<%= f.simple_fields_for("player_info") do |r| %>
