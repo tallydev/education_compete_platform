@@ -40,7 +40,7 @@ class PlayerInfo < ActiveRecord::Base
   end
 
   def sex_name
-    self.sex == :male ? "男" : "女"
+    self.sex == "male" ? "男" : "女"
   end
 
   private
