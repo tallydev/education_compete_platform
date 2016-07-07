@@ -1,0 +1,2 @@
+module Center::InfoCompetitionsHelper
+end

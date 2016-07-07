@@ -16,12 +16,18 @@ Rails.application.routes.draw do
   # 主页面
   resource :home, only: [:index]
 
-  resources :center do 
-    collection do
-      get :info_competition
-      get :talk_competition
-      get :personal_info
-    end
+  # resources :center do 
+  #   collection do
+  #     get :info_competition
+  #     get :talk_competition
+  #     get :personal_info
+  #   end
+  # end
+
+  namespace :center do
+    resources :info_competitions
+    resources :talk_competitions
+    resource :player_info
   end
 
   # 赛事公告

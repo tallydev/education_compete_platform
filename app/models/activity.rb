@@ -21,14 +21,17 @@ class Activity < ActiveRecord::Base
     end_time.day - Time.zone.now.day
   end
 
+  # 学校本次比赛的报名列表
   def school_recruits school
     recruits.school_filter school
   end
 
+  # 用户是否报名过这个比赛
   def recruit? player
     players.try(:include?, player)
   end
 
+  # 用户本次比赛的报名信息
   def player_recruit player
     recruits.player_filter(player).try(:first)
   end

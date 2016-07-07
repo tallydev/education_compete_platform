@@ -1,0 +1,2 @@
+module Center::TalkCompetitionsHelper
+end

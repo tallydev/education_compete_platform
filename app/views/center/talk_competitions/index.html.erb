@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Center Talk Competitions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @center_talk_competitions.each do |center_talk_competition| %>
+      <tr>
+        <td><%= link_to 'Show', center_talk_competition %></td>
+        <td><%= link_to 'Edit', edit_center_talk_competition_path(center_talk_competition) %></td>
+        <td><%= link_to 'Destroy', center_talk_competition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Talk competition', new_center_talk_competition_path %>

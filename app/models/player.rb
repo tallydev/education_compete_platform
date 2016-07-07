@@ -47,6 +47,20 @@ class Player < ActiveRecord::Base
     self.player_info || self.create_player_info
   end
 
+  def recruits
+    recruits = []
+    recruits << self.info_competition_recruits
+    recruits << self.talk_competition_recruits
+    recruits
+  end
+
+  def activities
+    activities = []
+    activities << self.info_competition_activities
+    activities << self.talk_competition_activities
+    activities
+  end
+
   protected
   def email_required?
     false

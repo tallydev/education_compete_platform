@@ -27,5 +27,5 @@
 #
 
 class SchoolUser < User
-
+  
 end
