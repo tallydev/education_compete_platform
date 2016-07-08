@@ -1,3 +1,16 @@
+.info_competition_recruit_school {
+	.select2-container--default .select2-selection--single {
+		border-color: #ccc;
+		height: 34px;
+		.select2-selection__rendered {
+			color: gray;
+			line-height: 30px;
+		}
+		.select2-selection__arrow {
+			top: 4px;
+		}
+	}
+}
 .info_competition__recruits__show, .info_competition__recruits__index,
 .talk_competition__recruits__show, .talk_competition__recruits__index {
 	.top {

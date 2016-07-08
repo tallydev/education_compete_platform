@@ -6,7 +6,7 @@
 		<div class="form-right">
 			<div class="row">
 				<div class="col-md-3">
-					<%= f.association :school, label: false, required: true, wrapper: :vertical_form, selected: @first_recruit.try(:school).try(:id), prompt: "选择院校" %>
+					<%= f.association :school, label: false, required: true, wrapper: :vertical_form, selected: @first_recruit.try(:school).try(:id), prompt: "" %>
 				</div>
 				<div class="col-md-5">
 					<%= f.input :school_person, label: "院校联系人", required: true, wrapper: :apply_form, input_html: {value: @first_recruit.try(:school_person)} %>
