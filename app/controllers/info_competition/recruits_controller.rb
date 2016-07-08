@@ -37,7 +37,6 @@ class InfoCompetition::RecruitsController < ApplicationController
     @info_competition_activity = InfoCompetition::Activity.find(params[:activity_id])
     @info_competition_recruit = @info_competition_activity.recruits.build(recruit_params)
     @info_competition_recruit.player = current_player
-    puts "school_id is:#{recruit_params[:school_id]}"
     @info_competition_recruit.save
 
     @player_info = current_player.info
@@ -45,10 +44,6 @@ class InfoCompetition::RecruitsController < ApplicationController
     @player_info.update(player_params)
     @player_info.save
 
-    p recruit_params
-    p "-------------"
-    p player_params
-    
     respond_with(@info_competition_recruit)
   end
 
@@ -59,7 +54,8 @@ class InfoCompetition::RecruitsController < ApplicationController
 
   def destroy
     @info_competition_recruit.destroy
-    respond_with(@info_competition_recruit)
+    # respond_with(@info_competition_recruit)
+    redirect_to :back
   end
 
   private

@@ -7,9 +7,7 @@ class InfoCompetitionsController < ApplicationController
 
   # 给学校管理员查看所有本学校报名的列表
   def index
-    puts "current_school_user is:#{current_school_user.school.inspect}"
     @recruits = @activity.school_recruits current_school_user.try(:school)
-    puts "@recruits is:#{@recruits.inspect}"
     respond_with(@recruits)
   end
 

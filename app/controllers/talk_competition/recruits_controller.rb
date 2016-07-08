@@ -54,7 +54,8 @@ class TalkCompetition::RecruitsController < ApplicationController
 
   def destroy
     @talk_competition_recruit.destroy
-    respond_with(@talk_competition_recruit)
+    # respond_with(@talk_competition_recruit)
+    redirect_to :back
   end
 
   private
