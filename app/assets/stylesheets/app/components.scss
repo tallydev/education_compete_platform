@@ -17,10 +17,10 @@
 	}
 	.brand-active {
 		background-color: #F8BD23;
-		color: #fff;
+		color: #fff !important;
 		&:hover {
-			background-color: #F8BD23;
-			color: #fff;
+			background-color: #F8BD23 !important;
+			color: #fff !important;
 		}
 	}
 	.nav-sign {
