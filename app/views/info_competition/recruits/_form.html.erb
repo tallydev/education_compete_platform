@@ -41,7 +41,7 @@
 				</div>
 				<div class="col-md-6">
 					<%= f.simple_fields_for("player_info") do |r| %>
-						<%= r.input "birth", label: "出生日期", wrapper: :apply_horizontal_form, required: true, input_html: { value: @player.try(:birth)}, placeholder: "1990-10-10" %>
+						<%= r.input "birth", label: "出生日期", wrapper: :datetimepicker, required: true, input_html: { value: @player.try(:birth)} %>
 					<% end %>
 				</div>
 			</div>
@@ -168,7 +168,7 @@
 	</div>
   
   <div class="text-center form-bottom">
-<!-- 	  <div class="form-group choice">
+<!-- <div class="form-group choice">
 	  	<div class="checkbox">
 	  		<%= check_box_tag 'accept' %>
 	  		<label class="boolean optional" for="accept">是否保证您所报送的作品无任何版权异议或纠纷</label>
@@ -178,28 +178,19 @@
   </div>
 <% end %>
 
-<script type="text/javascript">
-	// $(function() {
-	// 	$.fn.datetimepicker.dates['zh'] = {
-	//     days: ["周日", "周一", "周二", "周三", "周四", "周五", "周六", "周日"],
-	//     daysShort: ["日", "一", "二", "三", "四", "五", "六", "日"],
-	//     daysMin: ["日", "一", "二", "三", "四", "五", "六", "日"],
-	//     months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
-	//     monthsShort: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
-	//     today: "今天"
-	// 	};
-		
-	// 	$('#info_competition_recruit_player_info_birth').datetimepicker({
-	// 		language: 'zh',
-	// 		format: 'yyyy-mm-dd',
-	//     todayBtn:  1,
-	// 		autoclose: true,
-	// 		todayHighlight: 1,
-	// 		startView: 4,
-	// 		minView: 2,
-	// 	});
-	// })
-	$(document).ready(function() {
-    $("#info_competition_recruit_school_id").select2();
-  });
-</script>
+<% content_for :scripts do %>
+	<script>
+		$('.datetimepicker').datetimepicker({
+			language: 'zh-CN',
+			format: 'yyyy-mm-dd',
+	    todayBtn:  1,
+			autoclose: true,
+			todayHighlight: 1,
+			startView: 4,
+			minView: 2,
+		});
+		$(document).ready(function() {
+	    $("#info_competition_recruit_school_id").select2();
+	  });
+	</script>
+<% end %>
