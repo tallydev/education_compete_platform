@@ -11,6 +11,12 @@ class TalkCompetition::RecruitsController < ApplicationController
     respond_with(@talk_competition_recruits)
   end
 
+  def all
+    @activity = TalkCompetition::Activity.find params[:activity_id]
+    @talk_competition_recruits = @activity.recruits
+    respond_with(@talk_competition_recruits, template: "talk_competition/recruits/index")
+  end
+
   def show
     @player_info = @talk_competition_recruit.player.info
     respond_with(@talk_competition_recruit)

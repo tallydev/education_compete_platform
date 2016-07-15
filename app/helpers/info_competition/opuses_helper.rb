@@ -1,0 +1,2 @@
+module InfoCompetition::OpusesHelper
+end

@@ -51,7 +51,11 @@ Rails.application.routes.draw do
   # 信息大赛相关路由
   namespace :info_competition do
     resources :activities do
-      resources :recruits
+      resources :recruits do
+        collection do
+          get :all
+        end
+      end
     end
     resources :recruits
   end
@@ -59,7 +63,11 @@ Rails.application.routes.draw do
   # 说课大赛相关路由
   namespace :talk_competition do
     resources :activities do
-      resources :recruits
+      resources :recruits do
+        collection do
+          get :all
+        end
+      end
     end
     resources :recruits
   end
