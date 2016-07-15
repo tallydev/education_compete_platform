@@ -15,7 +15,6 @@
 
 class Activity < ActiveRecord::Base
   has_many :news, dependent: :destroy
-  has_many :recruits
   
   enum status: [:activate, :stop]
 
