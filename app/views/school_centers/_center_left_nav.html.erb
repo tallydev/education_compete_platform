@@ -3,7 +3,7 @@
   <% @activities.each do |activity| %>
     <li class="<%= "active" if params[:controller] == 'center' && params[:action] == 'info_competition'%>">
       <%=link_to "/center/activities/#{activity.id}/#{activity.route_type}" do %>
-        <strong class="left_nav_left_line">|</strong><%= activity.short_name %>
+        <p class="text-center"><strong class="left_nav_left_line">|</strong><span class="color_label_info"><%= activity.short_name %></span></p>
       <% end %>
     </li>
     <hr class="left_nav_line">

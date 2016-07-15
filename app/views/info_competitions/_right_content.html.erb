@@ -10,14 +10,43 @@
   </div>
   <div class="col-md-6 center_tip">
     <br>
-    <p><span class="color_label">比赛名称: </span><span><%= @activity.short_name %></span></p>
-    <p><span class="color_label">报名截止时间: </span><span><%= @activity.end_time.strftime("%Y年%m月%d日") %></span></p>
+    <p><span class="color_label">比赛名称: </span><span class="color_label_info"><%= @activity.short_name %></span></p>
+    <p><span class="color_label">报名截止时间: </span><span class="color_label_info"><%= @activity.end_time.strftime("%Y年%m月%d日") %></span></p>
     <p>
-      <span class="color_label">已报名人数: </span><span><%= @activity.recruits.count %>人</span>
+      <span class="color_label">已报名人数: </span><span class="color_label_info"><%= @activity.recruits.count %>人</span>
       <%= link_to [:new, @activity, :recruit] do %>
         <button class="btn btn-info btn-join">查看报名表</button>
       <% end %>
     </p>
-    <p><span class="color_label">主办单位: </span><span>上海市信息化教学委员会</span></p><br>
+    <p><span class="color_label">主办单位: </span><span class="color_label_info">上海市信息化教学委员会</span></p><br>
   </div>
+
+  <div class="col-md-6 col-md-offset-1 center_tip1">
+    <br>
+    <p><span class="color_label">作品名称: </span><span class="color_label_info">上海威客大赛</span></p>
+    <p class="file_p"><%= image_tag "check_sure.svg" %><span>参赛视频</span>&nbsp&nbsp&nbsp&nbsp<span class="color_label_info">已上传</span></p>
+    <p class="file_p"><%= image_tag "check_sure.svg" %><span>参赛课件</span>&nbsp&nbsp&nbsp&nbsp<span class="color_label_info">已上传</span></p>
+    <p class="file_p"><%= image_tag "check_sure.svg" %><span>说课稿</span>&nbsp&nbsp&nbsp&nbsp<span class="color_label_info">已上传</span></p>
+    <p class="file_p"><%= image_tag "check.svg" %><span>PPT文件</span>&nbsp&nbsp&nbsp&nbsp<span class="color_label_info">未上传</span></p>
+    <p class="text-center">
+      <%= link_to [:new, @activity, :recruit] do %>
+        <button class="btn btn-info btn-join">查看详情</button>
+      <% end %>
+    </p><br>
+  </div>
+
+  <!-- <div class="col-md-6 col-md-offset-1 center_tip1">
+    <br>
+    <p><span class="color_label">比赛名称: </span><span class="color_label_info"><%= @activity.short_name %></span></p>
+    <br>
+    <p class="text-center">
+      <span class="color_label">您还未上传作品</span> 
+    </p>
+    <p class="text-center">
+      <%#= link_to [:new, @activity, :recruit] do %>
+        <button class="btn btn-info btn-join">上传作品</button>
+      <%#= end %>
+    </p><br>
+  </div> -->
+
 </div>
