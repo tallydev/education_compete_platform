@@ -3,12 +3,12 @@
 # Table name: images
 #
 #  id                :integer          not null, primary key
-#  type              :string
-#  photo_type        :string
+#  type              :string(255)
+#  photo_type        :string(255)
 #  imageable_id      :integer
-#  imageable_type    :string
-#  file_file_name    :string
-#  file_content_type :string
+#  imageable_type    :string(255)
+#  file_file_name    :string(255)
+#  file_content_type :string(255)
 #  file_file_size    :integer
 #  file_updated_at   :datetime
 #  created_at        :datetime         not null

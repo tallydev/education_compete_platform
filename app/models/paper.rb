@@ -3,12 +3,12 @@
 # Table name: papers
 #
 #  id                :integer          not null, primary key
-#  type              :string
-#  paper_type        :string
+#  type              :string(255)
+#  paper_type        :string(255)
 #  paperable_id      :integer
-#  paperable_type    :string
-#  file_file_name    :string
-#  file_content_type :string
+#  paperable_type    :string(255)
+#  file_file_name    :string(255)
+#  file_content_type :string(255)
 #  file_file_size    :integer
 #  file_updated_at   :datetime
 #  created_at        :datetime         not null
@@ -40,8 +40,10 @@ class Paper < ActiveRecord::Base
   end
 
   def translate_file
-    unless self.file_content_type.eql?('application/pdf')  
-      SharpOffice.process(self.file.path)
+    unless self.file_content_type.eql?('application/pdf')
+      p file.path
+      opts = {}
+      Docsplit.extract_pdf(self.file.path, opts)
     end
   end
 
