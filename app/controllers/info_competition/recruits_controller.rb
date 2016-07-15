@@ -11,6 +11,12 @@ class InfoCompetition::RecruitsController < ApplicationController
     respond_with(@info_competition_recruits)
   end
 
+  def all
+    @activity = InfoCompetition::Activity.find params[:activity_id]
+    @info_competition_recruits = @activity.recruits
+    respond_with(@info_competition_recruits, template: "info_competition/recruits/index")
+  end
+
   def show
     @player_info = @info_competition_recruit.player.info
     respond_with(@info_competition_recruit)
