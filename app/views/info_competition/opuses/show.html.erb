@@ -1,4 +1,77 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <ol class="breadcrumb">
+    <li><%= link_to "首页", root_path %></li>
+    <li>个人中心</li>
+  </ol>
 
-<%= link_to 'Edit', edit_info_competition_opus_path(@info_competition_opus) %> |
-<%= link_to 'Back', info_competition_opuses_path %>
+  <div class="global-tab info-competition-opus">
+    <div class="global-tab-head">
+      <div class="title">作品详情</div>
+      <div class="more"></div>
+    </div>
+    <div class="global-tab-content">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="opus-image">
+            
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="opus-info">
+            <div class="title">内错角和同旁内角</div>
+            <div class="author-info">学校：上海市七宝中学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;作者：李明</div>
+            <div class="opus-content"><span class="content-text">参赛内容：</span>内错角和同旁内角</div>
+            <div class="opus-content"><span class="content-text">参赛内容：</span>内错角和同旁内角</div>
+            <div class="opus-content"><span class="content-text">参赛内容：</span>初一数学沪教版</div>
+            <div class="opus-content"><span class="content-text">参赛内容：</span>上海市职业院校信息化教学大赛</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="item-bg">
+        <div class="item-title">创作说明</div>
+      </div>
+      <div class="row opus-data">
+        两条直线相交我们认识了对顶角和邻补角，那么三条直线相交又会有什么新的东   西么？没错，就是同位角、内错角和同旁内角。来一起认识一下他们仨吧！
+      </div>
+
+      <div class="item-bg">
+        <div class="item-title">作品介绍</div>
+      </div>
+      <div class="row opus-data">
+        两条直线相交我们认识了对顶角和邻补角，那么三条直线相交又会有什么新的东   西么？没错，就是同位角、内错角和同旁内角。来一起认识一下他们仨吧！
+      </div>
+
+      <div class="item-bg">
+        <div class="item-title">教案</div>
+      </div>
+      <div class="row opus-data">
+        <div class="float-cell"><%= image_tag "pdf.png", class:"pdf-image" %></div>
+        <div class="float-cell">
+          <%= image_tag "open_eye.png" %>
+          <%= link_to "在线预览", "#" %>
+        </div>
+        <div class="float-cell">
+          <%= image_tag "download.png" %>
+          <%= link_to "点击下载", "#" %>
+        </div>
+      </div>
+
+      <div class="item-bg">
+        <div class="item-title">说课稿</div>
+      </div>
+            <div class="row opus-data">
+        <div class="float-cell"><%= image_tag "pdf.png", class:"pdf-image" %></div>
+        <div class="float-cell">
+          <%= image_tag "open_eye.png" %>
+          <%= link_to "在线预览", "#" %>
+        </div>
+        <div class="float-cell">
+          <%= image_tag "download.png" %>
+          <%= link_to "点击下载", "#" %>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+.info-competition-opus{
+		margin-bottom: 70px;
+		font-size: 16px;
+		color: #535353;
+		.opus-image {
+			height: 320px;
+			background: #D8D8D8;
+		}
+		.opus-info {
+			padding-left: 12px;
+			padding-right: 12px;
+			.title {
+				font-size: 18px;
+				margin-bottom: 35px;
+			}
+			.author-info {
+				color: #9B9B9B;
+				font-size: 13px;
+				border-bottom: 1px solid #F1F1F1;
+				margin-bottom: 25px;
+			}
+			.opus-content {
+				margin-bottom: 30px;
+				.content-text {
+					color: #4A90E2;
+					font-size: 18px;
+				}
+			}
+		}
+		.item-bg {
+			margin-top: 15px;
+			margin-left: -18px;
+			margin-right: -18px;
+			background-color: #F8F8F8;
+			.item-title {
+				height: 32px;
+				line-height: 32px;
+				background: image-url("info_bg.png") no-repeat;
+				font-size: 18px;
+				color: #3D96D5;
+				padding-left: 45px;
+			}
+		}
+		.opus-data {
+			padding: 15px 30px 15px;
+			.float-cell {
+				float: left;
+				margin-right: 30px;
+				height: 60px;
+				line-height: 60px;
+				.pdf-image {
+					height: 60px;
+				}
+				a {
+					color: #535353;
+				}
+			}
+		}
+	}
