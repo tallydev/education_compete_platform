@@ -29,15 +29,20 @@
     <div class="form-right">
       <div class="row">
         <div class="col-md-4 push-input">
-          <%= f.simple_fields_for("player_info") do |r| %>
-            <%= r.input "degree", label: false, required: true,  placeholder:"选择视频", input_html: { value: @player.try(:degree)} %> 
-          <% end %>
+          <div class="label1" id="upload-file-info">选择文件</div>
         </div>
         <div class="pull-left layout-type">
           <label>.mp4</label>
         </div>
         <div class="col-md-2">
-          <button class="btn btn-push">上传</button>
+          <label class="btn btn-push">
+            上传
+            <span style="display:none;">
+              <%= f.simple_fields_for("player_info") do |r| %>
+                <%= r.file_field "degree", label: false, required: true, multiple: true, onchange:'$("#upload-file-info").html($(this).val());' %>
+              <% end %>
+            </span>
+          </label>
         </div>
       </div>
     </div>
@@ -71,15 +76,20 @@
     <div class="form-right">
       <div class="row">
         <div class="col-md-4 push-input">
-          <%= f.simple_fields_for("player_info") do |r| %>
-            <%= r.input "degree", label: false, required: true,  placeholder:"选择文件", input_html: { value: @player.try(:degree)} %> 
-          <% end %>
+          <div class="label1" id="upload-file-info2">选择文件</div>
         </div>
         <div class="pull-left layout-type">
           <label class="blank-text">.mp4</label>
         </div>
         <div class="col-md-2">
-          <button class="btn btn-push">上传</button>
+          <label class="btn btn-push">
+            上传
+            <span style="display:none;">
+              <%= f.simple_fields_for("player_info") do |r| %>
+                <%= r.file_field "degree", label: false, required: true, multiple: true, onchange:'$("#upload-file-info2").html($(this).val());' %>
+              <% end %>
+            </span>
+          </label>
         </div>
       </div>
     </div>
@@ -89,15 +99,20 @@
     <div class="form-right">
       <div class="row">
         <div class="col-md-4 push-input">
-          <%= f.simple_fields_for("player_info") do |r| %>
-            <%= r.input "degree", label: false, required: true,  placeholder:"选择文件", input_html: { value: @player.try(:degree)} %> 
-          <% end %>
+          <div class="label1" id="upload-file-info3">选择文件</div>
         </div>
         <div class="pull-left layout-type">
           <label class="blank-text">.mp4</label>
         </div>
         <div class="col-md-2">
-          <button class="btn btn-push">上传</button>
+          <label class="btn btn-push">
+            上传
+            <span style="display:none;">
+              <%= f.simple_fields_for("player_info") do |r| %>
+                <%= r.file_field "degree", label: false, required: true, multiple: true, onchange:'$("#upload-file-info3").html($(this).val());' %>
+              <% end %>
+            </span>
+          </label>
         </div>
       </div>
     </div>
@@ -107,15 +122,20 @@
     <div class="form-right">
       <div class="row">
         <div class="col-md-4 push-input">
-          <%= f.simple_fields_for("player_info") do |r| %>
-            <%= r.input "degree", label: false, required: true,  placeholder:"选择文件", input_html: { value: @player.try(:degree)} %> 
-          <% end %>
+          <div class="label1" id="upload-file-info4">选择文件</div>
         </div>
         <div class="pull-left layout-type">
           <label class="blank-text">.mp4</label>
         </div>
         <div class="col-md-2">
-          <button class="btn btn-push">上传</button>
+          <label class="btn btn-push">
+            上传
+            <span style="display:none;">
+              <%= f.simple_fields_for("player_info") do |r| %>
+                <%= r.file_field "degree", label: false, required: true, multiple: true, onchange:'$("#upload-file-info4").html($(this).val());' %>
+              <% end %>
+            </span>
+          </label>
         </div>
       </div>
     </div>
@@ -124,3 +144,7 @@
     <%= f.button :submit, "提  交", class: "btn_push_sure", data: {disable_with: '提交中...'} %>
   </div>
 <% end %>
+<script type="text/javascript">
+  
+</script>
+

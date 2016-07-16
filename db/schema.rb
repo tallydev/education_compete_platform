@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20160715161858) do
     t.datetime "file_updated_at"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+
   end
 
   add_index "images", ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id"
@@ -182,6 +183,7 @@ ActiveRecord::Schema.define(version: 20160715161858) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.integer  "school_id"
+<<<<<<< HEAD
   end
 
   add_index "players", ["phone"], name: "index_players_on_phone", unique: true
@@ -197,6 +199,13 @@ ActiveRecord::Schema.define(version: 20160715161858) do
 
   add_index "recruits", ["activity_id"], name: "index_recruits_on_activity_id"
   add_index "recruits", ["opu_id"], name: "index_recruits_on_opu_id"
+=======
+  end
+
+  add_index "players", ["phone"], name: "index_players_on_phone", unique: true
+  add_index "players", ["reset_password_token"], name: "index_players_on_reset_password_token", unique: true
+  add_index "players", ["school_id"], name: "index_players_on_school_id"
+>>>>>>> change center & create push foem
 
   create_table "schools", force: :cascade do |t|
     t.string   "name"
