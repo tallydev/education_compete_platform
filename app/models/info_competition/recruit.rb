@@ -23,6 +23,7 @@
 #  course_3      :string
 #  school_person :string
 #  school_phone  :string
+#  content       :text
 #
 # Indexes
 #

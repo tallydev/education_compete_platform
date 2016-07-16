@@ -25,7 +25,7 @@
               学校：<%= @recruit.school.try(:name) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;作者：
               <%= @player_info.name %>
             </div>
-            <div class="opus-content"><span class="content-text">参赛内容：</span>内错角和同旁内角</div>
+            <div class="opus-content"><span class="content-text">参赛内容：</span><%= @recruit.content %></div>
             <div class="opus-content"><span class="content-text">作品名称：</span><%= @recruit.name %></div>
             <div class="opus-content"><span class="content-text">参考教材：</span><%= @recruit.version %></div>
             <div class="opus-content"><span class="content-text">参赛项目：</span><%= @recruit.project %></div>
@@ -47,11 +47,11 @@
         <div class="float-cell"><%= image_tag "pdf.png", class:"pdf-image" %></div>
         <div class="float-cell">
           <%= image_tag "open_eye.png" %>
-          <%= link_to "在线预览", "#" %>
+          <a href="#" data-toggle="modal" data-target="#planModal">在线预览</a>
         </div>
         <div class="float-cell">
           <%= image_tag "download.png" %>
-          <%= link_to "点击下载", "#" %>
+          <%= link_to "点击下载", @info_competition_opus.plan.try(:file).try(:url) %>
         </div>
       </div>
 
@@ -62,11 +62,11 @@
         <div class="float-cell"><%= image_tag "pdf.png", class:"pdf-image" %></div>
         <div class="float-cell">
           <%= image_tag "open_eye.png" %>
-          <%= link_to "在线预览", "#" %>
+          <a href="#" data-toggle="modal" data-target="#noteModal">在线预览</a>
         </div>
         <div class="float-cell">
           <%= image_tag "download.png" %>
-          <%= link_to "点击下载", "#" %>
+          <%= link_to "点击下载", @info_competition_opus.note.try(:file).try(:url) %>
         </div>
       </div>
 
@@ -77,14 +77,57 @@
         <div class="float-cell"><%= image_tag "pdf.png", class:"pdf-image" %></div>
         <div class="float-cell">
           <%= image_tag "open_eye.png" %>
-          <%= link_to "在线预览", "#" %>
+          <a href="#" data-toggle="modal" data-target="#pptModal">在线预览</a>
         </div>
         <div class="float-cell">
           <%= image_tag "download.png" %>
-          <%= link_to "点击下载", "#" %>
+          <%= link_to "点击下载", @info_competition_opus.ppt.try(:file).try(:url) %>
         </div>
       </div>
       
+    </div>
+  </div>
+</div>
+
+<!-- 教案展示 -->
+<div class="modal fade" id="planModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">教案预览</h4>
+      </div>
+      <div class="modal-body" style="height: 680px;">
+        <%= pdfjs_viewer pdf_url: @info_competition_opus.plan.try(:file).try(:url), style: :full %>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 说课稿展示 -->
+<div class="modal fade" id="noteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">说课稿预览</h4>
+      </div>
+      <div class="modal-body" style="height: 680px;">
+        <%= pdfjs_viewer pdf_url: @info_competition_opus.note.try(:file).try(:url), style: :full %>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- PPT文件展示 -->
+<div class="modal fade" id="pptModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">PPT文件预览</h4>
+      </div>
+      <div class="modal-body" style="height: 680px;">
+        <%= pdfjs_viewer pdf_url: @info_competition_opus.ppt.try(:file).try(:url), style: :full %>
+      </div>
     </div>
   </div>
 </div>
