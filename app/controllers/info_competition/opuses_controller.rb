@@ -33,13 +33,8 @@ class InfoCompetition::OpusesController < ApplicationController
     @player = current_player.try(:info)
 
     @info_competition_recruit = InfoCompetition::Recruit.find(params[:recruit_id])
-    # if @info_competition_recruit.opus? current_player
-    #   @info_competition_opuse = @info_competition_recruit.player_opuse current_player
-    #   redirect_to @info_competition_opuse
-    # else
-      @info_competition_opus = @info_competition_recruit.build_opus
-      respond_with(@info_competition_opus)
-    # end
+    @info_competition_opus = @info_competition_recruit.build_opus
+    respond_with(@info_competition_opus)
   end
 
   def edit
@@ -47,9 +42,20 @@ class InfoCompetition::OpusesController < ApplicationController
 
   def create
     @info_competition_recruit = InfoCompetition::Recruit.find(params[:recruit_id])
-    @info_competition_opus = @info_competition_recruit.opus.build(opuse_params)
-    @info_competition_opus.player = current_player
-    @info_competition_opus.save
+    @info_competition_opus = @info_competition_recruit.build_opus(info_competition_opus_params)
+    # @info_competition_opus.save
+
+    @media = @info_competition_opus.build_media(media_params)
+    @media.save
+    p @media
+    # @plan = @info_competition_opus.build_plan(plan_params)
+    # @plan.save
+
+    # @note = @info_competition_opus.build_note(note_params)
+    # @note.save
+
+    # @ppt = @info_competition_opus.build_ppt(ppt_params)
+    # @ppt.save
 
     respond_with(@info_competition_opus)
   end
@@ -70,7 +76,8 @@ class InfoCompetition::OpusesController < ApplicationController
     end
 
     def info_competition_opus_params
-      params[:info_competition_opus]
+      params.require(:info_competition_opus)
+          .permit(:recruit_id)
     end
 
     def media_params

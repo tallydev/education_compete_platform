@@ -1,13 +1,13 @@
 <%= simple_form_for([@info_competition_recruit, @info_competition_opus], url:info_competition_recruit_opuses_path, wrapper: :push_horizontal_form) do |f| %>
 
-  <div class="form-row">
+  <!-- <div class="form-row">
     <div class="form-left">课程名称：</div>
     <div class="form-right">
       <div class="row">
         <div class="col-md-6 push-input">
-          <%= f.simple_fields_for("player_info") do |r| %>
-            <%= r.input "degree", label: false, required: true, input_html: { value: @info_competition_recruit.try(:name)} %> 
-          <% end %>
+          <%#= f.simple_fields_for("player_info") do |r| %>
+            <%#= r.input "degree", label: false, required: true, input_html: { value: @info_competition_recruit.try(:name)} %> 
+          <%#= end %>
         </div>
       </div>
     </div>
@@ -17,13 +17,13 @@
     <div class="form-right">
       <div class="row">
         <div class="col-md-6 push-input">
-          <%= f.simple_fields_for("player_info") do |r| %>
-            <%= r.input "degree", label: false, required: true, input_html: { value: @info_competition_recruit.try(:version)} %> 
-          <% end %>
+          <%#= f.simple_fields_for("player_info") do |r| %>
+            <%#= r.input "degree", label: false, required: true, input_html: { value: @info_competition_recruit.try(:version)} %> 
+          <%#= end %>
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <div class="form-row">
     <div class="form-left">参赛视频：</div>
     <div class="form-right">
@@ -38,7 +38,7 @@
           <label class="btn btn-push mp4">
             上传
             <span style="display:none;">
-              <% f.simple_fields_for :media_info do |r| %>
+              <%= f.simple_fields_for :media do |r| %>
                 <%= r.file_field :file, label: false, required: true, multiple: true, onchange:'$("#upload-file-info").html($(this).val());$("#upload-file-info").css({color:"#3D96D5"})' %> 
               <% end %>
             </span>
@@ -50,14 +50,14 @@
       </div>
     </div>
   </div>
-  <div class="form-row">
+  <!-- <div class="form-row">
     <div class="form-left">参赛教材：</div>
     <div class="form-right">
       <div class="row">
         <div class="col-md-6 push-input">
-          <%= f.simple_fields_for :player_info do |r| %>
-            <%= r.input "degree", label: false, required: true, input_html: { value: @info_competition_recruit.try(:version)} %> 
-          <% end %>
+          <%#= f.simple_fields_for :player_info do |r| %>
+            <%#= r.input "degree", label: false, required: true, input_html: { value: @info_competition_recruit.try(:version)} %> 
+          <%#= end %>
         </div>
       </div>
     </div>
@@ -67,13 +67,13 @@
     <div class="form-right">
       <div class="row">
         <div class="col-md-6 push-input push-textarea">
-          <%= f.simple_fields_for("player_info") do |r| %>
-            <%= r.input "degree", as: :text, label: false, wrapper: :vertical_form, input_html: {rows: 3, value: @info_competition_recruit.try(:comment)}, required: true %>
-          <% end %>
+          <%#= f.simple_fields_for("player_info") do |r| %>
+            <%#= r.input "degree", as: :text, label: false, wrapper: :vertical_form, input_html: {rows: 3, value: @info_competition_recruit.try(:comment)}, required: true %>
+          <%#= end %>
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <div class="form-row">
     <div class="form-left">教案：</div>
     <div class="form-right">
@@ -88,8 +88,8 @@
           <label class="btn btn-push">
             上传
             <span style="display:none;">
-              <%= f.simple_fields_for("plan") do |r| %>
-                <%= r.file_field :file, label: false, required: true, multiple: true, onchange:'$("#upload-file-info").html($(this).val());$("#upload-file-info").css({color:"#3D96D5"})' %>
+              <%= f.simple_fields_for :plan do |r| %>
+                <%= r.file_field :file, label: false, required: true, multiple: true, onchange:'$("#upload-file-info2").html($(this).val());$("#upload-file-info2").css({color:"#3D96D5"})' %>
               <% end %>
             </span>
           </label>
@@ -112,7 +112,7 @@
             上传
             <span style="display:none;">
               <%= f.simple_fields_for :note do |r| %>
-                <%= r.file_field :file, label: false, required: true, multiple: true, onchange:'$("#upload-file-info").html($(this).val());$("#upload-file-info").css({color:"#3D96D5"})' %> 
+                <%= r.file_field :file, label: false, required: true, multiple: true, onchange:'$("#upload-file-info3").html($(this).val());$("#upload-file-info3").css({color:"#3D96D5"})' %> 
               <% end %>
             </span>
           </label>
@@ -134,8 +134,8 @@
           <label class="btn btn-push">
             上传
             <span style="display:none;">
-              <%= f.simple_fields_for :player_info do |r| %>
-                <%= r.file_field :file, label: false, required: true, multiple: true, onchange:'$("#upload-file-info").html($(this).val());$("#upload-file-info").css({color:"#3D96D5"})' %> 
+              <%= f.simple_fields_for :ppt do |r| %>
+                <%= r.file_field :file, label: false, required: true, multiple: true, onchange:'$("#upload-file-info4").html($(this).val());$("#upload-file-info4").css({color:"#3D96D5"})' %> 
               <% end %>
             </span>
           </label>
