@@ -32,18 +32,21 @@
           <div class="label1" id="upload-file-info">选择文件</div>
         </div>
         <div class="pull-left layout-type">
-          <label>.mp4</label>
+          <label class="blank-text">.mp4</label>
         </div>
         <div class="col-md-2">
-          <label class="btn btn-push">
+          <label class="btn btn-push mp4">
             上传
             <span style="display:none;">
               <%= f.simple_fields_for("player_info") do |r| %>
-                <%= r.file_field "degree", label: false, required: true, multiple: true, onchange:'$("#upload-file-info").html($(this).val());' %>
+                <%= r.file_field "degree", label: false, required: true, multiple: true, onchange:'$("#upload-file-info").html($(this).val());$("#upload-file-info").css({color:"#3D96D5"})' %>
               <% end %>
             </span>
           </label>
         </div>
+      </div>
+      <div class="text-center warning_text">
+        <%= image_tag "warning.svg" %>上传说明：请上传MP4格式的视频，视频大小不超过300M
       </div>
     </div>
   </div>
@@ -86,7 +89,7 @@
             上传
             <span style="display:none;">
               <%= f.simple_fields_for("player_info") do |r| %>
-                <%= r.file_field "degree", label: false, required: true, multiple: true, onchange:'$("#upload-file-info2").html($(this).val());' %>
+                <%= r.file_field "degree", label: false, required: true, multiple: true, onchange:'$("#upload-file-info2").html($(this).val());;$("#upload-file-info2").css({color:"#3D96D5"})' %>
               <% end %>
             </span>
           </label>
@@ -109,7 +112,7 @@
             上传
             <span style="display:none;">
               <%= f.simple_fields_for("player_info") do |r| %>
-                <%= r.file_field "degree", label: false, required: true, multiple: true, onchange:'$("#upload-file-info3").html($(this).val());' %>
+                <%= r.file_field "degree", label: false, required: true, multiple: true, onchange:'$("#upload-file-info3").html($(this).val());$("#upload-file-info3").css({color:"#3D96D5"})' %>
               <% end %>
             </span>
           </label>
@@ -132,7 +135,7 @@
             上传
             <span style="display:none;">
               <%= f.simple_fields_for("player_info") do |r| %>
-                <%= r.file_field "degree", label: false, required: true, multiple: true, onchange:'$("#upload-file-info4").html($(this).val());' %>
+                <%= r.file_field "degree", label: false, required: true, multiple: true, onchange:'$("#upload-file-info4").html($(this).val());;$("#upload-file-info4").css({color:"#3D96D5"})' %>
               <% end %>
             </span>
           </label>
@@ -145,6 +148,18 @@
   </div>
 <% end %>
 <script type="text/javascript">
-  
+  $('.mp4 INPUT[type="file"]').change(function () {
+    var ext = this.value.match(/\.(.+)$/)[1];
+    switch (ext) {
+        case 'mp4':
+            $('#uploadButton').attr('disabled', false);
+            break;
+        default:
+            this.value = '';
+            alert('文件格式不符合，请重新上传！');
+    };
+    $("#upload-file-info").html("选择文件");
+    $("#upload-file-info").css({color:"#9B9B9B"})
+  });
 </script>
 
