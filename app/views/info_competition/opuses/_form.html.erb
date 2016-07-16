@@ -1,13 +1,13 @@
 <%= simple_form_for([@info_competition_recruit, @info_competition_opus], url:info_competition_recruit_opuses_path, wrapper: :push_horizontal_form) do |f| %>
 
-  <!-- <div class="form-row">
+  <div class="form-row">
     <div class="form-left">课程名称：</div>
     <div class="form-right">
       <div class="row">
         <div class="col-md-6 push-input">
-          <%#= f.simple_fields_for("player_info") do |r| %>
-            <%#= r.input "degree", label: false, required: true, input_html: { value: @info_competition_recruit.try(:name)} %> 
-          <%#= end %>
+          <%= f.simple_fields_for("player_info") do |r| %>
+            <%= r.input "degree", label: false, required: true, disabled: true, input_html: { value: @info_competition_recruit.try(:name)} %> 
+          <% end %>
         </div>
       </div>
     </div>
@@ -17,14 +17,15 @@
     <div class="form-right">
       <div class="row">
         <div class="col-md-6 push-input">
-          <%#= f.simple_fields_for("player_info") do |r| %>
-            <%#= r.input "degree", label: false, required: true, input_html: { value: @info_competition_recruit.try(:version)} %> 
-          <%#= end %>
+          <%= f.simple_fields_for("player_info") do |r| %>
+            <%= r.input "content", required: true, label: false, required: true, input_html: { value: @info_competition_recruit.try(:version)} %> 
+          <% end %>
         </div>
       </div>
     </div>
-  </div> -->
-<!--   <div class="form-row">
+  </div>
+
+  <div class="form-row">
     <div class="form-left">参赛视频：</div>
     <div class="form-right">
       <div class="row">
@@ -49,15 +50,16 @@
         <%= image_tag "warning.svg" %>上传说明：请上传MP4格式的视频，视频大小不超过300M
       </div>
     </div>
-  </div> -->
-  <!-- <div class="form-row">
+  </div>
+
+  <div class="form-row">
     <div class="form-left">参赛教材：</div>
     <div class="form-right">
       <div class="row">
         <div class="col-md-6 push-input">
-          <%#= f.simple_fields_for :player_info do |r| %>
-            <%#= r.input "degree", label: false, required: true, input_html: { value: @info_competition_recruit.try(:version)} %> 
-          <%#= end %>
+          <%= f.simple_fields_for :player_info do |r| %>
+            <%= r.input "degree", label: false, required: true, disabled: true, input_html: { value: @info_competition_recruit.try(:version)} %> 
+          <% end %>
         </div>
       </div>
     </div>
@@ -67,13 +69,14 @@
     <div class="form-right">
       <div class="row">
         <div class="col-md-6 push-input push-textarea">
-          <%#= f.simple_fields_for("player_info") do |r| %>
-            <%#= r.input "degree", as: :text, label: false, wrapper: :vertical_form, input_html: {rows: 3, value: @info_competition_recruit.try(:comment)}, required: true %>
-          <%#= end %>
+          <%= f.simple_fields_for("player_info") do |r| %>
+            <%= r.input "degree", as: :text, label: false, disabled: true, wrapper: :vertical_form, input_html: {rows: 3, value: @info_competition_recruit.try(:comment)}, required: true %>
+          <% end %>
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
+
   <div class="form-row">
     <div class="form-left">教案：</div>
     <div class="form-right">
@@ -97,6 +100,7 @@
       </div>
     </div>
   </div>
+
   <div class="form-row">
     <div class="form-left">说课稿：</div>
     <div class="form-right">

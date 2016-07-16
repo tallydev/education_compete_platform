@@ -94,6 +94,7 @@ end
 # == Route Map
 #
 #                                 Prefix Verb   URI Pattern                                                           Controller#Action
+#                                  pdfjs        /pdfjs                                                                PdfjsViewer::Rails::Engine
 #                                   root GET    /                                                                     home#index
 #                       new_user_session GET    /users/sign_in(.:format)                                              user/sessions#new
 #                           user_session POST   /users/sign_in(.:format)                                              user/sessions#create
@@ -269,4 +270,8 @@ end
 #                                        PATCH  /admin/bulletins/:id(.:format)                                        admin/bulletins#update
 #                                        PUT    /admin/bulletins/:id(.:format)                                        admin/bulletins#update
 #                                        DELETE /admin/bulletins/:id(.:format)                                        admin/bulletins#destroy
+#
+# Routes for PdfjsViewer::Rails::Engine:
+# minimal GET  /minimal(.:format) pdfjs_viewer/viewer#minimal
+#    full GET  /full(.:format)    pdfjs_viewer/viewer#full
 #
