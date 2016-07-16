@@ -72,4 +72,18 @@ class InfoCompetition::OpusesController < ApplicationController
     def info_competition_opus_params
       params[:info_competition_opus]
     end
+
+    def media_params
+      params[:info_competition_opus][:media].permit(:file)
+    end
+    def plan_params
+      params[:info_competition_opus][:plan].permit(:file)
+    end
+    def note_params
+      params[:info_competition_opus][:note].permit(:file)
+    end
+    def ppt_params
+      params[:info_competition_opus][:ppt].permit(:file)
+    end
+
 end
