@@ -36,10 +36,12 @@ class TalkCompetition::OpusesController < ApplicationController
   end
 
   def edit
+    @talk_competition_recruit = TalkCompetition::Recruit.find(params[:recruit_id])
   end
 
 
   def update
+    @talk_competition_recruit = TalkCompetition::Recruit.find(params[:recruit_id])
     @talk_competition_opus.update(talk_competition_opus_params)
     respond_with(@talk_competition_opus)
   end

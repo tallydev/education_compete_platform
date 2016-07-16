@@ -74,7 +74,7 @@ Rails.application.routes.draw do
     # index用于给专家进行查看审批的列表
     # show用于给专家和参赛者都可以查看作品
     # update用于给参赛者进行作品修改更新
-    resources :opuses, only: [:index, :show, :update]
+    resources :opuses, only: [:index, :show]
 
     resources :activities do
       resources :recruits do
@@ -85,7 +85,7 @@ Rails.application.routes.draw do
     end
     resources :recruits do
       # new, create用于给player进行上传作品
-      resources :opuses, only: [:new, :create]
+      resources :opuses, only: [:new, :create, :edit, :update]
     end
   end
 
