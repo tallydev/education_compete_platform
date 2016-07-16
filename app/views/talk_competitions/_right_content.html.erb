@@ -25,13 +25,14 @@
     <div class="col-md-6 col-md-offset-1 center_tip1">
       <br>
       <p><span class="color_label">作品名称: </span><span class="color_label_info">上海威客大赛</span></p>
-      <p class="file_p"><%= image_tag "check_sure.svg" %><span>参赛视频</span>&nbsp&nbsp&nbsp&nbsp<span class="color_label_info">已上传</span></p>
-      <p class="file_p"><%= image_tag "check_sure.svg" %><span>参赛课件</span>&nbsp&nbsp&nbsp&nbsp<span class="color_label_info">已上传</span></p>
       <p class="file_p"><%= image_tag "check_sure.svg" %><span>说课稿</span>&nbsp&nbsp&nbsp&nbsp<span class="color_label_info">已上传</span></p>
       <p class="file_p"><%= image_tag "check_sure.svg" %><span>PPT文件</span>&nbsp&nbsp&nbsp&nbsp<span class="color_label_info">已上传</span></p>
       <p class="text-center">
         <%= link_to talk_competition_opus_path(@recruit.opus.id) do %>
           <button class="btn btn-info btn-join">查看详情</button>
+        <% end %>
+        <%= link_to edit_talk_competition_recruit_opus_path(@recruit.id,@recruit.opus.id) do %>
+          <button class="btn btn-info btn-join">作品修改</button>
         <% end %>
       </p><br>
     </div>
