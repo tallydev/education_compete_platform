@@ -20,7 +20,8 @@ class InfoCompetition::OpusesController < ApplicationController
   # end
 
   def create
-    @info_competition_opus = InfoCompetition::Opus.new(info_competition_opus_params)
+    @info_competition_recruit = InfoCompetition::Recruit.find(params[:recruit_id])
+    @info_competition_opus = @info_competition_recruit.build_opus(info_competition_opus_params)
     @info_competition_opus.save
     respond_with(@info_competition_opus)
   end
