@@ -20,15 +20,15 @@
         </div>
         <div class="col-md-6">
           <div class="opus-info">
-            <div class="title"><%= @recruit.version %></div>
+            <div class="title"><%#= @recruit.version %></div>
             <div class="author-info">
               学校：<%= @recruit.school.try(:name) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;作者：
               <%= @player_info.name %>
             </div>
             <div class="opus-content"><span class="content-text">参赛内容：</span><%= @talk_competition_opus.content %></div>
             <div class="opus-content"><span class="content-text">作品名称：</span><%= @recruit.name %></div>
-            <div class="opus-content"><span class="content-text">参考教材：</span><%= @recruit.version %></div>
-            <div class="opus-content"><span class="content-text">参赛项目：</span><%= @recruit.project %></div>
+            <div class="opus-content"><span class="content-text">参考教材：</span><%#= @recruit.version %></div>
+            <div class="opus-content"><span class="content-text">参赛项目：</span><%#= @recruit.project %></div>
           </div>
         </div>
       </div>
@@ -38,21 +38,6 @@
       </div>
       <div class="row opus-data">
         <%= @recruit.comment %>
-      </div>
-
-      <div class="item-bg">
-        <div class="item-title">教案</div>
-      </div>
-      <div class="row opus-data">
-        <div class="float-cell"><%= image_tag "pdf.png", class:"pdf-image" %></div>
-        <div class="float-cell">
-          <%= image_tag "open_eye.png" %>
-          <%= link_to "在线预览", pdfjs.full_path(file: "#{@talk_competition_opus.plan.try(:file).try(:url)}"), "data-turbolinks" => false %>
-        </div>
-        <div class="float-cell">
-          <%= image_tag "download.png" %>
-          <%= link_to "点击下载", @talk_competition_opus.plan.try(:file).try(:url) %>
-        </div>
       </div>
 
       <div class="item-bg">

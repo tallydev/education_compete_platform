@@ -35,7 +35,6 @@ class InfoCompetition::Recruit < ActiveRecord::Base
   include RecruitConcern
   has_one :opus
 
-  has_one :opus
   
   belongs_to :player
   belongs_to :school
