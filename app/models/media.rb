@@ -19,6 +19,6 @@
 #  index_media_on_mediaable_type_and_mediaable_id  (mediaable_type,mediaable_id)
 #
 
-class Medium < ActiveRecord::Base
-  belongs_to :mediumable, polymorphic: true
+class Media < ActiveRecord::Base
+  belongs_to :mediaable, polymorphic: true
 end

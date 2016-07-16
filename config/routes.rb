@@ -173,6 +173,14 @@ end
 #                           player_infos POST   /player_infos(.:format)                                               player_infos#create
 #                        new_player_info GET    /player_infos/new(.:format)                                           player_infos#new
 #                            player_info GET    /player_infos/:id(.:format)                                           player_infos#show
+#                info_competition_opuses GET    /info_competition/opuses(.:format)                                    info_competition/opuses#index
+#                                        POST   /info_competition/opuses(.:format)                                    info_competition/opuses#create
+#              new_info_competition_opus GET    /info_competition/opuses/new(.:format)                                info_competition/opuses#new
+#             edit_info_competition_opus GET    /info_competition/opuses/:id/edit(.:format)                           info_competition/opuses#edit
+#                  info_competition_opus GET    /info_competition/opuses/:id(.:format)                                info_competition/opuses#show
+#                                        PATCH  /info_competition/opuses/:id(.:format)                                info_competition/opuses#update
+#                                        PUT    /info_competition/opuses/:id(.:format)                                info_competition/opuses#update
+#                                        DELETE /info_competition/opuses/:id(.:format)                                info_competition/opuses#destroy
 # all_info_competition_activity_recruits GET    /info_competition/activities/:activity_id/recruits/all(.:format)      info_competition/recruits#all
 #     info_competition_activity_recruits GET    /info_competition/activities/:activity_id/recruits(.:format)          info_competition/recruits#index
 #                                        POST   /info_competition/activities/:activity_id/recruits(.:format)          info_competition/recruits#create

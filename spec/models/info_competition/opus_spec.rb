@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe InfoCompetition::Opus, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to(:recruit) } 
+
+  it { should have_one(:media) } 
+  it { should have_one(:ppt) } 
+  it { should have_one(:note) } 
 end

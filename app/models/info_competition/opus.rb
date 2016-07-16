@@ -14,4 +14,8 @@
 
 class InfoCompetition::Opus < ActiveRecord::Base
   belongs_to :recruit
+
+  has_one :media,  -> { where media_type: "media" }, class_name: "Media", as: :mediaable, dependent: :destroy
+  has_one :ppt, -> { where paper_type: "ppt" }, class_name: "Paper", as: :paperable, dependent: :destroy
+  has_one :note, -> { where paper_type: "note" }, class_name: "Paper", as: :paperable, dependent: :destroy
 end
