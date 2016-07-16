@@ -39,9 +39,18 @@
 					<%= link_to(@notification.paper.try(:url), class: "btn info-download") do %>
 						<%= image_tag "download.svg" %>&nbsp;&nbsp;比赛通知下载
 					<% end %>
-					<%= link_to([:new, @activity, :recruit], class: "btn apply-entry") do %>
-						<%= image_tag "entry.svg" %>&nbsp;&nbsp;<%= @activity.recruit?(current_player) ? "查看报名表格" : "比赛报名入口" %>
+	
+
+					<% if @activity.recruit?(current_player) %>
+						<%= link_to([:new, @activity, :recruit], class: "btn apply-entry") do %>
+							<%= image_tag "entry.svg" %>&nbsp;&nbsp;查看报名表格
+						<% end %>
+					<% else %>
+						<%= link_to("", class: "btn apply-entry") do %>
+							<%= image_tag "entry.svg" %>&nbsp;&nbsp;报名已截止
+						<% end %>
 					<% end %>
+
 				</div>
 
 			</div>
