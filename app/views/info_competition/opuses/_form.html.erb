@@ -17,9 +17,7 @@
     <div class="form-right">
       <div class="row">
         <div class="col-md-6 push-input">
-          <%= f.simple_fields_for("player_info") do |r| %>
-            <%= r.input "content", required: true, label: false, required: true, input_html: { value: @info_competition_recruit.try(:version)} %> 
-          <% end %>
+            <%= f.input "content", required: true, label: false, required: true %> 
         </div>
       </div>
     </div>

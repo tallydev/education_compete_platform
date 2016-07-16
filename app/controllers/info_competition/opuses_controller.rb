@@ -22,7 +22,6 @@ class InfoCompetition::OpusesController < ApplicationController
   def create
     @info_competition_recruit = InfoCompetition::Recruit.find(params[:recruit_id])
     @info_competition_opus = @info_competition_recruit.build_opus(info_competition_opus_params)
-    @info_competition_recruit.update(player_params)
     @info_competition_opus.save
     respond_with(@info_competition_opus)
   end
@@ -62,10 +61,5 @@ class InfoCompetition::OpusesController < ApplicationController
             ppt_attributes: [:id, :file, :_destroy],
             note_attributes: [:id, :file, :_destroy],
             )
-    end
-
-    def player_params
-      params[:info_competition_opus][:player_info].permit(:name, :version,
-            :comment, :content)
     end
 end
