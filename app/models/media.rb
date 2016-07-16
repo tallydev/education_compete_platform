@@ -21,4 +21,18 @@
 
 class Media < ActiveRecord::Base
   belongs_to :mediaable, polymorphic: true
+
+  has_attached_file :file
+    # :path => ':rails_root/public/system/:id/:attachment/:style/:basename.:extension',
+    # :url => '/system/:id/:attachment/:style/:basename.:extension'
+
+  validates_attachment_presence :file
+  validates_attachment_size     :file, less_than: 1024.megabytes
+  validates_attachment_content_type :file, :content_type => /\Avideo\/.*\Z/  
+  validates_attachment_file_name :file, :matches => [/mp4\Z/]
+
+  def url
+    file.try(:url)
+  end
+
 end

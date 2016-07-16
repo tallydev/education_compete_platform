@@ -12,6 +12,8 @@
  *
  *= require select2
  *= require_self
+ *= require mediaelement_rails
+ *= require mediaelement_rails/mejs-skins
  *= require_tree ./app
  */
 @import "app/bootstrap_custom";

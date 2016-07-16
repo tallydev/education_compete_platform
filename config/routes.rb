@@ -180,13 +180,9 @@ end
 #                        new_player_info GET    /player_infos/new(.:format)                                           player_infos#new
 #                            player_info GET    /player_infos/:id(.:format)                                           player_infos#show
 #                info_competition_opuses GET    /info_competition/opuses(.:format)                                    info_competition/opuses#index
-#                                        POST   /info_competition/opuses(.:format)                                    info_competition/opuses#create
-#              new_info_competition_opus GET    /info_competition/opuses/new(.:format)                                info_competition/opuses#new
-#             edit_info_competition_opus GET    /info_competition/opuses/:id/edit(.:format)                           info_competition/opuses#edit
 #                  info_competition_opus GET    /info_competition/opuses/:id(.:format)                                info_competition/opuses#show
 #                                        PATCH  /info_competition/opuses/:id(.:format)                                info_competition/opuses#update
 #                                        PUT    /info_competition/opuses/:id(.:format)                                info_competition/opuses#update
-#                                        DELETE /info_competition/opuses/:id(.:format)                                info_competition/opuses#destroy
 # all_info_competition_activity_recruits GET    /info_competition/activities/:activity_id/recruits/all(.:format)      info_competition/recruits#all
 #     info_competition_activity_recruits GET    /info_competition/activities/:activity_id/recruits(.:format)          info_competition/recruits#index
 #                                        POST   /info_competition/activities/:activity_id/recruits(.:format)          info_competition/recruits#create
@@ -204,6 +200,8 @@ end
 #                                        PATCH  /info_competition/activities/:id(.:format)                            info_competition/activities#update
 #                                        PUT    /info_competition/activities/:id(.:format)                            info_competition/activities#update
 #                                        DELETE /info_competition/activities/:id(.:format)                            info_competition/activities#destroy
+#        info_competition_recruit_opuses POST   /info_competition/recruits/:recruit_id/opuses(.:format)               info_competition/opuses#create
+#      new_info_competition_recruit_opus GET    /info_competition/recruits/:recruit_id/opuses/new(.:format)           info_competition/opuses#new
 #              info_competition_recruits GET    /info_competition/recruits(.:format)                                  info_competition/recruits#index
 #                                        POST   /info_competition/recruits(.:format)                                  info_competition/recruits#create
 #           new_info_competition_recruit GET    /info_competition/recruits/new(.:format)                              info_competition/recruits#new

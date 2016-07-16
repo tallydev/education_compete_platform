@@ -14,18 +14,15 @@
 ActiveRecord::Schema.define(version: 20160715161858) do
 
   create_table "activities", force: :cascade do |t|
-    t.string   "name",                    null: false
+    t.string   "name",                   null: false
     t.datetime "start_time"
     t.datetime "end_time"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.integer  "status",      default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "status",     default: 0
     t.string   "type"
-    t.integer  "bulletin_id"
     t.string   "short_name"
   end
-
-  add_index "activities", ["bulletin_id"], name: "index_activities_on_bulletin_id"
 
   create_table "bulletins", force: :cascade do |t|
     t.string   "title"
@@ -192,14 +189,14 @@ ActiveRecord::Schema.define(version: 20160715161858) do
   add_index "players", ["school_id"], name: "index_players_on_school_id"
 
   create_table "recruits", force: :cascade do |t|
-    t.integer  "activities_id"
-    t.integer  "player_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "activity_id"
+    t.integer  "opu_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_index "recruits", ["activities_id"], name: "index_recruits_on_activities_id"
-  add_index "recruits", ["player_id"], name: "index_recruits_on_player_id"
+  add_index "recruits", ["activity_id"], name: "index_recruits_on_activity_id"
+  add_index "recruits", ["opu_id"], name: "index_recruits_on_opu_id"
 
   create_table "schools", force: :cascade do |t|
     t.string   "name"
@@ -261,9 +258,9 @@ ActiveRecord::Schema.define(version: 20160715161858) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.integer  "school_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "school_id"
     t.string   "type"
   end
 
