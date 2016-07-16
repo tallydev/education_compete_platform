@@ -33,6 +33,7 @@
 
 class InfoCompetition::Recruit < ActiveRecord::Base
   include RecruitConcern
+  has_one :opus
 
   has_one :opus
   

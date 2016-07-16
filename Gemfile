@@ -24,7 +24,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
 # the font-awesome font bundled as an asset for the rails asset pipeline
 gem 'font-awesome-sass-rails'
 # Official Sass port of Bootstrap 2 and 3.
