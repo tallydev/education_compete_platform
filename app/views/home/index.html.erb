@@ -10,7 +10,9 @@
 	    	<%= image_tag "banner_two.png" %>
 	      <div class="carousel-caption">
 	        <%= link_to "", notification_path(1), class: "btn detail-two-btn", "data-turbolinks" => false %>
-	      	<%= link_to "", new_info_competition_activity_recruit_path(1), class: "btn apply-two-btn" %>
+	        <% if @activity_one > 0 %>
+	      		<%= link_to "", new_info_competition_activity_recruit_path(1), class: "btn apply-two-btn" %>
+	      	<% end %>
 		    	<br><br>
 			  </div>
 	    </div>
@@ -18,7 +20,9 @@
 	      <%= image_tag "banner_one.png" %>
 	      <div class="carousel-caption">
 	      	<%= link_to "查看详情", notification_path(2), class: "btn detail-one-btn", "data-turbolinks" => false %>
-	      	<%= link_to "立即报名", new_talk_competition_activity_recruit_path(2), class: "btn apply-one-btn" %>
+	      	<% if @activity_two > 0 %>
+	      		<%= link_to "立即报名", new_talk_competition_activity_recruit_path(2), class: "btn apply-one-btn" %>
+	      	<% end %>
 			  </div>
 	    </div>
 	  </div>
