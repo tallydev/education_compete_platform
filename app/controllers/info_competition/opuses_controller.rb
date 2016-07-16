@@ -45,19 +45,26 @@ class InfoCompetition::OpusesController < ApplicationController
     @info_competition_opus = @info_competition_recruit.build_opus(info_competition_opus_params)
     # @info_competition_opus.save
 
+    @info_competition_opus.media = Media.new if @info_competition_opus.media.blank?
+    @info_competition_opus.media.file = params[:info_competition_opus][:madia]
+
     @media = @info_competition_opus.build_media(media_params)
-    @media.save
-    p @media
-    # @plan = @info_competition_opus.build_plan(plan_params)
-    # @plan.save
+
+    if @info_competition_opus.save && @media.save
+      respond_with(@info_competition_opus)
+      p "============================="
+    else
+      return render action: :new
+      p "++++++++++++++++++++++++++++++"
+    end
+
+    
 
     # @note = @info_competition_opus.build_note(note_params)
     # @note.save
 
     # @ppt = @info_competition_opus.build_ppt(ppt_params)
     # @ppt.save
-
-    respond_with(@info_competition_opus)
   end
 
   def update
@@ -81,7 +88,9 @@ class InfoCompetition::OpusesController < ApplicationController
     end
 
     def media_params
-      params[:info_competition_opus][:media].permit(:file)
+      params[:info_competition_opus][:media]
+          .permit(:file)
+      
     end
     def plan_params
       params[:info_competition_opus][:plan].permit(:file)

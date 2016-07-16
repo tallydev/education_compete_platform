@@ -39,7 +39,7 @@
             上传
             <span style="display:none;">
               <%= f.simple_fields_for :media do |r| %>
-                <%= r.file_field :file, label: false, required: true, multiple: true, onchange:'$("#upload-file-info").html($(this).val());$("#upload-file-info").css({color:"#3D96D5"})' %> 
+                <%= r.file_field :file, as: :file,label: false, required: true, multiple: true, onchange:'$("#upload-file-info").html($(this).val());$("#upload-file-info").css({color:"#3D96D5"})' %> 
               <% end %>
             </span>
           </label>
@@ -74,7 +74,7 @@
       </div>
     </div>
   </div> -->
-  <div class="form-row">
+  <!-- <div class="form-row">
     <div class="form-left">教案：</div>
     <div class="form-right">
       <div class="row">
@@ -119,8 +119,8 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="form-row">
+  </div> -->
+  <!-- <div class="form-row">
     <div class="form-left">PPT：</div>
     <div class="form-right">
       <div class="row">
@@ -142,7 +142,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <div class="text-center form-bottom">
     <%= f.button :submit, "提  交", class: "btn_push_sure", data: {disable_with: '提交中...'} %>
   </div>
