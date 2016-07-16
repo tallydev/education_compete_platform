@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-
+  mount PdfjsViewer::Rails::Engine => "/pdfjs", as: 'pdfjs'
+  
   root to: "home#index"
   
   devise_for :users, controllers: {
