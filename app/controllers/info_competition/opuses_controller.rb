@@ -36,11 +36,15 @@ class InfoCompetition::OpusesController < ApplicationController
   end
 
   def edit
+    @info_competition_recruit = InfoCompetition::Recruit.find(params[:recruit_id])
+    @info_competition_opus = InfoCompetition::Opus.find(params[:id])
   end
 
 
   def update
     @info_competition_opus.update(info_competition_opus_params)
+
+    p "+++++++++++++++++++++++++++++++"
     respond_with(@info_competition_opus)
   end
 

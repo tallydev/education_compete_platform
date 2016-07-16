@@ -33,6 +33,9 @@
         <%= link_to info_competition_opus_path(@recruit.opus.id) do %>
           <button class="btn btn-info btn-join">查看详情</button>
         <% end %>
+        <%= link_to edit_info_competition_recruit_opus_path(@recruit.id,@recruit.opus.id) do %>
+          <button class="btn btn-info btn-join">作品修改</button>
+        <% end %>
       </p><br>
     </div>
 
