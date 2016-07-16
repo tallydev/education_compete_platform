@@ -19,7 +19,8 @@ class Activity < ActiveRecord::Base
   enum status: [:activate, :stop]
 
   def left_days
-    end_time.day - Time.zone.now.day
+    days = end_time.day - Time.zone.now.day
+    days < 0 ? 0 : days
   end
 
   # 学校本次比赛的报名列表
