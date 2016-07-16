@@ -71,6 +71,11 @@ Rails.application.routes.draw do
 
   # 说课大赛相关路由
   namespace :talk_competition do
+    # index用于给专家进行查看审批的列表
+    # show用于给专家和参赛者都可以查看作品
+    # update用于给参赛者进行作品修改更新
+    resources :opuses, only: [:index, :show, :update]
+
     resources :activities do
       resources :recruits do
         collection do
@@ -78,7 +83,10 @@ Rails.application.routes.draw do
         end
       end
     end
-    resources :recruits
+    resources :recruits do
+      # new, create用于给player进行上传作品
+      resources :opuses, only: [:new, :create]
+    end
   end
 
   namespace :admin do 

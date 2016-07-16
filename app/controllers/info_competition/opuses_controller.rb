@@ -55,7 +55,7 @@ class InfoCompetition::OpusesController < ApplicationController
     end
 
     def info_competition_opus_params
-      params.require(:info_competition_opus).permit(:recruit_id, 
+      params.require(:info_competition_opus).permit(:recruit_id, :content,
             media_attributes: [:id, :file, :_destroy],
             plan_attributes: [:id, :file, :_destroy],
             ppt_attributes: [:id, :file, :_destroy],
