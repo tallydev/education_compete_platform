@@ -42,7 +42,7 @@ class Paper < ActiveRecord::Base
   # after_commit :translate_file, on: :create
 
   def url
-    file.try(:url)
+    file.try(:url, :pdf)
   end
 
   def translate_file
