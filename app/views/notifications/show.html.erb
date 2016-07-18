@@ -50,14 +50,19 @@
 						<% end %>
 					<% end %>
 
-					<% if @recruit.opus %>
-						<%= link_to(@recruit.opus, class: "btn info-upload") do %>
-							<%= image_tag "entry.svg" %>&nbsp;&nbsp;查看作品详情
+					<% if @activity.recruit? current_player %>
+						<% recruit = @activity.player_recruit current_player %>
+
+						<% if recruit.opus %>
+							<%= link_to(recruit.opus, class: "btn info-upload") do %>
+								<%= image_tag "entry.svg" %>&nbsp;&nbsp;查看作品详情
+							<% end %>
+						<% else %>
+							<%= link_to([:new, recruit, :opus], class: "btn info-upload") do %>
+								<%= image_tag "upload.svg" %>&nbsp;&nbsp;比赛作品上传
+							<% end %>
 						<% end %>
-					<% else %>
-						<%= link_to([:new, @recruit, :opus], class: "btn info-upload") do %>
-							<%= image_tag "upload.svg" %>&nbsp;&nbsp;比赛作品上传
-						<% end %>
+
 					<% end %>
 				</div>
 
