@@ -41,8 +41,8 @@ class Paper < ActiveRecord::Base
 
   def translate_file
     unless self.file_content_type.eql?('application/pdf')
-      p file.path
-      opts = {}
+      file = File.file.path
+      opts = {:output => File.dirname(file)}
       Docsplit.extract_pdf(self.file.path, opts)
     end
   end
