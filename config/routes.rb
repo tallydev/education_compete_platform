@@ -214,6 +214,7 @@ end
 #                                        DELETE /info_competition/activities/:id(.:format)                            info_competition/activities#destroy
 #        info_competition_recruit_opuses POST   /info_competition/recruits/:recruit_id/opuses(.:format)               info_competition/opuses#create
 #      new_info_competition_recruit_opus GET    /info_competition/recruits/:recruit_id/opuses/new(.:format)           info_competition/opuses#new
+#     edit_info_competition_recruit_opus GET    /info_competition/recruits/:recruit_id/opuses/:id/edit(.:format)      info_competition/opuses#edit
 #              info_competition_recruits GET    /info_competition/recruits(.:format)                                  info_competition/recruits#index
 #                                        POST   /info_competition/recruits(.:format)                                  info_competition/recruits#create
 #           new_info_competition_recruit GET    /info_competition/recruits/new(.:format)                              info_competition/recruits#new
@@ -222,6 +223,9 @@ end
 #                                        PATCH  /info_competition/recruits/:id(.:format)                              info_competition/recruits#update
 #                                        PUT    /info_competition/recruits/:id(.:format)                              info_competition/recruits#update
 #                                        DELETE /info_competition/recruits/:id(.:format)                              info_competition/recruits#destroy
+
+#                talk_competition_opuses GET    /talk_competition/opuses(.:format)                                    talk_competition/opuses#index
+#                  talk_competition_opus GET    /talk_competition/opuses/:id(.:format)                                talk_competition/opuses#show
 # all_talk_competition_activity_recruits GET    /talk_competition/activities/:activity_id/recruits/all(.:format)      talk_competition/recruits#all
 #     talk_competition_activity_recruits GET    /talk_competition/activities/:activity_id/recruits(.:format)          talk_competition/recruits#index
 #                                        POST   /talk_competition/activities/:activity_id/recruits(.:format)          talk_competition/recruits#create
@@ -241,6 +245,9 @@ end
 #                                        DELETE /talk_competition/activities/:id(.:format)                            talk_competition/activities#destroy
 #        talk_competition_recruit_opuses POST   /talk_competition/recruits/:recruit_id/opuses(.:format)               talk_competition/opuses#create
 #      new_talk_competition_recruit_opus GET    /talk_competition/recruits/:recruit_id/opuses/new(.:format)           talk_competition/opuses#new
+#     edit_talk_competition_recruit_opus GET    /talk_competition/recruits/:recruit_id/opuses/:id/edit(.:format)      talk_competition/opuses#edit
+#          talk_competition_recruit_opus PATCH  /talk_competition/recruits/:recruit_id/opuses/:id(.:format)           talk_competition/opuses#update
+#                                        PUT    /talk_competition/recruits/:recruit_id/opuses/:id(.:format)           talk_competition/opuses#update
 #              talk_competition_recruits GET    /talk_competition/recruits(.:format)                                  talk_competition/recruits#index
 #                                        POST   /talk_competition/recruits(.:format)                                  talk_competition/recruits#create
 #           new_talk_competition_recruit GET    /talk_competition/recruits/new(.:format)                              talk_competition/recruits#new

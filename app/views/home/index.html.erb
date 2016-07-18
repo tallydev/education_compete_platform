@@ -10,6 +10,11 @@
 	    	<%= image_tag "banner_two.png" %>
 	      <div class="carousel-caption">
 	        <%= link_to "", notification_path(1), class: "btn detail-two-btn", "data-turbolinks" => false %>
+	        <% activity = @activities.first %>
+	        <% if activity.recruit? current_player %>
+	        	<% recruit = activity.player_recruit current_player %>
+	        	<%= link_to "", [:new, recruit, :opus], class: "btn apply-two-btn" %>
+	        <% end %>
 	        <%# unless current_player.try(:recruits).try(:first) %>
 	      		<%#= link_to "", new_info_competition_activity_recruit_path(1), class: "btn apply-two-btn" %>
 	      	<%# end %>
@@ -23,6 +28,11 @@
 	      	<%# unless current_player.try(:recruits).try(:second) %>
 	      		<%#= link_to "立即报名", new_talk_competition_activity_recruit_path(2), class: "btn apply-one-btn" %>
 	      	<%# end %>
+	      	<% activity = @activities.second %>
+	      	<% if activity.recruit? current_player %>
+	      		<% recruit = activity.player_recruit current_player %>
+	      		<%= link_to "", [:new, recruit, :opus], class: "btn apply-two-btn" %>
+	      	<% end %>
 			  </div>
 	    </div>
 	  </div>
@@ -40,11 +50,18 @@
 	<div class="compete-entry clearfix">
 		<div class="vertical-line"></div>
 		<% @activities.last(2).each do |activity| %>
+
 			<div class="col-md-6 text-center">
 				<div class="compete-info">
 					<span class="title">
 						<%= link_to "距#{activity.short_name}#{}上传作品截止", notification_path(activity.id), "data-turbolinks" => false %>
 					</span>
+					<% if activity.recruit? current_player %>
+						<% recruit = activity.player_recruit current_player %>
+						<span class="apply">
+							<%= link_to "上传作品", [:new, recruit, :opus] %>
+						</span>
+					<% end %>
 <!-- 					<span class="apply">
 						<%#= link_to "马上报名", [:new, activity, :recruit] %>
 					</span> -->
