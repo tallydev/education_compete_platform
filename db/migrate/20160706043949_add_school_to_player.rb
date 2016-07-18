@@ -1,5 +1,5 @@
 class AddSchoolToPlayer < ActiveRecord::Migration
   def change
-    add_reference :players, :school, index: true, foreign_key: true
+    add_reference :players, :school, index: true
   end
 end
