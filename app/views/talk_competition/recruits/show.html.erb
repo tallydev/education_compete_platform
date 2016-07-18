@@ -1,5 +1,16 @@
 <div class="container">
-	<button class="btn btn-info btn-block" onclick="preview();">打印</button>
+  <div class="row">
+    <div class="col-md-6">
+      <button class="btn btn-info btn-block" onclick="preview();">打印</button>
+    </div>
+    <div class="col-md-6">
+    <% if @player_opus %>
+      <%= link_to "作品详情", @player_opus, class: "btn btn-success btn-block" %>
+    <% else %>
+      <%= link_to "上传作品", [:new, @talk_competition_recruit, :opus], class: "btn btn-success btn-block" %>
+    <% end %>
+    </div>
+  </div>
 </div>
 <!--startprint-->
 <div class="container">
