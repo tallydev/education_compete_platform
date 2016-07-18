@@ -3,14 +3,14 @@
 # Table name: activities
 #
 #  id         :integer          not null, primary key
-#  name       :string(255)      not null
+#  name       :string           not null
 #  start_time :datetime
 #  end_time   :datetime
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  status     :integer          default(0)
-#  type       :string(255)
-#  short_name :string(255)
+#  type       :string
+#  short_name :string
 #
 
 class Activity < ActiveRecord::Base
@@ -19,7 +19,8 @@ class Activity < ActiveRecord::Base
   enum status: [:activate, :stop]
 
   def left_days
-    end_time.day - Time.zone.now.day
+    days = end_time.day - Time.zone.now.day
+    days < 0 ? 0 : days
   end
 
   # 学校本次比赛的报名列表

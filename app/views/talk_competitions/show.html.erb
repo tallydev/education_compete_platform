@@ -6,7 +6,7 @@
   </ol>
   <%=  render partial: "center/player_info_tab"%>
   <div class="panel panel-default tab_cotent">
-    <% if current_player.present? %>
+    <% unless current_player.present? %>
       <div class="panel-heading tab_head">
         <%= image_tag("TabTitleBg.png", class: "bg_image")%>
         <div class="tab_title_text">个人中心</div>
@@ -18,13 +18,13 @@
           <% @activities.each do |activity| %>
             <li class="<%= "active" if params[:controller] == 'center' && params[:action] == 'show'%>">
               <%=link_to "/center/activities/#{activity.id}/#{activity.route_type}/1" do %>
-                <strong class="left_nav_left_line">|</strong><%= activity.short_name %>
+                <p class="text-center"><strong class="left_nav_left_line">|</strong><span class="color_label_info"><%= activity.short_name %></span></p>
               <% end %>
             </li>  
           <% end %>
         </ul>
       </div>
-      <%=  render partial: "info_competitions/right_content"%>
+      <%=  render partial: "right_content"%>
     </div>
   </div>
 </div>

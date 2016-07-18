@@ -6,7 +6,15 @@ a {
   text-decoration: none !important;
 }
 .color_label {
+  color: #9B9B9B !important;
+}
+.color_label_info {
   color: #3D96D5 !important;
+}
+.btn-join {
+  background-color: #F5A623;
+  color: #fff;
+  border: 0;
 }
 //个人中心－个人信息标签样式
 .center_info {
@@ -35,7 +43,7 @@ a {
       margin: 20px 15px 20px 0px;
     }
     ul {
-      padding-left: 10px;
+      padding-left: 0px;
     }
     li {
       list-style-type:none;
@@ -43,7 +51,7 @@ a {
       padding: 5px;
       // padding-left: 10px;
       a {
-        padding: 10px 50px 10px 0;
+        // padding: 10px 50px 10px 0;
       }
       a:hover, a:focus{
         text-decoration: none;
@@ -73,6 +81,29 @@ a {
         background-color: #F5A623;
         border: 0;
         margin-left: 40px;
+      }
+    }
+    .center_tip1 {
+      margin-left: 73px;
+      margin-top: 8px;
+      background-image: image_url('center_tip_bg.svg');
+      p{
+        padding-left: 20px;
+      }
+      .btn-join {
+        background-color: #F5A623;
+        border: 0;
+        // margin-left: 40px;
+      }
+      .file_p {
+        font-size: 12px;
+        margin-bottom: 3px;
+        margin-left: 20px;
+        img {
+          width: 20px;
+          margin-right: 20px;
+          color: green;
+        }
       }
     }
     .time_line_tip {

@@ -18,7 +18,11 @@ class TalkCompetitionsController < ApplicationController
 
   private
     def set_activity
-      @activities = Activity.all
+      if current_player
+        @activities = current_player.activities
+      else
+        @activities = Activity.all
+      end
       @activity = TalkCompetition::Activity.find(params[:activity_id])
     end
 end

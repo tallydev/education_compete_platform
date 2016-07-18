@@ -10,7 +10,9 @@
 	    	<%= image_tag "banner_two.png" %>
 	      <div class="carousel-caption">
 	        <%= link_to "", notification_path(1), class: "btn detail-two-btn", "data-turbolinks" => false %>
-	      	<%= link_to "", new_info_competition_activity_recruit_path(1), class: "btn apply-two-btn" %>
+	        <%# unless current_player.try(:recruits).try(:first) %>
+	      		<%#= link_to "", new_info_competition_activity_recruit_path(1), class: "btn apply-two-btn" %>
+	      	<%# end %>
 		    	<br><br>
 			  </div>
 	    </div>
@@ -18,7 +20,9 @@
 	      <%= image_tag "banner_one.png" %>
 	      <div class="carousel-caption">
 	      	<%= link_to "查看详情", notification_path(2), class: "btn detail-one-btn", "data-turbolinks" => false %>
-	      	<%= link_to "立即报名", new_talk_competition_activity_recruit_path(2), class: "btn apply-one-btn" %>
+	      	<%# unless current_player.try(:recruits).try(:second) %>
+	      		<%#= link_to "立即报名", new_talk_competition_activity_recruit_path(2), class: "btn apply-one-btn" %>
+	      	<%# end %>
 			  </div>
 	    </div>
 	  </div>
@@ -39,11 +43,11 @@
 			<div class="col-md-6 text-center">
 				<div class="compete-info">
 					<span class="title">
-						<%= link_to "距#{activity.short_name}报名截止", notification_path(activity.id), "data-turbolinks" => false %>
+						<%= link_to "距#{activity.short_name}#{}上传作品截止", notification_path(activity.id), "data-turbolinks" => false %>
 					</span>
-					<span class="apply">
-						<%= link_to "马上报名", [:new, activity, :recruit] %>
-					</span>
+<!-- 					<span class="apply">
+						<%#= link_to "马上报名", [:new, activity, :recruit] %>
+					</span> -->
 					<span class="date"><%= activity.left_days %></span>
 					<span class="unit">天</span>
 				</div>

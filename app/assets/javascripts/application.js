@@ -18,4 +18,5 @@
 //= require select2-full
 //= require bootstrap-sprockets
 //= require 'jquery.backstretch'
+//= require mediaelement_rails
 //= require_tree .

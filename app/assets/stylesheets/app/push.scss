@@ -1,0 +1,93 @@
+.info_competition__activities__new,
+.talk_competition__activities__new,
+.info_competition__opuses__new,
+.talk_competition__opuses__new,
+.info_competition__opuses__edit,
+.talk_competition__opuses__edit {
+  .right-content {
+    padding-top: 50px;
+    .form-row {
+      margin-left: 110px;
+    }
+    .btn_push_sure {
+      background-color: #F5A623;
+      color: #fff;
+      border: 0;
+      padding: 10px 40px;
+      margin: 30px 0 80px 0;
+    }
+    .form-row {
+      &:before, &:after {
+        content: " ";
+        display: table;
+        clear: both;
+      }
+      .form-left {
+        width: 200px;
+        float: left;
+        text-align: right;
+        padding-right: 8px;
+        color: #9B9B9B;
+        font-size: 14px;
+        line-height: 30px;
+      }
+      .form-right {
+        .blank-text {
+          color: #fff !important;
+        }
+        .warning_text {
+          margin-left: -40px;
+          color: #EB4F38;
+          padding-bottom: 20px;
+          font-size: 14px;
+          line-height: 24px;
+          img {
+            padding-bottom: 5px;
+            width: 22px;
+            margin-right: 8px;
+          }
+        }
+        .push-input {
+          .label1 {
+            white-space:nowrap;
+            text-overflow : ellipsis;
+            overflow:hidden; 
+            zoom:1;
+            padding-left: 12px;
+            font-size: 14px;
+            margin: 0 6px;
+            line-height: 32px;
+            color: #9B9B9B;
+            border: 1px solid #ccc;
+            border-radius: 0;
+            width: 100%;
+            min-height: 32px;
+          }
+          input {
+            border-radius: 0;
+          }
+        }
+        .push-textarea {
+          padding: 0 12px;
+          textarea {
+            border-radius: 0;
+          }
+        }
+        .btn-push {
+          background-color: #4A90E2;
+          color: #fff;
+          border: 0;
+          padding: 7px 30px;
+          margin-left: 3px;
+        }
+        .layout-type {
+          line-height: 46px;
+          label {
+            color: #9B9B9B;
+            font-weight: 300;
+          }
+        }
+      }
+    }
+  }
+}

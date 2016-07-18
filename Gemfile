@@ -1,5 +1,5 @@
-#source 'https://ruby.taobao.org'
-source 'https://rubygems.org'
+source 'https://ruby.taobao.org'
+# source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -24,7 +24,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
 # the font-awesome font bundled as an asset for the rails asset pipeline
 gem 'font-awesome-sass-rails'
 # Official Sass port of Bootstrap 2 and 3.
@@ -85,6 +84,8 @@ gem 'annotate'
 gem 'pdfjs_viewer-rails'
 
 gem 'rails-i18n'
+
+gem "mediaelement_rails"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

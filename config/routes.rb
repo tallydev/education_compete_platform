@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-
+  mount PdfjsViewer::Rails::Engine => "/pdfjs", as: 'pdfjs'
+  
   root to: "home#index"
   
   devise_for :users, controllers: {
@@ -50,6 +51,11 @@ Rails.application.routes.draw do
 
   # 信息大赛相关路由
   namespace :info_competition do
+    # index用于给专家进行查看审批的列表
+    # show用于给专家和参赛者都可以查看作品
+    # update用于给参赛者进行作品修改更新
+    resources :opuses, only: [:index, :show, :update]
+    
     resources :activities do
       resources :recruits do
         collection do
@@ -57,11 +63,19 @@ Rails.application.routes.draw do
         end
       end
     end
-    resources :recruits
+    resources :recruits do
+      # new, create用于给player进行上传作品
+      resources :opuses, only: [:new, :create, :edit]
+    end
   end
 
   # 说课大赛相关路由
   namespace :talk_competition do
+    # index用于给专家进行查看审批的列表
+    # show用于给专家和参赛者都可以查看作品
+    # update用于给参赛者进行作品修改更新
+    resources :opuses, only: [:index, :show]
+
     resources :activities do
       resources :recruits do
         collection do
@@ -69,7 +83,10 @@ Rails.application.routes.draw do
         end
       end
     end
-    resources :recruits
+    resources :recruits do
+      # new, create用于给player进行上传作品
+      resources :opuses, only: [:new, :create, :edit, :update]
+    end
   end
 
   namespace :admin do 
@@ -87,6 +104,7 @@ end
 # == Route Map
 #
 #                                 Prefix Verb   URI Pattern                                                           Controller#Action
+#                                  pdfjs        /pdfjs                                                                PdfjsViewer::Rails::Engine
 #                                   root GET    /                                                                     home#index
 #                       new_user_session GET    /users/sign_in(.:format)                                              user/sessions#new
 #                           user_session POST   /users/sign_in(.:format)                                              user/sessions#create
@@ -173,6 +191,10 @@ end
 #                           player_infos POST   /player_infos(.:format)                                               player_infos#create
 #                        new_player_info GET    /player_infos/new(.:format)                                           player_infos#new
 #                            player_info GET    /player_infos/:id(.:format)                                           player_infos#show
+#                info_competition_opuses GET    /info_competition/opuses(.:format)                                    info_competition/opuses#index
+#                  info_competition_opus GET    /info_competition/opuses/:id(.:format)                                info_competition/opuses#show
+#                                        PATCH  /info_competition/opuses/:id(.:format)                                info_competition/opuses#update
+#                                        PUT    /info_competition/opuses/:id(.:format)                                info_competition/opuses#update
 # all_info_competition_activity_recruits GET    /info_competition/activities/:activity_id/recruits/all(.:format)      info_competition/recruits#all
 #     info_competition_activity_recruits GET    /info_competition/activities/:activity_id/recruits(.:format)          info_competition/recruits#index
 #                                        POST   /info_competition/activities/:activity_id/recruits(.:format)          info_competition/recruits#create
@@ -190,6 +212,8 @@ end
 #                                        PATCH  /info_competition/activities/:id(.:format)                            info_competition/activities#update
 #                                        PUT    /info_competition/activities/:id(.:format)                            info_competition/activities#update
 #                                        DELETE /info_competition/activities/:id(.:format)                            info_competition/activities#destroy
+#        info_competition_recruit_opuses POST   /info_competition/recruits/:recruit_id/opuses(.:format)               info_competition/opuses#create
+#      new_info_competition_recruit_opus GET    /info_competition/recruits/:recruit_id/opuses/new(.:format)           info_competition/opuses#new
 #              info_competition_recruits GET    /info_competition/recruits(.:format)                                  info_competition/recruits#index
 #                                        POST   /info_competition/recruits(.:format)                                  info_competition/recruits#create
 #           new_info_competition_recruit GET    /info_competition/recruits/new(.:format)                              info_competition/recruits#new
@@ -215,6 +239,8 @@ end
 #                                        PATCH  /talk_competition/activities/:id(.:format)                            talk_competition/activities#update
 #                                        PUT    /talk_competition/activities/:id(.:format)                            talk_competition/activities#update
 #                                        DELETE /talk_competition/activities/:id(.:format)                            talk_competition/activities#destroy
+#        talk_competition_recruit_opuses POST   /talk_competition/recruits/:recruit_id/opuses(.:format)               talk_competition/opuses#create
+#      new_talk_competition_recruit_opus GET    /talk_competition/recruits/:recruit_id/opuses/new(.:format)           talk_competition/opuses#new
 #              talk_competition_recruits GET    /talk_competition/recruits(.:format)                                  talk_competition/recruits#index
 #                                        POST   /talk_competition/recruits(.:format)                                  talk_competition/recruits#create
 #           new_talk_competition_recruit GET    /talk_competition/recruits/new(.:format)                              talk_competition/recruits#new
@@ -256,4 +282,8 @@ end
 #                                        PATCH  /admin/bulletins/:id(.:format)                                        admin/bulletins#update
 #                                        PUT    /admin/bulletins/:id(.:format)                                        admin/bulletins#update
 #                                        DELETE /admin/bulletins/:id(.:format)                                        admin/bulletins#destroy
+#
+# Routes for PdfjsViewer::Rails::Engine:
+# minimal GET  /minimal(.:format) pdfjs_viewer/viewer#minimal
+#    full GET  /full(.:format)    pdfjs_viewer/viewer#full
 #
