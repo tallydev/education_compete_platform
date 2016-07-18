@@ -1,5 +1,5 @@
 module Paperclip
-  class DocsplitProcessor < Processor
+  class DocsplitPdf < Processor
     attr_accessor :src, :options, :attachment
 
     def initialize(file, options = {}, attachment = nil)
