@@ -31,7 +31,7 @@
 	      	<% activity = @activities.second %>
 	      	<% if activity.recruit? current_player %>
 	      		<% recruit = activity.player_recruit current_player %>
-	      		<%= link_to "上传作品", [:new, recruit, :opus], , class: "btn apply-one-btn" %>
+	      		<%= link_to "上传作品", [:new, recruit, :opus], class: "btn apply-one-btn" %>
 	      	<% end %>
 			  </div>
 	    </div>
