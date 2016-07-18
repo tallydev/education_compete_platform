@@ -1,9 +1,8 @@
 <!--startprint-->
-<table class="table table-bordered print-table">
+<table class="table table-bordered table-hover table-striped">
   <thead>
     <tr>
       <th>序号</th>
-      <th>参赛项目</th>
       <th>姓名</th>
       <th>参赛课程</th>
       <th>手机</th>
@@ -14,7 +13,6 @@
     <% @recruits.each_with_index do |recruit, index| -%>
     <tr>
       <th><%= index + 1 -%></th>
-      <th><%= recruit.project -%></th>
       <th><%= recruit.cooperater_1 -%></th>
       <th><%= recruit.name -%></th>
       <th><%= recruit.player.phone -%></th>

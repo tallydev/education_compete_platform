@@ -24,7 +24,7 @@
           <tbody>
             <% @recruits.each_with_index do |recruit, index| -%>
             <tr>
-              <th><%= index -%></th>
+              <th><%= index + 1 -%></th>
               <th><%= recruit.project -%></th>
               <th><%= recruit.cooperater_1 -%></th>
               <th><%= recruit.name -%></th>
@@ -43,7 +43,7 @@
             </tr>
           </tfoot>
         </table>
-
+        
       </div>
     </div>
   </div>
