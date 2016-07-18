@@ -42,4 +42,12 @@ class Activity < ActiveRecord::Base
   def player_recruit player
     recruits.player_filter(player).try(:first)
   end
+
+  def opus? player
+    recruits.player_filter(player).try(:first).try(:opus).present?
+  end
+
+  def player_opus player
+    recruits.player_filter(player).try(:first).try(:opus)
+  end
 end

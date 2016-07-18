@@ -1,5 +1,6 @@
 class InfoCompetition::OpusesController < ApplicationController
   before_action :set_info_competition_opus, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_player!, only: [:new, :create, :update, :edit]
 
   respond_to :html
 
@@ -27,11 +28,8 @@ class InfoCompetition::OpusesController < ApplicationController
   end
 
   def new
-    @first_opus = current_player.recruits.blank? ? nil : current_player.recruits.first
-    @player = current_player.try(:info)
-
     @info_competition_recruit = InfoCompetition::Recruit.find(params[:recruit_id])
-    @info_competition_opus = @info_competition_recruit.build_opus
+    @info_competition_opus = @info_competition_recruit.opus || @info_competition_recruit.build_opus
     respond_with(@info_competition_opus)
   end
 
