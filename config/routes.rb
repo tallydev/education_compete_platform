@@ -75,7 +75,9 @@ Rails.application.routes.draw do
   namespace :admin do 
     root to: "home#index"
     resources :users
-    resources :activities
+    resources :activities do
+      resources :recruits
+    end
     resources :news
     resources :bulletins
   end
@@ -171,6 +173,7 @@ end
 #                           player_infos POST   /player_infos(.:format)                                               player_infos#create
 #                        new_player_info GET    /player_infos/new(.:format)                                           player_infos#new
 #                            player_info GET    /player_infos/:id(.:format)                                           player_infos#show
+# all_info_competition_activity_recruits GET    /info_competition/activities/:activity_id/recruits/all(.:format)      info_competition/recruits#all
 #     info_competition_activity_recruits GET    /info_competition/activities/:activity_id/recruits(.:format)          info_competition/recruits#index
 #                                        POST   /info_competition/activities/:activity_id/recruits(.:format)          info_competition/recruits#create
 #  new_info_competition_activity_recruit GET    /info_competition/activities/:activity_id/recruits/new(.:format)      info_competition/recruits#new
@@ -195,6 +198,7 @@ end
 #                                        PATCH  /info_competition/recruits/:id(.:format)                              info_competition/recruits#update
 #                                        PUT    /info_competition/recruits/:id(.:format)                              info_competition/recruits#update
 #                                        DELETE /info_competition/recruits/:id(.:format)                              info_competition/recruits#destroy
+# all_talk_competition_activity_recruits GET    /talk_competition/activities/:activity_id/recruits/all(.:format)      talk_competition/recruits#all
 #     talk_competition_activity_recruits GET    /talk_competition/activities/:activity_id/recruits(.:format)          talk_competition/recruits#index
 #                                        POST   /talk_competition/activities/:activity_id/recruits(.:format)          talk_competition/recruits#create
 #  new_talk_competition_activity_recruit GET    /talk_competition/activities/:activity_id/recruits/new(.:format)      talk_competition/recruits#new
