@@ -39,12 +39,11 @@
         <span class="arrow "></span>
       </a>
       <ul class="sub-menu">
-        <li >
-          <a href="portlet_general.html">列表1</a>
-        </li>
-        <li >
-          <a href="portlet_draggable.html">列表2</a>
-        </li>
+        <% Activity.all.each do |activity| %>
+          <li>
+            <%= link_to activity.short_name, "/admin/activities/#{activity.id}/#{activity.route_type}" %>
+          </li>
+        <% end %>
       </ul>
     </li>
 

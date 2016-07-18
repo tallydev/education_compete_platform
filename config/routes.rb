@@ -92,13 +92,41 @@ Rails.application.routes.draw do
   namespace :admin do 
     root to: "home#index"
     resources :users
-    resources :activities do
-      resources :recruits
+    resources :activities, only: [:index, :show] do
+      resources :info_competitions, only: [:show, :index] do
+        collection do
+          get :print
+        end
+      end
+      resources :talk_competitions, only: [:show, :index] do
+        collection do
+          get :print
+        end
+      end
     end
     resources :news
     resources :bulletins
+
+    resources :info_competition do
+      resources :activities do
+        resources :recruits do
+          collection do
+            get :all
+          end
+        end
+      end
+    end
   end
 
+  resources :talk_competition do
+    resources :activities do
+      resources :recruits do
+        collection do
+          get :all
+        end
+      end
+    end
+  end
 end
 
 # == Route Map
@@ -214,6 +242,7 @@ end
 #                                        DELETE /info_competition/activities/:id(.:format)                            info_competition/activities#destroy
 #        info_competition_recruit_opuses POST   /info_competition/recruits/:recruit_id/opuses(.:format)               info_competition/opuses#create
 #      new_info_competition_recruit_opus GET    /info_competition/recruits/:recruit_id/opuses/new(.:format)           info_competition/opuses#new
+#     edit_info_competition_recruit_opus GET    /info_competition/recruits/:recruit_id/opuses/:id/edit(.:format)      info_competition/opuses#edit
 #              info_competition_recruits GET    /info_competition/recruits(.:format)                                  info_competition/recruits#index
 #                                        POST   /info_competition/recruits(.:format)                                  info_competition/recruits#create
 #           new_info_competition_recruit GET    /info_competition/recruits/new(.:format)                              info_competition/recruits#new
@@ -222,6 +251,8 @@ end
 #                                        PATCH  /info_competition/recruits/:id(.:format)                              info_competition/recruits#update
 #                                        PUT    /info_competition/recruits/:id(.:format)                              info_competition/recruits#update
 #                                        DELETE /info_competition/recruits/:id(.:format)                              info_competition/recruits#destroy
+#                talk_competition_opuses GET    /talk_competition/opuses(.:format)                                    talk_competition/opuses#index
+#                  talk_competition_opus GET    /talk_competition/opuses/:id(.:format)                                talk_competition/opuses#show
 # all_talk_competition_activity_recruits GET    /talk_competition/activities/:activity_id/recruits/all(.:format)      talk_competition/recruits#all
 #     talk_competition_activity_recruits GET    /talk_competition/activities/:activity_id/recruits(.:format)          talk_competition/recruits#index
 #                                        POST   /talk_competition/activities/:activity_id/recruits(.:format)          talk_competition/recruits#create
@@ -241,6 +272,9 @@ end
 #                                        DELETE /talk_competition/activities/:id(.:format)                            talk_competition/activities#destroy
 #        talk_competition_recruit_opuses POST   /talk_competition/recruits/:recruit_id/opuses(.:format)               talk_competition/opuses#create
 #      new_talk_competition_recruit_opus GET    /talk_competition/recruits/:recruit_id/opuses/new(.:format)           talk_competition/opuses#new
+#     edit_talk_competition_recruit_opus GET    /talk_competition/recruits/:recruit_id/opuses/:id/edit(.:format)      talk_competition/opuses#edit
+#          talk_competition_recruit_opus PATCH  /talk_competition/recruits/:recruit_id/opuses/:id(.:format)           talk_competition/opuses#update
+#                                        PUT    /talk_competition/recruits/:recruit_id/opuses/:id(.:format)           talk_competition/opuses#update
 #              talk_competition_recruits GET    /talk_competition/recruits(.:format)                                  talk_competition/recruits#index
 #                                        POST   /talk_competition/recruits(.:format)                                  talk_competition/recruits#create
 #           new_talk_competition_recruit GET    /talk_competition/recruits/new(.:format)                              talk_competition/recruits#new
@@ -258,6 +292,14 @@ end
 #                                        PATCH  /admin/users/:id(.:format)                                            admin/users#update
 #                                        PUT    /admin/users/:id(.:format)                                            admin/users#update
 #                                        DELETE /admin/users/:id(.:format)                                            admin/users#destroy
+#                admin_activity_recruits GET    /admin/activities/:activity_id/recruits(.:format)                     admin/recruits#index
+#                                        POST   /admin/activities/:activity_id/recruits(.:format)                     admin/recruits#create
+#             new_admin_activity_recruit GET    /admin/activities/:activity_id/recruits/new(.:format)                 admin/recruits#new
+#            edit_admin_activity_recruit GET    /admin/activities/:activity_id/recruits/:id/edit(.:format)            admin/recruits#edit
+#                 admin_activity_recruit GET    /admin/activities/:activity_id/recruits/:id(.:format)                 admin/recruits#show
+#                                        PATCH  /admin/activities/:activity_id/recruits/:id(.:format)                 admin/recruits#update
+#                                        PUT    /admin/activities/:activity_id/recruits/:id(.:format)                 admin/recruits#update
+#                                        DELETE /admin/activities/:activity_id/recruits/:id(.:format)                 admin/recruits#destroy
 #                       admin_activities GET    /admin/activities(.:format)                                           admin/activities#index
 #                                        POST   /admin/activities(.:format)                                           admin/activities#create
 #                     new_admin_activity GET    /admin/activities/new(.:format)                                       admin/activities#new
