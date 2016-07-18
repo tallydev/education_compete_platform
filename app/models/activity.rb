@@ -2,15 +2,20 @@
 #
 # Table name: activities
 #
-#  id         :integer          not null, primary key
-#  name       :string           not null
-#  start_time :datetime
-#  end_time   :datetime
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  status     :integer          default(0)
-#  type       :string
-#  short_name :string
+#  id          :integer          not null, primary key
+#  name        :string           not null
+#  start_time  :datetime
+#  end_time    :datetime
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  status      :integer          default(0)
+#  type        :string
+#  bulletin_id :integer
+#  short_name  :string
+#
+# Indexes
+#
+#  index_activities_on_bulletin_id  (bulletin_id)
 #
 
 class Activity < ActiveRecord::Base
@@ -19,7 +24,7 @@ class Activity < ActiveRecord::Base
   enum status: [:activate, :stop]
 
   def left_days
-    days = end_time.day - Time.zone.now.day
+    days = (end_time.to_date - Time.zone.now.to_date).to_i
     days < 0 ? 0 : days
   end
 
@@ -36,5 +41,13 @@ class Activity < ActiveRecord::Base
   # 用户本次比赛的报名信息
   def player_recruit player
     recruits.player_filter(player).try(:first)
+  end
+
+  def opus? player
+    recruits.player_filter(player).try(:first).try(:opus).present?
+  end
+
+  def player_opus player
+    recruits.player_filter(player).try(:first).try(:opus)
   end
 end

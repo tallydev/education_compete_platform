@@ -65,7 +65,7 @@ Rails.application.routes.draw do
     end
     resources :recruits do
       # new, create用于给player进行上传作品
-      resources :opuses, only: [:new, :create, :edit]
+      resources :opuses, only: [:new, :create, :edit, :update]
     end
   end
 

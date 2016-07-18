@@ -19,6 +19,7 @@ class TalkCompetition::RecruitsController < ApplicationController
 
   def show
     @player_info = @talk_competition_recruit.player.info
+    @player_opus = @talk_competition_recruit.opus
     respond_with(@talk_competition_recruit)
   end
 

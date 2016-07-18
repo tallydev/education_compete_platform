@@ -7,9 +7,8 @@ class CreatePlayerInfos < ActiveRecord::Migration
       t.string :code
       t.integer :sex
       t.string :nation
-      t.references :player, index: true, foreign_key: true
-      t.references :school, index: true, foreign_key: true
-
+      t.references :player, index: true
+      t.references :school, index: true
       t.timestamps null: false
     end
   end

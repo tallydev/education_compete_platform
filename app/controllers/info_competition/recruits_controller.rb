@@ -19,6 +19,7 @@ class InfoCompetition::RecruitsController < ApplicationController
 
   def show
     @player_info = @info_competition_recruit.player.info
+    @player_opus = @info_competition_recruit.opus
     respond_with(@info_competition_recruit)
   end
 

@@ -1,5 +1,4 @@
-<%= simple_form_for([@info_competition_recruit, @info_competition_opus], url:info_competition_recruit_opuses_path, wrapper: :push_horizontal_form) do |f| %>
-
+<%= simple_form_for([@info_competition_recruit, @info_competition_opus], url:info_competition_recruit_opus_path(@info_competition_recruit, @info_competition_opus), wrapper: :push_horizontal_form) do |f| %>
   <div class="form-row">
     <div class="form-left">课程名称：</div>
     <div class="form-right">
@@ -27,17 +26,27 @@
     <div class="form-right">
       <div class="row">
         <div class="col-md-4 push-input">
-          <div class="label1" id="upload-file-info">选择文件</div>
+          <div class="label1" id="upload-file-info">
+          <% if @info_competition_opus.media.present? %>
+            <%= @info_competition_opus.media.file_file_name %>
+          <% else %>
+            选择文件
+          <% end %>
+          </div>
         </div>
         <div class="pull-left layout-type">
-          <label class="blank-text">.mp4</label>
+          <label class="type-text">.mp4</label>
         </div>
         <div class="col-md-2">
           <label class="btn btn-push mp4">
             上传
             <span style="display:none;">
               <%= f.simple_fields_for :media_attributes do |r| %>
-                <%= r.file_field :file,label: false, required: true, onchange:'$("#upload-file-info").html($(this).val());$("#upload-file-info").css({color:"#3D96D5"})' %> 
+                <% if @info_competition_opus.media.present? %>
+                  <%= r.file_field :file,label: false, onchange:'$("#upload-file-info").html($(this).val());$("#upload-file-info").css({color:"#3D96D5"})' %>
+                <% else %>
+                  <%= r.file_field :file,label: false, as: :mp4, required: true, onchange:'$("#upload-file-info").html($(this).val());$("#upload-file-info").css({color:"#3D96D5"})' %>
+                <% end %> 
               <% end %>
             </span>
           </label>
@@ -77,7 +86,13 @@
     <div class="form-right">
       <div class="row">
         <div class="col-md-4 push-input">
-          <div class="label1" id="upload-file-info2">选择文件</div>
+          <div class="label1" id="upload-file-info2">
+            <% if @info_competition_opus.plan.present? %>
+              <%= @info_competition_opus.plan.file_file_name %>
+            <% else %>
+              选择文件
+            <% end %>
+          </div>
         </div>
         <div class="pull-left layout-type">
           <label class="blank-text">.mp4</label>
@@ -87,7 +102,11 @@
             上传
             <span style="display:none;">
               <%= f.simple_fields_for :plan_attributes do |r| %>
-                <%= r.file_field :file, label: false, required: true, onchange:'$("#upload-file-info2").html($(this).val());$("#upload-file-info2").css({color:"#3D96D5"})' %>
+                <% if @info_competition_opus.plan.present? %>
+                  <%= r.file_field :file, label: false, onchange:'$("#upload-file-info2").html($(this).val());$("#upload-file-info2").css({color:"#3D96D5"})' %>
+                <% else %>
+                  <%= r.file_field :file, label: false, required: true, onchange:'$("#upload-file-info2").html($(this).val());$("#upload-file-info2").css({color:"#3D96D5"})' %>
+                <% end %>
               <% end %>
             </span>
           </label>
@@ -101,7 +120,13 @@
     <div class="form-right">
       <div class="row">
         <div class="col-md-4 push-input">
-          <div class="label1" id="upload-file-info3">选择文件</div>
+          <div class="label1" id="upload-file-info3">
+            <% if @info_competition_opus.note.present? %>
+              <%= @info_competition_opus.note.file_file_name %>
+            <% else %>
+              选择文件
+            <% end %>
+          </div>
         </div>
         <div class="pull-left layout-type">
           <label class="blank-text">.mp4</label>
@@ -111,7 +136,11 @@
             上传
             <span style="display:none;">
               <%= f.simple_fields_for :note_attributes do |r| %>
-                <%= r.file_field :file, label: false, required: true, onchange:'$("#upload-file-info3").html($(this).val());$("#upload-file-info3").css({color:"#3D96D5"})' %> 
+                <% if @info_competition_opus.note.present? %>
+                  <%= r.file_field :file, label: false, onchange:'$("#upload-file-info3").html($(this).val());$("#upload-file-info3").css({color:"#3D96D5"})' %>
+                <% else %>
+                  <%= r.file_field :file, label: false, required: true, onchange:'$("#upload-file-info3").html($(this).val());$("#upload-file-info3").css({color:"#3D96D5"})' %>
+                <% end %>
               <% end %>
             </span>
           </label>
@@ -124,7 +153,13 @@
     <div class="form-right">
       <div class="row">
         <div class="col-md-4 push-input">
-          <div class="label1" id="upload-file-info4">选择文件</div>
+          <div class="label1" id="upload-file-info4">
+            <% if @info_competition_opus.ppt.present? %>
+              <%= @info_competition_opus.ppt.file_file_name %>
+            <% else %>
+              选择文件
+            <% end %>
+          </div>
         </div>
         <div class="pull-left layout-type">
           <label class="blank-text">.mp4</label>
@@ -134,7 +169,11 @@
             上传
             <span style="display:none;">
               <%= f.simple_fields_for :ppt_attributes do |r| %>
-                <%= r.file_field :file, label: false, required: true, onchange:'$("#upload-file-info4").html($(this).val());$("#upload-file-info4").css({color:"#3D96D5"})' %> 
+                <% if @info_competition_opus.ppt.present? %>
+                  <%= r.file_field :file, label: false, onchange:'$("#upload-file-info4").html($(this).val());$("#upload-file-info4").css({color:"#3D96D5"})' %>
+                <% else %>
+                  <%= r.file_field :file, label: false, required: true, onchange:'$("#upload-file-info4").html($(this).val());$("#upload-file-info4").css({color:"#3D96D5"})' %>
+                <% end %> 
               <% end %>
             </span>
           </label>
@@ -146,7 +185,7 @@
     <%= f.button :submit, "提  交", class: "btn_push_sure", data: {disable_with: '提交中...'} %>
   </div>
 <% end %>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   $('.mp4 INPUT[type="file"]').change(function () {
     var ext = this.value.match(/\.(.+)$/)[1];
     switch (ext) {
@@ -160,5 +199,4 @@
         alert('文件格式不符合，请重新上传！');
     };
   });
-</script>
-
+</script> -->

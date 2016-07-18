@@ -39,7 +39,6 @@
 					<%= link_to(@notification.paper.try(:url), class: "btn info-download") do %>
 						<%= image_tag "download.svg" %>&nbsp;&nbsp;比赛通知下载
 					<% end %>
-	
 
 					<% if @activity.recruit?(current_player) %>
 						<%= link_to([:new, @activity, :recruit], class: "btn apply-entry") do %>
@@ -51,6 +50,20 @@
 						<% end %>
 					<% end %>
 
+					<% if @activity.recruit? current_player %>
+						<% recruit = @activity.player_recruit current_player %>
+
+						<% if recruit.opus %>
+							<%= link_to(recruit.opus, class: "btn info-upload") do %>
+								<%= image_tag "entry.svg" %>&nbsp;&nbsp;查看作品详情
+							<% end %>
+						<% else %>
+							<%= link_to([:new, recruit, :opus], class: "btn info-upload") do %>
+								<%= image_tag "upload.svg" %>&nbsp;&nbsp;比赛作品上传
+							<% end %>
+						<% end %>
+
+					<% end %>
 				</div>
 
 			</div>

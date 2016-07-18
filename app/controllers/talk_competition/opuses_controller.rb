@@ -27,11 +27,8 @@ class TalkCompetition::OpusesController < ApplicationController
   end
 
   def new
-    @first_opus = current_player.recruits.blank? ? nil : current_player.recruits.first
-    @player = current_player.try(:info)
-
     @talk_competition_recruit = TalkCompetition::Recruit.find(params[:recruit_id])
-    @talk_competition_opus = @talk_competition_recruit.build_opus
+    @talk_competition_opus = @talk_competition_recruit.opus || @talk_competition_recruit.build_opus
     respond_with(@talk_competition_opus)
   end
 
