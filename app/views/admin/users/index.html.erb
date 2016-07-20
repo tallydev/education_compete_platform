@@ -20,7 +20,7 @@
             <% @users.each do |user| -%>
             <tr>
               <th><%= user.phone -%></th>
-              <th><%= user.name -%></th>
+              <th><%= user.try(:name) -%></th>
               <th><%= user.created_at.strftime('%F %H:%M') -%></th>
             </tr>
             <% end -%>
