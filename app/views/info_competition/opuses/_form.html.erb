@@ -44,9 +44,9 @@
             <span style="display:none;">
               <%= f.simple_fields_for :media_attributes do |r| %>
                 <% if @info_competition_opus.media.present? %>
-                  <%= r.file_field :file,label: false, onchange:'$("#upload-file-info").html($(this).val());$("#upload-file-info").css({color:"#3D96D5"})' %>
+                  <%= r.file_field :file,label: false, accept: '.mp4', onchange:'$("#upload-file-info").html($(this).val());$("#upload-file-info").css({color:"#3D96D5"})' %>
                 <% else %>
-                  <%= r.file_field :file,label: false, as: :mp4, required: true, onchange:'$("#upload-file-info").html($(this).val());$("#upload-file-info").css({color:"#3D96D5"})' %>
+                  <%= r.file_field :file,label: false, accept: '.mp4', required: true, onchange:'$("#upload-file-info").html($(this).val());$("#upload-file-info").css({color:"#3D96D5"})' %>
                 <% end %> 
               <% end %>
             </span>
@@ -96,7 +96,7 @@
           </div>
         </div>
         <div class="pull-left layout-type">
-          <label class="blank-text">.mp4</label>
+          <label class="type-text">.pdf</label>
         </div>
         <div class="col-md-2">
           <label class="btn btn-push">
@@ -104,14 +104,17 @@
             <span style="display:none;">
               <%= f.simple_fields_for :plan_attributes do |r| %>
                 <% if @info_competition_opus.plan.present? %>
-                  <%= r.file_field :file, label: false, onchange:'$("#upload-file-info2").html($(this).val());$("#upload-file-info2").css({color:"#3D96D5"})' %>
+                  <%= r.file_field :file, label: false, accept: 'application/pdf', onchange:'$("#upload-file-info2").html($(this).val());$("#upload-file-info2").css({color:"#3D96D5"})' %>
                 <% else %>
-                  <%= r.file_field :file, label: false, required: true, onchange:'$("#upload-file-info2").html($(this).val());$("#upload-file-info2").css({color:"#3D96D5"})' %>
+                  <%= r.file_field :file, label: false, accept: 'application/pdf', required: true, onchange:'$("#upload-file-info2").html($(this).val());$("#upload-file-info2").css({color:"#3D96D5"})' %>
                 <% end %>
               <% end %>
             </span>
           </label>
         </div>
+      </div>
+      <div class="text-center warning_text warning_text_two ">
+        <%= image_tag "warning.svg" %>上传说明：请先将文档转成PDF格式后再上传
       </div>
     </div>
   </div>
@@ -130,7 +133,7 @@
           </div>
         </div>
         <div class="pull-left layout-type">
-          <label class="blank-text">.mp4</label>
+          <label class="type-text">.pdf</label>
         </div>
         <div class="col-md-2">
           <label class="btn btn-push">
@@ -138,14 +141,17 @@
             <span style="display:none;">
               <%= f.simple_fields_for :note_attributes do |r| %>
                 <% if @info_competition_opus.note.present? %>
-                  <%= r.file_field :file, label: false, onchange:'$("#upload-file-info3").html($(this).val());$("#upload-file-info3").css({color:"#3D96D5"})' %>
+                  <%= r.file_field :file, label: false, accept: 'application/pdf', onchange:'$("#upload-file-info3").html($(this).val());$("#upload-file-info3").css({color:"#3D96D5"})' %>
                 <% else %>
-                  <%= r.file_field :file, label: false, required: true, onchange:'$("#upload-file-info3").html($(this).val());$("#upload-file-info3").css({color:"#3D96D5"})' %>
+                  <%= r.file_field :file, label: false, accept: 'application/pdf', required: true, onchange:'$("#upload-file-info3").html($(this).val());$("#upload-file-info3").css({color:"#3D96D5"})' %>
                 <% end %>
               <% end %>
             </span>
           </label>
         </div>
+      </div>
+      <div class="text-center warning_text warning_text_two">
+        <%= image_tag "warning.svg" %>上传说明：请先将文档转成PDF格式后再上传
       </div>
     </div>
   </div>
@@ -163,7 +169,7 @@
           </div>
         </div>
         <div class="pull-left layout-type">
-          <label class="blank-text">.mp4</label>
+          <label class="type-text">.pdf</label>
         </div>
         <div class="col-md-2">
           <label class="btn btn-push">
@@ -171,14 +177,17 @@
             <span style="display:none;">
               <%= f.simple_fields_for :ppt_attributes do |r| %>
                 <% if @info_competition_opus.ppt.present? %>
-                  <%= r.file_field :file, label: false, onchange:'$("#upload-file-info4").html($(this).val());$("#upload-file-info4").css({color:"#3D96D5"})' %>
+                  <%= r.file_field :file, label: false, accept: 'application/pdf', onchange:'$("#upload-file-info4").html($(this).val());$("#upload-file-info4").css({color:"#3D96D5"})' %>
                 <% else %>
-                  <%= r.file_field :file, label: false, required: true, onchange:'$("#upload-file-info4").html($(this).val());$("#upload-file-info4").css({color:"#3D96D5"})' %>
+                  <%= r.file_field :file, label: false, accept: 'application/pdf', required: true, onchange:'$("#upload-file-info4").html($(this).val());$("#upload-file-info4").css({color:"#3D96D5"})' %>
                 <% end %> 
               <% end %>
             </span>
           </label>
         </div>
+      </div>
+      <div class="text-center warning_text warning_text_two">
+        <%= image_tag "warning.svg" %>上传说明：请先将文档转成PDF格式后再上传
       </div>
     </div>
   </div>

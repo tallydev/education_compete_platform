@@ -44,7 +44,7 @@
         <div class="float-cell"><%= image_tag "pdf.png", class:"pdf-image" %></div>
         <div class="float-cell">
           <%= image_tag "open_eye.png" %>
-          <%= link_to "在线预览", pdfjs.full_path(file: "#{@talk_competition_opus.note.try(:file).try(:url)}"), target: "blank", "data-turbolinks" => false %>
+          <%= link_to "在线预览", pdfjs.full_path(file: "#{@talk_competition_opus.note.try(:url)}"), target: "blank", "data-turbolinks" => false %>
         </div>
         <div class="float-cell">
           <%= image_tag "download.png" %>
@@ -59,7 +59,7 @@
         <div class="float-cell"><%= image_tag "pdf.png", class:"pdf-image" %></div>
         <div class="float-cell">
           <%= image_tag "open_eye.png" %>
-          <%= link_to "在线预览", pdfjs.full_path(file: "#{@talk_competition_opus.ppt.try(:file).try(:url)}"), target: "blank", "data-turbolinks" => false %>
+          <%= link_to "在线预览", pdfjs.full_path(file: "#{@talk_competition_opus.ppt.try(:url)}"), target: "blank", "data-turbolinks" => false %>
         </div>
         <div class="float-cell">
           <%= image_tag "download.png" %>
