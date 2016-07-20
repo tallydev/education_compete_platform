@@ -32,7 +32,7 @@
               <th><%= user.player_info.try(:degree) -%></th>
               <th><%= user.player_info.try(:special) -%></th>
               <th><%= user.school.try(:name) -%></th>
-              <th><%= user.created_at.strftime('%F %H:%M') -%></th>
+              <th><%= user.player_info.created_at.strftime('%F %H:%M') -%></th>
               <th>
                 <%= link_to "删除", admin_user_path(user), :method => 'delete'%>
               </th>
