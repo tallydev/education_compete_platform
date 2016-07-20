@@ -2,7 +2,7 @@ module Admin
   class UsersController < BaseController
     
     def index
-      @users = User.where(type: 'player').paginate(:page => params[:page], :per_page => 20)
+      @users = SchoolUser.all.paginate(:page => params[:page], :per_page => 20)
     end
 
     private
