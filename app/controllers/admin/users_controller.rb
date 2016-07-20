@@ -2,7 +2,11 @@ module Admin
   class UsersController < BaseController
     
     def index
-      @users = SchoolUser.all.paginate(:page => params[:page], :per_page => 20)
+      @users = Player.all.paginate(:page => params[:page], :per_page => 20)
+    end
+
+    def destroy
+      
     end
 
     private

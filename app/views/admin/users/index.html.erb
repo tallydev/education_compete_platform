@@ -13,15 +13,29 @@
             <tr>
               <th>姓名</th>
               <th>手机</th>
+              <th>性别</th>
+              <th>职位</th>
+              <th>学历</th>
+              <th>专业</th>
+              <th>学校</th>
               <th>创建时间</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             <% @users.each do |user| -%>
             <tr>
+              <th><%= user.player_info.try(:name) -%></th>
               <th><%= user.phone -%></th>
-              <th><%= user.try(:name) -%></th>
+              <th><%= user.player_info.try(:sex) -%></th>
+              <th><%= user.player_info.try(:professional_title) -%></th>
+              <th><%= user.player_info.try(:degree) -%></th>
+              <th><%= user.player_info.try(:special) -%></th>
+              <th><%= user.school.try(:name) -%></th>
               <th><%= user.created_at.strftime('%F %H:%M') -%></th>
+              <th>
+                <%= link_to "删除", admin_user_path(user), :method => 'delete'%>
+              </th>
             </tr>
             <% end -%>
           </tbody>
