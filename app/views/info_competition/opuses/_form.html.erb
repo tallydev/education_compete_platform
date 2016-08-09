@@ -1,5 +1,5 @@
-<% @info_competition_opus.id.present? ? @my_url=info_competition_recruit_opus_path(@info_competition_recruit, @info_competition_opus) : @my_url=info_competition_recruit_opuses_path %>
-<%= simple_form_for([@info_competition_recruit, @info_competition_opus], url:@my_url, wrapper: :push_horizontal_form) do |f| %>
+<% @info_competition_opus.id.present? ? @my_url=info_competition_recruit_opus_path(@info_competition_recruit, @info_competition_opus) : @my_url=info_competition_recruit_opuses_path(@info_competition_recruit) %>
+<%= simple_form_for([@info_competition_recruit, @info_competition_opus], url: @my_url,  wrapper: :push_horizontal_form) do |f| %>
   <div class="form-row">
     <div class="form-left">课程名称：</div>
     <div class="form-right">
