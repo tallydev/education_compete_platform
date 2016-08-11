@@ -37,6 +37,7 @@ RSpec.describe InfoCompetition::Recruit, type: :model do
   it { should belong_to(:player) } 
   it { should belong_to(:school) } 
   it { should belong_to(:activity) } 
+  it { should have_many(:marks) } 
 
   it { should validate_presence_of(:player) }
   it { should validate_presence_of(:activity) }

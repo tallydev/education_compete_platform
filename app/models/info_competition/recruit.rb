@@ -40,6 +40,8 @@ class InfoCompetition::Recruit < ActiveRecord::Base
   belongs_to :school
   belongs_to :activity
 
+  has_many :marks, as: :recruitable, dependent: :destroy
+
   def player_info
     player.try(:player_info)
   end
