@@ -7,6 +7,7 @@
 #  recruit_id :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  item_array :text
 #
 # Indexes
 #
@@ -14,4 +15,5 @@
 #
 
 class Mark < ActiveRecord::Base
+  serialize :item_array, Array
 end
