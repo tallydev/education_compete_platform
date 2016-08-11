@@ -18,4 +18,20 @@
 
 class Mark < ActiveRecord::Base
   serialize :item_array, Array
+
+  belongs_to :expert
+  belongs_to :recruit
+
+  validates_presence_of :expert
+  validates_presence_of :recruit
+  validates_presence_of :item_array
+
+  before_save :cal_score
+
+  private
+
+    def cal_score
+      score = item_array.reduce(:+)
+    end
+
 end
