@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160811221327) do
+ActiveRecord::Schema.define(version: 20160811221936) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",                    null: false
@@ -103,8 +103,10 @@ ActiveRecord::Schema.define(version: 20160811221327) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text     "item_array"
+    t.integer  "expert_id"
   end
 
+  add_index "marks", ["expert_id"], name: "index_marks_on_expert_id"
   add_index "marks", ["recruit_id"], name: "index_marks_on_recruit_id"
 
   create_table "media", force: :cascade do |t|

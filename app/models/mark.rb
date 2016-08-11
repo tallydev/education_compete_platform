@@ -8,9 +8,11 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  item_array :text
+#  expert_id  :integer
 #
 # Indexes
 #
+#  index_marks_on_expert_id   (expert_id)
 #  index_marks_on_recruit_id  (recruit_id)
 #
 
