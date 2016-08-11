@@ -20,4 +20,29 @@ class InfoCompetition::Activity < Activity
   def route_type
     "info_competitions"
   end
+
+  def mark_items
+    [
+      {
+        index: 0,
+        name: "教学设计",
+        max: 20
+      },
+      {
+        index: 1,
+        name: "创新与应用",
+        max: 30
+      },
+      {
+        index: 2,
+        name: "效果性",
+        max: 20
+      },
+      {
+        index: 3,
+        name: "技术性",
+        max: 30
+      }
+    ]
+  end
 end
