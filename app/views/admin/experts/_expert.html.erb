@@ -1,0 +1,15 @@
+<tr>
+  <td><%= expert.try(:user_info).try(:name) %></td>
+  <td><%= expert.phone %></td>
+  <td><%= expert.email %></td>
+  <td><%= expert.last_sign_in_at.try(:timeFormat) %></td>
+  <td><%= expert.last_sign_in_ip %></td>
+  <td>
+  	<div class="btn-group" role="group" aria-label="...">
+		  <button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#expertModal">编辑</button>
+      <%= link_to admin_expert_path(expert), method: :delete, data: { confirm: '确定删除吗?' } do %>
+        <button type="button" class="btn btn-xs btn-danger">删除</button>
+      <% end %>
+		</div>
+  </td>
+</tr>

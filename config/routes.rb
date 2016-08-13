@@ -107,6 +107,7 @@ Rails.application.routes.draw do
     resources :news
     resources :bulletins
     resources :marks
+    resources :experts
 
     resources :info_competition do
       resources :activities do

@@ -1,0 +1,49 @@
+<div class="text-right">
+  <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#expertModal">
+    <i class="icon-plus"></i>新增专家
+  </button>
+</div>
+<br>
+<div class="marks-table">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>专家姓名</th>
+        <th>账号</th>
+        <th>邮箱</th>
+        <th>最后登录时间</th>
+        <th>最后登录IP</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @experts %>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="expertModal" tabindex="-1" role="dialog" aria-labelledby="expertModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="expertModalLabel">
+          <% if params[:action] == "new" %>
+            "新增专家"
+          <% else %>
+            "更新专家信息"
+          <% end %>
+        </h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary">新增</button>
+      </div>
+    </div>
+  </div>
+</div>
