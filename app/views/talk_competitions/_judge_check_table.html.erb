@@ -18,7 +18,7 @@
     </div>
   </div>
   <div class="center_cotent row">
-    <table class="table">
+    <table class="table table-bordered">
       <thead class="color_label">
         <tr>
           <th>
@@ -45,6 +45,7 @@
             </div>
           </th>
           <td><%= index+1 %></td>
+          <td><%= recruit.project %></td>
           <td><%= recruit.try(:player).try(:info).try(:name) %></td>
           <td><%= recruit.name %></td>
           <td><%= recruit.try(:player).try(:info).try(:email) %></td>
