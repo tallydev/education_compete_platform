@@ -9,11 +9,13 @@
     </h4>
     <h4 class="text-center">报名汇总表</h4>
 
-    <div class="base-info text-left">
-      院校名称（盖章）：<%= @info_competition_recruits.try(:first).try(:school).try(:name) %>&nbsp;&nbsp;&nbsp;&nbsp;
-      院校联系人：<%= @info_competition_recruits.first.try(:school_person) %>&nbsp;&nbsp;&nbsp;&nbsp;
-      电话（手机）：<%= @info_competition_recruits.first.try(:school_phone) %>
-    </div>
+    <% if params[:action] != "all" %>
+      <div class="base-info text-left">
+        院校名称（盖章）：<%= @info_competition_recruits.try(:first).try(:school).try(:name) %>&nbsp;&nbsp;&nbsp;&nbsp;
+        院校联系人：<%= @info_competition_recruits.first.try(:school_person) %>&nbsp;&nbsp;&nbsp;&nbsp;
+        电话（手机）：<%= @info_competition_recruits.first.try(:school_phone) %>
+      </div>
+    <% end %>
 
     <table class="table table-bordered print-table">
       <tbody>
