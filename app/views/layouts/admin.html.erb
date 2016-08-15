@@ -27,10 +27,10 @@
             <ul class="breadcrumb">
               <li>
                 <i class="icon-home"></i>
-                <a href="index.html">Home</a> 
+                <%= link_to "首页", root_path %>
                 <i class="icon-angle-right"></i>
               </li>
-              <li><a href="#"><%= controller.controller_name%></a></li>
+              <%= yield :breadcrumb %>
             </ul>
             <!-- END PAGE TITLE & BREADCRUMB-->
           </div>

@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
 
   attr_accessor :sign_in
   
-  has_one :user_info
+  has_one :user_info, dependent: :destroy
   belongs_to :school
 
   def self.find_for_database_authentication(warden_conditions)

@@ -1,0 +1,24 @@
+<%= simple_form_for [:admin, @expert], remote: true, format: :js do |f| %>
+	<%= f.input :name, label: "姓名" %>
+	<% if @expert.errors[:name].any? %>
+		<dd class="error text-danger"><%= @expert.errors[:name][0] %></dd>
+	<% end %>
+
+	<%= f.input :phone, label: "手机号码" %>
+	<% if @expert.errors[:phone].any? %>
+		<dd class="error text-danger"><%= @expert.errors[:phone][0] %></dd>
+	<% end %>
+
+	<%= f.input :email, label: "邮箱" %>
+	<% if @expert.errors[:email].any? %>
+		<dd class="error text-danger"><%= @expert.errors[:email][0] %></dd>
+	<% end %>
+
+	<%= f.input :password, label: "密码" %>
+	<% if @expert.errors[:password].any? %>
+		<dd class="error text-danger"><%= @expert.errors[:password][0] %></dd>
+	<% end %>
+
+	<%= f.submit "#{params[:id].present? ? '更新' : '创建'}", data: { disable_with: "#{params[:id].present? ? '正在更新...' : '正在创建...'}" }, class: "btn btn-success btn-block" %>
+	<p> </p>	
+<% end %>

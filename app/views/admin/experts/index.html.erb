@@ -1,7 +1,11 @@
+<% content_for :breadcrumb do %>
+<li><%= link_to "专家列表", admin_experts_path %></li>
+<% end %>
+
 <div class="text-right">
-  <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#expertModal">
+  <%= link_to new_admin_expert_path, remote: true, format: :js, class: "btn btn-sm btn-primary" do %>
     <i class="icon-plus"></i>新增专家
-  </button>
+  <% end %>
 </div>
 <br>
 <div class="marks-table">
@@ -22,26 +26,4 @@
   </table>
 </div>
 
-
-<!-- Modal -->
-<div class="modal fade" id="expertModal" tabindex="-1" role="dialog" aria-labelledby="expertModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="expertModalLabel">
-            新增/修改专家信息
-        </h4>
-      </div>
-      <div class="modal-body">
-        <%#= simple_form_for [:admin, @expert] do |f| %>
-          
-        <%# end %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-        <button type="button" class="btn btn-primary">新增</button>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render partial: "admin/share/admin_modal" %>

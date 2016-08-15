@@ -1,26 +1,56 @@
 class Admin::ExpertsController < Admin::BaseController
-	before_action :set_expert, only: [:show, :update, :edit, :new, :delete]
+	before_action :set_expert, only: [:show, :update, :edit, :destroy]
+	respond_to :html, :js
 
 	def index
 		@experts = Expert.all
 	end
 
-	def update
-		if @expert.update(expert_params)
-			redirect_to admin_experts_path
+	def new
+		@expert = Expert.new
+		respond_with @expert
+	end
+
+	def create
+		@expert = Expert.new(expert_params)
+		if @expert.save
+			@expert.create_user_info(name: expert_params[:name])
+			flash[:success] = "新增专家成功"
+			respond_to do |format|
+				format.js { render js: "location.href = '#{admin_experts_path}'" }
+			end
 		else
-			redirect_to admin_experts_path
+			flash[:error] = "新增专家失败"
+			render :new
 		end
 	end
 
-	def delete
+	def edit
+		@expert.name = @expert.try(:user_info).try(:name)
+		respond_with @expert
+	end
+
+	def update
+		if @expert.update(expert_params)
+			@expert.user_info.update(name: expert_params[:name])
+			flash[:success] = "修改专家信息成功"
+			respond_to do |format|
+				format.js { render js: "location.href = '#{admin_experts_path}'" }
+			end
+		else
+			flash[:error] = "修改专家信息失败"
+		render :edit
+		end
+	end
+
+	def destroy
 		@expert.destroy
 		redirect_to admin_experts_path
 	end
 
 	private
 	def expert_params
-		params.require(:expert).permit(:name, :phone, :email, :last_sign_in_at, :last_sign_in_ip)
+		params.require(:expert).permit(:name, :phone, :email, :password, :last_sign_in_at, :last_sign_in_ip)
 	end
 
 	def set_expert

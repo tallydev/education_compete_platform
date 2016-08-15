@@ -27,5 +27,7 @@
 #
 
 class Expert < User
+	attr_accessor :name
 
+	validates :name, :phone, :email, :password, presence: true
 end
