@@ -27,7 +27,122 @@
 
       <div class="center_right_content col-md-10">
         <h4>报名参赛！</h4>
+
+
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">评分</button>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+          <div class="modal-dialog modal-score" role="document">
+            <div class="modal-content">
+            <!-- 弹框头部 -->
+              <div class="modal-header panel-heading tab_head">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <%= image_tag("TabTitleBg.png", class: "bg_image")%>
+                  <div class="tab_title_text">专家评分</div>
+              </div>
+            <!-- 弹框内容 -->
+              <div class="modal-body">
+                <form>
+
+                  <div id="Demo" class="progressTime" >
+                    <div id="Main">
+                      <div id="scrollBar">
+                        <div id="scroll_Track"><p id="scrollBarTxt" style="text-align:right;"></p></div>
+                        <div id="scroll_Thumb"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="message-text" class="control-label">Message:</label>
+                    <textarea class="form-control" id="message-text"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="recipient-name" class="control-label">Recipient:</label>
+                    <input type="text" class="form-control" id="recipient-name">
+                  </div>
+                  <div class="form-group">
+                    <label for="message-text" class="control-label">Message:</label>
+                    <textarea class="form-control" id="message-text"></textarea>
+                  </div>
+                </form>
+              </div>
+            <!-- 弹框尾部 -->
+              <div class="modal-footer">
+                <label class="total-points-label">总分&nbsp&nbsp</label><label class="total-points">98.5</label><label class="unit">&nbsp&nbsp分</label>
+                <button type="button" class="btn btn-total-points">提交评分</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
       </div>
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+        $(document).ready(function (e) {
+            //初始化
+            ScrollBar.Initialize();
+        });
+        var ScrollBar = {
+            value: 20,
+            maxValue: 100,
+            step: 5,
+            currentX: 0,
+            Initialize: function () {
+                if (this.value > this.maxValue) {
+                    alert("给定当前值大于了最大值");
+                    return;
+                }
+                this.GetValue();
+                $("#scroll_Track").css("width", this.currentX - 18 + "px");
+                $("#scroll_Thumb").css("margin-left", this.currentX - 20 + "px");
+                this.Value();
+                $("#scrollBarTxt").html(ScrollBar.value);
+            },
+            Value: function () {
+                var valite = false;
+                var currentValue;
+                $("#scroll_Thumb").mousedown(function () {
+                    valite = true;
+                    $(document.body).mousemove(function (event) {
+                        if (valite == false) return;
+                        var changeX = event.clientX - ScrollBar.currentX - 35;
+                        currentValue = changeX - ScrollBar.currentX - $("#Demo").offset().left;
+                        $("#scroll_Thumb").css("margin-left", currentValue - 10 + "px");
+                        $("#scroll_Track").css("width", currentValue + "px");
+                        if ((currentValue + 5) >= $("#scrollBar").width()) {
+                            $("#scroll_Thumb").css("margin-left", $("#scrollBar").width() - 10 + "px");
+                            $("#scroll_Track").css("width", $("#scrollBar").width() + 2 + "px");
+                            ScrollBar.value = ScrollBar.maxValue;
+                        } else if (currentValue <= 0) {
+                            $("#scroll_Thumb").css("margin-left", "-8px");
+                            $("#scroll_Track").css("width", "0px");
+                        } else {
+                            ScrollBar.value = Math.round(100 * (currentValue / $("#scrollBar").width()));
+                        }
+                        $("#scrollBarTxt").html(ScrollBar.value);
+                    });
+                });
+                $(document.body).mouseup(function () {
+                    ScrollBar.value = Math.round(100 * (currentValue / $("#scrollBar").width()));
+                    valite = false;
+                    if (ScrollBar.value >= ScrollBar.maxValue) ScrollBar.value = ScrollBar.maxValue;
+                    if (ScrollBar.value <= 0) ScrollBar.value = 0;
+                    $("#scrollBarTxt").html(ScrollBar.value);
+                });
+            },
+            GetValue: function () {
+                this.currentX = $("#scrollBar").width() * (this.value / this.maxValue);
+            }
+        }
+  </script>
