@@ -10,13 +10,12 @@
     <h4 class="text-center">报名汇总表</h4>
 
     <% if params[:action] != "all" %>
-      
+      <div class="base-info text-left">
+        院校名称（盖章）：<%= @talk_competition_recruits.first.try(:school).try(:name) %>&nbsp;&nbsp;&nbsp;&nbsp;
+        院校联系人：<%= @talk_competition_recruits.first.try(:school_person) %>&nbsp;&nbsp;&nbsp;&nbsp;
+        电话（手机）：<%= @talk_competition_recruits.first.try(:school_phone) %>
+      </div>
     <% end %>
-    <div class="base-info text-left">
-      院校名称（盖章）：<%= @talk_competition_recruits.first.try(:school).try(:name) %>&nbsp;&nbsp;&nbsp;&nbsp;
-      院校联系人：<%= @talk_competition_recruits.first.try(:school_person) %>&nbsp;&nbsp;&nbsp;&nbsp;
-      电话（手机）：<%= @talk_competition_recruits.first.try(:school_phone) %>
-    </div>
 
     <table class="table table-bordered print-table">
       <tbody>
