@@ -17,6 +17,7 @@
 /tmp
 config/database.yml
 config/secrets.yml
+config/puma.rb
 
 Gemfile.lock
 
@@ -25,6 +26,8 @@ Gemfile.lock
 /public/pdfs
 /public/*
 /vendor/*
+/libreoffice/*
+/test/output/*
 
 # .DS_Store
 .DS_Store
