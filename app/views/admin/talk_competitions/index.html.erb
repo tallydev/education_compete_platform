@@ -5,7 +5,7 @@
         <h6>2016年上海高等职业院校电子信息大类教师说课比赛报名汇总表</h6>
       </div>
       <div class="col-sm-5 pull-right text-right">
-        <%= link_to print_admin_activity_info_competitions_path(activity_id: @activity.id) do %>
+        <%= link_to print_admin_activity_talk_competitions_path(activity_id: @activity.id) do %>
           <i class="icon-print"></i>打印汇总
         <% end %>
       </div>
@@ -18,18 +18,26 @@
               <th>参赛课程</th>
               <th>邮箱</th>
               <th>手机</th>
+              <th>作品</th>
               <th>操作</th>
             </tr>
           </thead>
           <tbody>
             <% @recruits.each_with_index do |recruit, index| -%>
             <tr>
-              <th><%= index + 1 -%></th>
+              <td><%= index + 1 -%></td>
               <td><%= recruit.try(:player).try(:info).try(:name) %></td>
-              <th><%= recruit.name -%></th>
+              <td><%= recruit.name -%></td>
               <td><%= recruit.try(:player).try(:info).try(:email) %></td>
-              <th><%= recruit.player.phone -%></th>
-              <th></th>
+              <td><%= recruit.player.phone -%></td>
+              <td>
+                <% if recruit.opus.present? %>
+                  <span class="glyphicon glyphicon-ok text-success"></span>
+                <% else %>
+                  <span class="glyphicon glyphicon-remove text-danger"></span>
+                <% end %>
+              </td>
+              <td></td>
             </tr>
             <% end -%>
           </tbody>

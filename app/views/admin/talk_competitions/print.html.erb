@@ -1,5 +1,5 @@
 <div class="col-sm-12">
-  <a href="#" onclick="preview();">打印</a>
+  <a href="#" class="btn btn-primary btn-block" onclick="preview();">打印</a>
 </div>
 <!--startprint-->
 <table class="table table-bordered table-hover table-striped">
@@ -10,16 +10,24 @@
       <th>参赛课程</th>
       <th>邮箱</th>
       <th>手机</th>
+      <th>作品</th>
     </tr>
   </thead>
   <tbody>
     <% @recruits.each_with_index do |recruit, index| -%>
     <tr>
-      <th><%= index + 1 -%></th>
+      <td><%= index + 1 -%></td>
       <td><%= recruit.try(:player).try(:info).try(:name) %></td>
-      <th><%= recruit.name -%></th>
+      <td><%= recruit.name -%></td>
       <td><%= recruit.try(:player).try(:info).try(:email) %></td>
-      <th><%= recruit.player.phone -%></th>
+      <td><%= recruit.player.phone -%></td>
+      <td>
+        <% if recruit.opus.present? %>
+          <span class="glyphicon glyphicon-ok text-success"></span>
+        <% else %>
+          <span class="glyphicon glyphicon-remove text-danger"></span>
+        <% end %>
+      </td>
     </tr>
     <% end -%>
   </tbody>
