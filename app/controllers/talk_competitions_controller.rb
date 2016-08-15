@@ -6,7 +6,11 @@ class TalkCompetitionsController < ApplicationController
   respond_to :html
 
   def index
-    @recruits = @activity.school_recruits current_school_user.try(:school)
+    if current_school_user.phone == "信息化教学指导委员会"
+      @recruits = @activity.recruits
+    else
+      @recruits = @activity.school_recruits current_school_user.try(:school)
+    end
     respond_with(@recruits)
   end
 

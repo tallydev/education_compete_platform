@@ -25,6 +25,23 @@ a {
 }
 .center_cotent {
   margin: 0;
+  overflow-x: auto;
+  td {
+    min-width: 50px;
+    vertical-align: middle;
+  }
+  tr {
+    vertical-align: middle;
+  }
+
+  .table > thead > tr > th, 
+  .table > thead > tr > td, 
+  .table > tbody > tr > th, 
+  .table > tbody > tr > td, 
+  .table > tfoot > tr > th, 
+  .table > tfoot > tr > td {
+    vertical-align: middle;
+  }
   // 个人中心－左侧导航栏标签样式
   .center_left_nav {
     width: 20%;

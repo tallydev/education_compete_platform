@@ -7,7 +7,11 @@
         <!-- <li>批量选择 ｜</li> -->
         <!-- <li>打印单项报名表 ｜</li> -->
         <li>
-          <%= link_to "打印汇总", [@activity, :recruits], class: "btn btn-info btn-sm btn-pint"  %>
+          <% if current_school_user.phone == "信息化教学指导委员会" %>
+            <%= link_to "打印汇总", all_talk_competition_activity_recruits_path(@activity), class: "btn btn-sm btn-info btn-pint"  %>
+          <% else %>
+            <%= link_to "打印汇总", [@activity, :recruits], class: "btn btn-sm btn-info btn-pint"  %>
+          <% end %>
         </li>
         <!-- <li>导出</li> -->
       </ul>
@@ -21,9 +25,12 @@
             <input type="button" name="select" onclick="javascript:selectAll()" value="全选"/>
           </th>
           <th>序号</th>
+          <th>参赛项目</th>
           <th>姓名</th>
-          <th>参赛课程</th>
+          <th>课程名称</th>
+          <th>邮箱</th>
           <th>手机</th>
+          <th>作品</th>
           <th>操作</th>
         </tr>
       </thead>
@@ -40,7 +47,15 @@
           <td><%= index+1 %></td>
           <td><%= recruit.try(:player).try(:info).try(:name) %></td>
           <td><%= recruit.name %></td>
+          <td><%= recruit.try(:player).try(:info).try(:email) %></td>
           <td><%= recruit.try(:player).try(:phone) %></td>
+          <td>
+            <% if recruit.opus.present? %>
+              <span class="glyphicon glyphicon-ok text-success"></span>
+            <% else %>
+              <span class="glyphicon glyphicon-remove text-danger"></span>
+            <% end %>
+          </td>
           <td>
             <%= link_to "打印", recruit, class:"btn btn-info btn-sm" %>
             <%= link_to '删除', recruit, class:"btn btn-danger btn-sm", method: :delete, data: { confirm: '确定删除此报名数据么？' } %>

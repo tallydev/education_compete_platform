@@ -32,6 +32,8 @@ School.create(id: 30, name: '上海应用技术大学高职学院')
 School.create(id: 31, name: '上海立信会计学院高职学院')
 School.create(id: 32, name: '上海民航职业技术学院')
 School.create(id: 33, name: '上海杉达学院')
+# 超级管理员，显示所有报名记录
+School.create(id: 34, name: '信息化教学指导委员会')
 
 SchoolUser.delete_all
 SchoolUser.create(phone: '上海健康医学院', password: "265098", school_id: 1)
@@ -67,3 +69,4 @@ SchoolUser.create(phone: '上海应用技术大学高职学院', password: "8501
 SchoolUser.create(phone: '上海立信会计学院高职学院', password: "618327", school_id: 31)
 SchoolUser.create(phone: '上海民航职业技术学院', password: "543179", school_id: 32)
 SchoolUser.create(phone: '上海杉达学院', password: "504681", school_id: 33)
+SchoolUser.create(phone: '信息化教学指导委员会', password: "000000", school_id: "34")
