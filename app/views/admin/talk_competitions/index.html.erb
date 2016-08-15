@@ -16,6 +16,7 @@
               <th>序号</th>
               <th>姓名</th>
               <th>参赛课程</th>
+              <th>邮箱</th>
               <th>手机</th>
               <th>操作</th>
             </tr>
@@ -24,23 +25,21 @@
             <% @recruits.each_with_index do |recruit, index| -%>
             <tr>
               <th><%= index + 1 -%></th>
-              <th><%= recruit.cooperater_1 -%></th>
+              <td><%= recruit.try(:player).try(:info).try(:name) %></td>
               <th><%= recruit.name -%></th>
+              <td><%= recruit.try(:player).try(:info).try(:email) %></td>
               <th><%= recruit.player.phone -%></th>
               <th></th>
             </tr>
             <% end -%>
           </tbody>
-          <tfoot>
-            <tr>
-              <td colspan="6">
-                <div class="pagination pagination-centered">
-                  <div class='row'><%= will_paginate @recruits, :renderer => BootstrapPagination::Rails ,:remote => {:update => 'messages'} %></div>
-                </div>
-              </td>
-            </tr>
-          </tfoot>
         </table>
+
+        <div class="text-center">
+          <div class="pagination pagination-centered">
+            <div class='row'><%= will_paginate @recruits, :renderer => BootstrapPagination::Rails ,:remote => {:update => 'messages'} %></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -16,34 +16,41 @@
               <th>序号</th>
               <th>参赛项目</th>
               <th>姓名</th>
-              <th>参赛课程</th>
+              <th>课程名称</th>
+              <th>邮箱</th>
               <th>手机</th>
+              <th>作品</th>
               <th>操作</th>
             </tr>
           </thead>
           <tbody>
             <% @recruits.each_with_index do |recruit, index| -%>
             <tr>
-              <th><%= index + 1 -%></th>
-              <th><%= recruit.project -%></th>
-              <th><%= recruit.cooperater_1 -%></th>
-              <th><%= recruit.name -%></th>
-              <th><%= recruit.player.phone -%></th>
-              <th></th>
+              <td><%= index+1 %></td>
+              <td><%= recruit.project %></td>
+              <td><%= recruit.try(:player).try(:info).try(:name) %></td>
+              <td><%= recruit.name %></td>
+              <td><%= recruit.try(:player).try(:info).try(:email) %></td>
+              <td><%= recruit.try(:player).try(:phone) %></td>
+              <td>
+                <% if recruit.opus.present? %>
+                  <span class="glyphicon glyphicon-ok text-success"></span>
+                <% else %>
+                  <span class="glyphicon glyphicon-remove text-danger"></span>
+                <% end %>
+              </td>
+              <td></td>
             </tr>
             <% end -%>
           </tbody>
-          <tfoot>
-            <tr>
-              <td colspan="6">
-                <div class="pagination pagination-centered">
-                  <div class='row'><%= will_paginate @recruits, :renderer => BootstrapPagination::Rails ,:remote => {:update => 'messages'} %></div>
-                </div>
-              </td>
-            </tr>
-          </tfoot>
         </table>
         
+        <div class="text-center">
+          <div class="pagination pagination-centered">
+            <div class='row'><%= will_paginate @recruits, :renderer => BootstrapPagination::Rails ,:remote => {:update => 'messages'} %></div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
