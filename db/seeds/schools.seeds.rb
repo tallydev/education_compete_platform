@@ -71,5 +71,5 @@ SchoolUser.create(phone: '上海民航职业技术学院', password: "543179", s
 SchoolUser.create(phone: '上海杉达学院', password: "504681", school_id: 33)
 SchoolUser.create(phone: '信息化教学指导委员会', password: "000000", school_id: "34")
 
-Expert.delete_all
-Expert.create(phone: '1234567890', password: "123456", school_id: 1)
+User.delete_all
+User.create(phone: '11111111', password: "111111", school_id: 1)

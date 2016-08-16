@@ -218,6 +218,7 @@ end
 #                                              DELETE /center/player_info(.:format)                                                                    player_infos#destroy
 #                                       center GET    /center(.:format)                                                                                centers#show
 #                                school_center GET    /school_center(.:format)                                                                         school_centers#show
+#                                expert_center GET    /expert_center(.:format)                                                                         expert_centers#show
 #                                notifications GET    /notifications(.:format)                                                                         notifications#index
 #                                              POST   /notifications(.:format)                                                                         notifications#create
 #                             new_notification GET    /notifications/new(.:format)                                                                     notifications#new
