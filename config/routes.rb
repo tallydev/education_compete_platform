@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   end
 
   resource :school_center, only: [:show]
+  resource :expert_center, only: [:show]
 
   # 赛事公告
   resources :notifications

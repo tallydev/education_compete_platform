@@ -1,6 +1,6 @@
 <div role="tabpanel" class="tab-pane active" id="judge">
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), wrapper: :apply_horizontal_form) do |f| %>
-    <%= f.input :phone, label:" 用户名 ", placeholder: " 手机号",required: false, autofocus: true %>
+    <%= f.input :sign_in, label:" 用户名 ", placeholder: " 手机号",required: false, autofocus: true %>
     <%= f.input :password, label: "密 码", required: false %>
     <%= f.button :submit, "登 录", data: {disable_with: '登录中...'}, class: "btn-login" %>
     <div class="sign_up_text">

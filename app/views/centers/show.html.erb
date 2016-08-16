@@ -28,9 +28,7 @@
       <div class="center_right_content col-md-10">
         <h4>报名参赛！</h4>
 
-
-
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">评分</button>
+        <button type="button" class="btn btn-primary" data-turbolinks="false" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">评分</button>
 
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
           <div class="modal-dialog modal-score" role="document">
@@ -44,59 +42,105 @@
             <!-- 弹框内容 -->
               <div class="modal-body">
                 <form>
-
-                  <div id="Demo" class="progressTime" >
-                    <div id="Main">
-                      <div id="scrollBar">
-                        <div id="scroll_Track"><p id="scrollBarTxt" style="text-align:right;"></p></div>
-                        <div id="scroll_Thumb"></div>
+                  <div class="row">
+                    <div class="col-md-2 col-xs-2 mark-title">总体设计</div>
+                    <div class="col-md-1 col-xs-1 mark-range">0分</div>
+                    <div id="Demo" class="progressTime col-md-6 col-xs-6" >
+                      <div id="Main">
+                        <div id="scrollBar">
+                          <div id="scroll_Track"><p id="scrollBarTxt" style="text-align:right;"></p></div>
+                          <div id="scroll_Thumb"></div>
+                        </div>
                       </div>
+                    </div>
+                    <div class="col-md-1 col-xs-1 mark-range">40分</div>
+                    <div class="col-md-2 col-xs-2 mark-num">
+                      <label class="total-points" id="design">0</label><label class="unit">&nbsp&nbsp分</label>
                     </div>
                   </div>
 
-                  <div class="form-group">
-                    <label for="message-text" class="control-label">Message:</label>
-                    <textarea class="form-control" id="message-text"></textarea>
+                  <div class="row">
+                    <div class="col-md-2 col-xs-2 mark-title">教学过程</div>
+                    <div class="col-md-1 col-xs-1 mark-range">0分</div>
+                    <div id="Demo1" class="progressTime col-md-6 col-xs-6" >
+                      <div id="Main1">
+                        <div id="scrollBar1">
+                          <div id="scroll_Track1"><p id="scrollBarTxt1" style="text-align:right;"></p></div>
+                          <div id="scroll_Thumb1"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-1 col-xs-1 mark-range">30分</div>
+                    <div class="col-md-2 col-xs-2 mark-num">
+                      <label class="total-points" id="process">0</label><label class="unit">&nbsp&nbsp分</label>
+                    </div>
                   </div>
-                  <div class="form-group">
-                    <label for="recipient-name" class="control-label">Recipient:</label>
-                    <input type="text" class="form-control" id="recipient-name">
+
+                  <div class="row">
+                    <div class="col-md-2 col-xs-2 mark-title">教学效果</div>
+                    <div class="col-md-1 col-xs-1 mark-range">0分</div>
+                    <div id="Demo2" class="progressTime col-md-6 col-xs-6" >
+                      <div id="Main2">
+                        <div id="scrollBar2">
+                          <div id="scroll_Track2"><p id="scrollBarTxt2" style="text-align:right;"></p></div>
+                          <div id="scroll_Thumb2"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-1 col-xs-1 mark-range">15分</div>
+                    <div class="col-md-2 col-xs-2 mark-num">
+                      <label class="total-points" id="result">0</label><label class="unit">&nbsp&nbsp分</label>
+                    </div>
                   </div>
-                  <div class="form-group">
-                    <label for="message-text" class="control-label">Message:</label>
-                    <textarea class="form-control" id="message-text"></textarea>
+
+                  <div class="row">
+                    <div class="col-md-2 col-xs-2 mark-title">特色创新</div>
+                    <div class="col-md-1 col-xs-1 mark-range">0分</div>
+                    <div id="Demo3" class="progressTime col-md-6 col-xs-6" >
+                      <div id="Main3">
+                        <div id="scrollBar3">
+                          <div id="scroll_Track3"><p id="scrollBarTxt3" style="text-align:right;"></p></div>
+                          <div id="scroll_Thumb3"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-1 col-xs-1 mark-range">15分</div>
+                    <div class="col-md-2 col-xs-2 mark-num">
+                      <label class="total-points" id="innovate">0</label><label class="unit">&nbsp&nbsp分</label>
+                    </div>
                   </div>
+                  
                 </form>
               </div>
             <!-- 弹框尾部 -->
               <div class="modal-footer">
-                <label class="total-points-label">总分&nbsp&nbsp</label><label class="total-points">98.5</label><label class="unit">&nbsp&nbsp分</label>
+                <label class="total-points-label">总分&nbsp&nbsp</label><label class="total-points" id="total_points">0</label><label class="unit">&nbsp&nbsp分</label>
                 <button type="button" class="btn btn-total-points">提交评分</button>
               </div>
 
             </div>
           </div>
         </div>
-
-
-
-
-
-
+        
       </div>
     </div>
   </div>
 </div>
 
 <script type="text/javascript">
+//总体设计评分条
         $(document).ready(function (e) {
             //初始化
             ScrollBar.Initialize();
+            ScrollBar1.Initialize();
+            ScrollBar2.Initialize();
+            ScrollBar3.Initialize();
         });
+
         var ScrollBar = {
-            value: 20,
-            maxValue: 100,
-            step: 5,
+            value: 6,
+            maxValue: 40,
+            step: 1,
             currentX: 0,
             Initialize: function () {
                 if (this.value > this.maxValue) {
@@ -107,16 +151,15 @@
                 $("#scroll_Track").css("width", this.currentX - 18 + "px");
                 $("#scroll_Thumb").css("margin-left", this.currentX - 20 + "px");
                 this.Value();
-                $("#scrollBarTxt").html(ScrollBar.value);
             },
             Value: function () {
                 var valite = false;
-                var currentValue;
+                var currentValue = 0;
                 $("#scroll_Thumb").mousedown(function () {
                     valite = true;
                     $(document.body).mousemove(function (event) {
                         if (valite == false) return;
-                        var changeX = event.clientX - ScrollBar.currentX - 35;
+                        var changeX = event.clientX - ScrollBar.currentX;
                         currentValue = changeX - ScrollBar.currentX - $("#Demo").offset().left;
                         $("#scroll_Thumb").css("margin-left", currentValue - 10 + "px");
                         $("#scroll_Track").css("width", currentValue + "px");
@@ -127,22 +170,199 @@
                         } else if (currentValue <= 0) {
                             $("#scroll_Thumb").css("margin-left", "-8px");
                             $("#scroll_Track").css("width", "0px");
+                            ScrollBar.value = 0;
                         } else {
-                            ScrollBar.value = Math.round(100 * (currentValue / $("#scrollBar").width()));
+                            ScrollBar.value = Math.round(40 * (currentValue / $("#scrollBar").width()));
                         }
                         $("#scrollBarTxt").html(ScrollBar.value);
+                        $("#design").html(ScrollBar.value);
+                        $("#total_points").html(ScrollBar.value+ScrollBar1.value+ScrollBar2.value+ScrollBar3.value);
                     });
                 });
                 $(document.body).mouseup(function () {
-                    ScrollBar.value = Math.round(100 * (currentValue / $("#scrollBar").width()));
+                    ScrollBar.value = Math.round(40 * (currentValue / $("#scrollBar").width()));
                     valite = false;
                     if (ScrollBar.value >= ScrollBar.maxValue) ScrollBar.value = ScrollBar.maxValue;
                     if (ScrollBar.value <= 0) ScrollBar.value = 0;
                     $("#scrollBarTxt").html(ScrollBar.value);
+                    $("#design").html(ScrollBar.value);
+                    $("#total_points").html(ScrollBar.value+ScrollBar1.value+ScrollBar2.value+ScrollBar3.value);
                 });
             },
             GetValue: function () {
                 this.currentX = $("#scrollBar").width() * (this.value / this.maxValue);
             }
         }
+//教学过程
+        var ScrollBar1 = {
+            value: 4,
+            maxValue: 30,
+            step: 1,
+            currentX: 0,
+            Initialize: function () {
+                if (this.value > this.maxValue) {
+                    alert("给定当前值大于了最大值");
+                    return;
+                }
+                this.GetValue();
+                $("#scroll_Track1").css("width", this.currentX - 18 + "px");
+                $("#scroll_Thumb1").css("margin-left", this.currentX - 20 + "px");
+                this.Value();
+            },
+            Value: function () {
+                var valite = false;
+                var currentValue = 0;
+                $("#scroll_Thumb1").mousedown(function () {
+                    valite = true;
+                    $(document.body).mousemove(function (event) {
+                        if (valite == false) return;
+                        var changeX = event.clientX - ScrollBar1.currentX;
+                        currentValue = changeX - ScrollBar1.currentX - $("#Demo1").offset().left;
+                        $("#scroll_Thumb1").css("margin-left", currentValue - 10 + "px");
+                        $("#scroll_Track1").css("width", currentValue + "px");
+                        if ((currentValue + 5) >= $("#scrollBar1").width()) {
+                            $("#scroll_Thumb1").css("margin-left", $("#scrollBar1").width() - 10 + "px");
+                            $("#scroll_Track1").css("width", $("#scrollBar1").width() + 2 + "px");
+                            ScrollBar1.value = ScrollBar1.maxValue;
+                        } else if (currentValue <= 0) {
+                            $("#scroll_Thumb1").css("margin-left", "-8px");
+                            $("#scroll_Track1").css("width", "0px");
+                            ScrollBar1.value = 0;
+                        } else {
+                            ScrollBar1.value = Math.round(30 * (currentValue / $("#scrollBar1").width()));
+                        }
+                        $("#scrollBarTxt1").html(ScrollBar1.value);
+                        $("#process").html(ScrollBar1.value);
+                        $("#total_points").html(ScrollBar.value+ScrollBar1.value+ScrollBar2.value+ScrollBar3.value);
+                    });
+                });
+                $(document.body).mouseup(function () {
+                    ScrollBar1.value = Math.round(30 * (currentValue / $("#scrollBar1").width()));
+                    valite = false;
+                    if (ScrollBar1.value >= ScrollBar1.maxValue) ScrollBar1.value = ScrollBar1.maxValue;
+                    if (ScrollBar1.value <= 0) ScrollBar1.value = 0;
+                    $("#scrollBarTxt1").html(ScrollBar1.value);
+                    $("#process").html(ScrollBar1.value);
+                    $("#total_points").html(ScrollBar.value+ScrollBar1.value+ScrollBar2.value+ScrollBar3.value);
+                });
+            },
+            GetValue: function () {
+                this.currentX = $("#scrollBar1").width() * (this.value / this.maxValue);
+            }
+        }
+//教学效果
+        var ScrollBar2 = {
+            value: 2,
+            maxValue: 15,
+            step: 1,
+            currentX: 0,
+            Initialize: function () {
+                if (this.value > this.maxValue) {
+                    alert("给定当前值大于了最大值");
+                    return;
+                }
+                this.GetValue();
+                $("#scroll_Track2").css("width", this.currentX - 18 + "px");
+                $("#scroll_Thumb2").css("margin-left", this.currentX - 20 + "px");
+                this.Value();
+            },
+            Value: function () {
+                var valite = false;
+                var currentValue = 0;
+                $("#scroll_Thumb2").mousedown(function () {
+                    valite = true;
+                    $(document.body).mousemove(function (event) {
+                        if (valite == false) return;
+                        var changeX = event.clientX - ScrollBar2.currentX;
+                        currentValue = changeX - ScrollBar2.currentX - $("#Demo2").offset().left;
+                        $("#scroll_Thumb2").css("margin-left", currentValue - 10 + "px");
+                        $("#scroll_Track2").css("width", currentValue + "px");
+                        if ((currentValue + 5) >= $("#scrollBar2").width()) {
+                            $("#scroll_Thumb2").css("margin-left", $("#scrollBar2").width() - 10 + "px");
+                            $("#scroll_Track2").css("width", $("#scrollBar2").width() + 2 + "px");
+                            ScrollBar2.value = ScrollBar2.maxValue;
+                        } else if (currentValue <= 0) {
+                            $("#scroll_Thumb2").css("margin-left", "-8px");
+                            $("#scroll_Track2").css("width", "0px");
+                            ScrollBar2.value = 0;
+                        } else {
+                            ScrollBar2.value = Math.round(15 * (currentValue / $("#scrollBar2").width()));
+                        }
+                        $("#scrollBarTxt2").html(ScrollBar2.value);
+                        $("#result").html(ScrollBar2.value);
+                        $("#total_points").html(ScrollBar.value+ScrollBar1.value+ScrollBar2.value+ScrollBar3.value);
+                    });
+                });
+                $(document.body).mouseup(function () {
+                    ScrollBar2.value = Math.round(15 * (currentValue / $("#scrollBar2").width()));
+                    valite = false;
+                    if (ScrollBar2.value >= ScrollBar2.maxValue) ScrollBar2.value = ScrollBar2.maxValue;
+                    if (ScrollBar2.value <= 0) ScrollBar2.value = 0;
+                    $("#scrollBarTxt2").html(ScrollBar2.value);
+                    $("#result").html(ScrollBar2.value);
+                    $("#total_points").html(ScrollBar.value+ScrollBar1.value+ScrollBar2.value+ScrollBar3.value);
+                });
+            },
+            GetValue: function () {
+                this.currentX = $("#scrollBar2").width() * (this.value / this.maxValue);
+            }
+        }
+//特色创新
+        var ScrollBar3 = {
+            value: 2,
+            maxValue: 15,
+            step: 1,
+            currentX: 0,
+            Initialize: function () {
+                if (this.value > this.maxValue) {
+                    alert("给定当前值大于了最大值");
+                    return;
+                }
+                this.GetValue();
+                $("#scroll_Track3").css("width", this.currentX - 18 + "px");
+                $("#scroll_Thumb3").css("margin-left", this.currentX - 20 + "px");
+                this.Value();
+            },
+            Value: function () {
+                var valite = false;
+                var currentValue = 0;
+                $("#scroll_Thumb3").mousedown(function () {
+                    valite = true;
+                    $(document.body).mousemove(function (event) {
+                        if (valite == false) return;
+                        var changeX = event.clientX - ScrollBar3.currentX;
+                        currentValue = changeX - ScrollBar3.currentX - $("#Demo3").offset().left;
+                        $("#scroll_Thumb3").css("margin-left", currentValue - 10 + "px");
+                        $("#scroll_Track3").css("width", currentValue + "px");
+                        if ((currentValue + 5) >= $("#scrollBar3").width()) {
+                            $("#scroll_Thumb3").css("margin-left", $("#scrollBar3").width() - 10 + "px");
+                            $("#scroll_Track3").css("width", $("#scrollBar3").width() + 2 + "px");
+                            ScrollBar3.value = ScrollBar3.maxValue;
+                        } else if (currentValue <= 0) {
+                            $("#scroll_Thumb3").css("margin-left", "-8px");
+                            $("#scroll_Track3").css("width", "0px");
+                            ScrollBar3.value = 0;
+                        } else {
+                            ScrollBar3.value = Math.round(15 * (currentValue / $("#scrollBar3").width()));
+                        }
+                        $("#scrollBarTxt3").html(ScrollBar3.value);
+                        $("#innovate").html(ScrollBar3.value);
+                        $("#total_points").html(ScrollBar.value+ScrollBar1.value+ScrollBar2.value+ScrollBar3.value);
+                    });
+                });
+                $(document.body).mouseup(function () {
+                    ScrollBar3.value = Math.round(15 * (currentValue / $("#scrollBar3").width()));
+                    valite = false;
+                    if (ScrollBar3.value >= ScrollBar3.maxValue) ScrollBar3.value = ScrollBar3.maxValue;
+                    if (ScrollBar3.value <= 0) ScrollBar3.value = 0;
+                    $("#scrollBarTxt3").html(ScrollBar3.value);
+                    $("#innovate").html(ScrollBar3.value);
+                    $("#total_points").html(ScrollBar.value+ScrollBar1.value+ScrollBar2.value+ScrollBar3.value);
+                });
+            },
+            GetValue: function () {
+                this.currentX = $("#scrollBar3").width() * (this.value / this.maxValue);
+            }
+        }
   </script>
+
