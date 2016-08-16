@@ -305,6 +305,14 @@ end
 #       print_admin_activity_talk_competitions GET    /admin/activities/:activity_id/talk_competitions/print(.:format)                                 admin/talk_competitions#print
 #             admin_activity_talk_competitions GET    /admin/activities/:activity_id/talk_competitions(.:format)                                       admin/talk_competitions#index
 #              admin_activity_talk_competition GET    /admin/activities/:activity_id/talk_competitions/:id(.:format)                                   admin/talk_competitions#show
+#                      admin_activity_recruits GET    /admin/activities/:activity_id/recruits(.:format)                                                admin/recruits#index
+#                                              POST   /admin/activities/:activity_id/recruits(.:format)                                                admin/recruits#create
+#                   new_admin_activity_recruit GET    /admin/activities/:activity_id/recruits/new(.:format)                                            admin/recruits#new
+#                  edit_admin_activity_recruit GET    /admin/activities/:activity_id/recruits/:id/edit(.:format)                                       admin/recruits#edit
+#                       admin_activity_recruit GET    /admin/activities/:activity_id/recruits/:id(.:format)                                            admin/recruits#show
+#                                              PATCH  /admin/activities/:activity_id/recruits/:id(.:format)                                            admin/recruits#update
+#                                              PUT    /admin/activities/:activity_id/recruits/:id(.:format)                                            admin/recruits#update
+#                                              DELETE /admin/activities/:activity_id/recruits/:id(.:format)                                            admin/recruits#destroy
 #                             admin_activities GET    /admin/activities(.:format)                                                                      admin/activities#index
 #                               admin_activity GET    /admin/activities/:id(.:format)                                                                  admin/activities#show
 #                             admin_news_index GET    /admin/news(.:format)                                                                            admin/news#index
@@ -323,6 +331,22 @@ end
 #                                              PATCH  /admin/bulletins/:id(.:format)                                                                   admin/bulletins#update
 #                                              PUT    /admin/bulletins/:id(.:format)                                                                   admin/bulletins#update
 #                                              DELETE /admin/bulletins/:id(.:format)                                                                   admin/bulletins#destroy
+#                                  admin_marks GET    /admin/marks(.:format)                                                                           admin/marks#index
+#                                              POST   /admin/marks(.:format)                                                                           admin/marks#create
+#                               new_admin_mark GET    /admin/marks/new(.:format)                                                                       admin/marks#new
+#                              edit_admin_mark GET    /admin/marks/:id/edit(.:format)                                                                  admin/marks#edit
+#                                   admin_mark GET    /admin/marks/:id(.:format)                                                                       admin/marks#show
+#                                              PATCH  /admin/marks/:id(.:format)                                                                       admin/marks#update
+#                                              PUT    /admin/marks/:id(.:format)                                                                       admin/marks#update
+#                                              DELETE /admin/marks/:id(.:format)                                                                       admin/marks#destroy
+#                                admin_experts GET    /admin/experts(.:format)                                                                         admin/experts#index
+#                                              POST   /admin/experts(.:format)                                                                         admin/experts#create
+#                             new_admin_expert GET    /admin/experts/new(.:format)                                                                     admin/experts#new
+#                            edit_admin_expert GET    /admin/experts/:id/edit(.:format)                                                                admin/experts#edit
+#                                 admin_expert GET    /admin/experts/:id(.:format)                                                                     admin/experts#show
+#                                              PATCH  /admin/experts/:id(.:format)                                                                     admin/experts#update
+#                                              PUT    /admin/experts/:id(.:format)                                                                     admin/experts#update
+#                                              DELETE /admin/experts/:id(.:format)                                                                     admin/experts#destroy
 # all_admin_info_competition_activity_recruits GET    /admin/info_competition/:info_competition_id/activities/:activity_id/recruits/all(.:format)      admin/recruits#all
 #     admin_info_competition_activity_recruits GET    /admin/info_competition/:info_competition_id/activities/:activity_id/recruits(.:format)          admin/recruits#index
 #                                              POST   /admin/info_competition/:info_competition_id/activities/:activity_id/recruits(.:format)          admin/recruits#create

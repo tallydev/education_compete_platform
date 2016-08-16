@@ -53,3 +53,9 @@ h1.block, h2.block, h3.block, h4.block, h5.block, h6.block {
 .btn-primary:focus {
   background-color: #286090!important;
 }
+
+table {
+	td {
+		min-width: 80px;
+	}
+}
