@@ -31,7 +31,7 @@ class Expert < User
 
 	validates :name, :phone, :email, :password, presence: true
 
-	# 分配专家相关
-	has_many :distributions, as: :recruitable, dependent: :destroy
-	has_many :recruits， through: :distributions
+	has_many :marks, as: :recruitable, dependent: :destroy
+	has_many :recruits， through: :marks
+
 end
