@@ -29,6 +29,12 @@ class TalkCompetition::Recruit < ActiveRecord::Base
   belongs_to :school
   belongs_to :activity
 
+  has_many :marks, as: :recruitable, dependent: :destroy
+
+    # 分配专家相关
+  has_many :distributions, as: :recruitable, dependent: :destroy
+  has_many :experts, through: :distributions
+
   def player_info
     player.try(:player_info)
   end
