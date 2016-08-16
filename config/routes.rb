@@ -35,8 +35,16 @@ Rails.application.routes.draw do
 
   resource :center, only: [:show] do
     resources :activities, only: [:show] do
-      resources :info_competitions, only: [:show, :index]
-      resources :talk_competitions, only: [:show, :index]  
+      resources :info_competitions, only: [:show, :index] do
+        collection do
+          get :marks
+        end
+      end
+      resources :talk_competitions, only: [:show, :index] do
+        collection do
+          get :marks
+        end
+      end
     end
     resource :player_info
   end

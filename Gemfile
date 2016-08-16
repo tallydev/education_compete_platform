@@ -61,7 +61,7 @@ gem "paperclip"
 gem 'paperclip-av-transcoder'
 
 # Break Apart Documents into Images, Text, Pages and PDFs
-gem 'docsplit'
+# gem 'docsplit'
 
 # Object-based searching.
 gem 'ransack'

@@ -36,7 +36,7 @@ class Expert < User
   #        :recoverable, :rememberable, :trackable, :validatable,
   #        authentication_keys: [:sign_in]
 
-	has_many :marks, as: :recruitable, dependent: :destroy
+	has_many :marks, dependent: :destroy
 	has_many :recruits, through: :marks
 
 	def name

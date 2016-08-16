@@ -26,11 +26,11 @@ class Paper < ActiveRecord::Base
           styles: {
             pdf: {
               format: "pdf",
-              processors: [:docsplit_pdf]
+              # processors: [:docsplit_pdf]
             }
           }
-    # path: ':rails_root/public/system/:id/:attachment/:style/:basename.:extension',
-    # url: '/system/:id/:attachment/:style/:basename.:extension'
+  #   # path: ':rails_root/public/system/:id/:attachment/:style/:basename.:extension',
+  #   # url: '/system/:id/:attachment/:style/:basename.:extension'
 
   validates_attachment_presence :file
   validates_attachment_size     :file, less_than: 50.megabytes
@@ -39,7 +39,7 @@ class Paper < ActiveRecord::Base
               "application/.openxmlformats..document","application/vnd.ms-powerpoint",
               "application/pdf"]
 
-  # after_commit :translate_file, on: :create
+  after_commit :translate_file, on: :create
 
   def url
     file.try(:url, :pdf)
