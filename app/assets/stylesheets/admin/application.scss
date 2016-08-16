@@ -56,8 +56,11 @@ h1.block, h2.block, h3.block, h4.block, h5.block, h6.block {
   background-color: #286090!important;
 }
 
-table {
-	td {
-		min-width: 80px;
-	}
+// global
+.scroll-table-container {
+  width: 100%;
+  overflow-x: auto;
+  td {
+    min-width: 60px;
+  }
 }

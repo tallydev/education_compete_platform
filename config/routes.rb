@@ -108,7 +108,6 @@ Rails.application.routes.draw do
       resources :recruits do
         member do
           get :distribution
-          post :save_distribution
         end
       end
     end

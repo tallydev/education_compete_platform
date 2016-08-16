@@ -25,9 +25,18 @@ class Mark < ActiveRecord::Base
 
   validates_presence_of :expert
   validates_presence_of :recruitable
-  validates_presence_of :item_array
+  # validates_presence_of :item_array
 
   before_save :cal_score
+
+
+  def self.distribute_expert recruit, expert_array
+    Mark.transaction do
+      expert_array.each do |id|
+        recruit.marks.create(expert_id: id.to_i)
+      end
+    end
+  end
 
   private
 

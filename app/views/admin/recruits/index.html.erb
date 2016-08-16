@@ -15,32 +15,46 @@
         <table class="table table-bordered table-hover table-striped">
           <thead>
             <tr>
-              <th>选手姓名</th>
+              <th>序号</th>
+              <th>参赛项目</th>
+              <th>姓名</th>
               <th>课程名称</th>
-              <th>参赛内容</th>
-              <% if @activity.id == 1 %>
-                <th>参赛视频</th>
-                <th>参赛教案</th>
-              <% end %>
-              <th>说课稿</th>
-              <th>PPT</th>
-              <th>评分操作</th>
+              <th>邮箱</th>
+              <th>手机</th>
+              <th>上传作品</th>
+              <th>分配评委</th>
+              <th>操作</th>
             </tr>
           </thead>
           <tbody>
-            <% @recruits.each do |recruit| -%>
+            <% @recruits.each_with_index do |recruit, index| -%>
               <tr>
+                <td><%= index+1 %></td>
+                <td><%= recruit.project %></td>
                 <td><%= recruit.try(:player).try(:info).try(:name) %></td>
                 <td><%= recruit.name -%></td>
-                <td><%= recruit.opus.try(:content) %></td>
-                <% if @activity.id == 1 %>
-                  <td><%= recruit.opus.try(:media).try(:file_file_name) %></td>
-                  <td><%= recruit.opus.try(:plan).try(:file_file_name) %></td>
-                <% end %>
-                <td><%= recruit.opus.try(:note).try(:file_file_name) %></td>
-                <td><%= recruit.opus.try(:ppt).try(:file_file_name) %></td>
+                <td><%= recruit.try(:player).try(:info).try(:email) %></td>
+                <td><%= recruit.try(:player).try(:phone) %></td>
                 <td>
-                  <%= link_to "分配评委", distribution_admin_activity_recruit_path(params[:activity_id], recruit), remote: true, format: :js, class: "btn btn-xs btn-primary" %>
+                  <% if recruit.opus.present? %>
+                    <span class="glyphicon glyphicon-ok text-success"></span>
+                  <% else %>
+                    <span class="glyphicon glyphicon-remove text-danger"></span>
+                  <% end %>
+                </td>
+                <td>
+                  <% if recruit.marks.present? %>
+                    <span class="glyphicon glyphicon-ok text-success"></span>
+                  <% else %>
+                    <span class="glyphicon glyphicon-remove text-danger"></span>
+                  <% end %>
+                </td>
+                <td>
+                  <% if recruit.marks.present? %>
+                    <%= link_to "已分配", "#", class: "btn btn-xs btn-primary disabled" %>
+                  <% else %>
+                    <%= link_to "分配评委", new_admin_mark_path(activity_id: params[:activity_id], recruit_id: recruit), remote: true, format: :js, class: "btn btn-xs btn-primary" %>
+                  <% end %>
                 </td> 
               </tr>
             <% end -%>
