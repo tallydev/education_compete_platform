@@ -32,11 +32,9 @@ class Expert < User
 
 	validates :phone, :email, :password, presence: true
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         authentication_keys: [:sign_in]
-
-	validates :name, :phone, :email, :password, presence: true
+  # devise :database_authenticatable, :registerable,
+  #        :recoverable, :rememberable, :trackable, :validatable,
+  #        authentication_keys: [:sign_in]
 
 	has_many :marks, as: :recruitable, dependent: :destroy
 	has_many :recruits, through: :marks

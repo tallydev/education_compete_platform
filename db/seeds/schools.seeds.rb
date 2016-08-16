@@ -72,4 +72,4 @@ SchoolUser.create(phone: '上海杉达学院', password: "504681", school_id: 33
 SchoolUser.create(phone: '信息化教学指导委员会', password: "000000", school_id: "34")
 
 User.delete_all
-User.create(phone: '11111111', password: "111111", school_id: 1)
+User.create(id: 1, phone: '11111111', password: "111111", school_id: 1)
