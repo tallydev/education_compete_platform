@@ -310,6 +310,8 @@ end
 #       print_admin_activity_talk_competitions GET    /admin/activities/:activity_id/talk_competitions/print(.:format)                                 admin/talk_competitions#print
 #             admin_activity_talk_competitions GET    /admin/activities/:activity_id/talk_competitions(.:format)                                       admin/talk_competitions#index
 #              admin_activity_talk_competition GET    /admin/activities/:activity_id/talk_competitions/:id(.:format)                                   admin/talk_competitions#show
+#          distribution_admin_activity_recruit GET    /admin/activities/:activity_id/recruits/:id/distribution(.:format)                               admin/recruits#distribution
+#     save_distribution_admin_activity_recruit POST   /admin/activities/:activity_id/recruits/:id/save_distribution(.:format)                          admin/recruits#save_distribution
 #                      admin_activity_recruits GET    /admin/activities/:activity_id/recruits(.:format)                                                admin/recruits#index
 #                                              POST   /admin/activities/:activity_id/recruits(.:format)                                                admin/recruits#create
 #                   new_admin_activity_recruit GET    /admin/activities/:activity_id/recruits/new(.:format)                                            admin/recruits#new

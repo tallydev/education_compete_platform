@@ -29,7 +29,7 @@
 class Expert < User
 	attr_accessor :name
 
-	validates :name, :phone, :email, :password, presence: true
+	validates :phone, :email, :password, presence: true
 
 	has_many :marks, as: :recruitable, dependent: :destroy
 	has_many :recruits, through: :marks

@@ -11,8 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap-sprockets
 //= require ./framework/app
 //= require ./framework/sweetalert.min
@@ -21,3 +21,4 @@
 //= require select2
 //= require select2-full
 //= require select2_locale_zh-CN
+//= require turbolinks
