@@ -1,5 +1,5 @@
 module Admin
-  class RecruitController < BaseController
+  class RecruitsController < BaseController
     protect_from_forgery :except => :create  
     before_action :set_activity
 

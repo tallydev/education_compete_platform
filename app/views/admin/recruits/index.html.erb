@@ -1,0 +1,63 @@
+<% content_for :breadcrumb do %>
+<li><%= link_to @activity.short_name, "#" %></li>
+<% end %>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="nest">
+      <div class="tool-bar pull-right">
+        
+      </div>
+      <div class="body-nest">
+        <!-- <p class="lead well">
+          
+        </p> -->
+        <table class="table table-bordered table-hover table-striped">
+          <thead>
+            <tr>
+              <th>选手姓名</th>
+              <th>课程名称</th>
+              <th>参赛内容</th>
+              <% if @activity.id == 1 %>
+                <th>参赛视频</th>
+                <th>参赛教案</th>
+              <% end %>
+              <th>说课稿</th>
+              <th>PPT</th>
+              <th>评分操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @recruits.each do |recruit| -%>
+              <tr>
+                <td><%= recruit.try(:player).try(:info).try(:name) %></td>
+                <td><%= recruit.name -%></td>
+                <td><%= recruit.opus.try(:content) %></td>
+                <% if @activity.id == 1 %>
+                  <td><%= recruit.opus.try(:media).try(:file_file_name) %></td>
+                  <td><%= recruit.opus.try(:plan).try(:file_file_name) %></td>
+                <% end %>
+                <td><%= recruit.opus.try(:note).try(:file_file_name) %></td>
+                <td><%= recruit.opus.try(:ppt).try(:file_file_name) %></td>
+                <td>
+                  <%= link_to "分配评委", "#", class: "btn btn-xs btn-primary" %>
+                </td> 
+              </tr>
+            <% end -%>
+          </tbody>
+        </table>
+
+        <div class="text-center">
+          <div class="pagination pagination-centered">
+            <div class='row'><%= will_paginate @recruits, :renderer => BootstrapPagination::Rails ,:remote => {:update => 'messages'} %></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="newsModalContent">
+  
+</div>

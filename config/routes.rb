@@ -98,11 +98,14 @@ Rails.application.routes.draw do
           get :print
         end
       end
+      
       resources :talk_competitions, only: [:show, :index] do
         collection do
           get :print
         end
       end
+
+      resources :recruits
     end
     resources :news
     resources :bulletins
