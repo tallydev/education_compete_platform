@@ -105,7 +105,12 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :recruits
+      resources :recruits do
+        member do
+          get :distribution
+          post :save_distribution
+        end
+      end
     end
     resources :news
     resources :bulletins

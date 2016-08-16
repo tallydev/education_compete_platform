@@ -18,3 +18,6 @@
 //= require ./framework/sweetalert.min
 //= require ./framework/bootstrap-datetimepicker
 //= require ./framework/locales/bootstrap-datetimepicker.zh-CN
+//= require select2
+//= require select2-full
+//= require select2_locale_zh-CN

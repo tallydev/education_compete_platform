@@ -34,4 +34,7 @@ class Expert < User
 	has_many :marks, as: :recruitable, dependent: :destroy
 	has_many :recruits, through: :marks
 
+	def name
+		self.try(:user_info).try(:name)
+	end
 end

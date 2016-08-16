@@ -40,7 +40,7 @@
                 <td><%= recruit.opus.try(:note).try(:file_file_name) %></td>
                 <td><%= recruit.opus.try(:ppt).try(:file_file_name) %></td>
                 <td>
-                  <%= link_to "分配评委", "#", class: "btn btn-xs btn-primary" %>
+                  <%= link_to "分配评委", distribution_admin_activity_recruit_path(params[:activity_id], recruit), remote: true, format: :js, class: "btn btn-xs btn-primary" %>
                 </td> 
               </tr>
             <% end -%>
@@ -58,6 +58,10 @@
   </div>
 </div>
 
-<div id="newsModalContent">
-  
-</div>
+<%= render partial: "/admin/share/admin_modal" %>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#recruit_experts").select2();
+  });
+</script>
