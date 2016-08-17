@@ -1,7 +1,14 @@
-<%= form_for :mark, as: :post, url: admin_marks_path do |f| %>
+<%= form_for :mark, as: :post, url: admin_marks_path(activity_id: @activity) do |f| %>
   <div class="input-group" style="width: 100%; margin-bottom: 10px;">
-  	<%= hidden_field_tag :activity_id, params[:activity_id] %>
-  	<%= hidden_field_tag :recruit_id, @recruit.id %>
+
+    <% if @selected_recruits.present? %>
+      <% @selected_recruits.each do |recruit| %>
+        <%= hidden_field_tag 'selected_recruits[]', recruit %>
+      <% end %>
+    <% else %>
+      <%= hidden_field_tag 'selected_recruits[]', nil %>
+    <% end %>
+
 	  <%= select_tag :recruit_experts, 
   								options_from_collection_for_select(@experts, "id", "name"),
   								multiple: true,
@@ -12,7 +19,7 @@
                   prompt: "所有评分专家",
                   "data-placeholder" => "评分专家(多选)" %>
     <br><br><br>
-    <%= f.submit "确认", class: 'btn btn-success btn-block' %>
+    <%= f.submit "确认", class: 'btn btn-success btn-block', data: {data_with: "分配中..."} %>
 	</div>
 <% end %>
 

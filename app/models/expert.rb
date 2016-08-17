@@ -32,12 +32,13 @@ class Expert < User
 
 	validates :phone, :email, :password, presence: true
 
-  # devise :database_authenticatable, :registerable,
-  #        :recoverable, :rememberable, :trackable, :validatable,
-  #        authentication_keys: [:sign_in]
-
 	has_many :marks, dependent: :destroy
-	has_many :recruits, through: :marks
+
+	#################   InfoCompetition     ########################
+  has_many :info_competition_recruits, through: :marks, class_name: "InfoCompetition::Recruit", dependent: :destroy
+
+  #################   TalkCompetition     ########################
+  has_many :talk_competition_recruits, through: :marks, class_name: "TalkCompetition::Recruit", dependent: :destroy
 
 	def name
 		self.try(:user_info).try(:name)

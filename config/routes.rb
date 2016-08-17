@@ -122,7 +122,11 @@ Rails.application.routes.draw do
     end
     resources :news
     resources :bulletins
-    resources :marks
+    resources :marks do
+      collection do
+        get :bind_new
+      end
+    end
     resources :experts
 
     resources :info_competition do

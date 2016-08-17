@@ -30,10 +30,22 @@ class Mark < ActiveRecord::Base
   before_save :cal_score
 
 
-  def self.distribute_expert recruit, expert_array
+  # 单个作品分配专家
+  def self.distribute_expert activity_recruits, selected_expert_ids
     Mark.transaction do
-      expert_array.each do |id|
-        recruit.marks.create(expert_id: id.to_i)
+      activity_recruits.each do |recruit|
+        # 过去分配的专家列表
+        old_expert_ids = recruit.marks.pluck(:expert_id)
+
+        # 此次该删除的专家
+        delete_expert_ids = old_expert_ids - selected_expert_ids
+        recruit.marks.where(expert_id: delete_expert_ids).destroy_all
+
+        # 此次该新增的专家
+        new_expert_ids = selected_expert_ids - old_expert_ids
+        new_expert_ids.each do |id|
+          recruit.marks.create(expert_id: id.to_i)
+        end
       end
     end
   end
