@@ -173,10 +173,17 @@
             
           </form>
         </div>
+
       <!-- 弹框尾部 -->
         <div class="modal-footer">
-          <label class="total-points-label">总分&nbsp&nbsp</label><label class="total-points" id="total_points">0</label><label class="unit">&nbsp&nbsp分</label>
-          <button type="button" class="btn btn-total-points">提交评分</button>
+          <%= form_for :mark, method: :put, url: mark_path do |f| %>
+            <%= hidden_field_tag "itemArray[]"%>
+            <%= hidden_field_tag "type", "info" %>
+            <%= hidden_field_tag "opus_id", @info_competition_opus.id %>
+            <label class="total-points-label">总分&nbsp&nbsp</label><label class="total-points" id="total_points">0</label><label class="unit">&nbsp&nbsp分</label>
+            <!-- 评分表单提交 -->
+            <%= f.submit "提交评分", class: 'btn btn-total-points', data: {data_with: "正在提交..."} %>
+          <% end %>
         </div>
 
       </div>
@@ -188,10 +195,12 @@
 //总体设计评分条
         $(document).ready(function (e) {
             //初始化
-            ScrollBar.Initialize();
-            ScrollBar1.Initialize();
-            ScrollBar2.Initialize();
-            ScrollBar3.Initialize();
+            var itemArray = [0,0,0,0];
+
+            ScrollBar.Initialize(itemArray);
+            ScrollBar1.Initialize(itemArray);
+            ScrollBar2.Initialize(itemArray);
+            ScrollBar3.Initialize(itemArray);
         });
 
         var ScrollBar = {
@@ -199,7 +208,7 @@
             maxValue: 40,
             step: 1,
             currentX: 0,
-            Initialize: function () {
+            Initialize: function (itemArray) {
                 if (this.value > this.maxValue) {
                     alert("给定当前值大于了最大值");
                     return;
@@ -207,9 +216,9 @@
                 this.GetValue();
                 $("#scroll_Track").css("width", this.currentX - 18 + "px");
                 $("#scroll_Thumb").css("margin-left", this.currentX - 20 + "px");
-                this.Value();
+                this.Value(itemArray);
             },
-            Value: function () {
+            Value: function (itemArray) {
                 var valite = false;
                 var currentValue = 0;
                 $("#scroll_Thumb").mousedown(function () {
@@ -233,6 +242,8 @@
                         }
                         $("#scrollBarTxt").html(ScrollBar.value);
                         $("#design").html(ScrollBar.value);
+                        itemArray[0] = ScrollBar.value;
+                        $("#itemArray_").value = itemArray;
                         $("#total_points").html(ScrollBar.value+ScrollBar1.value+ScrollBar2.value+ScrollBar3.value);
                     });
                 });
@@ -243,6 +254,8 @@
                     if (ScrollBar.value <= 0) ScrollBar.value = 0;
                     $("#scrollBarTxt").html(ScrollBar.value);
                     $("#design").html(ScrollBar.value);
+                    $("#itemArray_").value = itemArray;
+                    itemArray[0] = ScrollBar.value;
                     $("#total_points").html(ScrollBar.value+ScrollBar1.value+ScrollBar2.value+ScrollBar3.value);
                 });
             },
@@ -256,7 +269,7 @@
             maxValue: 30,
             step: 1,
             currentX: 0,
-            Initialize: function () {
+            Initialize: function (itemArray) {
                 if (this.value > this.maxValue) {
                     alert("给定当前值大于了最大值");
                     return;
@@ -264,9 +277,9 @@
                 this.GetValue();
                 $("#scroll_Track1").css("width", this.currentX - 18 + "px");
                 $("#scroll_Thumb1").css("margin-left", this.currentX - 20 + "px");
-                this.Value();
+                this.Value(itemArray);
             },
-            Value: function () {
+            Value: function (itemArray) {
                 var valite = false;
                 var currentValue = 0;
                 $("#scroll_Thumb1").mousedown(function () {
@@ -290,6 +303,8 @@
                         }
                         $("#scrollBarTxt1").html(ScrollBar1.value);
                         $("#process").html(ScrollBar1.value);
+                        itemArray[1] = ScrollBar1.value;
+                        $("#itemArray_").value = itemArray;
                         $("#total_points").html(ScrollBar.value+ScrollBar1.value+ScrollBar2.value+ScrollBar3.value);
                     });
                 });
@@ -300,6 +315,8 @@
                     if (ScrollBar1.value <= 0) ScrollBar1.value = 0;
                     $("#scrollBarTxt1").html(ScrollBar1.value);
                     $("#process").html(ScrollBar1.value);
+                    itemArray[1] = ScrollBar1.value;
+                    $("#itemArray_").value = itemArray;
                     $("#total_points").html(ScrollBar.value+ScrollBar1.value+ScrollBar2.value+ScrollBar3.value);
                 });
             },
@@ -313,7 +330,7 @@
             maxValue: 15,
             step: 1,
             currentX: 0,
-            Initialize: function () {
+            Initialize: function (itemArray) {
                 if (this.value > this.maxValue) {
                     alert("给定当前值大于了最大值");
                     return;
@@ -321,9 +338,9 @@
                 this.GetValue();
                 $("#scroll_Track2").css("width", this.currentX - 18 + "px");
                 $("#scroll_Thumb2").css("margin-left", this.currentX - 20 + "px");
-                this.Value();
+                this.Value(itemArray);
             },
-            Value: function () {
+            Value: function (itemArray) {
                 var valite = false;
                 var currentValue = 0;
                 $("#scroll_Thumb2").mousedown(function () {
@@ -347,6 +364,8 @@
                         }
                         $("#scrollBarTxt2").html(ScrollBar2.value);
                         $("#result").html(ScrollBar2.value);
+                        itemArray[2] = ScrollBar2.value;
+                        $("#itemArray_").value = itemArray;
                         $("#total_points").html(ScrollBar.value+ScrollBar1.value+ScrollBar2.value+ScrollBar3.value);
                     });
                 });
@@ -357,6 +376,8 @@
                     if (ScrollBar2.value <= 0) ScrollBar2.value = 0;
                     $("#scrollBarTxt2").html(ScrollBar2.value);
                     $("#result").html(ScrollBar2.value);
+                    itemArray[2] = ScrollBar2.value;
+                    $("#itemArray_").value = itemArray;
                     $("#total_points").html(ScrollBar.value+ScrollBar1.value+ScrollBar2.value+ScrollBar3.value);
                 });
             },
@@ -370,7 +391,7 @@
             maxValue: 15,
             step: 1,
             currentX: 0,
-            Initialize: function () {
+            Initialize: function (itemArray) {
                 if (this.value > this.maxValue) {
                     alert("给定当前值大于了最大值");
                     return;
@@ -378,9 +399,9 @@
                 this.GetValue();
                 $("#scroll_Track3").css("width", this.currentX - 18 + "px");
                 $("#scroll_Thumb3").css("margin-left", this.currentX - 20 + "px");
-                this.Value();
+                this.Value(itemArray);
             },
-            Value: function () {
+            Value: function (itemArray) {
                 var valite = false;
                 var currentValue = 0;
                 $("#scroll_Thumb3").mousedown(function () {
@@ -404,6 +425,8 @@
                         }
                         $("#scrollBarTxt3").html(ScrollBar3.value);
                         $("#innovate").html(ScrollBar3.value);
+                        itemArray[3] = ScrollBar3.value;
+                        $("#itemArray_").value = itemArray;
                         $("#total_points").html(ScrollBar.value+ScrollBar1.value+ScrollBar2.value+ScrollBar3.value);
                     });
                 });
@@ -414,6 +437,8 @@
                     if (ScrollBar3.value <= 0) ScrollBar3.value = 0;
                     $("#scrollBarTxt3").html(ScrollBar3.value);
                     $("#innovate").html(ScrollBar3.value);
+                    itemArray[3] = ScrollBar3.value;
+                    $("#itemArray_").val(itemArray)
                     $("#total_points").html(ScrollBar.value+ScrollBar1.value+ScrollBar2.value+ScrollBar3.value);
                 });
             },

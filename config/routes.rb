@@ -58,6 +58,8 @@ Rails.application.routes.draw do
   # 用户信息资料
   resources :player_infos, only: [:new, :show, :create]
 
+  resources :marks, only: [:update]
+
   # 信息大赛相关路由
   namespace :info_competition do
     # index用于给专家进行查看审批的列表
