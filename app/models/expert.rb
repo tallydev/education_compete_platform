@@ -34,11 +34,11 @@ class Expert < User
 
 	has_many :marks, dependent: :destroy
 
-	#################   InfoCompetition     ########################
-  has_many :info_competition_recruits, through: :marks, class_name: "InfoCompetition::Recruit", dependent: :destroy
+  ##################   InfoCompetition     ########################
+  has_many :info_competition_recruits, through: :marks, source: :recruitable, source_type: "InfoCompetition::Recruit", dependent: :destroy
 
-  #################   TalkCompetition     ########################
-  has_many :talk_competition_recruits, through: :marks, class_name: "TalkCompetition::Recruit", dependent: :destroy
+  ##################   TalkCompetition     ########################
+  has_many :talk_competition_recruits, through: :marks, source: :recruitable, source_type: "TalkCompetition::Recruit", dependent: :destroy
 
 	def name
 		self.try(:user_info).try(:name)
