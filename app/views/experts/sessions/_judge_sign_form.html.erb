@@ -1,7 +1,15 @@
 <div role="tabpanel" class="tab-pane active" id="judge">
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), wrapper: :apply_horizontal_form) do |f| %>
-    <%= f.input :sign_in, label:" 用户名 ", placeholder: " 手机号",required: false, autofocus: true %>
-    <%= f.input :password, label: "密 码", required: false %>
+    <%= f.input :sign_in, label:" 专家姓名 ", required: true, autofocus: true %>
+   	<% if resource.errors[:sign_in].any? %>
+			<dd class="error text-danger"><%= resource.errors[:sign_in][0] %></dd>
+		<% end %>
+
+    <%= f.input :password, label: "密 码", required: true %>
+	  <% if resource.errors[:password].any? %>
+			<dd class="error text-danger"><%= resource.errors[:password][0] %></dd>
+		<% end %>
+
     <%= f.button :submit, "登 录", data: {disable_with: '登录中...'}, class: "btn-login" %>
     <div class="sign_up_text">
       <%= link_to "忘记密码?", new_player_password_path, class: "forget_pass" %></td>
