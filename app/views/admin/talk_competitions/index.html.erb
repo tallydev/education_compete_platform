@@ -50,7 +50,7 @@
                     <td>
                       <% if recruit.marks.present? %>
                         <% recruit.marks.each do |mark| %>
-                          <%= link_to mark.expert.try(:user_info).try(:name), new_admin_mark_path(activity_id: params[:activity_id], recruit_id: recruit), remote: true, format: :js, class: "btn btn-xs btn-success" %>
+                          <%= link_to mark.expert.try(:phone), new_admin_mark_path(activity_id: params[:activity_id], recruit_id: recruit), remote: true, format: :js, class: "btn btn-xs btn-success" %>
                         <% end %>
                       <% else %>
                         <%= link_to "分配评委", new_admin_mark_path(activity_id: params[:activity_id], recruit_id: recruit), remote: true, format: :js, data: { disable_with: "分配中.." }, class: "btn btn-xs btn-primary" %>
