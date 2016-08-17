@@ -58,6 +58,8 @@ Rails.application.routes.draw do
   # 用户信息资料
   resources :player_infos, only: [:new, :show, :create]
 
+  resources :marks, only: [:update]
+
   # 信息大赛相关路由
   namespace :info_competition do
     # index用于给专家进行查看审批的列表
@@ -244,6 +246,8 @@ end
 #                                 player_infos POST   /player_infos(.:format)                                                                          player_infos#create
 #                              new_player_info GET    /player_infos/new(.:format)                                                                      player_infos#new
 #                                  player_info GET    /player_infos/:id(.:format)                                                                      player_infos#show
+#                                         mark PATCH  /marks/:id(.:format)                                                                             marks#update
+#                                              PUT    /marks/:id(.:format)                                                                             marks#update
 #                      info_competition_opuses GET    /info_competition/opuses(.:format)                                                               info_competition/opuses#index
 #                        info_competition_opus GET    /info_competition/opuses/:id(.:format)                                                           info_competition/opuses#show
 #                                              PATCH  /info_competition/opuses/:id(.:format)                                                           info_competition/opuses#update
@@ -335,6 +339,8 @@ end
 #                                              PUT    /admin/activities/:activity_id/recruits/:id(.:format)                                            admin/recruits#update
 #                                              DELETE /admin/activities/:activity_id/recruits/:id(.:format)                                            admin/recruits#destroy
 #                             admin_activities GET    /admin/activities(.:format)                                                                      admin/activities#index
+#                                              POST   /admin/activities(.:format)                                                                      admin/activities#create
+#                           new_admin_activity GET    /admin/activities/new(.:format)                                                                  admin/activities#new
 #                               admin_activity GET    /admin/activities/:id(.:format)                                                                  admin/activities#show
 #                             admin_news_index GET    /admin/news(.:format)                                                                            admin/news#index
 #                                              POST   /admin/news(.:format)                                                                            admin/news#create
