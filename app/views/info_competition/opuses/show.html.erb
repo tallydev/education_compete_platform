@@ -22,8 +22,10 @@
           <div class="opus-info">
             <div class="title"><%= @recruit.version %></div>
             <div class="author-info">
-              <% if current_expert.present? %>
+              <% if current_expert.present? && @mark.score.present? == false %>
                 <button type="button" class="btn btn-mark" data-turbolinks="false" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">评分</button>
+              <% elsif @mark.score.present? %>
+                <button type="button" class="btn btn-mark"><%= @mark.score %>分</button>
               <% else %>
                 学校：<%= @recruit.school.try(:name) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;作者：<%= @player_info.name %>
               <% end %>

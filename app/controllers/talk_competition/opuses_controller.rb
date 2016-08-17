@@ -1,5 +1,6 @@
 class TalkCompetition::OpusesController < ApplicationController
   before_action :set_talk_competition_opus, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_player!, only: [:new, :create, :update, :edit]
 
   respond_to :html
 
@@ -11,7 +12,9 @@ class TalkCompetition::OpusesController < ApplicationController
   def show
     @recruit = @talk_competition_opus.recruit
     @player_info = @recruit.player.info
-    @mark = @recruit.marks.where(current_expert.id).first
+    if current_expert.present?
+      @mark = @recruit.marks.where(expert_id:current_expert.id).first
+    end
     respond_with(@talk_competition_opus)
   end
 
