@@ -25,12 +25,13 @@ class Mark < ActiveRecord::Base
 
   validates_presence_of :expert
   validates_presence_of :recruitable
-  # validates_presence_of :item_array
+  validates_presence_of :item_array, on: :update
 
   before_save :cal_score
+  before_update :cal_score
 
 
-  # 单个作品分配专家
+  # 作品(数组)分配专家
   def self.distribute_expert activity_recruits, selected_expert_ids
     Mark.transaction do
       activity_recruits.each do |recruit|
