@@ -10,7 +10,7 @@
     <% end %>
 
 	  <%= select_tag :recruit_experts, 
-  								options_from_collection_for_select(@experts, "id", "name"),
+  								options_from_collection_for_select(@experts, "id", "name", @distributed_experts),
   								multiple: true,
   								required: "required",
   								class: "chosen-select",

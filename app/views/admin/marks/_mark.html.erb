@@ -1,9 +1,8 @@
 <% marks = recruit.marks %>
-<% award = {1 => "一等奖", 2 => "二等奖", 3 => "三等奖"} %>
 <tr class="text-center">
-  <td rowspan="3"><%= award[index] %></td>
+  <td rowspan="3"></td>
   <td rowspan="3"><%= index %></td>
-  <td rowspan="3"><%= recruit.total_score %></td>
+  <td rowspan="3"><%= recruit.total_score.to_f %></td>
   <td rowspan="3"><%= recruit.try(:player_info).try(:name) %></td>
   <td rowspan="3"><%= recruit.try(:school).try(:name) %></td>
   <td rowspan="3"><%= recruit.try(:player_info).try(:special) %></td>

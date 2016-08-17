@@ -3,13 +3,13 @@ class Admin::MarksController < Admin::BaseController
 	respond_to :html, :js
 
 	def index
-		@recruits = @activity.recruits
+		@recruits = Mark.rank_recruits @activity
 	end
 
 	# 分配一个报名的评委专家
 	def new
-		@selected_recruits = []
-		@selected_recruits.push params[:recruit_id]
+		@selected_recruits = [params[:recruit_id]]
+		@distributed_experts = @activity.recruits.find(params[:recruit_id]).experts.pluck(:id)
     @experts = Expert.all
     respond_with @selected_recruits
 	end
@@ -17,6 +17,7 @@ class Admin::MarksController < Admin::BaseController
 	# 分配多个报名的评委专家
 	def bind_new
 		@selected_recruits = params[:selected_recruits]
+		@distributed_experts = []
     @experts = Expert.all
     respond_with @selected_recruits
 	end
