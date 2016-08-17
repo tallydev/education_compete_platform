@@ -20,8 +20,8 @@
       </tr>
     </thead>
     <tbody>
-      <% 4.times do %>
-        <%= render partial: "mark" %>
+      <% @recruits.each_with_index do |recruit, index| %>
+        <%= render partial: "mark", locals: {recruit: recruit, index: index + 1} %>
       <% end %>
     </tbody>
   </table>

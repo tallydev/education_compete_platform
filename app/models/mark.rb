@@ -51,6 +51,18 @@ class Mark < ActiveRecord::Base
     end
   end
 
+  # 返回总分降序的报名列表
+  def Mark.rank_recruits activity
+    recruits = activity.recruits
+    Recruit.transaction do
+      recruits.each do |recruit|
+        total_score = recruit.marks.pluck(:score).map {|score| score.to_i}.sum
+        recruit.update(total_score: total_score)
+      end    
+    end 
+    recruits.order(total_score: :desc)
+  end
+
   private
 
     def cal_score

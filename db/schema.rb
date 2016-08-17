@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160816060517) do
+ActiveRecord::Schema.define(version: 20160817111046) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",                   null: false
@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(version: 20160816060517) do
     t.integer  "player_id"
     t.integer  "school_id"
     t.integer  "activity_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.string   "project"
     t.string   "name"
     t.string   "version"
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 20160816060517) do
     t.string   "course_3"
     t.string   "school_person"
     t.string   "school_phone"
+    t.integer  "total_score",   default: 0
   end
 
   add_index "info_competition_recruits", ["activity_id"], name: "index_info_competition_recruits_on_activity_id"
@@ -193,6 +194,16 @@ ActiveRecord::Schema.define(version: 20160816060517) do
   add_index "players", ["reset_password_token"], name: "index_players_on_reset_password_token", unique: true
   add_index "players", ["school_id"], name: "index_players_on_school_id"
 
+  create_table "recruits", force: :cascade do |t|
+    t.integer  "activity_id"
+    t.integer  "opu_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "recruits", ["activity_id"], name: "index_recruits_on_activity_id"
+  add_index "recruits", ["opu_id"], name: "index_recruits_on_opu_id"
+
   create_table "schools", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
@@ -213,13 +224,14 @@ ActiveRecord::Schema.define(version: 20160816060517) do
     t.integer  "player_id"
     t.integer  "school_id"
     t.integer  "activity_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.string   "school_person"
     t.string   "school_phone"
     t.string   "name"
     t.text     "comment"
     t.string   "work_time"
+    t.integer  "total_score",   default: 0
   end
 
   add_index "talk_competition_recruits", ["activity_id"], name: "index_talk_competition_recruits_on_activity_id"

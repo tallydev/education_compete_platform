@@ -25,8 +25,8 @@
             <% @activities.each do |item| -%>
             <tr>
               <td><%= item.name -%></td>
-              <td><%= item.start_time.strftime('%F %H:%M') -%></td>
-              <td><%= item.end_time.strftime('%F %H:%M') -%></td>
+              <td><%= item.start_time.present? ? item.start_time.strftime('%F %H:%M') : nil -%></td>
+              <td><%= item.end_time.present? ? item.end_time.strftime('%F %H:%M') : nil -%></td>
               <td><%= item.status -%></td>
               <td><%= item.created_at.strftime('%F %H:%M') -%></td>
               <td></td>

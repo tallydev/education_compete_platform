@@ -101,7 +101,7 @@ Rails.application.routes.draw do
   namespace :admin do 
     root to: "home#index"
     resources :users
-    resources :activities, only: [:index, :show] do
+    resources :activities, only: [:index, :show, :new, :create] do
       resources :info_competitions, only: [:show, :index] do
         collection do
           get :print
@@ -216,8 +216,10 @@ end
 #                                              PATCH  /school_users(.:format)                                                                          devise/registrations#update
 #                                              PUT    /school_users(.:format)                                                                          devise/registrations#update
 #                                              DELETE /school_users(.:format)                                                                          devise/registrations#destroy
+#      marks_center_activity_info_competitions GET    /center/activities/:activity_id/info_competitions/marks(.:format)                                info_competitions#marks
 #            center_activity_info_competitions GET    /center/activities/:activity_id/info_competitions(.:format)                                      info_competitions#index
 #             center_activity_info_competition GET    /center/activities/:activity_id/info_competitions/:id(.:format)                                  info_competitions#show
+#      marks_center_activity_talk_competitions GET    /center/activities/:activity_id/talk_competitions/marks(.:format)                                talk_competitions#marks
 #            center_activity_talk_competitions GET    /center/activities/:activity_id/talk_competitions(.:format)                                      talk_competitions#index
 #             center_activity_talk_competition GET    /center/activities/:activity_id/talk_competitions/:id(.:format)                                  talk_competitions#show
 #                              center_activity GET    /center/activities/:id(.:format)                                                                 activities#show
@@ -324,7 +326,6 @@ end
 #             admin_activity_talk_competitions GET    /admin/activities/:activity_id/talk_competitions(.:format)                                       admin/talk_competitions#index
 #              admin_activity_talk_competition GET    /admin/activities/:activity_id/talk_competitions/:id(.:format)                                   admin/talk_competitions#show
 #          distribution_admin_activity_recruit GET    /admin/activities/:activity_id/recruits/:id/distribution(.:format)                               admin/recruits#distribution
-#     save_distribution_admin_activity_recruit POST   /admin/activities/:activity_id/recruits/:id/save_distribution(.:format)                          admin/recruits#save_distribution
 #                      admin_activity_recruits GET    /admin/activities/:activity_id/recruits(.:format)                                                admin/recruits#index
 #                                              POST   /admin/activities/:activity_id/recruits(.:format)                                                admin/recruits#create
 #                   new_admin_activity_recruit GET    /admin/activities/:activity_id/recruits/new(.:format)                                            admin/recruits#new
@@ -351,6 +352,7 @@ end
 #                                              PATCH  /admin/bulletins/:id(.:format)                                                                   admin/bulletins#update
 #                                              PUT    /admin/bulletins/:id(.:format)                                                                   admin/bulletins#update
 #                                              DELETE /admin/bulletins/:id(.:format)                                                                   admin/bulletins#destroy
+#                         bind_new_admin_marks GET    /admin/marks/bind_new(.:format)                                                                  admin/marks#bind_new
 #                                  admin_marks GET    /admin/marks(.:format)                                                                           admin/marks#index
 #                                              POST   /admin/marks(.:format)                                                                           admin/marks#create
 #                               new_admin_mark GET    /admin/marks/new(.:format)                                                                       admin/marks#new

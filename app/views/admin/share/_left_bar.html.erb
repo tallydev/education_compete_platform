@@ -53,12 +53,11 @@
         <span class="arrow "></span>
       </a>
       <ul class="sub-menu">
-        <li >
-          <a href="<%= admin_marks_path %>">列表1</a>
-        </li>
-        <li >
-          <a href="<%= admin_marks_path %>">列表2</a>
-        </li>
+        <% Activity.all.each do |activity| %>
+          <li >
+            <a href="<%= admin_marks_path(activity_id: activity) %>"><%= activity.short_name %></a>
+          </li>
+        <% end %>
       </ul>
     </li>
   

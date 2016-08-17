@@ -1,8 +1,9 @@
 class Admin::MarksController < Admin::BaseController
-	before_action :set_activity, only: [:bind_new, :new, :create]
+	before_action :set_activity, only: [:index, :bind_new, :new, :create]
 	respond_to :html, :js
 
 	def index
+		@recruits = @activity.recruits
 	end
 
 	# 分配一个报名的评委专家

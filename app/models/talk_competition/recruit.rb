@@ -13,6 +13,7 @@
 #  name          :string
 #  comment       :text
 #  work_time     :string
+#  total_score   :integer          default(0)
 #
 # Indexes
 #
