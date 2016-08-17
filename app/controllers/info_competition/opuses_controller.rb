@@ -12,7 +12,7 @@ class InfoCompetition::OpusesController < ApplicationController
   def show
     @recruit = @info_competition_opus.recruit
     @player_info = @recruit.player.info
-    @mark = @recruit.marks.where(current_expert.id)
+    @mark = @recruit.marks.where(current_expert.id).first
     p "============================"
     p @mark
     respond_with(@info_competition_opus)

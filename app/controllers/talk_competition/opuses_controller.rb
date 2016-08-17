@@ -11,6 +11,7 @@ class TalkCompetition::OpusesController < ApplicationController
   def show
     @recruit = @talk_competition_opus.recruit
     @player_info = @recruit.player.info
+    @mark = @recruit.marks.where(current_expert.id).first
     respond_with(@talk_competition_opus)
   end
 

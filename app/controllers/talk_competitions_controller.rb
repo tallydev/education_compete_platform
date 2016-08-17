@@ -1,7 +1,7 @@
 class TalkCompetitionsController < ApplicationController
   before_action :authenticate_player!, only: [:show]
   before_action :authenticate_school_user!, only: [:index]
-  before_action :set_activity, only: [:show, :index]
+  before_action :set_activity, only: [:show, :index, :marks]
 
   respond_to :html
 
@@ -12,6 +12,11 @@ class TalkCompetitionsController < ApplicationController
       @recruits = @activity.school_recruits current_school_user.try(:school)
     end
     respond_with(@recruits)
+  end
+
+  def marks
+    @marks = current_expert.marks
+    respond_with(@marks)
   end
 
   def show

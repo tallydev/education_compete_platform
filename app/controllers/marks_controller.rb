@@ -4,20 +4,26 @@ class MarksController < ApplicationController
   respond_to :html, :js
 
   def update
+    array = params[:itemArray][0].split(",").map { |item| item.to_i }
     if params[:type] == "info"
-      array = params[:itemArray][0].split(",")
-
-      p array
-
-      p @mark
-      if @mark.update(item_array: array)
+      if @markInfo.update(item_array: array)
         flash[:success] = "评分成功"
-        p @mark
+        p @markInfo
         p "======================================"
-        respond_with @opus
+        respond_with @opusInfo
       else
         flash[:error] = "评分失败！"
-        respond_with @opus
+        respond_with @opusInfo
+      end
+    elsif params[:type] == "talk"
+      if @markTalk.update(item_array: array)
+        flash[:success] = "评分成功"
+        p @markTalk
+        p "======================================"
+        respond_with @opusTalk
+      else
+        flash[:error] = "评分失败！"
+        respond_with @opusTalk
       end
     end
     p "++++++++++++++++++++++++++"
@@ -26,7 +32,9 @@ class MarksController < ApplicationController
 
   private
   def set_mark
-    @mark = InfoCompetition::Opus.find(params[:opus_id]).recruit.marks.where(expert_id: current_expert.id).first
-    @opus = InfoCompetition::Opus.find(params[:opus_id])
+    @markInfo = InfoCompetition::Opus.find(params[:opus_id]).recruit.marks.where(expert_id: current_expert.id).first
+    @opusInfo = InfoCompetition::Opus.find(params[:opus_id])
+    @markTalk = TalkCompetition::Opus.find(params[:opus_id]).recruit.marks.where(expert_id: current_expert.id).first
+    @opusTalk = TalkCompetition::Opus.find(params[:opus_id])
   end
 end
