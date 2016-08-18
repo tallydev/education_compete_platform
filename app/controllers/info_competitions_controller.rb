@@ -16,8 +16,8 @@ class InfoCompetitionsController < ApplicationController
   end
 
   def marks
-    @marks = @activity.recruits.first.marks.where(expert_id: current_expert.id)
-    respond_with(@marks)
+    @recruits = current_expert.info_competition_recruits
+    respond_with(@recruits)
   end
 
   def show

@@ -6,7 +6,7 @@
   <div class="center_cotent row">
     <table class="table table-bordered text-center">
       <thead class="color_label">
-        <tr>
+        <tr class="table-head">
           <!-- <th>
             <input type="button" class="btn btn-info" name="select" onclick="javascript:selectAll()" value="全选"/>
           </th> -->
@@ -18,7 +18,7 @@
         </tr>
       </thead>
       <tbody>
-      <% @marks.each_with_index do |mark, index| %>
+      <% @recruits.each_with_index do |recruit, index| %>
         <tr>
           <!-- <th>
             <div class="checkbox">
@@ -28,20 +28,20 @@
             </div>
           </th> -->
           <td><%= index+1 %></td>
-          <td><%= mark.recruitable.name %></td>
-          <td><%= mark.recruitable.comment %></td>
+          <td><%= recruit.name %></td>
+          <td><%= recruit.comment %></td>
           <td>
-            <% if mark.score.present? %>
-              <span class="text-success"><%= mark.score %></span>
+            <% if recruit.marks.where(expert_id:current_expert.id).first.score.present? %>
+              <span class="text-success"><%= recruit.marks.where(expert_id:current_expert.id).first.score %></span>
             <% else %>
               <span class="text-danger">待评分</span>
             <% end %>
           </td>
           <td>
-            <% if mark.score.present? %>
-              <%= link_to "查看", mark.recruitable.opus, class:"btn btn-success btn-sm" %>
+            <% if recruit.marks.where(expert_id:current_expert.id).first.score.present? %>
+              <%= link_to "查看", recruit.opus, class:"btn btn-success btn-sm" %>
             <% else %>
-              <%= link_to "评分", mark.recruitable.opus, class:"btn btn-info btn-sm" %>
+              <%= link_to "评分", recruit.opus, class:"btn btn-info btn-sm" %>
             <% end %>
           </td>
         </tr>

@@ -19,7 +19,12 @@
 @import "app/bootstrap_custom";
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
+//表格样式
+.table-head {
+  th {
+    text-align: center;
+  }
+}
 //打分按钮
 .btn-mark {
   padding: 5px 40px;
