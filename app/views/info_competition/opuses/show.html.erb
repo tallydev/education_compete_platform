@@ -13,27 +13,27 @@
       <div class="row">
         <div class="col-md-6">
           <div class="opus-video">
-            <video width="469" height="320" class="mejs-player" controls="controls" preload="none">
+            <video width="469" height="320" class="mejs-player" controls="controls" preload="none" >
               <source type="video/mp4" src="<%= @info_competition_opus.media.try(:file).try(:url) %>" />
             </video>
           </div>
         </div>
         <div class="col-md-6">
           <div class="opus-info">
-            <div class="title"><%= @recruit.version %></div>
+            <div class="title"><%= @recruit.try(:version) %></div>
             <div class="author-info">
-              <% if current_expert.present? && @mark.score.present? == false %>
+              <% if current_expert.present? && @mark.try(:score).present? == false %>
                 <button type="button" class="btn btn-mark" data-turbolinks="false" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">评分</button>
-              <% elsif @mark.score.present? %>
-                <button type="button" class="btn btn-mark"><%= @mark.score %>分</button>
+              <% elsif @mark.try(:score).present? %>
+                <button type="button" class="btn btn-mark"><%= @mark.try(:score) %>分</button>
               <% else %>
-                学校：<%= @recruit.school.try(:name) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;作者：<%= @player_info.name %>
+                学校：<%= @recruit.try(:school).try(:name) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;作者：<%= @player_info.try(:name) %>
               <% end %>
             </div>
-            <div class="opus-content"><span class="content-text">参赛内容：</span><%= @info_competition_opus.content %></div>
-            <div class="opus-content"><span class="content-text">作品名称：</span><%= @recruit.name %></div>
-            <div class="opus-content"><span class="content-text">参考教材：</span><%= @recruit.version %></div>
-            <div class="opus-content"><span class="content-text">参赛项目：</span><%= @recruit.project %></div>
+            <div class="opus-content"><span class="content-text">参赛内容：</span><%= @info_competition_opus.try(:content) %></div>
+            <div class="opus-content"><span class="content-text">作品名称：</span><%= @recruit.try(:name) %></div>
+            <div class="opus-content"><span class="content-text">参考教材：</span><%= @recruit.try(:version) %></div>
+            <div class="opus-content"><span class="content-text">参赛项目：</span><%= @recruit.try(:project) %></div>
           </div>
         </div>
       </div>
@@ -42,7 +42,7 @@
         <div class="item-title">创作说明</div>
       </div>
       <div class="row opus-data">
-        <%= @recruit.comment %>
+        <%= @recruit.try(:comment) %>
       </div>
 
       <div class="item-bg">
@@ -106,6 +106,7 @@
         <div class="modal-body">
           <form>
             <div class="row">
+              <div class="col-md-12 col-xs-12 mark-tips">&nbsp&nbsp&nbsp请用鼠标拖动滑块进行评分，谢谢!</div>
               <div class="col-md-2 col-xs-2 mark-title">总体设计</div>
               <div class="col-md-1 col-xs-1 mark-range">0分</div>
               <div id="Demo" class="progressTime col-md-6 col-xs-6" >
