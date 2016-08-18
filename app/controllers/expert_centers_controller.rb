@@ -6,7 +6,7 @@ class ExpertCentersController < ApplicationController
   def show
     @activities = Activity.all
     @activity = InfoCompetition::Activity.first
-    @marks = @activity.recruits.first.marks.where(expert_id: current_expert.id)
+    @recruits = current_expert.info_competition_recruits
     respond_with(@marks)
   end
   
