@@ -41,7 +41,11 @@
             <% if recruit.marks.where(expert_id:current_expert.id).first.score.present? %>
               <%= link_to "查看", recruit.opus, class:"btn btn-success btn-sm" %>
             <% else %>
-              <%= link_to "评分", recruit.opus, class:"btn btn-info btn-sm" %>
+              <% if recruit.opus.present? %>
+                <%= link_to "评分", recruit.opus, class:"btn btn-info btn-sm" %>
+              <% else %>
+                <%= link_to "作品未上传", recruit.opus, class:"btn btn-info btn-sm" %>
+              <% end %>
             <% end %>
           </td>
         </tr>
