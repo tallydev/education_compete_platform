@@ -2,6 +2,7 @@ class TalkCompetitionsController < ApplicationController
   before_action :authenticate_player!, only: [:show]
   before_action :authenticate_school_user!, only: [:index]
   before_action :set_activity, only: [:show, :index, :marks]
+  before_action :authenticate_expert!, only: [:marks]
 
   respond_to :html
 

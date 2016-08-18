@@ -12,7 +12,7 @@
           </th> -->
           <th>序号</th>
           <th>作品名称</th>
-          <th>作品注释</th>
+          <!-- <th>作品注释</th> -->
           <th>评分</th>
           <th>操作</th>
         </tr>
@@ -29,7 +29,7 @@
           </th> -->
           <td><%= index+1 %></td>
           <td><%= recruit.name %></td>
-          <td><%= recruit.comment %></td>
+          <!-- <td><%#= recruit.comment %></td> -->
           <td>
             <% if recruit.marks.where(expert_id:current_expert.id).first.score.present? %>
               <span class="text-success"><%= recruit.marks.where(expert_id:current_expert.id).first.score %></span>
