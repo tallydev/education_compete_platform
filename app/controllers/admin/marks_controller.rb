@@ -32,10 +32,13 @@ class Admin::MarksController < Admin::BaseController
 	# 给报名者（数组）分配评审专家
 	def create
 		# 要分配专家的报名人员
-		@activity_recruits = @activity.recruits.where(id: params[:selected_recruits])
-		p @activity_recruits
-		# 创建
-		Mark.distribute_expert(@activity_recruits, params[:recruit_experts])
+		if params[:recruit_experts]
+			@activity_recruits = @activity.recruits.where(id: params[:selected_recruits])
+			# 创建
+			Mark.distribute_expert(@activity_recruits, params[:recruit_experts])
+		else
+			flash[:danger] = "请选择评委专家"
+		end
 		redirect_to "/admin/activities/#{@activity.id}/#{@activity.route_type}"
 	end
 

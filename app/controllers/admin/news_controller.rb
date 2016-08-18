@@ -14,10 +14,10 @@ module Admin
     def create
       @news = News.new(news_params)
       if @news.save
-        flash[:notice] = "创建成功"
+        flash[:success] = "创建成功"
         redirect_to admin_news_index_path
       else
-        flash[:error] = "创建失败"
+        flash[:danger] = "创建失败"
         render :new
       end
     end

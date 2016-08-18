@@ -20,7 +20,7 @@ class Admin::ExpertsController < Admin::BaseController
 				format.js { render js: "location.href = '#{admin_experts_path}'" }
 			end
 		else
-			flash[:error] = "新增专家失败"
+			flash[:danger] = "新增专家失败"
 			render :new
 		end
 	end
@@ -38,7 +38,7 @@ class Admin::ExpertsController < Admin::BaseController
 				format.js { render js: "location.href = '#{admin_experts_path}'" }
 			end
 		else
-			flash[:error] = "修改专家信息失败"
+			flash[:danger] = "修改专家信息失败"
 		render :edit
 		end
 	end

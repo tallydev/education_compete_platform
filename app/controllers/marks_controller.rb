@@ -11,7 +11,7 @@ class MarksController < ApplicationController
         flash[:success] = "评分成功"
         respond_with @opusInfo
       else
-        flash[:error] = "评分失败！"
+        flash[:danger] = "评分失败！"
         respond_with @opusInfo
       end
     elsif params[:type] == "talk"
@@ -21,7 +21,7 @@ class MarksController < ApplicationController
         flash[:success] = "评分成功"
         respond_with @opusTalk
       else
-        flash[:error] = "评分失败！"
+        flash[:danger] = "评分失败！"
         respond_with @opusTalk
       end
     end

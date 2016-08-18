@@ -13,10 +13,10 @@ module Admin
     def create
       @bulletin = Bulletin.new(bulletin_params)
       if @bulletin.save
-        flash[:notice] = "创建成功"
+        flash[:success] = "创建成功"
         redirect_to admin_bulletins_path
       else
-        flash[:error] = "创建失败"
+        flash[:danger] = "创建失败"
         render :new
       end
     end

@@ -23,6 +23,7 @@
                 <th>序号</th>
                 <th>参赛项目</th>
                 <th>姓名</th>
+                <th>学校</th>
                 <th>课程名称</th>
                 <th>邮箱</th>
                 <th>手机</th>
@@ -38,6 +39,7 @@
                     <td><%= index+1 %></td>
                     <td><%= recruit.project %></td>
                     <td><%= recruit.try(:player).try(:info).try(:name) %></td>
+                    <td><%= recruit.try(:school).try(:name) %></td>
                     <td><%= recruit.name -%></td>
                     <td><%= recruit.try(:player).try(:info).try(:email) %></td>
                     <td><%= recruit.try(:player).try(:phone) %></td>
