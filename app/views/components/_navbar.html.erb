@@ -46,7 +46,7 @@
       <% if current_player || current_school_user || current_expert %>
         <ul class="nav navbar-nav navbar-right nav-sign">
           <li>
-            <%= link_to new_player_password_path do %>
+            <%= link_to "" do %>
               <% if current_school_user %>
                 <%= image_tag "user.svg" %><span><%= current_school_user.phone %></span>
               <% elsif current_player%>
