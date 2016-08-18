@@ -37,7 +37,7 @@ class Admin::MarksController < Admin::BaseController
 			# 创建
 			Mark.distribute_expert(@activity_recruits, params[:recruit_experts])
 		else
-			flash[:danger] = "请选择评委专家"
+			flash.now[:danger] = "请选择评委专家"
 		end
 		redirect_to "/admin/activities/#{@activity.id}/#{@activity.route_type}"
 	end

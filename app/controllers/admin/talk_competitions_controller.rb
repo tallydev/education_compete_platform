@@ -3,7 +3,7 @@ module Admin
     before_action :set_activity
 
     def index
-      @recruits = @activity.recruits.paginate(:page => params[:page], :per_page => 20)
+      @recruits = @activity.recruits
     end
 
     def print
