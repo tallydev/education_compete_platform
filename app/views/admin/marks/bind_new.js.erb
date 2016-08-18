@@ -1,3 +1,7 @@
-$("#adminModalContent").html("<%= escape_javascript( render partial: "distribute_form" )%>")
-$('#myModalLabel').text("分配评委");
-$('#adminModal').modal('show');
+<% if @selected_recruits.nil? %>
+	location.href = "/admin/activities/#{@activity.id}/#{@activity.route_type}"
+<% else %>
+	$("#adminModalContent").html("<%= escape_javascript( render partial: "distribute_form" )%>")
+	$('#myModalLabel').text("分配评委");
+	$('#adminModal').modal('show');
+<% end %>
