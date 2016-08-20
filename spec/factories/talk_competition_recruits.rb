@@ -10,6 +10,10 @@
 #  updated_at    :datetime         not null
 #  school_person :string
 #  school_phone  :string
+#  name          :string
+#  comment       :text
+#  work_time     :string
+#  total_score   :integer          default(0)
 #
 # Indexes
 #

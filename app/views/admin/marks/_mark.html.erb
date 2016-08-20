@@ -2,7 +2,8 @@
 <tr class="text-center">
   <td rowspan="3"></td>
   <td rowspan="3"><%= index %></td>
-  <td rowspan="3"><%= recruit.total_score.to_f %></td>
+  <td rowspan="3"><%= (recruit.total_score.to_f / marks.size).round(2) %></td>
+  <td rowspan="3"><%= marks.size %></td>
   <td rowspan="3"><%= recruit.try(:player_info).try(:name) %></td>
   <td rowspan="3"><%= recruit.try(:school).try(:name) %></td>
   <td rowspan="3"><%= recruit.try(:player_info).try(:special) %></td>

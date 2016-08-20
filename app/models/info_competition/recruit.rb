@@ -23,7 +23,7 @@
 #  course_3      :string
 #  school_person :string
 #  school_phone  :string
-#  total_score   :integer          default(0)
+#  total_score   :integer          default(0)    # 总分
 #
 # Indexes
 #
