@@ -30,7 +30,7 @@ class TalkCompetition::Recruit < ActiveRecord::Base
   belongs_to :school
   belongs_to :activity
 
-  has_many :marks, as: :recruitable, dependent: :destroy
+  has_many :marks, -> { where('score > 0') }, as: :recruitable, dependent: :destroy
   has_many :experts, through: :marks
 
   def player_info
