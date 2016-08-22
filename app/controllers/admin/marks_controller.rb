@@ -3,7 +3,7 @@ class Admin::MarksController < Admin::BaseController
 	respond_to :html, :js
 
 	def index
-		@recruits = Mark.rank_recruits @activity
+		@recruits = Mark.rank_recruits @activity, params[:project]
 	end
 
 	# 分配一个报名的评委专家

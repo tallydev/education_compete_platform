@@ -1,13 +1,19 @@
 <% content_for :breadcrumb do %>
-<li><%= link_to "评分列表", "#" %></li>
+<li><%= link_to @activity.short_name, "#" %></li>
 <% end %>
 
-<div class="marks-table">
+<div class="marks-table" style="min-height: 600px;">
+  <% if 1 == @activity.id %>
+    <div class="btn-group" role="group" aria-label="...">
+      <% InfoCompetition::Activity::PROJECTS.each do |item| %>
+        <%= link_to item, admin_marks_path(activity_id: @activity, project: item), class: "btn btn-#{item == params[:project] ? "primary" : "default"}", type: "button" %>
+      <% end %>
+    </div>
+  <% end %>
+  <br><br>
+
   <table class="table table-bordered">
     <thead>
-      <tr>
-        <th colspan="27">信息化教学设计大赛</th>
-      </tr>
       <tr>
         <th>奖项</th>
         <th>排名</th>

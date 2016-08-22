@@ -55,7 +55,11 @@
       <ul class="sub-menu">
         <% Activity.all.each do |activity| %>
           <li >
-            <a href="<%= admin_marks_path(activity_id: activity) %>"><%= activity.short_name %></a>
+            <% if 1 == activity.id %>
+              <a href="<%= admin_marks_path(activity_id: activity, project: InfoCompetition::Activity::PROJECTS[0]) %>"><%= activity.short_name %></a>
+            <% else %>
+              <a href="<%= admin_marks_path(activity_id: activity) %>"><%= activity.short_name %></a>
+            <% end %>
           </li>
         <% end %>
       </ul>

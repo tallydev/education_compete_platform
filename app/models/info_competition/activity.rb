@@ -21,6 +21,7 @@ class InfoCompetition::Activity < Activity
     "信息化教学设计比赛", "信息化课堂教学比赛", "信息化实训教学比赛"
   ]
 
+  # 暂未使用
   def sorted_recurits
     raw_recruits = self.recruits
     sorted = {}
@@ -33,6 +34,10 @@ class InfoCompetition::Activity < Activity
 
   def route_type
     "info_competitions"
+  end
+
+  def project_recruits project
+    self.recruits.where(project: project)
   end
 
   def mark_items(project)
