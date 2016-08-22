@@ -35,8 +35,8 @@ class InfoCompetition::Activity < Activity
     "info_competitions"
   end
 
-  def mark_items(params={})
-    _project = params[:project] || PROJECTS[0]
+  def mark_items(project)
+    _project = project || PROJECTS[0]
     case _project
     when PROJECTS[0]
       [

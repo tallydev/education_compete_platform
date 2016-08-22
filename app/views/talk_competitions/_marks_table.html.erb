@@ -38,7 +38,7 @@
             <% end %>
           </td>
           <td>
-            <% if recruit.marks.where(expert_id:current_expert.id).first.score.present? %>
+            <% unless recruit.marks.where(expert_id:current_expert.id).first.item_array.blank? %>
               <%= link_to "查看", recruit.opus, class:"btn btn-success btn-sm", "data-turbolinks" => false %>
             <% else %>
               <% if recruit.opus.present? %>

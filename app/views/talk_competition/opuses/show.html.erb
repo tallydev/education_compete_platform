@@ -75,6 +75,8 @@
     </div>
   </div>
 
+  <% _mark_items = @recruit.activity.mark_items %>
+
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog modal-score" role="document">
       <div class="modal-content">
@@ -89,68 +91,71 @@
           <form>
             <div class="row">
               <div class="col-md-12 col-xs-12 mark-tips">&nbsp&nbsp&nbsp请用鼠标拖动滑块进行评分，谢谢!</div>
-              <div class="col-md-2 col-xs-2 mark-title">教学设计</div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-2 col-xs-2 mark-title"><%= _mark_items[0][:name] %></div>
               <div class="col-md-1 col-xs-1 mark-range">0分</div>
               <div id="Demo" class="progressTime col-md-6 col-xs-6" >
                 <div id="Main">
                   <div id="scrollBar">
                     <div id="scroll_Track"><p id="scrollBarTxt" style="text-align:right;"></p></div>
-                    <div id="scroll_Thumb"></div>
+                    <div class="thumb_class" id="scroll_Thumb"></div>
                   </div>
                 </div>
               </div>
-              <div class="col-md-1 col-xs-1 mark-range">25分</div>
+              <div class="col-md-1 col-xs-1 mark-range"><%= _mark_items[0][:max] %>分</div>
               <div class="col-md-2 col-xs-2 mark-num">
                 <label class="total-points" id="design">0</label><label class="unit">&nbsp&nbsp分</label>
               </div>
             </div>
 
             <div class="row">
-              <div class="col-md-2 col-xs-2 mark-title">教学实施</div>
+              <div class="col-md-2 col-xs-2 mark-title"><%= _mark_items[1][:name] %></div>
               <div class="col-md-1 col-xs-1 mark-range">0分</div>
               <div id="Demo1" class="progressTime col-md-6 col-xs-6" >
                 <div id="Main1">
                   <div id="scrollBar1">
                     <div id="scroll_Track1"><p id="scrollBarTxt1" style="text-align:right;"></p></div>
-                    <div id="scroll_Thumb1"></div>
+                    <div class="thumb_class" id="scroll_Thumb1"></div>
                   </div>
                 </div>
               </div>
-              <div class="col-md-1 col-xs-1 mark-range">45分</div>
+              <div class="col-md-1 col-xs-1 mark-range"><%= _mark_items[1][:max] %>分</div>
               <div class="col-md-2 col-xs-2 mark-num">
                 <label class="total-points" id="process">0</label><label class="unit">&nbsp&nbsp分</label>
               </div>
             </div>
 
             <div class="row">
-              <div class="col-md-2 col-xs-2 mark-title">教学效果</div>
+              <div class="col-md-2 col-xs-2 mark-title"><%= _mark_items[2][:name] %></div>
               <div class="col-md-1 col-xs-1 mark-range">0分</div>
               <div id="Demo2" class="progressTime col-md-6 col-xs-6" >
                 <div id="Main2">
                   <div id="scrollBar2">
                     <div id="scroll_Track2"><p id="scrollBarTxt2" style="text-align:right;"></p></div>
-                    <div id="scroll_Thumb2"></div>
+                    <div class="thumb_class" id="scroll_Thumb2"></div>
                   </div>
                 </div>
               </div>
-              <div class="col-md-1 col-xs-1 mark-range">15分</div>
+              <div class="col-md-1 col-xs-1 mark-range"><%= _mark_items[2][:max] %>分</div>
               <div class="col-md-2 col-xs-2 mark-num">
                 <label class="total-points" id="result">0</label><label class="unit">&nbsp&nbsp分</label>
               </div>
             </div>
 
             <div class="row">
-              <div class="col-md-2 col-xs-2 mark-title">特色创新</div>
+              <div class="col-md-2 col-xs-2 mark-title"><%= _mark_items[3][:name] %></div>
               <div class="col-md-1 col-xs-1 mark-range">0分</div>
               <div id="Demo3" class="progressTime col-md-6 col-xs-6" >
                 <div id="Main3">
                   <div id="scrollBar3">
                     <div id="scroll_Track3"><p id="scrollBarTxt3" style="text-align:right;"></p></div>
-                    <div id="scroll_Thumb3"></div>
+                    <div class="thumb_class" id="scroll_Thumb3"></div>
                   </div>
                 </div>
               </div>
-              <div class="col-md-1 col-xs-1 mark-range">15分</div>
+              <div class="col-md-1 col-xs-1 mark-range"><%= _mark_items[3][:max] %>分</div>
               <div class="col-md-2 col-xs-2 mark-num">
                 <label class="total-points" id="innovate">0</label><label class="unit">&nbsp&nbsp分</label>
               </div>
@@ -178,10 +183,10 @@
 </div>
 
 <script type="text/javascript">
-//教学设计评分条
+//总体设计评分条
   var ScrollBar = {
-      value: 3,
-      maxValue: 25,
+      value: 6,
+      maxValue: <%= _mark_items[0][:max] %>,
       step: 1,
       currentX: 0,
       Initialize: function (itemArray) {
@@ -214,7 +219,7 @@
                       $("#scroll_Track").css("width", "0px");
                       ScrollBar.value = 0;
                   } else {
-                      ScrollBar.value = Math.round(25 * (currentValue / $("#scrollBar").width()));
+                      ScrollBar.value = Math.round(<%= _mark_items[0][:max] %> * (currentValue / $("#scrollBar").width()));
                   }
                   $("#scrollBarTxt").html(ScrollBar.value);
                   $("#design").html(ScrollBar.value);
@@ -224,7 +229,7 @@
               });
           });
           $(document.body).mouseup(function () {
-              ScrollBar.value = Math.round(25 * (currentValue / $("#scrollBar").width()));
+              ScrollBar.value = Math.round(<%= _mark_items[0][:max] %> * (currentValue / $("#scrollBar").width()));
               valite = false;
               if (ScrollBar.value >= ScrollBar.maxValue) ScrollBar.value = ScrollBar.maxValue;
               if (ScrollBar.value <= 0) ScrollBar.value = 0;
@@ -239,10 +244,10 @@
           this.currentX = $("#scrollBar").width() * (this.value / this.maxValue);
       }
   }
-//教学实施评分条
+//教学过程
   var ScrollBar1 = {
       value: 7,
-      maxValue: 45,
+      maxValue: <%= _mark_items[1][:max] %>,
       step: 1,
       currentX: 0,
       Initialize: function (itemArray) {
@@ -275,7 +280,7 @@
                       $("#scroll_Track1").css("width", "0px");
                       ScrollBar1.value = 0;
                   } else {
-                      ScrollBar1.value = Math.round(45 * (currentValue / $("#scrollBar1").width()));
+                      ScrollBar1.value = Math.round(<%= _mark_items[1][:max] %> * (currentValue / $("#scrollBar1").width()));
                   }
                   $("#scrollBarTxt1").html(ScrollBar1.value);
                   $("#process").html(ScrollBar1.value);
@@ -285,7 +290,7 @@
               });
           });
           $(document.body).mouseup(function () {
-              ScrollBar1.value = Math.round(45 * (currentValue / $("#scrollBar1").width()));
+              ScrollBar1.value = Math.round(<%= _mark_items[1][:max] %> * (currentValue / $("#scrollBar1").width()));
               valite = false;
               if (ScrollBar1.value >= ScrollBar1.maxValue) ScrollBar1.value = ScrollBar1.maxValue;
               if (ScrollBar1.value <= 0) ScrollBar1.value = 0;
@@ -300,10 +305,10 @@
           this.currentX = $("#scrollBar1").width() * (this.value / this.maxValue);
       }
   }
-//教学效果评分条
+//教学效果
   var ScrollBar2 = {
       value: 2,
-      maxValue: 15,
+      maxValue: <%= _mark_items[2][:max] %>,
       step: 1,
       currentX: 0,
       Initialize: function (itemArray) {
@@ -336,7 +341,7 @@
                       $("#scroll_Track2").css("width", "0px");
                       ScrollBar2.value = 0;
                   } else {
-                      ScrollBar2.value = Math.round(15 * (currentValue / $("#scrollBar2").width()));
+                      ScrollBar2.value = Math.round(<%= _mark_items[2][:max] %> * (currentValue / $("#scrollBar2").width()));
                   }
                   $("#scrollBarTxt2").html(ScrollBar2.value);
                   $("#result").html(ScrollBar2.value);
@@ -346,7 +351,7 @@
               });
           });
           $(document.body).mouseup(function () {
-              ScrollBar2.value = Math.round(15 * (currentValue / $("#scrollBar2").width()));
+              ScrollBar2.value = Math.round(<%= _mark_items[2][:max] %> * (currentValue / $("#scrollBar2").width()));
               valite = false;
               if (ScrollBar2.value >= ScrollBar2.maxValue) ScrollBar2.value = ScrollBar2.maxValue;
               if (ScrollBar2.value <= 0) ScrollBar2.value = 0;
@@ -361,10 +366,10 @@
           this.currentX = $("#scrollBar2").width() * (this.value / this.maxValue);
       }
   }
-//特色创新评分条
+//特色创新
   var ScrollBar3 = {
-      value: 2,
-      maxValue: 15,
+      value: 1,
+      maxValue: <%= _mark_items[3][:max] %>,
       step: 1,
       currentX: 0,
       Initialize: function (itemArray) {
@@ -397,7 +402,7 @@
                       $("#scroll_Track3").css("width", "0px");
                       ScrollBar3.value = 0;
                   } else {
-                      ScrollBar3.value = Math.round(15 * (currentValue / $("#scrollBar3").width()));
+                      ScrollBar3.value = Math.round(<%= _mark_items[3][:max] %> * (currentValue / $("#scrollBar3").width()));
                   }
                   $("#scrollBarTxt3").html(ScrollBar3.value);
                   $("#innovate").html(ScrollBar3.value);
@@ -407,7 +412,7 @@
               });
           });
           $(document.body).mouseup(function () {
-              ScrollBar3.value = Math.round(15 * (currentValue / $("#scrollBar3").width()));
+              ScrollBar3.value = Math.round(<%= _mark_items[3][:max] %> * (currentValue / $("#scrollBar3").width()));
               valite = false;
               if (ScrollBar3.value >= ScrollBar3.maxValue) ScrollBar3.value = ScrollBar3.maxValue;
               if (ScrollBar3.value <= 0) ScrollBar3.value = 0;
@@ -425,9 +430,11 @@
 //初始化
   $(document).ready(function (e) {
       var itemArray = [0,0,0,0];
+
       ScrollBar.Initialize(itemArray);
       ScrollBar1.Initialize(itemArray);
       ScrollBar2.Initialize(itemArray);
       ScrollBar3.Initialize(itemArray);
+
   });
   </script>

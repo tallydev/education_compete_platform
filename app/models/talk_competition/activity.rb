@@ -25,8 +25,8 @@ class TalkCompetition::Activity < Activity
     [
       {
         index: 0,
-        name: "教学设计",
-        max: 25
+        name: "课程整体设计",
+        max: 40
       },
       {
         index: 1,
@@ -35,13 +35,13 @@ class TalkCompetition::Activity < Activity
       },
       {
         index: 2,
-        name: "教学效果",
-        max: 15
+        name: "现场表现",
+        max: 10
       },
       {
         index: 3,
-        name: "特色创新",
-        max: 15
+        name: "现场答辩",
+        max: 5
       }
     ]
   end
