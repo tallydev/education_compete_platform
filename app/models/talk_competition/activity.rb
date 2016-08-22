@@ -26,22 +26,22 @@ class TalkCompetition::Activity < Activity
       {
         index: 0,
         name: "教学设计",
-        max: 20
+        max: 25
       },
       {
         index: 1,
-        name: "创新与应用",
-        max: 30
+        name: "教学实施",
+        max: 45
       },
       {
         index: 2,
-        name: "效果性",
-        max: 20
+        name: "教学效果",
+        max: 15
       },
       {
         index: 3,
-        name: "技术性",
-        max: 30
+        name: "特色创新",
+        max: 15
       }
     ]
   end

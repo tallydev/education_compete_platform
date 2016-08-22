@@ -55,7 +55,7 @@ class Mark < ActiveRecord::Base
     recruits = activity.recruits
     Mark.transaction do
       recruits.each do |recruit|
-        total_score = recruit.marks.pluck(:score).map {|score| score.to_i}.sum
+        total_score = recruit.score_marks.pluck(:score).map {|score| score.to_i}.sum
         recruit.update(total_score: total_score)
       end    
     end 

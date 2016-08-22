@@ -35,19 +35,17 @@
 class InfoCompetition::Recruit < ActiveRecord::Base
   include RecruitConcern
   has_one :opus
-
   
   belongs_to :player
   belongs_to :school
   belongs_to :activity
 
-  has_many :marks, -> { where('score > 0') }, as: :recruitable, dependent: :destroy
+  has_many :marks, as: :recruitable, dependent: :destroy
   has_many :experts, through: :marks
+
+  has_many :score_marks, -> { where('score > 0') }, class_name: "Mark", as: :recruitable, dependent: :destroy
 
   def player_info
     player.try(:player_info)
   end
-
-  # delegate :phone, : to: :player_info
-  
 end

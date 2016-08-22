@@ -89,7 +89,7 @@
 		<div class="form-right">
 			<div class="row">
 				<div class="col-md-6">
-					<%= f.input :project, collection: ["信息化教学设计比赛", "信息化课堂教学比赛", "信息化实训教学比赛"], label: false, required: true %>
+					<%= f.input :project, collection: InfoCompetition::Activity::PROJECTS, label: false, required: true %>
 				</div>
 				<div class="col-md-6">
 					<%= f.simple_fields_for("player_info") do |r| %>
