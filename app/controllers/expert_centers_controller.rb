@@ -4,7 +4,7 @@ class ExpertCentersController < ApplicationController
   respond_to :html
 
   def show
-    @activities = Activity.all
+    @activities = Activity.onlines
     @activity = InfoCompetition::Activity.first
     @recruits = current_expert.info_competition_recruits
     respond_with(@marks)

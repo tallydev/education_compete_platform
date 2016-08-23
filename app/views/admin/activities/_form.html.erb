@@ -10,6 +10,16 @@
     <dd class="error text-danger"><%= @activity.errors[:name][0] %></dd>
   <% end %>
 
+  <%= f.input :start_time, label: "开始时间" %>
+  <% if @activity.errors[:start_time].any? %>
+    <dd class="error text-danger"><%= @activity.errors[:start_time][0] %></dd>
+  <% end %>
+  
+  <%= f.input :end_time, label: "结束时间" %>
+  <% if @activity.errors[:end_time].any? %>
+    <dd class="error text-danger"><%= @activity.errors[:end_time][0] %></dd>
+  <% end %>
+
   <%= f.input :short_name, label: "短标题" %>
   <% if @activity.errors[:short_name].any? %>
     <dd class="error text-danger"><%= @activity.errors[:short_name][0] %></dd>
@@ -23,3 +33,20 @@
   <%= f.submit "#{params[:id].present? ? '更新' : '创建'}", data: { disable_with: "#{params[:id].present? ? '正在更新...' : '正在创建...'}" }, class: "btn btn-success btn-block" %>
   <p> </p>  
 <% end %>
+
+<% content_for :scripts do %>
+  <script>
+    $('.datetimepicker').datetimepicker({
+        language: 'zh-CN',
+        format: 'yyyy-mm-dd',
+        todayBtn:  1,
+        autoclose: true,
+        todayHighlight: 1,
+        startView: 4,
+        minView: 2,
+    });
+  </script>
+<% end %>
+
+
+  

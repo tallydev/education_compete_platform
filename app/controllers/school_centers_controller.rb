@@ -4,7 +4,7 @@ class SchoolCentersController < ApplicationController
   respond_to :html
 
   def show
-    @activities = Activity.all
+    @activities = Activity.onlines
   end
   
 end
