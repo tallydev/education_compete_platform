@@ -25,5 +25,17 @@ class InfoCompetition::Opus < ActiveRecord::Base
   accepts_nested_attributes_for :ppt, allow_destroy: true
   accepts_nested_attributes_for :note, allow_destroy: true
   accepts_nested_attributes_for :plan, allow_destroy: true
-  
+
+  def clone_with_recruit recruit
+    new_opus = self.dup
+    new_opus.recruit = recruit
+    new_opus.media = self.media
+    new_opus.ppt = self.ppt
+    new_opus.note = self.note
+    new_opus.plan = self.plan
+    new_opus.save
+
+    new_opus
+  end
+
 end
