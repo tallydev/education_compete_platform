@@ -1,0 +1,43 @@
+@import "variables";
+.welcome-title{
+	height: 45px;
+	line-height: 45px;
+	background-color: $welcome-title;
+	font-size: 16px;
+	padding: 0 20px;
+	a{
+		color: $dark-purple;
+	}
+}
+.players{
+	padding-top: 10px;
+	.table > thead > tr > th,
+	.table > tbody > tr > td{
+		padding: 8px 0;
+		text-align: center;
+		border-top: none;
+		border-bottom: 1px solid $light-purple;
+		font-weight: bold;
+		.btn-player{
+			border: none;
+			border-radius: 6px;
+			padding: 1px 10px;
+			color: $white;
+		}
+		.btn-judge{
+			@extend .btn-player;
+			background-color: $red;
+		}
+		.btn-show{
+			@extend .btn-player;
+			background-color: $purple;
+		}
+	}
+	.table > thead{
+		font-size: 18px;
+	}
+}
+.player-grade{
+	width: 170px;
+	margin: 0 auto;
+}

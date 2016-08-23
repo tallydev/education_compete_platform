@@ -23,6 +23,7 @@ class Activity < ActiveRecord::Base
   enum status: [:activate, :stop]
 
   def left_days
+    return 0 if end_time.nil?
     days = (end_time.to_date - Time.zone.now.to_date).to_i
     days < 0 ? 0 : days
   end
