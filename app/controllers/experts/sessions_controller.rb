@@ -1,13 +1,11 @@
 class Experts::SessionsController < Devise::SessionsController
 # before_action :configure_sign_in_params, only: [:create]
+  layout :login_layout
 
   # GET /resource/sign_in
-  def new
-    super
-     if params[:from] == "phone"
-      render layout: "phone"
-    end
-  end
+  # def new
+  #   super
+  # end
 
   # POST /resource/sign_in
   # def create
@@ -28,4 +26,8 @@ class Experts::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:phone, :password, :password_confirmation, :name) }
   # end
+  private
+    def login_layout
+      params[:from] == "phone" ? "phone" : "application"
+    end
 end
