@@ -1,5 +1,7 @@
 class Experts::SessionsController < Devise::SessionsController
 # before_action :configure_sign_in_params, only: [:create]
+  before_action :set_browser
+
   layout :login_layout
 
   # GET /resource/sign_in
@@ -27,7 +29,19 @@ class Experts::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:phone, :password, :password_confirmation, :name) }
   # end
   private
+
+    def set_browser
+      user_agent = request.env['HTTP_USER_AGENT'].downcase 
+      if user_agent.include?("iphone") || user_agent.include?("android")
+        @browser = :phone
+        @layout = "phone"
+      else
+        @browser = :computer
+        @layout = "application"
+      end
+    end
+
     def login_layout
-      params[:from] == "phone" ? "phone" : "application"
+      @layout
     end
 end

@@ -334,7 +334,6 @@ end
 #       print_admin_activity_talk_competitions GET    /admin/activities/:activity_id/talk_competitions/print(.:format)                                 admin/talk_competitions#print
 #             admin_activity_talk_competitions GET    /admin/activities/:activity_id/talk_competitions(.:format)                                       admin/talk_competitions#index
 #              admin_activity_talk_competition GET    /admin/activities/:activity_id/talk_competitions/:id(.:format)                                   admin/talk_competitions#show
-#          distribution_admin_activity_recruit GET    /admin/activities/:activity_id/recruits/:id/distribution(.:format)                               admin/recruits#distribution
 #                      admin_activity_recruits GET    /admin/activities/:activity_id/recruits(.:format)                                                admin/recruits#index
 #                                              POST   /admin/activities/:activity_id/recruits(.:format)                                                admin/recruits#create
 #                   new_admin_activity_recruit GET    /admin/activities/:activity_id/recruits/new(.:format)                                            admin/recruits#new
@@ -384,6 +383,13 @@ end
 #                                              PATCH  /admin/experts/:id(.:format)                                                                     admin/experts#update
 #                                              PUT    /admin/experts/:id(.:format)                                                                     admin/experts#update
 #                                              DELETE /admin/experts/:id(.:format)                                                                     admin/experts#destroy
+#                                 admin_assgin POST   /admin/assgin(.:format)                                                                          admin/assgins#create
+#                             new_admin_assgin GET    /admin/assgin/new(.:format)                                                                      admin/assgins#new
+#                            edit_admin_assgin GET    /admin/assgin/edit(.:format)                                                                     admin/assgins#edit
+#                                              GET    /admin/assgin(.:format)                                                                          admin/assgins#show
+#                                              PATCH  /admin/assgin(.:format)                                                                          admin/assgins#update
+#                                              PUT    /admin/assgin(.:format)                                                                          admin/assgins#update
+#                                              DELETE /admin/assgin(.:format)                                                                          admin/assgins#destroy
 # all_admin_info_competition_activity_recruits GET    /admin/info_competition/:info_competition_id/activities/:activity_id/recruits/all(.:format)      admin/recruits#all
 #     admin_info_competition_activity_recruits GET    /admin/info_competition/:info_competition_id/activities/:activity_id/recruits(.:format)          admin/recruits#index
 #                                              POST   /admin/info_competition/:info_competition_id/activities/:activity_id/recruits(.:format)          admin/recruits#create
