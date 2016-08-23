@@ -156,7 +156,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-1 col-xs-1 mark-range"><%= _mark_items[0][:max] %>分</div>
+              <div class="col-md-1 col-xs-1 mark-range"><%= _mark_items[2][:max] %>分</div>
               <div class="col-md-2 col-xs-2 mark-num">
                 <label class="total-points" id="result">0</label><label class="unit">&nbsp&nbsp分</label>
               </div>
@@ -324,7 +324,7 @@
   }
 //教学效果
   var ScrollBar2 = {
-      value: <%= _mark_items[0][:max] / 10 %>,
+      value: <%= _mark_items[2][:max] / 10 %>,
       maxValue: <%= _mark_items[2][:max] %>,
       step: 1,
       currentX: 0,
@@ -385,7 +385,7 @@
   }
 //特色创新
   var ScrollBar3 = {
-      value: <%= _mark_items[0][:max] / 10 %>,
+      value: <%= _mark_items[3][:max] / 10 %>,
       maxValue: <%= _mark_items[3][:max] %>,
       step: 1,
       currentX: 0,
