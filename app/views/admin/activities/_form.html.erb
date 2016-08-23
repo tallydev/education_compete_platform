@@ -1,0 +1,25 @@
+<%= simple_form_for [:admin, @activity], remote: true, format: :js do |f| %>
+
+  <%= f.input :type, label: "比赛类型", collection: [ ["信息化大赛", "InfoCompetition::Activity"], ["说课大赛", "TalkCompetition::Activity"] ] %>
+  <% if @activity.errors[:type].any? %>
+    <dd class="error text-danger"><%= @activity.errors[:type][0] %></dd>
+  <% end %>
+
+  <%= f.input :name, label: "比赛标题" %>
+  <% if @activity.errors[:name].any? %>
+    <dd class="error text-danger"><%= @activity.errors[:name][0] %></dd>
+  <% end %>
+
+  <%= f.input :short_name, label: "短标题" %>
+  <% if @activity.errors[:short_name].any? %>
+    <dd class="error text-danger"><%= @activity.errors[:short_name][0] %></dd>
+  <% end %>
+
+  <%= f.input :offline, label: "是否现场评分" %>
+  <% if @activity.errors[:offline].any? %>
+    <dd class="error text-danger"><%= @activity.errors[:offline][0] %></dd>
+  <% end %>
+
+  <%= f.submit "#{params[:id].present? ? '更新' : '创建'}", data: { disable_with: "#{params[:id].present? ? '正在更新...' : '正在创建...'}" }, class: "btn btn-success btn-block" %>
+  <p> </p>  
+<% end %>

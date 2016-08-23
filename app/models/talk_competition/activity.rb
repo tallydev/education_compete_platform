@@ -18,6 +18,10 @@ class TalkCompetition::Activity < Activity
   has_many :recruits, dependent: :destroy
   has_many :players, through: :recruits
 
+  def self.model_name
+    Activity.model_name
+  end
+
   def route_type
     "talk_competitions"
   end

@@ -1,0 +1,18 @@
+<tr>
+  <td><%= activity.id %></td>
+  <td><%= activity.short_name %></td>
+  <td><%= activity.start_time.present? ? activity.start_time.strftime('%F %H:%M') : nil -%></td>
+  <td><%= activity.end_time.present? ? activity.end_time.strftime('%F %H:%M') : nil -%></td>
+  <td><%= activity.status -%></td>
+  <td><%= activity.offline || false -%></td>
+  <td>
+    <div class="btn-group" role="group" aria-label="...">
+      <%= link_to edit_admin_activity_path(activity), remote: true, format: :js do %>
+        <button type="button" class="btn btn-xs btn-warning">编辑</button>
+      <% end %> 
+      <%= link_to admin_activity_path(activity), method: :delete, data: { confirm: '确定删除吗?' } do %>
+        <button type="button" class="btn btn-xs btn-danger">删除</button>
+      <% end %>
+    </div>
+  </td>
+</tr>

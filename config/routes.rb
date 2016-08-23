@@ -104,7 +104,7 @@ Rails.application.routes.draw do
   namespace :admin do 
     root to: "home#index"
     resources :users
-    resources :activities, only: [:index, :show, :new, :create] do
+    resources :activities do
       resources :info_competitions, only: [:show, :index] do
         collection do
           get :print

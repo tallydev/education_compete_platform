@@ -18,6 +18,10 @@ class InfoCompetition::Activity < Activity
   has_many :recruits, dependent: :destroy
   has_many :players, through: :recruits
 
+  def self.model_name
+    Activity.model_name
+  end
+
   PROJECTS = [
     "信息化教学设计比赛", "信息化课堂教学比赛", "信息化实训教学比赛"
   ]
