@@ -11,10 +11,14 @@
 #  status     :integer          default(0)
 #  type       :string
 #  short_name :string
+#  offline    :boolean
 #
 
 class Activity < ActiveRecord::Base
   has_many :news, dependent: :destroy
+
+  scope :offlines, -> { where(offline: true)}
+  scope :onlines, -> { where(offline: [false, nil])}
   
   enum status: [:activate, :stop]
 

@@ -11,6 +11,7 @@
 #  status     :integer          default(0)
 #  type       :string
 #  short_name :string
+#  offline    :boolean
 #
 
 class InfoCompetition::Activity < Activity
