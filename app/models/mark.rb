@@ -28,7 +28,7 @@ class Mark < ActiveRecord::Base
   validates_presence_of :item_array, on: :update
 
   before_save :cal_score
-  before_update :cal_score
+  after_save  :cal_mark
 
 
   # 作品(数组)分配专家
@@ -50,27 +50,33 @@ class Mark < ActiveRecord::Base
     end
   end
 
-  # 返回总分降序的报名列表
-  def Mark.rank_recruits activity, project
-    if project.present?
-      recruits = activity.project_recruits project
-    else
-      recruits = activity.recruits
-    end
-      
-    Mark.transaction do
-      recruits.each do |recruit|
-        total_score = recruit.score_marks.pluck(:score).map {|score| score.to_i}.sum
-        recruit.update(total_score: total_score)
-      end    
-    end 
-    recruits.order(total_score: :desc)
-  end
 
   private
 
     def cal_score
       self.score = item_array.reduce(:+)
+    end
+
+    def cal_mark
+      activity = self.recruitable.try(:activity)
+      project = activity.try(:project)
+      return if activity.blank?
+
+      if project.present?
+        recruits = activity.project_recruits project
+      else
+        recruits = activity.recruits
+      end
+
+      recruits.each do |recruit|
+        score_count = recruit.score_marks.count
+        
+        if score_count > 0
+          total_score = recruit.score_marks.pluck(:score).map {|score| score.to_i}.sum
+          avg_score = (total_score.to_f / score_count).to_f.round(2)
+          recruit.update(total_score: total_score, score_count: score_count, avg_score: avg_score)
+        end
+      end
     end
 
 end

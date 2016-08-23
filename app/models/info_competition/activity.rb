@@ -30,9 +30,6 @@ class InfoCompetition::Activity < Activity
     "info_competitions"
   end
 
-  def project_recruits project
-    self.recruits.where(project: project)
-  end
 
   def mark_items(project)
     _project = project || PROJECTS[0]

@@ -346,7 +346,11 @@ end
 #                             admin_activities GET    /admin/activities(.:format)                                                                      admin/activities#index
 #                                              POST   /admin/activities(.:format)                                                                      admin/activities#create
 #                           new_admin_activity GET    /admin/activities/new(.:format)                                                                  admin/activities#new
+#                          edit_admin_activity GET    /admin/activities/:id/edit(.:format)                                                             admin/activities#edit
 #                               admin_activity GET    /admin/activities/:id(.:format)                                                                  admin/activities#show
+#                                              PATCH  /admin/activities/:id(.:format)                                                                  admin/activities#update
+#                                              PUT    /admin/activities/:id(.:format)                                                                  admin/activities#update
+#                                              DELETE /admin/activities/:id(.:format)                                                                  admin/activities#destroy
 #                             admin_news_index GET    /admin/news(.:format)                                                                            admin/news#index
 #                                              POST   /admin/news(.:format)                                                                            admin/news#create
 #                               new_admin_news GET    /admin/news/new(.:format)                                                                        admin/news#new

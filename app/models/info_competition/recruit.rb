@@ -24,6 +24,8 @@
 #  school_person :string
 #  school_phone  :string
 #  total_score   :integer          default(0)
+#  avg_score     :float
+#  score_count   :integer
 #
 # Indexes
 #

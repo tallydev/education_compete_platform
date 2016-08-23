@@ -4,6 +4,7 @@ module RecruitConcern
   included do
     scope :school_filter, ->(school) { where school: school }
     scope :player_filter, ->(player) { where player: player }
+    scope :avg_mark_desc, -> { order(avg_score: :desc) }
 
     validates_presence_of :player
     validates_presence_of :activity

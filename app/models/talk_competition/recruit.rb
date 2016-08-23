@@ -14,6 +14,8 @@
 #  comment       :text
 #  work_time     :string
 #  total_score   :integer          default(0)
+#  avg_score     :float
+#  score_count   :integer
 #
 # Indexes
 #

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160823134904) do
+ActiveRecord::Schema.define(version: 20160823200850) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",                   null: false
@@ -90,6 +90,8 @@ ActiveRecord::Schema.define(version: 20160823134904) do
     t.string   "school_person"
     t.string   "school_phone"
     t.integer  "total_score",   default: 0
+    t.float    "avg_score"
+    t.integer  "score_count"
   end
 
   add_index "info_competition_recruits", ["activity_id"], name: "index_info_competition_recruits_on_activity_id"
@@ -233,6 +235,8 @@ ActiveRecord::Schema.define(version: 20160823134904) do
     t.text     "comment"
     t.string   "work_time"
     t.integer  "total_score",   default: 0
+    t.float    "avg_score"
+    t.integer  "score_count"
   end
 
   add_index "talk_competition_recruits", ["activity_id"], name: "index_talk_competition_recruits_on_activity_id"
