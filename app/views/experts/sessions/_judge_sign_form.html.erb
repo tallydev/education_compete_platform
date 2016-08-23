@@ -1,18 +1,49 @@
-<div role="tabpanel" class="tab-pane active" id="judge">
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), wrapper: :apply_horizontal_form) do |f| %>
-    <%= f.input :sign_in, label:" 专家姓名 ", required: true, autofocus: true %>
-   	<% if resource.errors[:sign_in].any? %>
-			<dd class="error text-danger"><%= resource.errors[:sign_in][0] %></dd>
-		<% end %>
+<!-- <div role="tabpanel" class="tab-pane active" id="judge">
+  <%#= simple_form_for(resource, as: resource_name, url: session_path(resource_name), wrapper: :apply_horizontal_form) do |f| %>
+    <%#= f.input :sign_in, label:" 专家姓名 ", required: true, autofocus: true %>
+    <%#= if resource.errors[:sign_in].any? %>
+      <dd class="error text-danger"><%#= resource.errors[:sign_in][0] %></dd>
+    <%#= end %>
 
-    <%= f.input :password, label: "密 码", required: true %>
-	  <% if resource.errors[:password].any? %>
-			<dd class="error text-danger"><%= resource.errors[:password][0] %></dd>
-		<% end %>
+    <%#= f.input :password, label: "密 码", required: true %>
+    <%#= if resource.errors[:password].any? %>
+      <dd class="error text-danger"><%#= resource.errors[:password][0] %></dd>
+    <%#= end %>
 
-    <%= f.button :submit, "登 录", data: {disable_with: '登录中...'}, class: "btn-login" %>
+    <%#= f.button :submit, "登 录", data: {disable_with: '登录中...'}, class: "btn-login" %>
     <div class="sign_up_text">
-      <%= link_to "忘记密码?", new_player_password_path, class: "forget_pass" %></td>
+      <%#= link_to "忘记密码?", new_player_password_path, class: "forget_pass" %></td>
     </div>
-  <% end %>
+  <%#= end %>
+</div> -->
+
+<% content_for :title do %>
+  评分入口
+<% end %>
+
+<%#= render partial: "expert_log_banner" %>
+
+<div class="wrap">
+  <div class="login">
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), wrapper: :apply_horizontal_form) do |f| %>
+      <div class="field">
+        <%= f.input :sign_in, label:" 专家姓名 ", required: true, autofocus: true %>
+        <% if resource.errors[:sign_in].any? %>
+          <dd class="error text-danger"><%= resource.errors[:sign_in][0] %></dd>
+        <% end %>
+      </div>
+
+      <div class="field">
+        <%= f.input :password, label: "密 码", required: true %>
+        <% if resource.errors[:password].any? %>
+          <dd class="error text-danger"><%= resource.errors[:password][0] %></dd>
+        <% end %>
+      </div>
+
+      <div class="actions">
+        <%= f.button :submit, "登 录", data: {disable_with: '登录中...'}, class: "btn-login" %>
+      </div>
+    <% end %>
+  </div>
 </div>
+<div class="text-center sign_up_text">上海拓体信息科技有限公司技术支持</div>
