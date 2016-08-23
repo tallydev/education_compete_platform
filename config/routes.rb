@@ -74,6 +74,7 @@ Rails.application.routes.draw do
           get :all
         end
       end
+      resources :offline_marks, only: [:index]
     end
     resources :recruits do
       # new, create用于给player进行上传作品
@@ -117,12 +118,9 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :recruits do
-        member do
-          get :distribution
-        end
-      end
+      resources :recruits
     end
+
     resources :news
     resources :bulletins
     resources :marks do
@@ -131,6 +129,8 @@ Rails.application.routes.draw do
       end
     end
     resources :experts
+    # 为报名分配比赛(会copy一份当前的比赛)
+    resource :assgin
 
     resources :info_competition do
       resources :activities do
@@ -249,6 +249,9 @@ end
 #                                  player_info GET    /player_infos/:id(.:format)                                                                      player_infos#show
 #                                         mark PATCH  /marks/:id(.:format)                                                                             marks#update
 #                                              PUT    /marks/:id(.:format)                                                                             marks#update
+#                            edit_offline_mark GET    /offline_marks/:id/edit(.:format)                                                                offline_marks#edit
+#                                 offline_mark PATCH  /offline_marks/:id(.:format)                                                                     offline_marks#update
+#                                              PUT    /offline_marks/:id(.:format)                                                                     offline_marks#update
 #                      info_competition_opuses GET    /info_competition/opuses(.:format)                                                               info_competition/opuses#index
 #                        info_competition_opus GET    /info_competition/opuses/:id(.:format)                                                           info_competition/opuses#show
 #                                              PATCH  /info_competition/opuses/:id(.:format)                                                           info_competition/opuses#update
@@ -262,6 +265,7 @@ end
 #                                              PATCH  /info_competition/activities/:activity_id/recruits/:id(.:format)                                 info_competition/recruits#update
 #                                              PUT    /info_competition/activities/:activity_id/recruits/:id(.:format)                                 info_competition/recruits#update
 #                                              DELETE /info_competition/activities/:activity_id/recruits/:id(.:format)                                 info_competition/recruits#destroy
+#      info_competition_activity_offline_marks GET    /info_competition/activities/:activity_id/offline_marks(.:format)                                info_competition/offline_marks#index
 #                  info_competition_activities GET    /info_competition/activities(.:format)                                                           info_competition/activities#index
 #                                              POST   /info_competition/activities(.:format)                                                           info_competition/activities#create
 #                new_info_competition_activity GET    /info_competition/activities/new(.:format)                                                       info_competition/activities#new

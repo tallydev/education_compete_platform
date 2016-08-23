@@ -14,7 +14,7 @@ class Admin::MarksController < Admin::BaseController
     respond_with @selected_recruits
 	end
 
-	# 分配多个报名的评委专家
+	# 分配多个报名的评委专家 || 分配比赛
 	def bind_new
 		@selected_recruits = params[:selected_recruits]
 		@distributed_experts = []

@@ -1,0 +1,20 @@
+<%= form_for :recruit, methos: :post, url: admin_assgin_path(activity_id: @activity, recruit_id: @recruit)  do |f| %>
+	  <%= select_tag :assgin_activity_id, 
+  								options_from_collection_for_select(@activities, "id", "short_name"),
+  								multiple: false,
+  								required: "required",
+									style: "width:100%",
+									tabindex: "4",
+                  prompt: "所有报名类型比赛",
+                  "data-placeholder" => "所属类型比赛(单选)" %>
+
+	<br><br><br>
+	<%= f.submit "分配", data: { disable_with: "正在分配..." }, class: "btn btn-success btn-block" %>
+	<p> </p>
+<% end %>
+
+<script>
+	$("select").select2({
+		minimumResultsForSearch: Infinity
+	});
+</script>
