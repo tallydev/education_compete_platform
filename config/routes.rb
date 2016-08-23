@@ -59,6 +59,7 @@ Rails.application.routes.draw do
   resources :player_infos, only: [:new, :show, :create]
 
   resources :marks, only: [:update]
+  resources :offline_marks, only: [:edit, :update]
 
   # 信息大赛相关路由
   namespace :info_competition do
