@@ -14,21 +14,20 @@
   <% end %>
 </tr>
 <tr>
-
   <% if @activity.type == "InfoCompetition::Activity" %>
+    <% _mark_items = @activity.mark_items(recruit.project) %>
     <% marks.each do |mark| %>
-      <td>总体设计40</td>
-      <td>教学过程30</td>
-      <td>教学效果15</td>
-      <td>特色创新15</td>
+      <% _mark_items.each do |item| %>
+        <td><%= item[:name] %><%= item[:max] %></td>
+      <% end %>
       <td>总分</td>
     <% end %>
   <% elsif @activity.type == "TalkCompetition::Activity" %>
+    <% _mark_items = @activity.mark_items %>
     <% marks.each do |mark| %>
-      <td>教学设计25</td>
-      <td>教学实施45</td>
-      <td>教学效果15</td>
-      <td>特色创新15</td>
+      <% _mark_items.each do |item| %>
+        <td><%= item[:name] %><%= item[:max] %></td>
+      <% end %>
       <td>总分</td>
     <% end %>
   <% end %>
