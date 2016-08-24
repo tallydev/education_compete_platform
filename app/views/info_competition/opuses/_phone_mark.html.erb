@@ -68,6 +68,9 @@
 	</div>
 </div>
 
+<!-- 返回上一页 -->
+<%= render partial: "components/turn_back", locals: { url: phones_path(activity_id: @recruit.activity) } %>
+
 <% content_for :phone_scripts do %>
   <script>
     function onChangeSum(){
