@@ -1,5 +1,8 @@
 class MarksController < ApplicationController
   before_action :authenticate_expert!, only: [:update]
+  # 浏览器检测
+  before_action :set_browser
+
   respond_to :html, :js
 
   def update
@@ -9,9 +12,13 @@ class MarksController < ApplicationController
       @opusInfo = InfoCompetition::Opus.find(params[:opus_id])
       if @markInfo.update(item_array: array)
         flash[:success] = "评分成功"
-        respond_with @opusInfo
       else
         flash[:danger] = "评分失败！"
+      end
+
+      if @browser
+        redirect_to phones_path(activity_id: params[:activity_id])
+      else
         respond_with @opusInfo
       end
     elsif params[:type] == "talk"
@@ -19,9 +26,13 @@ class MarksController < ApplicationController
       @opusTalk = TalkCompetition::Opus.find(params[:opus_id])
       if @markTalk.update(item_array: array)
         flash[:success] = "评分成功"
-        respond_with @opusTalk
       else
         flash[:danger] = "评分失败！"
+      end
+
+      if @browser
+        redirect_to phones_path(activity_id: params[:activity_id])
+      else
         respond_with @opusTalk
       end
     end

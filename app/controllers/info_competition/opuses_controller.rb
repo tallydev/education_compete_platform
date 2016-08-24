@@ -1,6 +1,7 @@
 class InfoCompetition::OpusesController < ApplicationController
   before_action :set_info_competition_opus, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_player!, only: [:new, :create, :update, :edit]
+  # 根据浏览器动态设置模板
   before_action :set_browser
   layout :phone_layout
   respond_to :html
@@ -16,6 +17,7 @@ class InfoCompetition::OpusesController < ApplicationController
     if current_expert.present?
       @mark = @recruit.marks.where(expert_id: current_expert.id).first
     end
+
     respond_with(@info_competition_opus)
   end
 

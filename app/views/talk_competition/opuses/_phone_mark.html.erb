@@ -91,7 +91,7 @@
       </div>
     </form>
 
-    <%= form_for :mark, method: :put, url: mark_path do |f| %>
+    <%= form_for :mark, method: :put, url: mark_path(activity_id: @recruit.activity) do |f| %>
       <%= hidden_field_tag "itemArray[]"%>
       <%= hidden_field_tag "type", "info" %>
       <%= hidden_field_tag "opus_id", @talk_competition_opus.id %>
