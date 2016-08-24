@@ -1,0 +1,47 @@
+<% content_for :title do %>
+  参赛老师
+<% end %>
+
+  <%= render partial: "components/banner" %>
+
+  <div class="welcome-title">
+    <strong><%= current_expert.name %>评委，您好！</strong>
+    <% if current_expert %>
+      <%= link_to destroy_expert_session_path, :method => :delete, class: "pull-right" do %>
+        <i class="fa fa-sign-out"></i>退出
+      <% end %>
+    <% else %>
+      <%= link_to new_expert_session_path, :method => :delete, class: "pull-right" do %>
+        <i class="fa fa-sign-out"></i>登录
+      <% end %>
+    <% end %>
+  </div>
+  <div class="wrap">
+    <div class="players">
+      <table class="table">
+        <thead>
+          <tr class="dark-purple">
+            <th>序号</th>
+            <th>比赛名称</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% index = 0 %>
+          <% @activities.each_with_index do |activity, index| %>
+          <tr>
+            <td><%= index+1 %></td>
+            <td><%= activity.short_name %></td>
+            <td><%= link_to "前往", phone_home_path(activity_id: activity), class: "btn btn-success btn-sm" %></td>
+          </tr>
+          <% end %>
+        </tbody>  
+      </table>
+    </div>
+  </div>
+
+  <!-- 返回上一页 -->
+  <%#= render partial: "share/turn_back" %>
+
+  <!-- 模态框显示老师成绩 -->
+  <div class="player-grade"></div>

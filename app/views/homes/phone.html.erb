@@ -32,10 +32,10 @@
           <% @recruits_online.each_with_index do |recruit, index| %>
           <tr>
             <td><%= index+1 %></td>
-            <td><%= recruit.name %></td>
-            <td>《<%= recruit.opus.content %>》</td>
+            <td><%= recruit.player_info.try(:name) %></td>
+            <td>《<%= recruit.name %>》</td>
             <td>
-              <% if recruit.marks.where(expert_id:current_expert.id).first.score.present? %>
+              <% if recruit.marks.where(expert_id:current_expert.id).first.try(:score).present? %>
                 <%= link_to "查看", recruit.opus, class:"btn btn-success btn-sm", "data-turbolinks" => false %>
               <% else %>
                 <% if recruit.opus.present? %>

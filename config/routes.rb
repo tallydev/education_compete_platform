@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   mount PdfjsViewer::Rails::Engine => "/pdfjs", as: 'pdfjs'
   
-  root to: "home#index"
+  root to: "homes#index"
   
   devise_for :users, controllers: {
     sessions: 'user/sessions',
@@ -23,7 +23,11 @@ Rails.application.routes.draw do
   }
 
   # 主页面
-  resource :home, only: [:index]
+  resource :home do
+    collection do
+      get :phone
+    end
+  end
 
   # resources :center do 
   #   collection do
