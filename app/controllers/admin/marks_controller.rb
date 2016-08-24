@@ -73,7 +73,7 @@ class Admin::MarksController < Admin::BaseController
         sheet1[count_row, 4] = obj.try(:school).try(:name)
         sheet1[count_row, 5] = obj.name
         obj.score_marks.each_with_index do |mark,index|
-        	sheet1[count_row, index+6] = "#{mark.expert.phone} : #{mark.score.present? ? mark.score : 0}分"
+        	sheet1[count_row, index+6] = "#{mark.expert.phone.present? ? mark.expert.phone : ''} : #{mark.score.present? ? mark.score : 0}分"
         end      
         count_row += 1
       end
