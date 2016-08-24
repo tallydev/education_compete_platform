@@ -1,9 +1,6 @@
 class InfoCompetition::OpusesController < ApplicationController
   before_action :set_info_competition_opus, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_player!, only: [:new, :create, :update, :edit]
-  # 根据浏览器动态设置模板
-  before_action :set_browser
-  layout :phone_layout
   respond_to :html
 
   def index
@@ -20,11 +17,6 @@ class InfoCompetition::OpusesController < ApplicationController
 
     respond_with(@info_competition_opus)
   end
-
-  # def new
-  #   @info_competition_opus = InfoCompetition::Opus.new
-  #   respond_with(@info_competition_opus)
-  # end
 
   def create
     @info_competition_recruit = InfoCompetition::Recruit.find(params[:recruit_id])

@@ -1,8 +1,6 @@
 class TalkCompetition::OpusesController < ApplicationController
   before_action :set_talk_competition_opus, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_player!, only: [:new, :create, :update, :edit]
-  before_action :set_browser
-  layout :phone_layout
   respond_to :html
 
   def index
@@ -18,11 +16,6 @@ class TalkCompetition::OpusesController < ApplicationController
     end
     respond_with(@talk_competition_opus)
   end
-
-  # def new
-  #   @talk_competition_opus = TalkCompetition::Opus.new
-  #   respond_with(@talk_competition_opus)
-  # end
 
   def create
     @talk_competition_recruit = TalkCompetition::Recruit.find(params[:recruit_id])

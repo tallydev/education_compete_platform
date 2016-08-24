@@ -1,17 +1,9 @@
 class MarksController < ApplicationController
   before_action :authenticate_expert!, only: [:update]
-  # 浏览器检测
-  before_action :set_browser
-
   respond_to :html, :js
 
   def update
-    array = []
-    if @browser == :phone
-      array = [params[:mark_one],params[:mark_two],params[:mark_three],params[:mark_four]].map { |num| num.to_i }
-    else
-      array = params[:itemArray][0].split(",").map { |item| item.to_i }
-    end
+    array = params[:itemArray][0].split(",").map { |item| item.to_i }
 
     if params[:type] == "info"
       @markInfo = InfoCompetition::Opus.find(params[:opus_id]).recruit.marks.where(expert_id: current_expert.id).first
@@ -21,12 +13,7 @@ class MarksController < ApplicationController
       else
         flash[:danger] = "评分失败！"
       end
-
-      if @browser
-        redirect_to phones_path(activity_id: params[:activity_id])
-      else
-        respond_with @opusInfo
-      end
+      respond_with @opusInfo
     elsif params[:type] == "talk"
       @markTalk = TalkCompetition::Opus.find(params[:opus_id]).recruit.marks.where(expert_id: current_expert.id).first
       @opusTalk = TalkCompetition::Opus.find(params[:opus_id])
@@ -35,12 +22,7 @@ class MarksController < ApplicationController
       else
         flash[:danger] = "评分失败！"
       end
-
-      if @browser
-        redirect_to phones_path(activity_id: params[:activity_id])
-      else
-        respond_with @opusTalk
-      end
+      respond_with @opusTalk
     end
   end
 end

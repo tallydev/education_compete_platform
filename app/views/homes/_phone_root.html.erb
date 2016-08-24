@@ -5,7 +5,7 @@
   <%= render partial: "components/banner" %>
 
   <div class="welcome-title">
-    <strong><%= current_expert.name %>评委，您好！</strong>
+    <strong><%= current_expert.phone %>评委，您好！</strong>
     <% if current_expert %>
       <%= link_to destroy_expert_session_path, :method => :delete, class: "pull-right" do %>
         <i class="fa fa-sign-out"></i>退出

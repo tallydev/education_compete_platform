@@ -1,0 +1,104 @@
+<% content_for :title do %>
+  开始打分
+<% end %>
+
+<%= render partial: "components/banner" %>
+
+<div class="welcome-title">
+  <div style="padding: 0 20px;">
+    <table class="table text-center">
+      <tr>
+        <td style="padding: 11px 8px;"><%= "#{@player_info.name}老师" %></td>
+        <td style="padding: 11px 8px;"><%= "《#{@recruit.name}》" %></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<% if @activity.type == "InfoCompetition::Activity" %>
+  <% _mark_items = @recruit.activity.mark_items(@recruit.project) %>  
+<% else %>
+  <% _mark_items = @recruit.activity.mark_items %>
+<% end %>
+
+<% _array = @recruit.marks.where(expert_id:current_expert.id).first.try(:item_array) %>
+
+<div class="wrap">
+  <div class="grades">
+    <%= form_for :mark, method: :put, url: offline_mark_path(id: 1, activity_id: @activity, recruit_id: @recruit) do |f| %>
+      <div class="grade-range">
+        <p>
+          <%= _mark_items[0][:name] %> 
+          <span class="dark-purple">（总分 <%= _mark_items[0][:max] %> 分）</span>
+          <span class="pull-right" id="mark_one_text">0分</span>
+        </p>
+        <%= range_field_tag :mark_one, _array[0], min: 0, max: _mark_items[0][:max] , step: 1, id: 'mark_one_input', onChange:'onChangeSum()' %>
+      </div>
+      
+      <div class="grade-range">
+        <p> 
+          <%= _mark_items[1][:name] %> 
+          <span class="dark-purple">（总分 <%= _mark_items[1][:max] %> 分）</span>
+          <span class="pull-right" id="mark_two_text">0分</span>
+        </p>
+        <%= range_field_tag :mark_two, _array[1], min: 0, max: _mark_items[1][:max], step: 1, id: 'mark_two_input', onChange:'onChangeSum()' %>
+      </div>
+
+      <div class="grade-range">
+      <p>
+        <%= _mark_items[2][:name] %>
+        <span class="dark-purple">（总分 <%= _mark_items[2][:max] %> 分）</span>
+        <span class="pull-right" id="mark_three_text">0分</span>
+      </p>
+      <%= range_field_tag :mark_three, _array[2], min: 0, max: _mark_items[2][:max], step: 1, id: 'mark_three_input', onChange:'onChangeSum()' %>
+      </div>
+
+      <div class="grade-range">
+        <p>
+          <%= _mark_items[3][:name] %>
+          <span class="dark-purple">（总分 <%= _mark_items[3][:max] %> 分）</span>
+          <span class="pull-right" id="mark_four_text">0分</span>
+        </p>
+        <%= range_field_tag :mark_four, _array[3], min: 0, max: _mark_items[3][:max], step: 1, id: 'mark_four_input', onChange:'onChangeSum()' %>
+      </div>
+
+      <div class="grade-range">
+        <p>总分<span class="dark-purple">（总分100分）</span><span class="pull-right" id="total">0分</span></p>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "提交评分", class: "mbtn", data: {data_with: "正在提交..."} %>
+      </div>
+    <% end %> 
+  </div>
+</div>
+
+<!-- 返回上一页 -->
+<%= render partial: "components/turn_back", locals: { url: phones_path(activity_id: @recruit.activity), fixed: false } %>
+
+<% content_for :phone_scripts do %>
+  <script>
+    // 初始化分数
+    $(function() {
+      $("#mark_one_text").text(<%= _array[0] ||= 0 %>+'分');
+      $("#mark_two_text").text(<%= _array[1] ||= 0 %>+'分');
+      $("#mark_three_text").text(<%= _array[2] ||= 0 %>+'分');
+      $("#mark_four_text").text(<%= _array[3] ||= 0 %>+'分');
+      $("#total").text(<%= _array.sum ||= 0 %>+'分');
+    })
+
+    function onChangeSum(){
+      var a = document.getElementById("mark_one_input").value;
+      $("#mark_one_text").text(a+'分');
+      var b = document.getElementById("mark_two_input").value;
+      $("#mark_two_text").text(b+'分');
+      var c = document.getElementById("mark_three_input").value;
+      $("#mark_three_text").text(c+'分');
+      var d = document.getElementById("mark_four_input").value;
+      $("#mark_four_text").text(d+'分');
+      var e = parseFloat(a)+parseFloat(b)+parseFloat(c)+parseFloat(d);
+      $("#total").text(e+'分');
+      $("#grade_modal .red").text(e);
+    };
+  </script>
+<% end %>

@@ -5,7 +5,7 @@
   <%= render partial: "components/banner" %>
 
   <div class="welcome-title">
-    <strong><%= current_expert.name %>评委，您好！</strong>
+    <strong><%= current_expert.phone %>评委，您好！</strong>
     <% if current_expert %>
       <%= link_to destroy_expert_session_path, :method => :delete, class: "pull-right" do %>
         <i class="fa fa-sign-out"></i>退出
@@ -41,10 +41,10 @@
                 <td><%= recruit.marks.where(expert_id:current_expert.id).first.try(:score) %></td>
                 <td>
                   <% unless recruit.marks.where(expert_id:current_expert.id).first.try(:item_array).blank? %>
-                    <%= link_to "修改评分", recruit.opus, class:"btn btn-info btn-sm", "data-turbolinks" => false %>
+                    <%= link_to "修改评分", edit_offline_mark_path(id: recruit, recruit_id: recruit, activity_id: params[:activity_id]), class:"btn btn-info btn-sm", "data-turbolinks" => false %>
                   <% else %>
                     <% if recruit.opus.present? %>
-                      <%= link_to "评分", recruit.opus, class:"btn btn-info btn-sm", "data-turbolinks" => false %>
+                      <%= link_to "评分", edit_offline_mark_path(id: recruit, recruit_id: recruit, activity_id: params[:activity_id]), class:"btn btn-info btn-sm", "data-turbolinks" => false %>
                     <% else %>
                       <%= link_to "作品未上传", "#", class:"btn btn-info btn-sm disabled" %>
                     <% end %>
