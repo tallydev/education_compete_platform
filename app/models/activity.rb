@@ -40,7 +40,7 @@ class Activity < ActiveRecord::Base
 
   # 是否有某个项目的报名
   def project_recruits project
-    if self.is_a? InfoCompetition::Activity && project.present?
+    if self.is_a?(InfoCompetition::Activity) && project.present?
       self.recruits.where(project: project)
     else
       self.recruits
