@@ -1,7 +1,6 @@
 class HomeController < ApplicationController
   before_action :set_browser
   layout :login_layout
-
   def index
     @notifications = Bulletin.all
     @activities = Activity.onlines

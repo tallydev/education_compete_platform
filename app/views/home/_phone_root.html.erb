@@ -2,54 +2,58 @@
   参赛老师
 <% end %>
 
-<%= render partial: "../components/banner" %>
+  <%= render partial: "components/banner" %>
 
-<div class="welcome-title">
-	<strong><%= current_expert.name %>评委，您好！</strong>
-	<% if current_judge %>
-		<%= link_to destroy_player_session_path, :method => :delete, class: "pull-right" do %>
-			<i class="fa fa-sign-out"></i>退出
-		<% end %>
-	<% else %>
-		<%= link_to new_expert_session_path, :method => :delete, class: "pull-right" do %>
-			<i class="fa fa-sign-out"></i>登录
-		<% end %>
-	<% end %>
-</div>
-<div class="wrap">
-	<div class="players">
-		<table class="table">
-			<thead>
-				<tr class="dark-purple">
-					<th>序号</th>
-					<th>姓名</th>
-					<th>说课名称</th>
-					<th>操作</th>
-				</tr>
-			</thead>
-			<tbody>
-				<% index = 0 %>
-				<% @players.each do |player| %>
-				<tr>
-					<td><%= player.number %></td>
-					<td><%= player.name %></td>
-					<td>《<%= player.title %>》</td>
-					<td>
-						<% if is_judged(player, current_judge) %>
-						<%= link_to "查看", player, remote: true, format: :js, class: "btn btn-primary btn-xs btn-show" %>
-						<% else %>
-							<%= link_to "点评", new_grade_path(player_id: player.id), class: "btn btn-danger btn-xs btn-judge" %>
-						<% end %>
-					</td>
-				</tr>
-				<% end %>
-			</tbody>	
-		</table>
-	</div>
-</div>
+  <div class="welcome-title">
+    <strong><%= current_expert.name %>评委，您好！</strong>
+    <% if current_expert %>
+      <%= link_to destroy_expert_session_path, :method => :delete, class: "pull-right" do %>
+        <i class="fa fa-sign-out"></i>退出
+      <% end %>
+    <% else %>
+      <%= link_to new_expert_session_path, :method => :delete, class: "pull-right" do %>
+        <i class="fa fa-sign-out"></i>登录
+      <% end %>
+    <% end %>
+  </div>
+  <div class="wrap">
+    <div class="players">
+      <table class="table">
+        <thead>
+          <tr class="dark-purple">
+            <th>序号</th>
+            <th>姓名</th>
+            <th>说课名称</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% index = 0 %>
+          <% @recruits_online.each_with_index do |recruit, index| %>
+          <tr>
+            <td><%= index+1 %></td>
+            <td><%= recruit.name %></td>
+            <td>《<%= recruit.opus.content %>》</td>
+            <td>
+              <% if recruit.marks.where(expert_id:current_expert.id).first.score.present? %>
+                <%= link_to "查看", recruit.opus, class:"btn btn-success btn-sm", "data-turbolinks" => false %>
+              <% else %>
+                <% if recruit.opus.present? %>
+                  <%= link_to "评分", recruit.opus, class:"btn btn-info btn-sm", "data-turbolinks" => false %>
+                <% else %>
+                  <%= link_to "作品未上传", "#", class:"btn btn-info btn-sm disabled" %>
+                <% end %>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>  
+      </table>
+    </div>
+  </div>
 
-<!-- 返回上一页 -->
-<%#= render partial: "share/turn_back" %>
+  <!-- 返回上一页 -->
+  <%#= render partial: "share/turn_back" %>
 
-<!-- 模态框显示老师成绩 -->
-<div class="player-grade"></div>
+  <!-- 模态框显示老师成绩 -->
+  <div class="player-grade"></div>

@@ -1,73 +1,17 @@
-<!-- <div class="container">
+<div class="container">
   <ol class="breadcrumb">
     <span>您的位置</span>
-    <li><%#= link_to "首页", root_path %></li>
+    <li><%= link_to "首页", root_path %></li>
     <li class="active">个人中心</li>
   </ol>
   <div class="panel panel-default tab_cotent">
     <div class="panel-heading tab_head">
-      <%#= image_tag("TabTitleBg.png", class: "bg_image")%>
+      <%= image_tag("TabTitleBg.png", class: "bg_image")%>
       <div class="tab_title_text">个人中心</div>
     </div>
     <div class="center_cotent row">
-      <%#=  render partial: "center_left_nav"%>
-      <%#=  render partial: "center_right_content"%>
+      <%=  render partial: "center_left_nav"%>
+      <%=  render partial: "center_right_content"%>
     </div>
   </div>
-</div> -->
-
-<% content_for :title do %>
-  参赛老师
-<% end %>
-
-<%#= render partial: "shared/expert_log_banner" %>
-
-<div class="welcome-title">
-  <strong><%#= current_judge.name %>评委，您好！</strong>
-  <% if current_expert %>
-    <%= link_to destroy_expert_session_path, :method => :delete, class: "pull-right" do %>
-      <i class="fa fa-sign-out"></i>退出
-    <% end %>
-  <% else %>
-    <%= link_to new_expert_session_path, :method => :delete, class: "pull-right" do %>
-      <i class="fa fa-sign-out"></i>登录
-    <% end %>
-  <% end %>
 </div>
-<div class="wrap">
-  <div class="players">
-    <table class="table">
-      <thead>
-        <tr class="dark-purple">
-          <th>序号</th>
-          <th>姓名</th>
-          <th>说课名称</th>
-          <th>操作</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% index = 0 %>
-        <%#= @players.each do |player| %>
-        <tr>
-          <td><%#= player.number %></td>
-          <td><%#= player.name %></td>
-          <td>《<%#= player.title %>》</td>
-          <td>
-            <%#= if is_judged(player, current_judge) %>
-            <%#= link_to "查看", player, remote: true, format: :js, class: "btn btn-primary btn-xs btn-show" %>
-            <%#= else %>
-              <%#= link_to "点评", new_grade_path(player_id: player.id), class: "btn btn-danger btn-xs btn-judge" %>
-            <%#= end %>
-          </td>
-        </tr>
-        <%#= end %>
-      </tbody>  
-    </table>
-  </div>
-</div>
-
-<!-- 返回上一页 -->
-<%#= render partial: "share/turn_back" %>
-
-<!-- 模态框显示老师成绩 -->
-<div class="player-grade"></div>
