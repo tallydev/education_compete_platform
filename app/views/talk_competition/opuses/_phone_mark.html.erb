@@ -1,0 +1,103 @@
+<% content_for :title do %>
+  开始打分
+<% end %>
+
+<%= render partial: "components/banner" %>
+
+<div class="welcome-title">
+	<div style="padding: 0 20px;">
+		<table class="table text-center">
+			<tr>
+				<td style="padding: 11px 8px;"><%= "#{@player_info.name}老师" %></td>
+				<td style="padding: 11px 8px;"><%= "《#{@recruit.name}》" %></td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div class="wrap">
+	<div class="grades">
+		<form>
+      <div class="row">
+        <div class="col-md-12 col-xs-12 mark-tips">&nbsp;&nbsp;&nbsp;请用鼠标拖动滑块进行评分，谢谢!</div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-2 col-xs-2 mark-title"><%= _mark_items[0][:name] %></div>
+        <div class="col-md-1 col-xs-1 mark-range">0分</div>
+        <div id="Demo" class="progressTime col-md-6 col-xs-6" >
+          <div id="Main">
+            <div id="scrollBar">
+              <div id="scroll_Track"><p id="scrollBarTxt" style="text-align:right;"></p></div>
+              <div class="thumb_class" id="scroll_Thumb"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1 col-xs-1 mark-range"><%= _mark_items[0][:max] %>分</div>
+        <div class="col-md-2 col-xs-2 mark-num">
+          <label class="total-points" id="design">0</label><label class="unit">&nbsp&nbsp分</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2 col-xs-2 mark-title"><%= _mark_items[1][:name] %></div>
+        <div class="col-md-1 col-xs-1 mark-range">0分</div>
+        <div id="Demo1" class="progressTime col-md-6 col-xs-6" >
+          <div id="Main1">
+            <div id="scrollBar1">
+              <div id="scroll_Track1"><p id="scrollBarTxt1" style="text-align:right;"></p></div>
+              <div class="thumb_class" id="scroll_Thumb1"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1 col-xs-1 mark-range"><%= _mark_items[1][:max] %>分</div>
+        <div class="col-md-2 col-xs-2 mark-num">
+          <label class="total-points" id="process">0</label><label class="unit">&nbsp&nbsp分</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2 col-xs-2 mark-title"><%= _mark_items[2][:name] %></div>
+        <div class="col-md-1 col-xs-1 mark-range">0分</div>
+        <div id="Demo2" class="progressTime col-md-6 col-xs-6" >
+          <div id="Main2">
+            <div id="scrollBar2">
+              <div id="scroll_Track2"><p id="scrollBarTxt2" style="text-align:right;"></p></div>
+              <div class="thumb_class" id="scroll_Thumb2"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1 col-xs-1 mark-range"><%= _mark_items[2][:max] %>分</div>
+        <div class="col-md-2 col-xs-2 mark-num">
+          <label class="total-points" id="result">0</label><label class="unit">&nbsp&nbsp分</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2 col-xs-2 mark-title"><%= _mark_items[3][:name] %></div>
+        <div class="col-md-1 col-xs-1 mark-range">0分</div>
+        <div id="Demo3" class="progressTime col-md-6 col-xs-6" >
+          <div id="Main3">
+            <div id="scrollBar3">
+              <div id="scroll_Track3"><p id="scrollBarTxt3" style="text-align:right;"></p></div>
+              <div class="thumb_class" id="scroll_Thumb3"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1 col-xs-1 mark-range"><%= _mark_items[3][:max] %>分</div>
+        <div class="col-md-2 col-xs-2 mark-num">
+          <label class="total-points" id="innovate">0</label><label class="unit">&nbsp&nbsp分</label>
+        </div>
+      </div>
+    </form>
+
+    <%= form_for :mark, method: :put, url: mark_path do |f| %>
+      <%= hidden_field_tag "itemArray[]"%>
+      <%= hidden_field_tag "type", "info" %>
+      <%= hidden_field_tag "opus_id", @talk_competition_opus.id %>
+      <label class="total-points-label">总分&nbsp&nbsp</label><label class="total-points" id="total_points">0</label><label class="unit">&nbsp&nbsp分</label>
+      <!-- 评分表单提交 -->
+      <%= f.submit "提交评分", class: 'btn btn-total-points', data: {data_with: "正在提交..."} %>
+    <% end %>
+	</div>
+</div>

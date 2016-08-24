@@ -1,7 +1,8 @@
 class InfoCompetition::OpusesController < ApplicationController
   before_action :set_info_competition_opus, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_player!, only: [:new, :create, :update, :edit]
-
+  before_action :set_browser
+  layout :phone_layout
   respond_to :html
 
   def index
@@ -46,7 +47,6 @@ class InfoCompetition::OpusesController < ApplicationController
   def update
     @info_competition_opus.update(info_competition_opus_params)
 
-    logger.info "+++++++++++++++++++++++++++++++"
     respond_with(@info_competition_opus)
   end
 

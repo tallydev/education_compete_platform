@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 	  end
 
 	  # 动态指定模板
-	  def login_layout
+	  def phone_layout
 	    @layout
 	  end
 end

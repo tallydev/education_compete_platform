@@ -2,7 +2,7 @@ class Experts::SessionsController < Devise::SessionsController
 # before_action :configure_sign_in_params, only: [:create]
   before_action :set_browser
 
-  layout :login_layout
+  layout :phone_layout
 
   # GET /resource/sign_in
   # def new
@@ -40,7 +40,7 @@ class Experts::SessionsController < Devise::SessionsController
       end
     end
 
-    def login_layout
+    def phone_layout
       @layout
     end
 end

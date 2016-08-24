@@ -23,11 +23,10 @@ Rails.application.routes.draw do
   }
 
   # 主页面
-  resource :home do
-    collection do
-      get :phone
-    end
-  end
+  resource :home, only: [:index]
+
+  # 手机端访问业务
+  resources :phones
 
   # resources :center do 
   #   collection do

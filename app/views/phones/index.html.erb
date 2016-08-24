@@ -23,19 +23,19 @@
           <tr class="dark-purple">
             <th>序号</th>
             <th>姓名</th>
-            <th>说课名称</th>
+            <th>报名内容</th>
             <th>操作</th>
           </tr>
         </thead>
         <tbody>
           <% index = 0 %>
-          <% @recruits_online.each_with_index do |recruit, index| %>
+          <% @recruits_offline.each_with_index do |recruit, index| %>
           <tr>
             <td><%= index+1 %></td>
             <td><%= recruit.player_info.try(:name) %></td>
             <td>《<%= recruit.name %>》</td>
             <td>
-              <% if recruit.marks.where(expert_id:current_expert.id).first.try(:score).present? %>
+              <% unless recruit.marks.where(expert_id:current_expert.id).first.try(:item_array).blank? %>
                 <%= link_to "查看", recruit.opus, class:"btn btn-success btn-sm", "data-turbolinks" => false %>
               <% else %>
                 <% if recruit.opus.present? %>

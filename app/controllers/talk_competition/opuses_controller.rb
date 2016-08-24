@@ -1,7 +1,8 @@
 class TalkCompetition::OpusesController < ApplicationController
   before_action :set_talk_competition_opus, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_player!, only: [:new, :create, :update, :edit]
-
+  before_action :set_browser
+  layout :phone_layout
   respond_to :html
 
   def index
