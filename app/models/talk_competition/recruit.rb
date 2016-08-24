@@ -16,6 +16,7 @@
 #  total_score   :integer          default(0)
 #  avg_score     :float
 #  score_count   :integer
+#  position      :integer
 #
 # Indexes
 #

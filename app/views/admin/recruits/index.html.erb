@@ -30,6 +30,7 @@
             <% @recruits.each_with_index do |recruit, index| -%>
               <tr>
                 <td><%= index+1 %></td>
+                <td><%= recruit.position %></td>
                 <td><%= recruit.project %></td>
                 <td><%= recruit.try(:player).try(:info).try(:name) %></td>
                 <td><%= recruit.name -%></td>

@@ -23,6 +23,7 @@
                 <tr>
                   <th><input type="checkbox" id="checkAll"></th>
                   <th>序号</th>
+                  <th>出场顺序</th>
                   <th>参赛项目</th>
                   <th>姓名</th>
                   <th>学校</th>
@@ -39,6 +40,7 @@
                   <tr>
                     <td><%= check_box_tag 'selected_recruits[]', recruit.id %></td>
                     <td><%= index+1 %></td>
+                    <td><%= recruit.position %></td>
                     <td><%= recruit.project %></td>
                     <td><%= recruit.try(:player).try(:info).try(:name) %></td>
                     <td><%= recruit.try(:school).try(:name) %></td>

@@ -161,7 +161,7 @@ end
 #
 #                                       Prefix Verb   URI Pattern                                                                                      Controller#Action
 #                                        pdfjs        /pdfjs                                                                                           PdfjsViewer::Rails::Engine
-#                                         root GET    /                                                                                                home#index
+#                                         root GET    /                                                                                                homes#index
 #                             new_user_session GET    /users/sign_in(.:format)                                                                         user/sessions#new
 #                                 user_session POST   /users/sign_in(.:format)                                                                         user/sessions#create
 #                         destroy_user_session DELETE /users/sign_out(.:format)                                                                        user/sessions#destroy
@@ -222,6 +222,14 @@ end
 #                                              PATCH  /school_users(.:format)                                                                          devise/registrations#update
 #                                              PUT    /school_users(.:format)                                                                          devise/registrations#update
 #                                              DELETE /school_users(.:format)                                                                          devise/registrations#destroy
+#                                       phones GET    /phones(.:format)                                                                                phones#index
+#                                              POST   /phones(.:format)                                                                                phones#create
+#                                    new_phone GET    /phones/new(.:format)                                                                            phones#new
+#                                   edit_phone GET    /phones/:id/edit(.:format)                                                                       phones#edit
+#                                        phone GET    /phones/:id(.:format)                                                                            phones#show
+#                                              PATCH  /phones/:id(.:format)                                                                            phones#update
+#                                              PUT    /phones/:id(.:format)                                                                            phones#update
+#                                              DELETE /phones/:id(.:format)                                                                            phones#destroy
 #      marks_center_activity_info_competitions GET    /center/activities/:activity_id/info_competitions/marks(.:format)                                info_competitions#marks
 #            center_activity_info_competitions GET    /center/activities/:activity_id/info_competitions(.:format)                                      info_competitions#index
 #             center_activity_info_competition GET    /center/activities/:activity_id/info_competitions/:id(.:format)                                  info_competitions#show

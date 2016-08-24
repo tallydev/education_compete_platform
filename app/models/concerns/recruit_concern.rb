@@ -5,6 +5,7 @@ module RecruitConcern
     scope :school_filter, ->(school) { where school: school }
     scope :player_filter, ->(player) { where player: player }
     scope :avg_mark_desc, -> { order(avg_score: :desc) }
+    scope :position_asc, -> { order(position: :asc) }
 
     validates_presence_of :player
     validates_presence_of :activity
@@ -29,6 +30,9 @@ module RecruitConcern
     def assgin_to_new_activity activity
       return if activity.blank?
       new_recruit = self.dup
+      new_recruit.total_score = nil
+      new_recruit.avg_score = nil
+      new_recruit.score_count = nil
       new_recruit.activity = activity
       new_recruit.save
 
