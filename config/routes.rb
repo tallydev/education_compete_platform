@@ -341,10 +341,16 @@ end
 #                                              DELETE /admin/users/:id(.:format)                                                                       admin/users#destroy
 #       print_admin_activity_info_competitions GET    /admin/activities/:activity_id/info_competitions/print(.:format)                                 admin/info_competitions#print
 #             admin_activity_info_competitions GET    /admin/activities/:activity_id/info_competitions(.:format)                                       admin/info_competitions#index
+#         edit_admin_activity_info_competition GET    /admin/activities/:activity_id/info_competitions/:id/edit(.:format)                              admin/info_competitions#edit
 #              admin_activity_info_competition GET    /admin/activities/:activity_id/info_competitions/:id(.:format)                                   admin/info_competitions#show
+#                                              PATCH  /admin/activities/:activity_id/info_competitions/:id(.:format)                                   admin/info_competitions#update
+#                                              PUT    /admin/activities/:activity_id/info_competitions/:id(.:format)                                   admin/info_competitions#update
 #       print_admin_activity_talk_competitions GET    /admin/activities/:activity_id/talk_competitions/print(.:format)                                 admin/talk_competitions#print
 #             admin_activity_talk_competitions GET    /admin/activities/:activity_id/talk_competitions(.:format)                                       admin/talk_competitions#index
+#         edit_admin_activity_talk_competition GET    /admin/activities/:activity_id/talk_competitions/:id/edit(.:format)                              admin/talk_competitions#edit
 #              admin_activity_talk_competition GET    /admin/activities/:activity_id/talk_competitions/:id(.:format)                                   admin/talk_competitions#show
+#                                              PATCH  /admin/activities/:activity_id/talk_competitions/:id(.:format)                                   admin/talk_competitions#update
+#                                              PUT    /admin/activities/:activity_id/talk_competitions/:id(.:format)                                   admin/talk_competitions#update
 #                      admin_activity_recruits GET    /admin/activities/:activity_id/recruits(.:format)                                                admin/recruits#index
 #                                              POST   /admin/activities/:activity_id/recruits(.:format)                                                admin/recruits#create
 #                   new_admin_activity_recruit GET    /admin/activities/:activity_id/recruits/new(.:format)                                            admin/recruits#new

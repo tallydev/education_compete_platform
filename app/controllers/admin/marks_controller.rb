@@ -72,13 +72,9 @@ class Admin::MarksController < Admin::BaseController
         sheet1[count_row, 3] = obj.try(:player_info).try(:name)
         sheet1[count_row, 4] = obj.try(:school).try(:name)
         sheet1[count_row, 5] = obj.name
-        col_marks = []
         obj.score_marks.each_with_index do |mark,index|
-        	col_marks.push("#{mark.expert.phone} : #{mark.score.present? ? mark.score : 0}分")
-        end
-        str = ""
-        col_marks.reverse_each { |col_mark| str += "    #{col_mark}    ||" }
-        sheet1[count_row, 6] = str
+        	sheet1[count_row, index+6] = "#{mark.expert.phone} : #{mark.score.present? ? mark.score : 0}分"
+        end      
         count_row += 1
       end
 
