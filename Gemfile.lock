@@ -214,6 +214,7 @@ GEM
       rspec-mocks (~> 3.5.0)
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
+    ruby-ole (1.2.12)
     sass (3.4.22)
     sass-rails (5.0.5)
       railties (>= 4.0.0, < 6)
@@ -233,6 +234,11 @@ GEM
     simple_form (3.2.1)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
+    spreadsheet (1.1.1)
+      ruby-ole (>= 1.0)
+    spreadsheet_on_rails (1.0.0)
+      rails (>= 3.0.1)
+      spreadsheet
     spring (1.7.2)
     sprockets (3.6.3)
       concurrent-ruby (~> 1.0)
@@ -302,6 +308,7 @@ DEPENDENCIES
   settingslogic
   shoulda-matchers (~> 3.1)
   simple_form
+  spreadsheet_on_rails
   spring
   sqlite3
   turbolinks

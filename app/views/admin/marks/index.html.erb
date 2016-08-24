@@ -31,5 +31,8 @@
         <%= render partial: "mark", locals: {recruit: recruit, index: index + 1} %>
       <% end %>
     </tbody>
+    <tfoot>
+      <%= link_to("导出为Excel", admin_marks_path(format: 'xls', activity_id: @activity.id), class: "btn btn-success") %>
+    </tfoot>
   </table>
 </div>
