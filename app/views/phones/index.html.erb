@@ -38,7 +38,7 @@
                 <td><%= recruit.position %></td>
                 <td><%= recruit.player_info.try(:name) %></td>
                 <td>《<%= recruit.name %>》</td>
-                <td><%= recruit.marks.where(expert_id:current_expert.id).first.try(:score) %></td>
+                <td><%= recruit.marks.where(expert_id:current_expert.id).first.try(:score) ||= 0 %></td>
                 <td>
                   <% mark = recruit.marks.where(expert_id:current_expert.id).first %>
                   <% unless mark.try(:item_array).blank? || mark.try(:score).nil? || mark.try(:score) < 1 %>
