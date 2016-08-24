@@ -30,22 +30,31 @@
         <tbody>
           <% index = 0 %>
           <% @recruits_offline.each_with_index do |recruit, index| %>
-          <tr>
-            <td><%= index+1 %></td>
-            <td><%= recruit.player_info.try(:name) %></td>
-            <td>《<%= recruit.name %>》</td>
-            <td>
-              <% unless recruit.marks.where(expert_id:current_expert.id).first.try(:item_array).blank? %>
-                <%= link_to "查看", recruit.opus, class:"btn btn-success btn-sm", "data-turbolinks" => false %>
-              <% else %>
-                <% if recruit.opus.present? %>
-                  <%= link_to "评分", recruit.opus, class:"btn btn-info btn-sm", "data-turbolinks" => false %>
-                <% else %>
-                  <%= link_to "作品未上传", "#", class:"btn btn-info btn-sm disabled" %>
-                <% end %>
-              <% end %>
-            </td>
-          </tr>
+            <% if recruit.marks.pluck(:expert_id).include? current_expert.id %>
+              <% count ||= 1 %>
+              <tr>
+                <td><%= index+1 %></td>
+                <td><%= recruit.player_info.try(:name) %></td>
+                <td>《<%= recruit.name %>》</td>
+                <td>
+                  <% unless recruit.marks.where(expert_id:current_expert.id).first.try(:item_array).blank? %>
+                    <%= link_to "查看", recruit.opus, class:"btn btn-success btn-sm", "data-turbolinks" => false %>
+                  <% else %>
+                    <% if recruit.opus.present? %>
+                      <%= link_to "评分", recruit.opus, class:"btn btn-info btn-sm", "data-turbolinks" => false %>
+                    <% else %>
+                      <%= link_to "作品未上传", "#", class:"btn btn-info btn-sm disabled" %>
+                    <% end %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+
+            <% unless count %>
+              <tr>
+                <td colspan="4">未分配参赛选手</td>
+              </tr>
+            <% end %>
           <% end %>
         </tbody>  
       </table>
