@@ -5,64 +5,67 @@
 <div class="row">
   <div class="col-sm-12">
     <div class="nest">
-      <div class="row">
-        <div class="col-sm-12">
-          <%= link_to "勾选后统一分配评委", "javascript: void(0)", onClick: "$('form').submit();", class: "btn btn-sm btn-primary" %>
-
-          <%= link_to print_admin_activity_talk_competitions_path(activity_id: @activity.id), class: "btn btn-sm btn-primary pull-right" do %>
-            <i class="icon-print"></i> 打印汇总
-          <% end %>
-        </div>
-      </div>
-
       <div class="body-nest">
         <div class="scroll-table-container">
-          <table class="table table-bordered table-hover table-striped">
-            <thead>
-              <tr>
-                <th><input type="checkbox" id="checkAll"></th>
-                <th>序号</th>
-                <th>姓名</th>
-                <th>学校</th>
-                <th>课程名称</th>
-                <th>邮箱</th>
-                <th>手机</th>
-                <th>上传作品</th>
-                <th>分配评委</th>
-              </tr>
-            </thead>
-            <tbody>
-              <%= form_for :mark, method: :get, url: bind_new_admin_marks_path(activity_id: params[:activity_id]), remote: true, format: :js do |f| %>
-                <% @recruits.each_with_index do |recruit, index| -%>
-                  <tr>
-                    <td><%= check_box_tag 'selected_recruits[]', recruit.id %></td>
-                    <td><%= index+1 %></td>
-                    <td><%= recruit.try(:player).try(:info).try(:name) %></td>
-                    <td><%= recruit.try(:school).try(:name) %></td>
-                    <td><%= recruit.name -%></td>
-                    <td><%= recruit.try(:player).try(:info).try(:email) %></td>
-                    <td><%= recruit.try(:player).try(:phone) %></td>
-                    <td>
-                      <% if recruit.opus.present? %>
-                        <span class="glyphicon glyphicon-ok text-success"></span>
-                      <% else %>
-                        <span class="glyphicon glyphicon-remove text-danger"></span>
-                      <% end %>
-                    </td>
-                    <td>
-                      <% if recruit.marks.present? %>
-                        <% recruit.marks.each do |mark| %>
-                          <%= link_to mark.expert.try(:phone), new_admin_mark_path(activity_id: params[:activity_id], recruit_id: recruit), remote: true, format: :js, class: "btn btn-xs btn-success" %>
+          <%= form_for :mark, method: :get, url: bind_new_admin_marks_path(activity_id: params[:activity_id]), remote: true, format: :js do |f| %>
+            <table class="table table-bordered table-hover table-striped">
+              <div class="row">
+                <div class="col-sm-12">
+                  <%= link_to "勾选后统一分配评委", "javascript: void(0)", onClick: "$('form').submit();", class: "btn btn-sm btn-primary" %>
+
+                  <%= link_to print_admin_activity_talk_competitions_path(activity_id: @activity.id), class: "btn btn-sm btn-primary pull-right" do %>
+                    <i class="icon-print"></i> 打印汇总
+                  <% end %>
+                </div>
+              </div>
+              <thead>
+                <tr>
+                  <th><input type="checkbox" id="checkAll"></th>
+                  <th>序号</th>
+                  <th>姓名</th>
+                  <th>学校</th>
+                  <th>课程名称</th>
+                  <th>邮箱</th>
+                  <th>手机</th>
+                  <th>上传作品</th>
+                  <th>分配评委</th>
+                  <th>分配比赛</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <% @recruits.each_with_index do |recruit, index| -%>
+                    <tr>
+                      <td><%= check_box_tag 'selected_recruits[]', recruit.id %></td>
+                      <td><%= index+1 %></td>
+                      <td><%= recruit.try(:player).try(:info).try(:name) %></td>
+                      <td><%= recruit.try(:school).try(:name) %></td>
+                      <td><%= recruit.name -%></td>
+                      <td><%= recruit.try(:player).try(:info).try(:email) %></td>
+                      <td><%= recruit.try(:player).try(:phone) %></td>
+                      <td>
+                        <% if recruit.opus.present? %>
+                          <span class="glyphicon glyphicon-ok text-success"></span>
+                        <% else %>
+                          <span class="glyphicon glyphicon-remove text-danger"></span>
                         <% end %>
-                      <% else %>
-                        <%= link_to "分配评委", new_admin_mark_path(activity_id: params[:activity_id], recruit_id: recruit), remote: true, format: :js, data: { disable_with: "分配中.." }, class: "btn btn-xs btn-primary" %>
-                      <% end %>
-                    </td> 
-                  </tr>
-                <% end -%>
-              <% end %>
-            </tbody>
-          </table>
+                      </td>
+                      <td>
+                        <% if recruit.marks.present? %>
+                          <% recruit.marks.each do |mark| %>
+                            <%= link_to mark.expert.try(:phone), new_admin_mark_path(activity_id: params[:activity_id], recruit_id: recruit), remote: true, format: :js, class: "btn btn-xs btn-success" %>
+                          <% end %>
+                        <% else %>
+                          <%= link_to "分配评委", new_admin_mark_path(activity_id: params[:activity_id], recruit_id: recruit), remote: true, format: :js, data: { disable_with: "分配中.." }, class: "btn btn-xs btn-primary" %>
+                        <% end %>
+                      </td> 
+                      <td>
+                        <%= link_to "分配比赛", new_admin_assgin_path(activity_id: params[:activity_id], recruit_id: recruit), remote: true, format: :js, class: "btn btn-xs btn-warning" %>
+                      </td>
+                    </tr>
+                  <% end -%>
+              </tbody>
+            </table>
+          <% end %>
         </div>
 
       </div>
