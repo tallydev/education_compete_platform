@@ -34,13 +34,13 @@
           <% @recruits_offline.each_with_index do |recruit, index| %>
             <% if recruit.marks.pluck(:expert_id).include? current_expert.id %>
               <% count += 1 %>
+              <% mark = recruit.marks.where(expert_id:current_expert.id).first %>
               <tr>
                 <td><%= recruit.position %></td>
                 <td><%= recruit.player_info.try(:name) %></td>
                 <td>《<%= recruit.name %>》</td>
-                <td><%= recruit.marks.where(expert_id:current_expert.id).first.try(:score) ||= 0 %></td>
+                <td><%= mark.try(:score).present? mark.try(:score) : 0 %></td>
                 <td>
-                  <% mark = recruit.marks.where(expert_id:current_expert.id).first %>
                   <% unless mark.try(:item_array).blank? || mark.try(:score).nil? || mark.try(:score) < 1 %>
                     <%= link_to "修改评分", edit_offline_mark_path(id: recruit, recruit_id: recruit, activity_id: params[:activity_id]), class:"btn btn-info btn-sm", "data-turbolinks" => false %>
                   <% else %>
