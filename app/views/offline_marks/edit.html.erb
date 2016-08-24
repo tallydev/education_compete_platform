@@ -32,7 +32,7 @@
           <span class="dark-purple">（总分 <%= _mark_items[0][:max] %> 分）</span>
           <span class="pull-right" id="mark_one_text">0分</span>
         </p>
-        <%= range_field_tag :mark_one, _array[0], min: 0, max: _mark_items[0][:max] , step: 1, id: 'mark_one_input', onChange:'onChangeSum()' %>
+        <%= range_field_tag :mark_one, _array[0].present? ? _array[0] : 0, min: 0, max: _mark_items[0][:max] , step: 1, id: 'mark_one_input', onChange:'onChangeSum()' %>
       </div>
       
       <div class="grade-range">
@@ -41,7 +41,7 @@
           <span class="dark-purple">（总分 <%= _mark_items[1][:max] %> 分）</span>
           <span class="pull-right" id="mark_two_text">0分</span>
         </p>
-        <%= range_field_tag :mark_two, _array[1], min: 0, max: _mark_items[1][:max], step: 1, id: 'mark_two_input', onChange:'onChangeSum()' %>
+        <%= range_field_tag :mark_two, _array[1].present? ? _array[1] : 0, min: 0, max: _mark_items[1][:max], step: 1, id: 'mark_two_input', onChange:'onChangeSum()' %>
       </div>
 
       <div class="grade-range">
@@ -50,7 +50,7 @@
         <span class="dark-purple">（总分 <%= _mark_items[2][:max] %> 分）</span>
         <span class="pull-right" id="mark_three_text">0分</span>
       </p>
-      <%= range_field_tag :mark_three, _array[2], min: 0, max: _mark_items[2][:max], step: 1, id: 'mark_three_input', onChange:'onChangeSum()' %>
+      <%= range_field_tag :mark_three, _array[2].present? ? _array[2] : 0, min: 0, max: _mark_items[2][:max], step: 1, id: 'mark_three_input', onChange:'onChangeSum()' %>
       </div>
 
       <div class="grade-range">
@@ -59,7 +59,7 @@
           <span class="dark-purple">（总分 <%= _mark_items[3][:max] %> 分）</span>
           <span class="pull-right" id="mark_four_text">0分</span>
         </p>
-        <%= range_field_tag :mark_four, _array[3], min: 0, max: _mark_items[3][:max], step: 1, id: 'mark_four_input', onChange:'onChangeSum()' %>
+        <%= range_field_tag :mark_four, _array[3].present? ? _array[3] : 0, min: 0, max: _mark_items[3][:max], step: 1, id: 'mark_four_input', onChange:'onChangeSum()' %>
       </div>
 
       <div class="grade-range">

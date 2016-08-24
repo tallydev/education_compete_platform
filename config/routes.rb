@@ -109,13 +109,13 @@ Rails.application.routes.draw do
     root to: "home#index"
     resources :users
     resources :activities do
-      resources :info_competitions, only: [:show, :index] do
+      resources :info_competitions, only: [:show, :index, :edit, :update] do
         collection do
           get :print
         end
       end
       
-      resources :talk_competitions, only: [:show, :index] do
+      resources :talk_competitions, only: [:show, :index, :edit, :update] do
         collection do
           get :print
         end

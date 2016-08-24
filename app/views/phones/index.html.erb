@@ -21,9 +21,9 @@
       <table class="table">
         <thead>
           <tr class="dark-purple">
-            <th>序号</th>
+            <th>顺序</th>
             <th>姓名</th>
-            <th>报名内容</th>
+            <th>作品名称</th>
             <th>得分</th>
             <th>操作</th>
           </tr>
@@ -35,7 +35,7 @@
             <% if recruit.marks.pluck(:expert_id).include? current_expert.id %>
               <% count += 1 %>
               <tr>
-                <td><%= index+1 %></td>
+                <td><%= recruit.position %></td>
                 <td><%= recruit.player_info.try(:name) %></td>
                 <td>《<%= recruit.name %>》</td>
                 <td><%= recruit.marks.where(expert_id:current_expert.id).first.try(:score) %></td>

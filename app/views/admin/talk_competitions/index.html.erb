@@ -22,6 +22,7 @@
                 <tr>
                   <th><input type="checkbox" id="checkAll"></th>
                   <th>序号</th>
+                  <th>出场顺序</th>
                   <th>姓名</th>
                   <th>学校</th>
                   <th>课程名称</th>
@@ -37,6 +38,9 @@
                     <tr>
                       <td><%= check_box_tag 'selected_recruits[]', recruit.id %></td>
                       <td><%= index+1 %></td>
+                      <td>
+                        <%= link_to "#{recruit.position.present? ? recruit.position : "设置"}", edit_admin_activity_talk_competition_path(params[:activity_id], recruit), remote: true, format: :js, class: "btn btn-xs btn-info" %>
+                      </td>
                       <td><%= recruit.try(:player).try(:info).try(:name) %></td>
                       <td><%= recruit.try(:school).try(:name) %></td>
                       <td><%= recruit.name -%></td>

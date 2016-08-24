@@ -8,6 +8,6 @@ class PhonesController < ApplicationController
 	def index
 		# 获取的为线下的比赛
 		_activity = Activity.find(params[:activity_id])
-		@recruits_offline = _activity.recruits
+		@recruits_offline = _activity.recruits.position_asc
 	end
 end

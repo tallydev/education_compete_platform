@@ -1,0 +1,13 @@
+<%= simple_form_for :recruit, method: :put, url: admin_activity_talk_competition_path(activity_id: @activity, id: @recruit) do |f| %>
+  <div class="input-group" style="width: 100%; margin-bottom: 10px;">
+    <div class="row">
+      <div class="col-md-4 text-right">顺序（数字）</div>
+      <div class="col-md-8">
+        <%= number_field_tag :position, @recruit.position, label: "顺序位置" %>
+      </div>
+    </div>
+    
+    <br>
+    <%= f.submit "设置", class: 'btn btn-success btn-block', data: {data_with: "设置中..."} %>
+	</div>
+<% end %>
