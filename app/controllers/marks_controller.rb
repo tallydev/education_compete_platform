@@ -6,7 +6,13 @@ class MarksController < ApplicationController
   respond_to :html, :js
 
   def update
-    array = params[:itemArray][0].split(",").map { |item| item.to_i }
+    array = []
+    if @browser == :phone
+      array = [params[:mark_one],params[:mark_two],params[:mark_three],params[:mark_four]].map { |num| num.to_i }
+    else
+      array = params[:itemArray][0].split(",").map { |item| item.to_i }
+    end
+
     if params[:type] == "info"
       @markInfo = InfoCompetition::Opus.find(params[:opus_id]).recruit.marks.where(expert_id: current_expert.id).first
       @opusInfo = InfoCompetition::Opus.find(params[:opus_id])
