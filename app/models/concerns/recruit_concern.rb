@@ -5,7 +5,7 @@ module RecruitConcern
     scope :school_filter, ->(school) { where school: school }
     scope :player_filter, ->(player) { where player: player }
     scope :avg_mark_desc, -> { order(avg_score: :desc) }
-    scope :position_asc, -> { order(position: :asc) }
+    scope :position_asc, -> { order('position IS NULL, position ASC') }
 
     validates_presence_of :player
     validates_presence_of :activity
