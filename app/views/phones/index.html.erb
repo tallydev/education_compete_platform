@@ -30,9 +30,10 @@
         </thead>
         <tbody>
           <% index = 0 %>
+          <% count = 0 %>
           <% @recruits_offline.each_with_index do |recruit, index| %>
             <% if recruit.marks.pluck(:expert_id).include? current_expert.id %>
-              <% count ||= 1 %>
+              <% count += 1 %>
               <tr>
                 <td><%= index+1 %></td>
                 <td><%= recruit.player_info.try(:name) %></td>
@@ -52,9 +53,9 @@
               </tr>
             <% end %>
 
-            <% unless count %>
+            <% if count == 0 %>
               <tr>
-                <td colspan="4">未分配参赛选手</td>
+                <td colspan="5">未分配参赛选手</td>
               </tr>
             <% end %>
           <% end %>
