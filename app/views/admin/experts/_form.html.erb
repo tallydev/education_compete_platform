@@ -4,6 +4,11 @@
 		<dd class="error text-danger"><%= @expert.errors[:phone][0] %></dd>
 	<% end %>
 
+	<%#= f.input :tag, label: "标签名" %>
+	<%#= if @expert.errors[:tag].any? %>
+		<!-- <dd class="error text-danger"><%#= @expert.errors[:tag][0] %></dd> -->
+	<%#= end %>
+
 	<%= f.input :email, label: "邮箱" %>
 	<% if @expert.errors[:email].any? %>
 		<dd class="error text-danger"><%= @expert.errors[:email][0] %></dd>

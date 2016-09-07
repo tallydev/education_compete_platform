@@ -14,10 +14,11 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string
 #  last_sign_in_ip        :string
-#  school_id              :integer
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  school_id              :integer
 #  type                   :string
+#  tag                    :string
 #
 # Indexes
 #

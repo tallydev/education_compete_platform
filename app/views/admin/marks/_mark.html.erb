@@ -9,8 +9,8 @@
   <td rowspan="3"><%= recruit.try(:player_info).try(:special) %></td>
   <td rowspan="3"><%= recruit.name %></td>
   
-  <% marks.each do |mark| %>
-    <td colspan="5">评委姓名：<%= mark.expert.phone %></td>
+  <% marks.each_with_index do |mark, index| %>
+    <td colspan="5">评委<%= index+1 %><%#= mark.expert.try(:tag) %></td>
   <% end %>
 </tr>
 <tr>

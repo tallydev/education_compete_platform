@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160824082257) do
+ActiveRecord::Schema.define(version: 20160906025139) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",                   null: false
@@ -275,6 +275,7 @@ ActiveRecord::Schema.define(version: 20160824082257) do
     t.datetime "updated_at",                          null: false
     t.integer  "school_id"
     t.string   "type"
+    t.string   "tag"
   end
 
   add_index "users", ["phone"], name: "index_users_on_phone", unique: true
