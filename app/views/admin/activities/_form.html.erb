@@ -30,6 +30,11 @@
     <dd class="error text-danger"><%= @activity.errors[:offline][0] %></dd>
   <% end %>
 
+  <%= f.input :status, label: "活动状态" %>
+  <% if @activity.errors[:status].any? %>
+    <dd class="error text-danger"><%= @activity.errors[:status][0] %></dd>
+  <% end %>
+
   <%= f.submit "#{params[:id].present? ? '更新' : '创建'}", data: { disable_with: "#{params[:id].present? ? '正在更新...' : '正在创建...'}" }, class: "btn btn-success btn-block" %>
   <p> </p>  
 <% end %>

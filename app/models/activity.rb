@@ -19,6 +19,7 @@ class Activity < ActiveRecord::Base
 
   scope :offlines, -> { where(offline: true)}
   scope :onlines, -> { where(offline: [false, nil])}
+  scope :activate, -> { where(status: :activate) }
   
   enum status: [:activate, :stop]
 

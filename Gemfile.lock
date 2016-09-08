@@ -14,7 +14,7 @@ GIT
       activesupport
 
 GEM
-  remote: https://ruby.taobao.org/
+  remote: https://gems.ruby-china.org/
   specs:
     aasm (4.11.0)
     actionmailer (4.2.6)

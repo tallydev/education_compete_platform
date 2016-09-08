@@ -7,7 +7,7 @@ class HomesController < ApplicationController
   def index
   	# 如果来自手机端，显示线下比赛列表
   	if @browser == :phone
-	    @activities = Activity.offlines
+	    @activities = Activity.offlines.activate
   	else
   		@activities = Activity.onlines
 	  	@notifications = Bulletin.all
