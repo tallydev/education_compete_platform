@@ -31,11 +31,9 @@ body{
 }
 // STHeitiSC-Medium, Heiti SC
 .banner {
-	position: relative;
+	background: image_url('info.png');
 	.competition_name {
-		position: absolute;
-		left: 18vw;
-		top: 6vh;
+		padding: 8vh 0;
 		text-align: center;
 		font-family: "STHeitiSC-Medium, Heiti SC";
 		.competition_main_name {
