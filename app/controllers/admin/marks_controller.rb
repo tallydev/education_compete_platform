@@ -63,7 +63,13 @@ class Admin::MarksController < Admin::BaseController
       blue = Spreadsheet::Format.new :color => :blue, :weight => :bold, :size => 10
       sheet1.row(0).default_format = blue
 
-      sheet1.row(0).concat %w{排名 平均分 评委人数 姓名 院校 作品名称 评委评分}
+      title =  ["排名", "平均分", "评委人数", "姓名", "院校", "作品名称"]
+      objs.first.score_marks.each_with_index do |mark,index|
+        title.push("评委#{index+1}")
+      end
+
+      sheet1.row(0).concat(title)
+
       count_row = 1
       objs.each_with_index do |obj, index|
         sheet1[count_row, 0] = index+1
@@ -73,7 +79,7 @@ class Admin::MarksController < Admin::BaseController
         sheet1[count_row, 4] = obj.try(:school).try(:name)
         sheet1[count_row, 5] = obj.name
         obj.score_marks.each_with_index do |mark,index|
-        	sheet1[count_row, index+6] = "#{mark.expert.phone.present? ? "评委#{index+1}" : ''} : #{mark.score.present? ? mark.score : 0}分"
+        	sheet1[count_row, index+6] = "#{mark.score.present? ? mark.score : 0}分"
         end      
         count_row += 1
       end
