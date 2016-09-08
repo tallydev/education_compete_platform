@@ -10,7 +10,7 @@
   <td rowspan="3"><%= recruit.name %></td>
   
   <% marks.each_with_index do |mark, index| %>
-    <td colspan="5">评委<%= index+1 %><label class="name_hidden">(<%= mark.expert.try(:name) %>)</label></td>
+    <td colspan="5">评委<%= index+1 %><label class="name_hidden">(<%= mark.expert.try(:phone) %>)</label></td>
   <% end %>
 </tr>
 <tr>
