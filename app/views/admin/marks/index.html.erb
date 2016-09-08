@@ -33,6 +33,13 @@
     </tbody>
     <tfoot>
       <%= link_to("导出为Excel", admin_marks_path(format: 'xls', activity_id: @activity.id), class: "btn btn-success") %>
+      <button onclick="show_name();" class="btn btn-info">显示评委姓名</button>
     </tfoot>
   </table>
 </div>
+
+<script type="text/javascript">
+  function show_name(){
+    $('.name_hidden').toggle()
+  }
+</script>
