@@ -55,7 +55,7 @@ module Admin
     end
 
     def activity_params
-      params.require(:activity).permit(:name, :start_time, :end_time, :short_name, :type, :offline)
+      params.require(:activity).permit(:name, :start_time, :end_time, :short_name, :type, :offline, :status)
     end
   end
 end
