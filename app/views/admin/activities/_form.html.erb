@@ -30,7 +30,7 @@
     <dd class="error text-danger"><%= @activity.errors[:offline][0] %></dd>
   <% end %>
 
-  <%= f.input :status, label: "活动状态" %>
+  <%= f.input :status, label: "活动状态", collection: Activity.statuses.keys %>
   <% if @activity.errors[:status].any? %>
     <dd class="error text-danger"><%= @activity.errors[:status][0] %></dd>
   <% end %>
