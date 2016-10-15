@@ -54,7 +54,7 @@
 			<div class="col-md-6 text-center">
 				<div class="compete-info">
 					<span class="title">
-						<%= link_to "距#{activity.short_name}#{}上传作品截止", notification_path(activity.id), "data-turbolinks" => false %>
+						<%= link_to "距#{activity.short_name}#{}上传作品截止", notification_path(activity.notification), "data-turbolinks" => false %>
 					</span>
 					<% if activity.recruit? current_player %>
 						<% recruit = activity.player_recruit current_player %>
