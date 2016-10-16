@@ -35,19 +35,19 @@
 					</div>
 				</div>
 				<!-- 比赛通知下载，报名入口 -->
+				<% is_end = Time.zone.now > @activity.end_time %>
+
+				<% 
+					if @activity.type[0..3] == "Info" 
+						new_path = new_info_competition_activity_recruit_path(1)
+					else
+						new_path = new_talk_competition_activity_recruit_path(2)
+					end
+				%>
+
 				<div class="info-bottom">				
 					<%= link_to(@notification.paper.try(:url), class: "btn info-download") do %>
 						<%= image_tag "download.svg" %>&nbsp;&nbsp;比赛通知下载
-					<% end %>
-
-					<% if @activity.recruit?(current_player) %>
-						<%= link_to([:new, @activity, :recruit], class: "btn apply-entry") do %>
-							<%= image_tag "entry.svg" %>&nbsp;&nbsp;查看报名表格
-						<% end %>
-					<% else %>
-						<%= link_to("", class: "btn apply-entry") do %>
-							<%= image_tag "entry.svg" %>&nbsp;&nbsp;报名已截止
-						<% end %>
 					<% end %>
 
 					<% if @activity.recruit? current_player %>
@@ -63,6 +63,16 @@
 							<% end %>
 						<% end %>
 
+					<% else %>
+						<% if is_end %>
+							<%= link_to("", class: "btn apply-entry") do %>
+								<%= image_tag "entry.svg" %>&nbsp;&nbsp;报名已截止
+							<% end %>
+						<% else %>
+							<%= link_to(new_path, class: "btn apply-entry") do %>
+								<%= image_tag "entry.svg" %>&nbsp;&nbsp;马上报名
+							<% end %>
+						<% end %>
 					<% end %>
 				</div>
 
