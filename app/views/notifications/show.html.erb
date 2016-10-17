@@ -69,7 +69,7 @@
 								<%= image_tag "entry.svg" %>&nbsp;&nbsp;报名已截止
 							<% end %>
 						<% else %>
-							<%= link_to(new_path, class: "btn apply-entry") do %>
+							<%= link_to([:new, activity, :recruit], class: "btn apply-entry") do %>
 								<%= image_tag "entry.svg" %>&nbsp;&nbsp;马上报名
 							<% end %>
 						<% end %>
