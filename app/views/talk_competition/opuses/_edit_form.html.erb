@@ -28,7 +28,7 @@
     <div class="form-right">
       <div class="row">
         <div class="col-md-4 push-input">
-          <div class="label1" id="upload-file-info3">
+          <div class="label1" id="upload-file-info2">
             <% if @talk_competition_opus.plan.present? %>
               <%= @talk_competition_opus.plan.file_file_name %>
             <% else %>
@@ -45,9 +45,9 @@
             <span style="display:none;">
               <%= f.simple_fields_for :plan_attributes do |r| %>
                 <% if @talk_competition_opus.plan.present? %>
-                  <%= r.file_field :file, label: false, onchange:'$("#upload-file-info3").html($(this).val());$("#upload-file-info3").css({color:"#3D96D5"})' %>
+                  <%= r.file_field :file, label: false, onchange:'$("#upload-file-info2").html($(this).val());$("#upload-file-info2").css({color:"#3D96D5"})' %>
                 <% else %>
-                  <%= r.file_field :file, label: false, required: true, onchange:'$("#upload-file-info3").html($(this).val());$("#upload-file-info3").css({color:"#3D96D5"})' %>
+                  <%= r.file_field :file, label: false, required: true, onchange:'$("#upload-file-info2").html($(this).val());$("#upload-file-info2").css({color:"#3D96D5"})' %>
                 <% end %>
               <% end %>
             </span>
