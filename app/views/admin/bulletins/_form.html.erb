@@ -1,0 +1,37 @@
+<%= simple_form_for [:admin, @bulletin], remote: true, format: :js do |f| %>
+
+  <%= f.input :title, label: "标题" %>
+  <% if @bulletin.errors[:type].any? %>
+    <dd class="error text-danger"><%= @bulletin.errors[:title][0] %></dd>
+  <% end %>
+
+  <%= f.input :content, label: "概要" %>
+  <% if @bulletin.errors[:content].any? %>
+    <dd class="error text-danger"><%= @bulletin.errors[:content][0] %></dd>
+  <% end %>
+
+  <%= f.input :activity_id, label: "关联赛事", collection: Activity.all %>
+  <% if @bulletin.errors[:activity].any? %>
+    <dd class="error text-danger"><%= @bulletin.errors[:activity][0] %></dd>
+  <% end %>
+
+  <%= f.simple_fields_for :paper_attributes do |r| %>
+    <% if @bulletin.paper.present? %>
+      <%= r.file_field :file, label: false, accept: 'application/pdf', onchange:'$("#upload-file-info3").html($(this).val());$("#upload-file-info3").css({color:"#3D96D5"})' %>
+    <% else %>
+      <%= r.file_field :file, label: false, accept: 'application/pdf', required: true, onchange:'$("#upload-file-info3").html($(this).val());$("#upload-file-info3").css({color:"#3D96D5"})' %>
+    <% end %>
+  <% end %>
+
+  <% if @bulletin.errors[:paper_attributes].any? %>
+    <dd class="error text-danger"><%= @bulletin.errors[:paper_attributes][0] %></dd>
+  <% end %>
+  
+
+
+  <%= f.submit "#{params[:id].present? ? '更新' : '创建'}", data: { disable_with: "#{params[:id].present? ? '正在更新...' : '正在创建...'}" }, class: "btn btn-success btn-block" %>
+  <p> </p>  
+<% end %>
+
+
+  
