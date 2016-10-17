@@ -14,7 +14,7 @@
     <p><span class="color_label">报名截止时间: </span><span class="color_label_info"><%= @activity.end_time.strftime("%Y年%m月%d日") %></span></p>
     <p>
       <span class="color_label">已报名人数: </span><span class="color_label_info"><%= @activity.recruits.count %>人</span>
-      <%= link_to [:new, @activity, :recruit] do %>
+      <%= link_to new_talk_competition_activity_recruit_path(@activity) do %>
         <button class="btn btn-info btn-join">查看报名表</button>
       <% end %>
     </p>
