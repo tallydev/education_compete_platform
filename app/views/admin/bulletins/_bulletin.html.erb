@@ -1,0 +1,15 @@
+<tr>
+  <td><%= item.title -%></td>
+  <td><%= item.activity.try(:name) -%></td>
+  <td><%= item.created_at.strftime('%F %H:%M') -%></td>
+  <td>
+    <div class="btn-group" role="group" aria-label="...">
+      <%= link_to edit_admin_bulletin_path(item), remote: true, format: :js do %>
+        <button type="button" class="btn btn-xs btn-warning">编辑</button>
+      <% end %> 
+      <%= link_to admin_bulletin_path(item), method: :delete, data: { confirm: '确定删除吗?' } do %>
+        <button type="button" class="btn btn-xs btn-danger">删除</button>
+      <% end %>
+    </div>
+  </td>
+</tr>

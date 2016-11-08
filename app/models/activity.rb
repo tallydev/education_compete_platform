@@ -16,6 +16,7 @@
 
 class Activity < ActiveRecord::Base
   has_many :news, dependent: :destroy
+  has_one :notification, class_name: "Bulletin"
 
   scope :offlines, -> { where(offline: true)}
   scope :onlines, -> { where(offline: [false, nil])}

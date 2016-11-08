@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   protected
   	# 判断浏览器
   	def set_browser
-	    user_agent = request.env['HTTP_USER_AGENT'].downcase 
+	    user_agent = request.env['HTTP_USER_AGENT'].try(:downcase)
 	    if user_agent.include?("iphone") || user_agent.include?("android")
 	      @browser = :phone
 	      @layout = "phone"

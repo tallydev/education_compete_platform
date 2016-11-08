@@ -16,7 +16,7 @@ class InfoCompetitionsController < ApplicationController
   end
 
   def marks
-    @recruits = current_expert.info_competition_recruits
+    @recruits = current_expert.info_competition_recruits.activity_filter(@activity)
     respond_with(@recruits)
   end
 

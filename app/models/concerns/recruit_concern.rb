@@ -4,6 +4,7 @@ module RecruitConcern
   included do
     scope :school_filter, ->(school) { where school: school }
     scope :player_filter, ->(player) { where player: player }
+    scope :activity_filter, ->(activity) { where activity: activity }
     scope :avg_mark_desc, -> { order(avg_score: :desc) }
     scope :position_asc, -> { order('position IS NULL, position ASC') }
 

@@ -43,7 +43,22 @@
       </div>
 
       <div class="item-bg">
-        <div class="item-title">说课稿</div>
+        <div class="item-title">参赛课程教学计划安排表</div>
+      </div>
+      <div class="row opus-data">
+        <div class="float-cell"><%= image_tag "pdf.png", class:"pdf-image" %></div>
+        <div class="float-cell">
+          <%= image_tag "open_eye.png" %>
+          <%= link_to "在线预览", pdfjs.full_path(file: "#{@talk_competition_opus.plan.try(:url)}"), target: "blank", "data-turbolinks" => false %>
+        </div>
+        <div class="float-cell">
+          <%= image_tag "download.png" %>
+          <%= link_to "点击下载", @talk_competition_opus.plan.try(:file).try(:url) %>
+        </div>
+      </div>
+
+      <div class="item-bg">
+        <div class="item-title">说课提纲</div>
       </div>
       <div class="row opus-data">
         <div class="float-cell"><%= image_tag "pdf.png", class:"pdf-image" %></div>

@@ -14,9 +14,9 @@
     <p><span class="color_label">报名截止时间: </span><span class="color_label_info"><%= @activity.end_time.strftime("%Y年%m月%d日") %></span></p>
     <p>
       <span class="color_label">已报名人数: </span><span class="color_label_info"><%= @activity.recruits.count %>人</span>
-      <%#= link_to [:new, @activity, :recruit] do %>
+      <%= link_to new_talk_competition_activity_recruit_path(@activity) do %>
         <button class="btn btn-info btn-join">查看报名表</button>
-      <%#= end %>
+      <% end %>
     </p>
     <p><span class="color_label">主办单位: </span><span class="color_label_info">上海市信息化教学委员会</span></p><br>
   </div>
@@ -24,8 +24,9 @@
 
     <div class="col-md-6 col-md-offset-1 center_tip1">
       <br>
-      <p><span class="color_label">作品名称: </span><span class="color_label_info">上海威客大赛</span></p>
-      <p class="file_p"><%= image_tag "check_sure.svg" %><span>说课稿</span>&nbsp&nbsp&nbsp&nbsp<span class="color_label_info">已上传</span></p>
+      <p><span class="color_label">作品名称: </span><span class="color_label_info"><%= @recruit.name %></span></p>
+      <p class="file_p"><%= image_tag "check_sure.svg" %><span>教学计划</span>&nbsp&nbsp&nbsp&nbsp<span class="color_label_info">已上传</span></p>
+      <p class="file_p"><%= image_tag "check_sure.svg" %><span>说课提纲</span>&nbsp&nbsp&nbsp&nbsp<span class="color_label_info">已上传</span></p>
       <p class="file_p"><%= image_tag "check_sure.svg" %><span>PPT文件</span>&nbsp&nbsp&nbsp&nbsp<span class="color_label_info">已上传</span></p>
       <p class="text-center">
         <%= link_to talk_competition_opus_path(@recruit.opus.id) do %>

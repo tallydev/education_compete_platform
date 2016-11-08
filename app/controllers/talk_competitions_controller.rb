@@ -16,7 +16,7 @@ class TalkCompetitionsController < ApplicationController
   end
 
   def marks
-    @recruits = current_expert.talk_competition_recruits
+    @recruits = current_expert.talk_competition_recruits.activity_filter(@activity)
     respond_with(@recruits)
   end
 
