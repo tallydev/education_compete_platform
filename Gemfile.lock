@@ -52,9 +52,15 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts-as-taggable-on (4.0.0)
+      activerecord (>= 4.0)
     annotate (2.7.1)
       activerecord (>= 3.2, < 6.0)
       rake (>= 10.4, < 12.0)
+    apitome (0.1.0)
+      kramdown
+      railties
+      rspec_api_documentation
     arel (6.0.3)
     autoprefixer-rails (6.3.7)
       execjs
@@ -70,6 +76,7 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.2)
     byebug (9.0.5)
+    china_sms (0.0.7)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.8)
@@ -89,6 +96,7 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.1.1)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -120,6 +128,7 @@ GEM
       railties (>= 3.1.0)
       turbolinks
     json (1.8.3)
+    kramdown (1.13.0)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -135,6 +144,7 @@ GEM
     minitest (5.9.0)
     multi_json (1.12.1)
     multipart-post (2.0.0)
+    mustache (1.0.3)
     mysql2 (0.4.4)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
@@ -157,6 +167,7 @@ GEM
       activerecord (>= 3.0)
     puma (2.15.3)
     rack (1.6.4)
+    rack-cors (0.4.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.6)
@@ -197,6 +208,10 @@ GEM
       json (~> 1.4)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
+    rspec (3.5.0)
+      rspec-core (~> 3.5.0)
+      rspec-expectations (~> 3.5.0)
+      rspec-mocks (~> 3.5.0)
     rspec-core (3.5.0)
       rspec-support (~> 3.5.0)
     rspec-expectations (3.5.0)
@@ -214,6 +229,10 @@ GEM
       rspec-mocks (~> 3.5.0)
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
+    rspec_api_documentation (4.8.0)
+      activesupport (>= 3.0.0)
+      mustache (~> 1.0, >= 0.99.4)
+      rspec (~> 3.0, >= 3.0.0)
     ruby-ole (1.2.12)
     sass (3.4.22)
     sass-rails (5.0.5)
@@ -234,6 +253,10 @@ GEM
     simple_form (3.2.1)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
+    simple_token_authentication (1.14.0)
+      actionmailer (>= 3.2.6, < 6)
+      actionpack (>= 3.2.6, < 6)
+      devise (>= 3.2, < 6)
     spreadsheet (1.1.1)
       ruby-ole (>= 1.0)
     spreadsheet_on_rails (1.0.0)
@@ -274,18 +297,22 @@ PLATFORMS
 
 DEPENDENCIES
   aasm
+  acts-as-taggable-on (~> 4.0)
   annotate
+  apitome
   backstretch-rails
   bootstrap-sass
   by_star!
   byebug
+  china_sms
   ckeditor!
-  coffee-rails (~> 4.1.0)
+  coffee-rails
   devise
+  devise-i18n
   factory_girl_rails
   faraday
   font-awesome-sass-rails
-  jbuilder (~> 2.0)
+  jbuilder
   jquery-fileupload-rails
   jquery-rails
   jquery-turbolinks
@@ -295,26 +322,29 @@ DEPENDENCIES
   paperclip
   paperclip-av-transcoder
   pdfjs_viewer-rails
-  puma (= 2.15.3)
-  rails (= 4.2.6)
+  puma
+  rack-cors
+  rails
   rails-i18n
   ransack
   responders
   rspec-rails (~> 3.4)
-  sass-rails (~> 5.0)
+  rspec_api_documentation
+  sass-rails
   sdoc (~> 0.4.0)
   seedbank
   select2-rails
   settingslogic
   shoulda-matchers (~> 3.1)
   simple_form
+  simple_token_authentication (~> 1.0)
   spreadsheet_on_rails
   spring
   sqlite3
   turbolinks
-  uglifier (>= 1.3.0)
+  uglifier
   web-console (~> 2.0)
-  will_paginate (~> 3.0.6)
+  will_paginate
   will_paginate-bootstrap
 
 BUNDLED WITH

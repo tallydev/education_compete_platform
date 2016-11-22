@@ -160,6 +160,7 @@ end
 # == Route Map
 #
 #                                       Prefix Verb   URI Pattern                                                                                      Controller#Action
+#                                      apitome        /api/docs                                                                                        Apitome::Engine
 #                                        pdfjs        /pdfjs                                                                                           PdfjsViewer::Rails::Engine
 #                                         root GET    /                                                                                                homes#index
 #                             new_user_session GET    /users/sign_in(.:format)                                                                         user/sessions#new
@@ -457,6 +458,11 @@ end
 #                                              PATCH  /talk_competition/:id(.:format)                                                                  talk_competition#update
 #                                              PUT    /talk_competition/:id(.:format)                                                                  talk_competition#update
 #                                              DELETE /talk_competition/:id(.:format)                                                                  talk_competition#destroy
+#
+# Routes for Apitome::Engine:
+#   root GET  /                         apitome/docs#index
+#        GET  /simulate/*path(.:format) apitome/docs#simulate
+#        GET  /*path(.:format)          apitome/docs#show
 #
 # Routes for PdfjsViewer::Rails::Engine:
 # minimal GET  /minimal(.:format) pdfjs_viewer/viewer#minimal

@@ -3,15 +3,15 @@ source 'https://gems.ruby-china.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.6'
+gem 'rails' 
 # Use mysql2 as the database for Active Record
 gem 'mysql2'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails' 
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier' 
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails' 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem "select2-rails"
@@ -21,7 +21,7 @@ gem 'jquery-turbolinks'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder' 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
@@ -35,7 +35,7 @@ gem 'bootstrap-sass'
 gem 'backstretch-rails'
 
 # Pagination library for Rails, Sinatra, Merb, DataMapper, and more
-gem 'will_paginate', '~> 3.0.6'
+gem 'will_paginate' 
 gem 'will_paginate-bootstrap'
 # Flexible authentication solution for Rails with Warden.
 gem 'devise'
@@ -76,7 +76,7 @@ gem 'by_star', git: "git://github.com/radar/by_star"
 gem 'aasm'
 
 # A ruby web server built for concurrency
-gem 'puma', '2.15.3'
+gem 'puma' 
 
 # Annotate Rails classes with schema and routes info
 gem 'annotate'
@@ -89,6 +89,28 @@ gem 'pdfjs_viewer-rails'
 gem 'rails-i18n'
 
 gem "mediaelement_rails"
+#########################
+# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
+gem 'rack-cors'
+# Automatically generate API documentation from RSpec, Read more: https://github.com/zipmark/rspec_api_documentation
+gem 'rspec_api_documentation'
+# Simple (but safe) token authentication for Rails apps or API with Devise. Read more: https://github.com/gonzalo-bulnes/simple_token_authentication
+gem 'simple_token_authentication', '~> 1.0'
+# An API documentation reader for RSpec API Documentation. Read more: https://github.com/jejacks0n/apitome
+gem "apitome"
+# # Easy file attachment management for ActiveRecord
+# # Read more: https://github.com/thoughtbot/paperclip
+# # First install: sudo apt-get install imagemagick -y
+# gem "paperclip", "~> 5.0.0"
+# Translations for the devise gem
+# Read more: https://github.com/tigrish/devise-i18n
+gem 'devise-i18n'
+# SMS
+gem 'china_sms'
+# A tagging plugin for Rails applications that allows for custom tagging along dynamic contexts.
+# Read More ：https://github.com/mbleigh/acts-as-taggable-on
+gem 'acts-as-taggable-on', '~> 4.0'
+#########################
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
