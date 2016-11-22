@@ -59,7 +59,7 @@ gem 'settingslogic'
 gem 'ckeditor', github: 'galetahub/ckeditor'
 
 # Easy file attachment management for ActiveRecord
-gem "paperclip"
+gem "paperclip" ##############
 # Audio/Video Transcoder for Paperclip using FFMPEG/Avconv
 gem 'paperclip-av-transcoder'
 
