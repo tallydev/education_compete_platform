@@ -22,7 +22,7 @@
 class Media < ActiveRecord::Base
   belongs_to :mediaable, polymorphic: true
 
-
+   # paperclip gem
   has_attached_file :file
     # :path => ':rails_root/public/system/:id/:attachment/:style/:basename.:extension',
     # :url => '/system/:id/:attachment/:style/:basename.:extension'

@@ -5,7 +5,7 @@ require 'rspec_api_documentation/dsl'
 RspecApiDocumentation.configure do |config|
   config.format = [:json, :html]
   config.curl_host = 'http://smart-life.com/'
-  config.api_name = "Cloud Closet API"
+  config.api_name = "Education Compete Platform API"
   # Change how the post body is formatted by default, you can still override by `raw_post`
   # Can be :json, :xml, or a proc that will be passed the params
   config.post_body_formatter = Proc.new { |params| params }
