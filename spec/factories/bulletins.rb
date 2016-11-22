@@ -3,8 +3,8 @@
 # Table name: bulletins
 #
 #  id          :integer          not null, primary key
-#  title       :string
-#  content     :text
+#  title       :string(255)
+#  content     :text(65535)
 #  activity_id :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null

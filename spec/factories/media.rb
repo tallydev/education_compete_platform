@@ -3,12 +3,12 @@
 # Table name: media
 #
 #  id                :integer          not null, primary key
-#  type              :string
-#  media_type        :string
+#  type              :string(255)
+#  media_type        :string(255)
 #  mediaable_id      :integer
-#  mediaable_type    :string
-#  file_file_name    :string
-#  file_content_type :string
+#  mediaable_type    :string(255)
+#  file_file_name    :string(255)
+#  file_content_type :string(255)
 #  file_file_size    :integer
 #  file_updated_at   :datetime
 #  created_at        :datetime         not null

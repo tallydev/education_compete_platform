@@ -3,7 +3,7 @@
 # Table name: talk_competition_opuses
 #
 #  id         :integer          not null, primary key
-#  content    :string
+#  content    :string(255)
 #  recruit_id :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

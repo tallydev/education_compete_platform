@@ -1,26 +1,28 @@
 # == Schema Information
 #
-# Table name: papers
+# Table name: sounds
 #
 #  id                :integer          not null, primary key
 #  type              :string(255)
-#  paper_type        :string(255)
-#  paperable_id      :integer
-#  paperable_type    :string(255)
+#  sound_type        :string(255)
+#  resourse_id       :integer
 #  file_file_name    :string(255)
 #  file_content_type :string(255)
 #  file_file_size    :integer
 #  file_updated_at   :datetime
+#  soundable_id      :integer
+#  soundable_type    :string(255)
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #
 # Indexes
 #
-#  index_papers_on_paperable_type_and_paperable_id  (paperable_type,paperable_id)
+#  index_sounds_on_resourse_id                      (resourse_id)
+#  index_sounds_on_soundable_type_and_soundable_id  (soundable_type,soundable_id)
 #
 
 require 'rails_helper'
 
-RSpec.describe Paper, type: :model do
+RSpec.describe Sound, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"
 end

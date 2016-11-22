@@ -8,22 +8,25 @@
 #  activity_id   :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
-#  project       :string
-#  name          :string
-#  version       :string
-#  comment       :text
-#  cooperater_1  :string
-#  school_1      :string
-#  course_1      :string
-#  cooperater_2  :string
-#  school_2      :string
-#  course_2      :string
-#  cooperater_3  :string
-#  school_3      :string
-#  course_3      :string
-#  school_person :string
-#  school_phone  :string
+#  project       :string(255)
+#  name          :string(255)
+#  version       :string(255)
+#  comment       :text(65535)
+#  cooperater_1  :string(255)
+#  school_1      :string(255)
+#  course_1      :string(255)
+#  cooperater_2  :string(255)
+#  school_2      :string(255)
+#  course_2      :string(255)
+#  cooperater_3  :string(255)
+#  school_3      :string(255)
+#  course_3      :string(255)
+#  school_person :string(255)
+#  school_phone  :string(255)
 #  total_score   :integer          default(0)
+#  avg_score     :float(24)
+#  score_count   :integer
+#  position      :integer
 #
 # Indexes
 #

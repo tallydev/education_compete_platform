@@ -6,7 +6,7 @@
 #  recruit_id :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  content    :string
+#  content    :string(255)
 #
 # Indexes
 #

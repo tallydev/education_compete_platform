@@ -3,13 +3,13 @@
 # Table name: marks
 #
 #  id               :integer          not null, primary key
-#  score            :float
+#  score            :float(24)
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
-#  item_array       :text
+#  item_array       :text(65535)
 #  expert_id        :integer
 #  recruitable_id   :integer
-#  recruitable_type :string
+#  recruitable_type :string(255)
 #
 # Indexes
 #

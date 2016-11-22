@@ -8,12 +8,15 @@
 #  activity_id   :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
-#  school_person :string
-#  school_phone  :string
-#  name          :string
-#  comment       :text
-#  work_time     :string
+#  school_person :string(255)
+#  school_phone  :string(255)
+#  name          :string(255)
+#  comment       :text(65535)
+#  work_time     :string(255)
 #  total_score   :integer          default(0)
+#  avg_score     :float(24)
+#  score_count   :integer
+#  position      :integer
 #
 # Indexes
 #
