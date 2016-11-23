@@ -11,4 +11,10 @@
 #
 
 class Resourse::Video < ActiveRecord::Base
+  ######## catalog_content ################
+  has_one :video, -> { where media_type: "video" }, class_name: "Media", as: :mediaable, dependent: :destroy
+  accepts_nested_attributes_for :video, allow_destroy: true
+
+  ########## order_DESC ####################
+  scope :order_desc, -> {order("updated_at DESC")}
 end

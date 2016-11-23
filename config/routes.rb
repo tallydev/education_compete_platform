@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   namespace :resourse do
-    resources :videos , only: [:show, :index, :create, :destroy]
+    resources :videos, only: [:show, :index, :create, :destroy]
+    get 'download', on: :member
   end
   resources :resourses
   resources :resourses
