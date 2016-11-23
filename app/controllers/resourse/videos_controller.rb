@@ -31,14 +31,19 @@ class Resourse::VideosController < ApplicationController
   # end
 
   def destroy
-    @resourse_video.destroy
-    respond_with(@resourse_video)
+    if @resourse_video.present?
+      @resourse_video.destroy
+      respond_with(@resourse_video)
+    else
+      @error = "内容不存在 ！"
+      respond_with(@error)
+    end
   end
 
   def download
     if @resourse_video.present?
-      send_file @resourse_video.media.file.path,
-        type: @resourse_video.media.file.content_type,
+      send_file @resourse_video.video.file.path,
+        type: @resourse_video.video.file.content_type,
         x_sendfile: true
     else
       @error = "下载的内容不存在 ！"
@@ -53,7 +58,7 @@ class Resourse::VideosController < ApplicationController
 
     def resourse_video_params
       params.require(:resourse_video).permit(
-        videos_attributes: [:id, :media, :_destroy]
+        video_attributes: [:id, :file, :_destroy]
         )
     end
 end
