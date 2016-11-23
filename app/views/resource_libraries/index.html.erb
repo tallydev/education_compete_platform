@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Resource Libraries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Catalog</th>
+      <th>Mdate</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @resource_libraries.each do |resource_library| %>
+      <tr>
+        <td><%= resource_library.title %></td>
+        <td><%= resource_library.catalog %></td>
+        <td><%= resource_library.mdate %></td>
+        <td><%= link_to 'Show', resource_library %></td>
+        <td><%= link_to 'Edit', edit_resource_library_path(resource_library) %></td>
+        <td><%= link_to 'Destroy', resource_library, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Resource library', new_resource_library_path %>

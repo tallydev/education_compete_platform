@@ -1,0 +1,13 @@
+<%= simple_form_for(@resource_library) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :catalog %>
+    <%= f.input :mdate %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @resource_library.title %>
+</p>
+
+<p>
+  <strong>Catalog:</strong>
+  <%= @resource_library.catalog %>
+</p>
+
+<p>
+  <strong>Mdate:</strong>
+  <%= @resource_library.mdate %>
+</p>
+
+<%= link_to 'Edit', edit_resource_library_path(@resource_library) %> |
+<%= link_to 'Back', resource_libraries_path %>

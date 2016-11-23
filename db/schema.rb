@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161123012827) do
+ActiveRecord::Schema.define(version: 20161123095914) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",       limit: 255,             null: false
@@ -198,20 +198,20 @@ ActiveRecord::Schema.define(version: 20161123012827) do
   add_index "players", ["reset_password_token"], name: "index_players_on_reset_password_token", unique: true, using: :btree
   add_index "players", ["school_id"], name: "index_players_on_school_id", using: :btree
 
+  create_table "resource_libraries", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.integer  "catalog",    limit: 4
+    t.string   "mdate",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "resourse_videos", force: :cascade do |t|
     t.string   "type",       limit: 255
     t.string   "video_type", limit: 255
     t.integer  "catalog",    limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-  end
-
-  create_table "resourses", force: :cascade do |t|
-    t.string   "type",          limit: 255
-    t.string   "resourse_type", limit: 255
-    t.integer  "catalog",       limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
   end
 
   create_table "schools", force: :cascade do |t|

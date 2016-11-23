@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :resource_libraries
   #####################  resourse  ##########################
   namespace :resourse do
     resources :videos, only: [:show, :index, :create, :destroy] do
@@ -170,6 +171,14 @@ end
 #
 #                                       Prefix Verb   URI Pattern                                                                                      Controller#Action
 #                                      apitome        /api/docs                                                                                        Apitome::Engine
+#                           resource_libraries GET    /resource_libraries(.:format)                                                                    resource_libraries#index
+#                                              POST   /resource_libraries(.:format)                                                                    resource_libraries#create
+#                         new_resource_library GET    /resource_libraries/new(.:format)                                                                resource_libraries#new
+#                        edit_resource_library GET    /resource_libraries/:id/edit(.:format)                                                           resource_libraries#edit
+#                             resource_library GET    /resource_libraries/:id(.:format)                                                                resource_libraries#show
+#                                              PATCH  /resource_libraries/:id(.:format)                                                                resource_libraries#update
+#                                              PUT    /resource_libraries/:id(.:format)                                                                resource_libraries#update
+#                                              DELETE /resource_libraries/:id(.:format)                                                                resource_libraries#destroy
 #                      download_resourse_video GET    /resourse/videos/:id/download(.:format)                                                          resourse/videos#download
 #                              resourse_videos GET    /resourse/videos(.:format)                                                                       resourse/videos#index
 #                                              POST   /resourse/videos(.:format)                                                                       resourse/videos#create
