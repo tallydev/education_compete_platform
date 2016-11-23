@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :resourse do
+    resources :videos , only: [:show, :index, :create, :destroy]
+  end
   resources :resourses
   resources :resourses
   resources :resourses
@@ -164,6 +167,14 @@ end
 #
 #                                       Prefix Verb   URI Pattern                                                                                      Controller#Action
 #                                      apitome        /api/docs                                                                                        Apitome::Engine
+#                              resourse_videos GET    /resourse/videos(.:format)                                                                       resourse/videos#index
+#                                              POST   /resourse/videos(.:format)                                                                       resourse/videos#create
+#                           new_resourse_video GET    /resourse/videos/new(.:format)                                                                   resourse/videos#new
+#                          edit_resourse_video GET    /resourse/videos/:id/edit(.:format)                                                              resourse/videos#edit
+#                               resourse_video GET    /resourse/videos/:id(.:format)                                                                   resourse/videos#show
+#                                              PATCH  /resourse/videos/:id(.:format)                                                                   resourse/videos#update
+#                                              PUT    /resourse/videos/:id(.:format)                                                                   resourse/videos#update
+#                                              DELETE /resourse/videos/:id(.:format)                                                                   resourse/videos#destroy
 #                                    resourses GET    /resourses(.:format)                                                                             resourses#index
 #                                              POST   /resourses(.:format)                                                                             resourses#create
 #                                 new_resourse GET    /resourses/new(.:format)                                                                         resourses#new

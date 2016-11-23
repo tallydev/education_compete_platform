@@ -1,0 +1,13 @@
+<%= simple_form_for(@resourse_video) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :type %>
+    <%= f.input :video_type %>
+    <%= f.input :catalog %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

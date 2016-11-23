@@ -1,0 +1,2 @@
+module Resourse::VideosHelper
+end
