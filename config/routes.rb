@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :resourses
+  resources :resourses
+  resources :resourses
   mount PdfjsViewer::Rails::Engine => "/pdfjs", as: 'pdfjs'
   
   root to: "homes#index"
@@ -161,6 +164,30 @@ end
 #
 #                                       Prefix Verb   URI Pattern                                                                                      Controller#Action
 #                                      apitome        /api/docs                                                                                        Apitome::Engine
+#                                    resourses GET    /resourses(.:format)                                                                             resourses#index
+#                                              POST   /resourses(.:format)                                                                             resourses#create
+#                                 new_resourse GET    /resourses/new(.:format)                                                                         resourses#new
+#                                edit_resourse GET    /resourses/:id/edit(.:format)                                                                    resourses#edit
+#                                     resourse GET    /resourses/:id(.:format)                                                                         resourses#show
+#                                              PATCH  /resourses/:id(.:format)                                                                         resourses#update
+#                                              PUT    /resourses/:id(.:format)                                                                         resourses#update
+#                                              DELETE /resourses/:id(.:format)                                                                         resourses#destroy
+#                                              GET    /resourses(.:format)                                                                             resourses#index
+#                                              POST   /resourses(.:format)                                                                             resourses#create
+#                                              GET    /resourses/new(.:format)                                                                         resourses#new
+#                                              GET    /resourses/:id/edit(.:format)                                                                    resourses#edit
+#                                              GET    /resourses/:id(.:format)                                                                         resourses#show
+#                                              PATCH  /resourses/:id(.:format)                                                                         resourses#update
+#                                              PUT    /resourses/:id(.:format)                                                                         resourses#update
+#                                              DELETE /resourses/:id(.:format)                                                                         resourses#destroy
+#                                              GET    /resourses(.:format)                                                                             resourses#index
+#                                              POST   /resourses(.:format)                                                                             resourses#create
+#                                              GET    /resourses/new(.:format)                                                                         resourses#new
+#                                              GET    /resourses/:id/edit(.:format)                                                                    resourses#edit
+#                                              GET    /resourses/:id(.:format)                                                                         resourses#show
+#                                              PATCH  /resourses/:id(.:format)                                                                         resourses#update
+#                                              PUT    /resourses/:id(.:format)                                                                         resourses#update
+#                                              DELETE /resourses/:id(.:format)                                                                         resourses#destroy
 #                                        pdfjs        /pdfjs                                                                                           PdfjsViewer::Rails::Engine
 #                                         root GET    /                                                                                                homes#index
 #                             new_user_session GET    /users/sign_in(.:format)                                                                         user/sessions#new

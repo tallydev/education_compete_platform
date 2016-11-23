@@ -15,11 +15,6 @@
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #
-# Indexes
-#
-#  index_sounds_on_resourse_id                      (resourse_id)
-#  index_sounds_on_soundable_type_and_soundable_id  (soundable_type,soundable_id)
-#
 
 class Sound < ActiveRecord::Base
   belongs_to :soundable,  polymorphic: true

@@ -3,9 +3,9 @@ class CreateSounds < ActiveRecord::Migration
     create_table :sounds do |t|
       t.string :type
       t.string :sound_type
-      t.references :resourse,index: true, foreign_key: true
+      t.integer :resourse_id
       t.attachment :file
-      t.references :soundable, polymorphic: true, index: true
+      t.references :soundable, polymorphic: true
 
       t.timestamps null: false
     end
