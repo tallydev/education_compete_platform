@@ -21,6 +21,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Medium, type: :model do
+RSpec.describe Media, type: :model do
   it { should belong_to(:mediaable) } 
+  # it { should have_one(:file) } 
 end

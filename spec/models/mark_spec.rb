@@ -20,5 +20,6 @@
 require 'rails_helper'
 
 RSpec.describe Mark, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to(:expert) }
+  it { should belong_to(:recruitable) }
 end

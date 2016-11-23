@@ -17,5 +17,6 @@
 require 'rails_helper'
 
 RSpec.describe Bulletin, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to(:activity) }
+  it { should have_one(:paper) } 
 end

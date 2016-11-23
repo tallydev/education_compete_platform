@@ -20,4 +20,5 @@ require 'rails_helper'
 
 RSpec.describe Sound, type: :model do
   it { should belong_to(:soundable) } 
+  # it { should have_one(:file) } 
 end

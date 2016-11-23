@@ -16,5 +16,10 @@
 require 'rails_helper'
 
 RSpec.describe TalkCompetition::Opus, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to(:recruit) } 
+
+  it { should have_one(:media) } 
+  it { should have_one(:ppt) } 
+  it { should have_one(:note) } 
+  it { should have_one(:plan) } 
 end

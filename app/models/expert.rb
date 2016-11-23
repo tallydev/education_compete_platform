@@ -29,11 +29,11 @@
 
 class Expert < User
 
-	attr_accessor :name
+  attr_accessor :name
 
-	validates :phone, :email, :password, presence: true
+  validates :phone, :email, :password, presence: true
 
-	has_many :marks, dependent: :destroy
+  has_many :marks, dependent: :destroy
 
   ##################   InfoCompetition     ########################
   has_many :info_competition_recruits, through: :marks, source: :recruitable, source_type: "InfoCompetition::Recruit", dependent: :destroy
@@ -41,7 +41,7 @@ class Expert < User
   ##################   TalkCompetition     ########################
   has_many :talk_competition_recruits, through: :marks, source: :recruitable, source_type: "TalkCompetition::Recruit", dependent: :destroy
 
-	def name
-		self.try(:user_info).try(:name)
-	end
+  def name
+	self.try(:user_info).try(:name)
+  end
 end

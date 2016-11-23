@@ -23,4 +23,5 @@ require 'rails_helper'
 
 RSpec.describe Paper, type: :model do
   it { should belong_to(:paperable) } 
+  # it { should have_one(:file) }
 end
