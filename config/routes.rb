@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
-  resources :resource_libraries
+  
   #####################  resourse  ##########################
-  namespace :resourse do
-    resources :videos, only: [:show, :index, :create, :destroy] do
-      member do
-        get 'download'
-      end 
-    end 
+  resources :resource_libraries, only: [:show, :index, :destroy, :create] do
+    collection do
+      get :is_video
+      get :is_document
+      get :is_form
+      get :is_courseware
+      get :is_photo
+      get :is_audio
+    end
+    member do
+      get :download
+    end
   end
   ###########################################################
   mount PdfjsViewer::Rails::Engine => "/pdfjs", as: 'pdfjs'
