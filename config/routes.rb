@@ -2,14 +2,6 @@ Rails.application.routes.draw do
   
   #####################  resourse  ##########################
   resources :resource_libraries, only: [:show, :index, :destroy, :create] do
-    collection do
-      get :is_video
-      get :is_document
-      get :is_form
-      get :is_courseware
-      get :is_photo
-      get :is_audio
-    end
     member do
       get :download
     end

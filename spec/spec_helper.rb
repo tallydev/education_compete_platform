@@ -16,10 +16,15 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+ 
+# undefined method `create_list' for #<RSpec::ExampleGroups::Nested::GETResourceLibraries:0x00000004bce608>
+########################### 
+require 'factory_girl_rails'
+###########################
 RSpec.configure do |config|
 
   ##############################################
-  # config.include FactoryGirl::Syntax::Methods
+  config.include FactoryGirl::Syntax::Methods
   
   config.before(:suite) do
     begin
