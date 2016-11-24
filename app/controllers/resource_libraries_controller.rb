@@ -70,29 +70,59 @@ class ResourceLibrariesController < ApplicationController
     if @resource_library.present?
       case @resource_library.catalog
         when "video"
-          send_file @resource_library.video.file.path,
-          type: @resource_library.video.file.content_type,
-          x_sendfile: true
+          if @resource_library.video.present?
+            send_file File.dirname(__FILE__), @resource_library.video,
+            type: @resource_library.video.content_type,
+            x_sendfile: true
+          else
+            @error = "没有记录，下载失败！ ！"
+            respond_with(@error)
+          end
         when "document"
-          send_file @resource_library.document.file.path,
-          type: @resource_library.document.file.content_type,
-          x_sendfile: true
+          if @resource_library.document.present?
+            send_file File.dirname(__FILE__), @resource_library.document,
+            type: @resource_library.document.content_type,
+            x_sendfile: true
+          else
+            @error = "没有记录，下载失败！ ！"
+            respond_with(@error)
+          end
         when "form"
-          send_file @resource_library.form.file.path,
-          type: @resource_library.form.file.content_type,
-          x_sendfile: true
+          if @resource_library.form.present?
+            send_file File.dirname(__FILE__), @resource_library.form,
+            type: @resource_library.form.content_type,
+            x_sendfile: true
+          else
+            @error = "没有记录，下载失败！ ！"
+            respond_with(@error)
+          end
         when "courseware"
-          send_file @resource_library.courseware.file.path,
-          type: @resource_library.courseware.file.content_type,
-          x_sendfile: true         
+          if @resource_library.courseware.present?
+            send_file File.dirname(__FILE__), @resource_library.courseware,
+            type: @resource_library.courseware.content_type,
+            x_sendfile: true
+          else
+            @error = "没有记录，下载失败！ ！"
+            respond_with(@error)
+          end       
         when "picture"
-          send_file @resource_library.picture.file.path,
-          type: @resource_library.picture.file.content_type,
-          x_sendfile: true
+          if @resource_library.picture
+            send_file File.dirname(__FILE__), @resource_library.picture,
+            type: @resource_library.picture.content_type,
+            x_sendfile: true
+          else
+            @error = "没有记录，下载失败！ ！"
+            respond_with(@error)
+          end
         when "audio"
-          send_file @resource_library.audio.file.path,
-          type: @resource_library.audio.file.content_type,
-          x_sendfile: true
+          if @resource_library.audio.present?
+            send_file File.dirname(__FILE__), @resource_library.audio,
+            type: @resource_library.audio.content_type,
+            x_sendfile: true
+          else
+            @error = "没有记录，下载失败！ ！"
+            respond_with(@error)
+          end
       end
     else
       @error = "下载的内容不存在 ！"

@@ -63,4 +63,16 @@ class ResourceLibrary < ActiveRecord::Base
   def resource_library_catalog
     I18n.t :"resource_library_catalog.#{catalog}"
   end
+
+  ############### Download ################
+  def send_file(file)
+            send_file File.dirname(__FILE__), self.file,
+            type: self.file.content_type,
+            x_sendfile: true
+  end
+  ################ error #################
+  def error_info(message)
+    @error = message
+    respond_with(@error)
+  end
 end

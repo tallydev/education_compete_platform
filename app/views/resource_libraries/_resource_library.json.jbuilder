@@ -1,4 +1,5 @@
-json.extract! resource_library, :id, :title, :catalog, :mdate, :created_at, :updated_at
+json.extract! resource_library, :id, :title, :mdate, :created_at, :updated_at
+json.catalog resource_library.resource_library_catalog
   case resource_library.catalog
    	when "video"
     	json.video resource_library.video.try(:url)
