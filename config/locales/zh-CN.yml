@@ -14,3 +14,13 @@ zh-CN:
             password_confirmation:
               confirmation: 两次输入密码不同！
               blank: "重置密码不能为空"
+
+###############resource_library_catalog####################
+resource_library_catalog:
+  video: "视频"
+  document: "文档"
+  form: "表格"
+  courseware: "课件"
+  picture: "图片"
+  audio: "音频
+###########################################################
