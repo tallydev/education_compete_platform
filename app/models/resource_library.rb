@@ -59,4 +59,8 @@ class ResourceLibrary < ActiveRecord::Base
   # scope :is_courseware, -> {where(catalog: 4)}
   # scope :is_photo, -> {where(catalog: 5)}
   # scope :is_audio, -> {where(catalog: 6)}
+
+  def resource_library_catalog
+    I18n.t :"resource_library_catalog.#{catalog}"
+  end
 end
