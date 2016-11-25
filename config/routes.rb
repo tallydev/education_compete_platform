@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :appraises
   resources :manager_feedbacks
   resources :manager_feedbacks
   resources :player_feedbacks
@@ -173,11 +174,27 @@ end
 #
 #                                       Prefix Verb   URI Pattern                                                                                      Controller#Action
 #                                      apitome        /api/docs                                                                                        Apitome::Engine
+#                                    appraises GET    /appraises(.:format)                                                                             appraises#index
+#                                              POST   /appraises(.:format)                                                                             appraises#create
+#                                 new_appraise GET    /appraises/new(.:format)                                                                         appraises#new
+#                                edit_appraise GET    /appraises/:id/edit(.:format)                                                                    appraises#edit
+#                                     appraise GET    /appraises/:id(.:format)                                                                         appraises#show
+#                                              PATCH  /appraises/:id(.:format)                                                                         appraises#update
+#                                              PUT    /appraises/:id(.:format)                                                                         appraises#update
+#                                              DELETE /appraises/:id(.:format)                                                                         appraises#destroy
 #                            manager_feedbacks GET    /manager_feedbacks(.:format)                                                                     manager_feedbacks#index
 #                                              POST   /manager_feedbacks(.:format)                                                                     manager_feedbacks#create
 #                         new_manager_feedback GET    /manager_feedbacks/new(.:format)                                                                 manager_feedbacks#new
 #                        edit_manager_feedback GET    /manager_feedbacks/:id/edit(.:format)                                                            manager_feedbacks#edit
 #                             manager_feedback GET    /manager_feedbacks/:id(.:format)                                                                 manager_feedbacks#show
+#                                              PATCH  /manager_feedbacks/:id(.:format)                                                                 manager_feedbacks#update
+#                                              PUT    /manager_feedbacks/:id(.:format)                                                                 manager_feedbacks#update
+#                                              DELETE /manager_feedbacks/:id(.:format)                                                                 manager_feedbacks#destroy
+#                                              GET    /manager_feedbacks(.:format)                                                                     manager_feedbacks#index
+#                                              POST   /manager_feedbacks(.:format)                                                                     manager_feedbacks#create
+#                                              GET    /manager_feedbacks/new(.:format)                                                                 manager_feedbacks#new
+#                                              GET    /manager_feedbacks/:id/edit(.:format)                                                            manager_feedbacks#edit
+#                                              GET    /manager_feedbacks/:id(.:format)                                                                 manager_feedbacks#show
 #                                              PATCH  /manager_feedbacks/:id(.:format)                                                                 manager_feedbacks#update
 #                                              PUT    /manager_feedbacks/:id(.:format)                                                                 manager_feedbacks#update
 #                                              DELETE /manager_feedbacks/:id(.:format)                                                                 manager_feedbacks#destroy

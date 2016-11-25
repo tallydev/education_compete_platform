@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161125144006) do
+ActiveRecord::Schema.define(version: 20161125153203) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",       limit: 255,             null: false
@@ -24,6 +24,20 @@ ActiveRecord::Schema.define(version: 20161125144006) do
     t.string   "short_name", limit: 255
     t.boolean  "offline"
   end
+
+  create_table "appraises", force: :cascade do |t|
+    t.integer  "user_id",            limit: 4
+    t.integer  "teacher_id",         limit: 4
+    t.text     "remark",             limit: 65535
+    t.string   "degree",             limit: 255
+    t.integer  "training_course_id", limit: 4
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
+  add_index "appraises", ["teacher_id"], name: "index_appraises_on_teacher_id", using: :btree
+  add_index "appraises", ["training_course_id"], name: "index_appraises_on_training_course_id", using: :btree
+  add_index "appraises", ["user_id"], name: "index_appraises_on_user_id", using: :btree
 
   create_table "bulletins", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -112,21 +126,6 @@ ActiveRecord::Schema.define(version: 20161125144006) do
   add_index "info_competition_recruits", ["activity_id"], name: "index_info_competition_recruits_on_activity_id", using: :btree
   add_index "info_competition_recruits", ["player_id"], name: "index_info_competition_recruits_on_player_id", using: :btree
   add_index "info_competition_recruits", ["school_id"], name: "index_info_competition_recruits_on_school_id", using: :btree
-
-  create_table "manager_feedbacks", force: :cascade do |t|
-    t.integer  "admin_id",            limit: 4
-    t.integer  "training_course_id",  limit: 4
-    t.string   "organizer",           limit: 255
-    t.string   "total_hours",         limit: 255
-    t.string   "total_expenses",      limit: 255
-    t.text     "total_expenses_info", limit: 65535
-    t.text     "feedback",            limit: 65535
-    t.text     "remark",              limit: 65535
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
-  end
-
-  add_index "manager_feedbacks", ["admin_id"], name: "index_manager_feedbacks_on_admin_id", using: :btree
 
   create_table "marks", force: :cascade do |t|
     t.float    "score",            limit: 24
