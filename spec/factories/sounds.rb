@@ -18,9 +18,6 @@
 
 FactoryGirl.define do
   factory :sound do
-    type ""
-    sound_type "MyString"
-    file ""
-    soundable nil
+    photo {Rack::Test::UploadedFile.new('./spec/assets/spec.mp3', 'sound/mp3')}
   end
 end

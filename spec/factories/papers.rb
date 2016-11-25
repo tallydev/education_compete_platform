@@ -21,6 +21,6 @@
 
 FactoryGirl.define do
   factory :paper do
-    
+    photo {Rack::Test::UploadedFile.new('./spec/assets/spec.ppt', 'paper/ppt')}
   end
 end

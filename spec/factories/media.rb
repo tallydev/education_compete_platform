@@ -21,6 +21,6 @@
 
 FactoryGirl.define do
   factory :media do
-    # photo {Rack::Test::UploadedFile.new('./spec/assets/news.png', 'image/png')} #   
+    photo {Rack::Test::UploadedFile.new('./spec/assets/spec.mp4', 'media/mp4')}   
   end
 end

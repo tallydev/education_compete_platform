@@ -15,9 +15,6 @@ class ResourceLibrary < ActiveRecord::Base
   has_one :video, -> { where media_type: "video" }, class_name: "Media", as: :mediaable, dependent: :destroy
   accepts_nested_attributes_for :video, allow_destroy: true
 
-  has_one :picture, -> { where photo_type: "picture" }, class_name: "Image", as: :imageable, dependent: :destroy
-  accepts_nested_attributes_for :picture, allow_destroy: true
-
   has_one :document, -> { where paper_type: "document" }, class_name: "Paper", as: :paperable, dependent: :destroy
   accepts_nested_attributes_for :document, allow_destroy: true
 
@@ -27,10 +24,13 @@ class ResourceLibrary < ActiveRecord::Base
   has_one :courseware, -> { where paper_type: "courseware" }, class_name: "Paper", as: :paperable, dependent: :destroy
   accepts_nested_attributes_for :courseware, allow_destroy: true
 
+  has_one :picture, -> { where photo_type: "picture" }, class_name: "Image", as: :imageable, dependent: :destroy
+  accepts_nested_attributes_for :picture, allow_destroy: true
+
   has_one :audio, -> { where sound_type: "audio" }, class_name: "Sound", as: :soundable, dependent: :destroy
   accepts_nested_attributes_for :audio, allow_destroy: true
 
-  has_one :image, as: :imageable
+  # has_one :image, as: :imageable
   
   ########## order_DESC ####################
   scope :order_desc, -> {order("updated_at DESC")}
