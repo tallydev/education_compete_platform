@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161123095914) do
+ActiveRecord::Schema.define(version: 20161125142546) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",       limit: 255,             null: false
@@ -43,6 +43,20 @@ ActiveRecord::Schema.define(version: 20161123095914) do
   end
 
   add_index "departments", ["school_id"], name: "index_departments_on_school_id", using: :btree
+
+  create_table "events", force: :cascade do |t|
+    t.string   "title",                    limit: 255
+    t.text     "content",                  limit: 65535
+    t.integer  "classify",                 limit: 4,     default: 1
+    t.string   "picture_url",              limit: 255
+    t.boolean  "is_competition"
+    t.string   "picture_url_file_name",    limit: 255
+    t.string   "picture_url_content_type", limit: 255
+    t.integer  "picture_url_file_size",    limit: 4
+    t.datetime "picture_url_updated_at"
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
+  end
 
   create_table "images", force: :cascade do |t|
     t.string   "type",              limit: 255
@@ -202,14 +216,6 @@ ActiveRecord::Schema.define(version: 20161123095914) do
     t.string   "title",      limit: 255
     t.integer  "catalog",    limit: 4
     t.string   "mdate",      limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  create_table "resourse_videos", force: :cascade do |t|
-    t.string   "type",       limit: 255
-    t.string   "video_type", limit: 255
-    t.integer  "catalog",    limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end

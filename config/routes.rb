@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :events, only: [:index, :show]
   #####################  resourse  ##########################
   resources :resource_libraries, only: [:show, :index, :destroy, :create] do
     member do
@@ -169,19 +170,19 @@ end
 #
 #                                       Prefix Verb   URI Pattern                                                                                      Controller#Action
 #                                      apitome        /api/docs                                                                                        Apitome::Engine
+#                                       events GET    /events(.:format)                                                                                events#index
+#                                              POST   /events(.:format)                                                                                events#create
+#                                    new_event GET    /events/new(.:format)                                                                            events#new
+#                                   edit_event GET    /events/:id/edit(.:format)                                                                       events#edit
+#                                        event GET    /events/:id(.:format)                                                                            events#show
+#                                              PATCH  /events/:id(.:format)                                                                            events#update
+#                                              PUT    /events/:id(.:format)                                                                            events#update
+#                                              DELETE /events/:id(.:format)                                                                            events#destroy
+#                    download_resource_library GET    /resource_libraries/:id/download(.:format)                                                       resource_libraries#download
 #                           resource_libraries GET    /resource_libraries(.:format)                                                                    resource_libraries#index
 #                                              POST   /resource_libraries(.:format)                                                                    resource_libraries#create
-#                         new_resource_library GET    /resource_libraries/new(.:format)                                                                resource_libraries#new
-#                        edit_resource_library GET    /resource_libraries/:id/edit(.:format)                                                           resource_libraries#edit
 #                             resource_library GET    /resource_libraries/:id(.:format)                                                                resource_libraries#show
-#                                              PATCH  /resource_libraries/:id(.:format)                                                                resource_libraries#update
-#                                              PUT    /resource_libraries/:id(.:format)                                                                resource_libraries#update
 #                                              DELETE /resource_libraries/:id(.:format)                                                                resource_libraries#destroy
-#                      download_resourse_video GET    /resourse/videos/:id/download(.:format)                                                          resourse/videos#download
-#                              resourse_videos GET    /resourse/videos(.:format)                                                                       resourse/videos#index
-#                                              POST   /resourse/videos(.:format)                                                                       resourse/videos#create
-#                               resourse_video GET    /resourse/videos/:id(.:format)                                                                   resourse/videos#show
-#                                              DELETE /resourse/videos/:id(.:format)                                                                   resourse/videos#destroy
 #                                        pdfjs        /pdfjs                                                                                           PdfjsViewer::Rails::Engine
 #                                         root GET    /                                                                                                homes#index
 #                             new_user_session GET    /users/sign_in(.:format)                                                                         user/sessions#new
