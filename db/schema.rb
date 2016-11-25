@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161125142546) do
+ActiveRecord::Schema.define(version: 20161125144006) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",       limit: 255,             null: false
@@ -172,6 +172,24 @@ ActiveRecord::Schema.define(version: 20161125142546) do
   end
 
   add_index "papers", ["paperable_type", "paperable_id"], name: "index_papers_on_paperable_type_and_paperable_id", using: :btree
+
+  create_table "player_feedbacks", force: :cascade do |t|
+    t.integer  "user_id",            limit: 4
+    t.integer  "training_course_id", limit: 4
+    t.string   "teach",              limit: 255
+    t.string   "discussion",         limit: 255
+    t.string   "visiting",           limit: 255
+    t.string   "organization",       limit: 255
+    t.string   "study_life",         limit: 255
+    t.text     "most_value",         limit: 65535
+    t.text     "most_gain",          limit: 65535
+    t.text     "graduate_message",   limit: 65535
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
+  add_index "player_feedbacks", ["training_course_id"], name: "index_player_feedbacks_on_training_course_id", using: :btree
+  add_index "player_feedbacks", ["user_id"], name: "index_player_feedbacks_on_user_id", using: :btree
 
   create_table "player_infos", force: :cascade do |t|
     t.string   "name",               limit: 255

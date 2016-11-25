@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Player Feedbacks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @player_feedbacks.each do |player_feedback| %>
+      <tr>
+        <td><%= link_to 'Show', player_feedback %></td>
+        <td><%= link_to 'Edit', edit_player_feedback_path(player_feedback) %></td>
+        <td><%= link_to 'Destroy', player_feedback, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Player feedback', new_player_feedback_path %>

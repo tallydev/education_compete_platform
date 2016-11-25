@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :player_feedbacks
   resources :events, only: [:index, :show]
   #####################  resourse  ##########################
   resources :resource_libraries, only: [:show, :index, :destroy, :create] do
@@ -170,14 +171,16 @@ end
 #
 #                                       Prefix Verb   URI Pattern                                                                                      Controller#Action
 #                                      apitome        /api/docs                                                                                        Apitome::Engine
+#                             player_feedbacks GET    /player_feedbacks(.:format)                                                                      player_feedbacks#index
+#                                              POST   /player_feedbacks(.:format)                                                                      player_feedbacks#create
+#                          new_player_feedback GET    /player_feedbacks/new(.:format)                                                                  player_feedbacks#new
+#                         edit_player_feedback GET    /player_feedbacks/:id/edit(.:format)                                                             player_feedbacks#edit
+#                              player_feedback GET    /player_feedbacks/:id(.:format)                                                                  player_feedbacks#show
+#                                              PATCH  /player_feedbacks/:id(.:format)                                                                  player_feedbacks#update
+#                                              PUT    /player_feedbacks/:id(.:format)                                                                  player_feedbacks#update
+#                                              DELETE /player_feedbacks/:id(.:format)                                                                  player_feedbacks#destroy
 #                                       events GET    /events(.:format)                                                                                events#index
-#                                              POST   /events(.:format)                                                                                events#create
-#                                    new_event GET    /events/new(.:format)                                                                            events#new
-#                                   edit_event GET    /events/:id/edit(.:format)                                                                       events#edit
 #                                        event GET    /events/:id(.:format)                                                                            events#show
-#                                              PATCH  /events/:id(.:format)                                                                            events#update
-#                                              PUT    /events/:id(.:format)                                                                            events#update
-#                                              DELETE /events/:id(.:format)                                                                            events#destroy
 #                    download_resource_library GET    /resource_libraries/:id/download(.:format)                                                       resource_libraries#download
 #                           resource_libraries GET    /resource_libraries(.:format)                                                                    resource_libraries#index
 #                                              POST   /resource_libraries(.:format)                                                                    resource_libraries#create
