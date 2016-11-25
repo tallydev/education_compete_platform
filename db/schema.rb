@@ -113,6 +113,21 @@ ActiveRecord::Schema.define(version: 20161125144006) do
   add_index "info_competition_recruits", ["player_id"], name: "index_info_competition_recruits_on_player_id", using: :btree
   add_index "info_competition_recruits", ["school_id"], name: "index_info_competition_recruits_on_school_id", using: :btree
 
+  create_table "manager_feedbacks", force: :cascade do |t|
+    t.integer  "admin_id",            limit: 4
+    t.integer  "training_course_id",  limit: 4
+    t.string   "organizer",           limit: 255
+    t.string   "total_hours",         limit: 255
+    t.string   "total_expenses",      limit: 255
+    t.text     "total_expenses_info", limit: 65535
+    t.text     "feedback",            limit: 65535
+    t.text     "remark",              limit: 65535
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
+
+  add_index "manager_feedbacks", ["admin_id"], name: "index_manager_feedbacks_on_admin_id", using: :btree
+
   create_table "marks", force: :cascade do |t|
     t.float    "score",            limit: 24
     t.datetime "created_at",                     null: false

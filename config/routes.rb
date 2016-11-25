@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   resources :manager_feedbacks
+  resources :manager_feedbacks
   resources :player_feedbacks
   resources :events, only: [:index, :show]
   #####################  resourse  ##########################
