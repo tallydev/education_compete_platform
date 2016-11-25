@@ -17,7 +17,12 @@ class ResourceLibrariesController < ApplicationController
 
   def create
     @resource_library = ResourceLibrary.new(resource_library_params)
-      # p picture_params
+      p    video_params
+      p    document_params
+      p    form_params
+      p    courseware_params
+      p    picture_params
+      p    audio_params
     if @resource_library.save
       case @resource_library.catalog
         when "video"
