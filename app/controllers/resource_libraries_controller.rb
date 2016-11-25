@@ -17,29 +17,46 @@ class ResourceLibrariesController < ApplicationController
 
   def create
     @resource_library = ResourceLibrary.new(resource_library_params)
-      p picture_params
+      # p picture_params
     if @resource_library.save
       case @resource_library.catalog
         when "video"
           if video_params.present?
             @resource_library.update(video_params)
+            respond_with(@resource_library)
+          else
+            @error = "video_params is nil, uploadfile faiure !"
+            respond_with(@error, template: "error")    
           end
         when "document"
           if document_params.present?
             @resource_library.update(document_params)
+             respond_with(@resource_library)
+          else
+            @error = "document_params is nil, uploadfile faiure !"
+            respond_with(@error, template: "error")   
           end
         when "form"
           if form_params.present?
             @resource_library.update(form_params)
+            respond_with(@resource_library)
+          else
+            @error = "form_params is nil, uploadfile faiure !"
+            respond_with(@error, template: "error")   
           end
         when "courseware"
           if courseware_params.present?
             @resource_library.update(courseware_params)
+            respond_with(@resource_library)
+          else
+            @error = "courseware is nil, uploadfile faiure !"
+            respond_with(@error, template: "error")    
           end        
         when "picture"
           if picture_params.present?
             @resource_library.update(picture_params) 
             respond_with(@resource_library)
+            p  @resource_library.picture  
           else
             @error = "picture_params is nil, uploadfile faiure !"
             respond_with(@error, template: "error")
@@ -47,9 +64,12 @@ class ResourceLibrariesController < ApplicationController
         when "audio"
           if audio_params.present?
             @resource_library.update(audio_params)
+            respond_with(@resource_library)
+          else
+            @error = "audio_params is nil, uploadfile faiure !"
+            respond_with(@error, template: "error")
           end 
       end 
-      # respond_with(@resource_library)   
     else
       @error = "上传失败 ！"
       respond_with(@error, template: "error")
