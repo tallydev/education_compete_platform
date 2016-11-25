@@ -18,7 +18,13 @@ resource "资源库 / 目录内容" do
 
     parameter :title, "标题", required: true, scope: :resource_library
     parameter :catalog, "目录", required: true, scope: :resource_library
-    parameter :picture_attributes, "目录内容", required: true, scope: :resource_library
+    parameter :picture_attributes, "目录内容,对应内容的参数如：(video_attributes: ‘视频‘,
+                                    document_attributes: ‘文档‘,
+                                    form_attributes: ‘表格‘,
+                                    courseware_attributes: ‘课件‘,
+                                    picture_attributes: ‘图片‘,
+                                    audio_attributes: ‘音频‘)",
+                            required: true, scope: :resource_library
 
     let(:title) {resource_library_attrs[:title]}
     let(:catalog) {resource_library_attrs[:catalog]}
@@ -40,7 +46,8 @@ resource "资源库 / 目录内容" do
 
     before do
       # @user = create(:user)
-      @resource_librarys = create_list(:resource_library, 5, catalog: "picture")
+      @resource_libraries = create_list(:resource_library, 5, catalog: "picture")
+      create_list(:image, 5, imageable_type:@resource_libraries.first)
     end
 
     parameter :number, "输入目录number, 用于返回对于目录的内容，(video: 1, document: 2, form: 3,
@@ -70,10 +77,11 @@ resource "资源库 / 目录内容" do
 
     before do
       # @user = create(:user)
-      @resource_librarys = create_list(:resource_library, 5, catalog: "picture")
+      @resource_libraries = create_list(:resource_library, 5, catalog: "picture")
+      create_list(:image, 5, imageable_type:@resource_libraries.first)
     end
 
-    let(:id) {@resource_librarys.first.id}
+    let(:id) {@resource_libraries.first.id}
 
     example "查看资源库 ‘目录内容’详情成功" do
       do_request
@@ -91,10 +99,11 @@ resource "资源库 / 目录内容" do
 
     before do
       # @user = create(:user)
-      @resource_librarys = create_list(:resource_library, 5, catalog: "picture")
+      @resource_libraries = create_list(:resource_library, 5, catalog: "picture")
+      # create(:image, 3, imageable_type:@resource_libraries.first)
     end
 
-    let(:id) {@resource_librarys.first.id}
+    let(:id) {@resource_libraries.first.id}
 
     example "下载 资源库 ‘目录内容’ 成功" do
       do_request
@@ -112,10 +121,10 @@ resource "资源库 / 目录内容" do
 
     before do
       # @user = create(:user)
-      @resource_librarys = create_list(:resource_library, 5, catalog: "picture")
+      @resource_libraries = create_list(:resource_library, 5, catalog: "picture")
     end
 
-    let(:id) {@resource_librarys.first.id}
+    let(:id) {@resource_libraries.first.id}
 
     example "删除 资源库 ‘目录内容’ 成功" do
       do_request

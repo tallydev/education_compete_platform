@@ -17,37 +17,42 @@ class ResourceLibrariesController < ApplicationController
 
   def create
     @resource_library = ResourceLibrary.new(resource_library_params)
+      p picture_params
     if @resource_library.save
       case @resource_library.catalog
         when "video"
-          if video_params[:file].present?
+          if video_params.present?
             @resource_library.update(video_params)
           end
         when "document"
-          if document_params[:file].present?
+          if document_params.present?
             @resource_library.update(document_params)
           end
         when "form"
-          if form_params[:file].present?
+          if form_params.present?
             @resource_library.update(form_params)
           end
         when "courseware"
-          if courseware_params[:file].present?
+          if courseware_params.present?
             @resource_library.update(courseware_params)
           end        
         when "picture"
-          if picture_params[:file].present?
-            @resource_library.update(picture_params)
+          if picture_params.present?
+            @resource_library.update(picture_params) 
+            respond_with(@resource_library)
+          else
+            @error = "picture_params is nil, uploadfile faiure !"
+            respond_with(@error, template: "error")
           end
         when "audio"
-          if audio_params[:file].present?
+          if audio_params.present?
             @resource_library.update(audio_params)
           end 
       end 
-      respond_with(@resource_library)   
+      # respond_with(@resource_library)   
     else
       @error = "上传失败 ！"
-      respond_with(@error)
+      respond_with(@error, template: "error")
     end 
   end
 
@@ -62,7 +67,7 @@ class ResourceLibrariesController < ApplicationController
       respond_with(@resource_library)
     else
       @error = "内容不存在 ！"
-      respond_with(@error)
+      respond_with(@error, template: "error")
     end
   end
 
@@ -70,63 +75,63 @@ class ResourceLibrariesController < ApplicationController
     if @resource_library.present?
       case @resource_library.catalog
         when "video"
-          if @resource_library.video.present?
-            send_file File.dirname(__FILE__), @resource_library.video,
+          unless @resource_library.video.blank?
+            send_file @resource_library.video.path,
             type: @resource_library.video.content_type,
             x_sendfile: true
           else
-            @error = "没有记录，下载失败！ ！"
-            respond_with(@error)
+            @error = "video没有记录，下载失败！ ！"
+            respond_with(@error, template: "error")
           end
         when "document"
-          if @resource_library.document.present?
-            send_file File.dirname(__FILE__), @resource_library.document,
+          unless @resource_library.document.blank?
+            send_file @resource_library.document.path,
             type: @resource_library.document.content_type,
             x_sendfile: true
           else
-            @error = "没有记录，下载失败！ ！"
-            respond_with(@error)
+            @error = "document没有记录，下载失败！ ！"
+            respond_with(@error, template: "error")
           end
         when "form"
-          if @resource_library.form.present?
-            send_file File.dirname(__FILE__), @resource_library.form,
+          unless @resource_library.form.blank?
+            send_file @resource_library.form.path,
             type: @resource_library.form.content_type,
             x_sendfile: true
           else
-            @error = "没有记录，下载失败！ ！"
-            respond_with(@error)
+            @error = "form没有记录，下载失败！ ！"
+            respond_with(@error, template: "error")
           end
         when "courseware"
-          if @resource_library.courseware.present?
-            send_file File.dirname(__FILE__), @resource_library.courseware,
+          unless @resource_library.courseware.blank?
+            send_file @resource_library.courseware.path,
             type: @resource_library.courseware.content_type,
             x_sendfile: true
           else
-            @error = "没有记录，下载失败！ ！"
-            respond_with(@error)
+            @error = "courseware没有记录，下载失败！ ！"
+            respond_with(@error, template: "error")
           end       
         when "picture"
-          if @resource_library.picture
-            send_file File.dirname(__FILE__), @resource_library.picture,
+          unless @resource_library.picture.blank?
+            send_file @resource_library.picture.path,
             type: @resource_library.picture.content_type,
             x_sendfile: true
           else
-            @error = "没有记录，下载失败！ ！"
-            respond_with(@error)
+            @error = "picture没有记录，下载失败！ ！"
+            respond_with(@error, template: "error")
           end
         when "audio"
-          if @resource_library.audio.present?
-            send_file File.dirname(__FILE__), @resource_library.audio,
+          unless @resource_library.audio.blank?
+            send_file @resource_library.audio.path,
             type: @resource_library.audio.content_type,
             x_sendfile: true
           else
-            @error = "没有记录，下载失败！ ！"
-            respond_with(@error)
+            @error = "audio没有记录，下载失败！ ！"
+            respond_with(@error, )
           end
       end
     else
       @error = "下载的内容不存在 ！"
-      respond_with(@error)
+      respond_with(@error, template: "error")
     end
   end
 
