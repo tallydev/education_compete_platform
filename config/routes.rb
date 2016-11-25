@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :manager_feedbacks
   resources :player_feedbacks
   resources :events, only: [:index, :show]
   #####################  resourse  ##########################
@@ -171,6 +172,14 @@ end
 #
 #                                       Prefix Verb   URI Pattern                                                                                      Controller#Action
 #                                      apitome        /api/docs                                                                                        Apitome::Engine
+#                            manager_feedbacks GET    /manager_feedbacks(.:format)                                                                     manager_feedbacks#index
+#                                              POST   /manager_feedbacks(.:format)                                                                     manager_feedbacks#create
+#                         new_manager_feedback GET    /manager_feedbacks/new(.:format)                                                                 manager_feedbacks#new
+#                        edit_manager_feedback GET    /manager_feedbacks/:id/edit(.:format)                                                            manager_feedbacks#edit
+#                             manager_feedback GET    /manager_feedbacks/:id(.:format)                                                                 manager_feedbacks#show
+#                                              PATCH  /manager_feedbacks/:id(.:format)                                                                 manager_feedbacks#update
+#                                              PUT    /manager_feedbacks/:id(.:format)                                                                 manager_feedbacks#update
+#                                              DELETE /manager_feedbacks/:id(.:format)                                                                 manager_feedbacks#destroy
 #                             player_feedbacks GET    /player_feedbacks(.:format)                                                                      player_feedbacks#index
 #                                              POST   /player_feedbacks(.:format)                                                                      player_feedbacks#create
 #                          new_player_feedback GET    /player_feedbacks/new(.:format)                                                                  player_feedbacks#new
