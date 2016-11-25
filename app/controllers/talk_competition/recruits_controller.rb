@@ -1,6 +1,8 @@
 class TalkCompetition::RecruitsController < ApplicationController
-  before_action :authenticate_player!, only: [:new, :create]
-  before_action :authenticate_school_user!, only: [:index]
+  # before_action :authenticate_player!, only: [:new, :create]
+  # before_action :authenticate_school_user!, only: [:index]
+  acts_as_token_authentication_handler_for Player, only: [:new, :create]
+  acts_as_token_authentication_handler_for User, only: [:index]
   before_action :set_talk_competition_recruit, only: [:show, :edit, :update, :destroy]
 
   respond_to :html

@@ -11,8 +11,8 @@ class HomesController < ApplicationController
   	else
   		@activities = Activity.onlines
 	  	@notifications = Bulletin.all
-	    @one_days = Activity.find(1).left_days
-	    @two_days = Activity.find(2).left_days
+	    @one_days = Activity.last.left_days
+	    @two_days = Activity.last(2).first.left_days
   	end
   end
 

@@ -1,7 +1,8 @@
 source 'https://gems.ruby-china.org'
 #source 'https://rubygems.org'
 
-
+# Simple (but safe) token authentication for Rails apps or API with Devise. Read more: https://github.com/gonzalo-bulnes/simple_token_authentication
+gem 'simple_token_authentication', '~> 1.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use mysql2 as the database for Active Record

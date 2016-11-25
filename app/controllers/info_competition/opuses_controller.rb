@@ -1,6 +1,7 @@
 class InfoCompetition::OpusesController < ApplicationController
   before_action :set_info_competition_opus, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_player!, only: [:new, :create, :update, :edit]
+  # before_action :authenticate_player!, only: [:new, :create, :update, :edit]
+  acts_as_token_authentication_handler_for Player, only: [:new, :create, :update, :edit]
   respond_to :html
 
   def index

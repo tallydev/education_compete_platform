@@ -234,6 +234,10 @@ GEM
     simple_form (3.2.1)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
+    simple_token_authentication (1.14.0)
+      actionmailer (>= 3.2.6, < 6)
+      actionpack (>= 3.2.6, < 6)
+      devise (>= 3.2, < 6)
     spreadsheet (1.1.1)
       ruby-ole (>= 1.0)
     spreadsheet_on_rails (1.0.0)
@@ -308,6 +312,7 @@ DEPENDENCIES
   settingslogic
   shoulda-matchers (~> 3.1)
   simple_form
+  simple_token_authentication (~> 1.0)
   spreadsheet_on_rails
   spring
   sqlite3

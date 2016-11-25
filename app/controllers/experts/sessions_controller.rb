@@ -1,5 +1,6 @@
 class Experts::SessionsController < Devise::SessionsController
 # before_action :configure_sign_in_params, only: [:create]
+  acts_as_token_authentication_handler_for User
   before_action :set_browser
 
   layout :phone_layout
