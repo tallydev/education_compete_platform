@@ -28,7 +28,7 @@ class Sound < ActiveRecord::Base
 
   validates_attachment_size     :file, less_than: 1024.megabytes
   validates_attachment_content_type :file, :content_type => /\Aaudio\/.*\Z/  
-  # validates_attachment_file_name :file, :matches => [/mp4\Z/]
+  validates_attachment_file_name :file, :matches => [/mp3\Z/]
 
   def url
     file.try(:url)
