@@ -1,1 +1,1 @@
-json.extract! @player_feedback, :id, :created_at, :updated_at
+json.partial! 'player_feedbacks/player_feedback', player_feedback: @player_feedback
