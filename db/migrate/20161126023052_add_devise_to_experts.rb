@@ -20,7 +20,7 @@ class AddDeviseToExperts < ActiveRecord::Migration
       t.string   :last_sign_in_ip
 
       t.references :school, index: true, foreign_key: true
-      t.string :type
+      t.string :typegit 
       t.string :tag
 
       ## Confirmable

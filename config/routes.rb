@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :training_courses
   # devise_for :school_users
   # devise_for :experts
   devise_for :managers
@@ -177,6 +178,14 @@ end
 #
 #                                       Prefix Verb   URI Pattern                                                                                      Controller#Action
 #                                      apitome        /api/docs                                                                                        Apitome::Engine
+#                             training_courses GET    /training_courses(.:format)                                                                      training_courses#index
+#                                              POST   /training_courses(.:format)                                                                      training_courses#create
+#                          new_training_course GET    /training_courses/new(.:format)                                                                  training_courses#new
+#                         edit_training_course GET    /training_courses/:id/edit(.:format)                                                             training_courses#edit
+#                              training_course GET    /training_courses/:id(.:format)                                                                  training_courses#show
+#                                              PATCH  /training_courses/:id(.:format)                                                                  training_courses#update
+#                                              PUT    /training_courses/:id(.:format)                                                                  training_courses#update
+#                                              DELETE /training_courses/:id(.:format)                                                                  training_courses#destroy
 #                          new_manager_session GET    /managers/sign_in(.:format)                                                                      devise/sessions#new
 #                              manager_session POST   /managers/sign_in(.:format)                                                                      devise/sessions#create
 #                      destroy_manager_session DELETE /managers/sign_out(.:format)                                                                     devise/sessions#destroy

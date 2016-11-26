@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161126023515) do
+ActiveRecord::Schema.define(version: 20161126024922) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",       limit: 255,             null: false
@@ -395,6 +395,45 @@ ActiveRecord::Schema.define(version: 20161126023515) do
   add_index "tasks", ["mark_id"], name: "index_tasks_on_mark_id", using: :btree
   add_index "tasks", ["recruit_id"], name: "index_tasks_on_recruit_id", using: :btree
 
+  create_table "training_courses", force: :cascade do |t|
+    t.string   "name",                 limit: 255
+    t.string   "code",                 limit: 255
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer  "plan_number",          limit: 4
+    t.string   "grade_leader",         limit: 255
+    t.string   "training_agency",      limit: 255
+    t.string   "training_address",     limit: 255
+    t.decimal  "training_fee",                       precision: 5, scale: 2
+    t.string   "state",                limit: 255
+    t.text     "remark",               limit: 65535
+    t.string   "info",                 limit: 255
+    t.string   "training_backgrounds", limit: 255
+    t.string   "training_target",      limit: 255
+    t.text     "training_content",     limit: 65535
+    t.text     "check_method",         limit: 65535
+    t.string   "project_leader",       limit: 255
+    t.string   "contact",              limit: 255
+    t.integer  "school_id",            limit: 4
+    t.string   "aasm_state",           limit: 255
+    t.string   "category",             limit: 255
+    t.boolean  "be_applied"
+    t.integer  "notification_id",      limit: 4
+    t.datetime "start_apply_time"
+    t.datetime "end_apply_time"
+    t.integer  "admin_id",             limit: 4
+    t.string   "linkman",              limit: 255
+    t.string   "phone",                limit: 255
+    t.string   "fax",                  limit: 255
+    t.string   "mobile",               limit: 255
+    t.string   "email",                limit: 255
+    t.datetime "created_at",                                                 null: false
+    t.datetime "updated_at",                                                 null: false
+  end
+
+  add_index "training_courses", ["admin_id"], name: "index_training_courses_on_admin_id", using: :btree
+  add_index "training_courses", ["school_id"], name: "index_training_courses_on_school_id", using: :btree
+
   create_table "user_infos", force: :cascade do |t|
     t.string   "name",         limit: 255, null: false
     t.integer  "id_card_type", limit: 4
@@ -434,4 +473,6 @@ ActiveRecord::Schema.define(version: 20161126023515) do
   add_foreign_key "experts", "schools"
   add_foreign_key "managers", "schools"
   add_foreign_key "school_users", "schools"
+  add_foreign_key "training_courses", "admins"
+  add_foreign_key "training_courses", "schools"
 end

@@ -18,6 +18,7 @@ class AddDeviseToManagers < ActiveRecord::Migration
       t.datetime :last_sign_in_at
       t.string   :current_sign_in_ip
       t.string   :last_sign_in_ip
+      
       t.references :school, index: true, foreign_key: true
       t.string :type
       t.string :tag
