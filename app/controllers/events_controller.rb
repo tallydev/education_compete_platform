@@ -5,8 +5,8 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all.page(params[:page]).per(20)
-    @bulletin = Event.all.where(classify: 1).order(created_at: :DESC).limit(7)
-    @headline = Event.all.where(classify: 2).order(created_at: :DESC).limit(5)
+    @bulletins = Event.all.where(classify: 1).order(created_at: :DESC).limit(7)
+    @headlines = Event.all.where(classify: 2).order(created_at: :DESC).limit(5)
     @activities = Event.all.where(classify: 3).order(created_at: :DESC).limit(4)
     respond_with(@events)
   end
