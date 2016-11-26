@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161125153203) do
+ActiveRecord::Schema.define(version: 20161126021557) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",       limit: 255,             null: false
@@ -24,6 +24,26 @@ ActiveRecord::Schema.define(version: 20161125153203) do
     t.string   "short_name", limit: 255
     t.boolean  "offline"
   end
+
+  create_table "admins", force: :cascade do |t|
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
+    t.integer  "school_id",              limit: 4
+    t.string   "type",                   limit: 255
+    t.string   "tag",                    limit: 255
+  end
+
+  add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
+  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
+  add_index "admins", ["school_id"], name: "index_admins_on_school_id", using: :btree
 
   create_table "appraises", force: :cascade do |t|
     t.integer  "user_id",            limit: 4
@@ -350,4 +370,5 @@ ActiveRecord::Schema.define(version: 20161125153203) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["school_id"], name: "index_users_on_school_id", using: :btree
 
+  add_foreign_key "admins", "schools"
 end
