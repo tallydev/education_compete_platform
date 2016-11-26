@@ -1,7 +1,7 @@
 class PlayerFeedbacksController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :set_training_course
-  before_action :set_player_feedback
+  before_action :set_player_feedback, only: [:create, :update]
 
   before_action :set_player_feedback, only: [:show]
 
