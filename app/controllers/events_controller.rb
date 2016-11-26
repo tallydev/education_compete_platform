@@ -1,10 +1,13 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show]
 
-  respond_to :html
+  respond_to :html, :json
 
   def index
-    @events = Event.all
+    @events = Event.all.page(params[:page]).per(20)
+    @bulletin = Event.all.where(classify: 1).order(created_at: :DESC).limit(7)
+    @headline = Event.all.where(classify: 2).order(created_at: :DESC).limit(5)
+    @activities = Event.all.where(classify: 3).order(created_at: :DESC).limit(4)
     respond_with(@events)
   end
 
@@ -12,29 +15,11 @@ class EventsController < ApplicationController
     respond_with(@event)
   end
 
-  def new
-    @event = Event.new
-    respond_with(@event)
-  end
-
-  def edit
-  end
-
-  def create
-    @event = Event.new(event_params)
-    @event.save
-    respond_with(@event)
-  end
-
-  def update
-    @event.update(event_params)
-    respond_with(@event)
-  end
-
-  def destroy
-    @event.destroy
-    respond_with(@event)
-  end
+  # def create
+  #   @event = Event.new(event_params)
+  #   @event.save
+  #   respond_with(@event)
+  # end
 
   private
     def set_event
