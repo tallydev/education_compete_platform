@@ -1,10 +1,19 @@
 class AppraisesController < ApplicationController
-  before_action :set_appraise, only: [:show, :edit, :update, :destroy]
+  # before_action :authenticate_user!
+  before_action :set_training_course
+  before_action :set_teachers
 
-  respond_to :html
+  before_action :set_appraise, only: [:show]
+
+  respond_to :html, :json
 
   def index
     @appraises = Appraise.all
+    respond_with(@appraises)
+  end
+
+  def list
+    @appraises = Appraise.all.where(training_course_id: @training_course.id, user_id: current_user.id)
     respond_with(@appraises)
   end
 
@@ -12,36 +21,40 @@ class AppraisesController < ApplicationController
     respond_with(@appraise)
   end
 
-  def new
-    @appraise = Appraise.new
-    respond_with(@appraise)
-  end
-
-  def edit
-  end
-
   def create
-    @appraise = Appraise.new(appraise_params)
-    @appraise.save
-    respond_with(@appraise)
+    @teacher_ids.each_with_index do |teacher, index|
+      p = 'appraise_' + index.to_s
+      @appraise = Appraise.new
+      @appraise.user_id = current_user.id
+      @appraise.teacher_id = teacher.id
+      @appraise.training_course_id = @training_course.id
+      @appraise.degree = params[p.to_sym][:degree]
+      @appraise.remark = params[p.to_sym][:remark]
+      @appraise.save
+      respond_with(@appraise)
+    end 
   end
 
-  def update
-    @appraise.update(appraise_params)
-    respond_with(@appraise)
-  end
+  # def update
+  #   @appraise.update(appraise_params)
+  #   respond_with(@appraise)
+  # end
 
-  def destroy
-    @appraise.destroy
-    respond_with(@appraise)
-  end
+  # def destroy
+  #   @appraise.destroy
+  #   respond_with(@appraise)
+  # end
 
   private
     def set_appraise
       @appraise = Appraise.find(params[:id])
     end
 
-    def appraise_params
-      params[:appraise]
+    def set_training_course
+      @training_course = TrainingCourse.find(params[:training_course_id])
+    end
+
+    def set_teachers
+      @teacher_ids = Teacher.where({id: @training_course.training_course_teachers.pluck(:teacher_id)})
     end
 end

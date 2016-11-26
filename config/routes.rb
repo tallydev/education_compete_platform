@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   # devise_for :school_users
   # devise_for :experts
   devise_for :managers
-  resources :appraises
+  resources :appraises, only: [:index, :show] do
+    collection do
+      get :list
+    end
+  end
   resources :manager_feedbacks
   resources :manager_feedbacks
   resources :player_feedbacks
