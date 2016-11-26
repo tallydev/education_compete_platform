@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  devise_for :admins
+  devise_for :managers
   resources :appraises
   resources :manager_feedbacks
   resources :manager_feedbacks
@@ -175,21 +175,21 @@ end
 #
 #                                       Prefix Verb   URI Pattern                                                                                      Controller#Action
 #                                      apitome        /api/docs                                                                                        Apitome::Engine
-#                            new_admin_session GET    /admins/sign_in(.:format)                                                                        devise/sessions#new
-#                                admin_session POST   /admins/sign_in(.:format)                                                                        devise/sessions#create
-#                        destroy_admin_session DELETE /admins/sign_out(.:format)                                                                       devise/sessions#destroy
-#                               admin_password POST   /admins/password(.:format)                                                                       devise/passwords#create
-#                           new_admin_password GET    /admins/password/new(.:format)                                                                   devise/passwords#new
-#                          edit_admin_password GET    /admins/password/edit(.:format)                                                                  devise/passwords#edit
-#                                              PATCH  /admins/password(.:format)                                                                       devise/passwords#update
-#                                              PUT    /admins/password(.:format)                                                                       devise/passwords#update
-#                    cancel_admin_registration GET    /admins/cancel(.:format)                                                                         devise/registrations#cancel
-#                           admin_registration POST   /admins(.:format)                                                                                devise/registrations#create
-#                       new_admin_registration GET    /admins/sign_up(.:format)                                                                        devise/registrations#new
-#                      edit_admin_registration GET    /admins/edit(.:format)                                                                           devise/registrations#edit
-#                                              PATCH  /admins(.:format)                                                                                devise/registrations#update
-#                                              PUT    /admins(.:format)                                                                                devise/registrations#update
-#                                              DELETE /admins(.:format)                                                                                devise/registrations#destroy
+#                          new_manager_session GET    /managers/sign_in(.:format)                                                                      devise/sessions#new
+#                              manager_session POST   /managers/sign_in(.:format)                                                                      devise/sessions#create
+#                      destroy_manager_session DELETE /managers/sign_out(.:format)                                                                     devise/sessions#destroy
+#                             manager_password POST   /managers/password(.:format)                                                                     devise/passwords#create
+#                         new_manager_password GET    /managers/password/new(.:format)                                                                 devise/passwords#new
+#                        edit_manager_password GET    /managers/password/edit(.:format)                                                                devise/passwords#edit
+#                                              PATCH  /managers/password(.:format)                                                                     devise/passwords#update
+#                                              PUT    /managers/password(.:format)                                                                     devise/passwords#update
+#                  cancel_manager_registration GET    /managers/cancel(.:format)                                                                       devise/registrations#cancel
+#                         manager_registration POST   /managers(.:format)                                                                              devise/registrations#create
+#                     new_manager_registration GET    /managers/sign_up(.:format)                                                                      devise/registrations#new
+#                    edit_manager_registration GET    /managers/edit(.:format)                                                                         devise/registrations#edit
+#                                              PATCH  /managers(.:format)                                                                              devise/registrations#update
+#                                              PUT    /managers(.:format)                                                                              devise/registrations#update
+#                                              DELETE /managers(.:format)                                                                              devise/registrations#destroy
 #                                    appraises GET    /appraises(.:format)                                                                             appraises#index
 #                                              POST   /appraises(.:format)                                                                             appraises#create
 #                                 new_appraise GET    /appraises/new(.:format)                                                                         appraises#new
