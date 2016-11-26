@@ -7,17 +7,21 @@ class AppraisesController < ApplicationController
 
   respond_to :html, :json
 
-  def index
-    @appraises = Appraise.all
+  def index####
+    page = params[:page] || 1
+    per_page = params[:per_page] || 15
+    @appraises = Appraise.all.paginate(page: page, per_page: per_page)
     respond_with(@appraises)
   end
 
   def list
-    @appraises = Appraise.all.where(training_course_id: @training_course.id, user_id: current_user.id)
+    page = params[:page] || 1
+    per_page = params[:per_page] || 15
+    @appraises = Appraise.all.where(training_course_id: @training_course.id, user_id: current_user.id).paginate(page: page, per_page: per_page)
     respond_with(@appraises)
   end
 
-  def show
+  def show###
     respond_with(@appraise)
   end
 

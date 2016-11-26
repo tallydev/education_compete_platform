@@ -4,14 +4,13 @@ Rails.application.routes.draw do
   # devise_for :school_users
   # devise_for :experts
   devise_for :managers
-  resources :appraises, only: [:index, :show] do
+  resources :appraises, only: [:index, :show, :create] do
     collection do
       get :list
     end
   end
-  resources :manager_feedbacks
-  resources :manager_feedbacks
-  resources :player_feedbacks
+  resources :manager_feedbacks, only: [:index, :show, :create]
+  resources :player_feedbacks, only: [:index, :show, :create, :update]
   resources :events, only: [:index, :show]
   #####################  resourse  ##########################
   resources :resource_libraries, only: [:show, :index, :destroy, :create] do

@@ -4,7 +4,9 @@ class EventsController < ApplicationController
   respond_to :html, :json
 
   def index
-    @events = Event.all.page(params[:page]).per(20)
+    page = params[:page] || 1
+    per_page = params[:per_page] || 20
+    @events = Event.all.paginate(page: page, per_page: per_page)
     @bulletins = Event.all.where(classify: 1).order(created_at: :DESC).limit(7)
     @headlines = Event.all.where(classify: 2).order(created_at: :DESC).limit(5)
     @activities = Event.all.where(classify: 3).order(created_at: :DESC).limit(4)
