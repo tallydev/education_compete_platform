@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  # devise_for :experts
   devise_for :managers
   resources :appraises
   resources :manager_feedbacks
