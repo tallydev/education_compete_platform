@@ -196,6 +196,21 @@ end
 #                                              PATCH  /training_courses/:id(.:format)                                                                  training_courses#update
 #                                              PUT    /training_courses/:id(.:format)                                                                  training_courses#update
 #                                              DELETE /training_courses/:id(.:format)                                                                  training_courses#destroy
+#                            new_admin_session GET    /admins/sign_in(.:format)                                                                        devise/sessions#new
+#                                admin_session POST   /admins/sign_in(.:format)                                                                        devise/sessions#create
+#                        destroy_admin_session DELETE /admins/sign_out(.:format)                                                                       devise/sessions#destroy
+#                               admin_password POST   /admins/password(.:format)                                                                       devise/passwords#create
+#                           new_admin_password GET    /admins/password/new(.:format)                                                                   devise/passwords#new
+#                          edit_admin_password GET    /admins/password/edit(.:format)                                                                  devise/passwords#edit
+#                                              PATCH  /admins/password(.:format)                                                                       devise/passwords#update
+#                                              PUT    /admins/password(.:format)                                                                       devise/passwords#update
+#                    cancel_admin_registration GET    /admins/cancel(.:format)                                                                         devise/registrations#cancel
+#                           admin_registration POST   /admins(.:format)                                                                                devise/registrations#create
+#                       new_admin_registration GET    /admins/sign_up(.:format)                                                                        devise/registrations#new
+#                      edit_admin_registration GET    /admins/edit(.:format)                                                                           devise/registrations#edit
+#                                              PATCH  /admins(.:format)                                                                                devise/registrations#update
+#                                              PUT    /admins(.:format)                                                                                devise/registrations#update
+#                                              DELETE /admins(.:format)                                                                                devise/registrations#destroy
 #                          new_manager_session GET    /managers/sign_in(.:format)                                                                      devise/sessions#new
 #                              manager_session POST   /managers/sign_in(.:format)                                                                      devise/sessions#create
 #                      destroy_manager_session DELETE /managers/sign_out(.:format)                                                                     devise/sessions#destroy
@@ -211,38 +226,20 @@ end
 #                                              PATCH  /managers(.:format)                                                                              devise/registrations#update
 #                                              PUT    /managers(.:format)                                                                              devise/registrations#update
 #                                              DELETE /managers(.:format)                                                                              devise/registrations#destroy
+#                               list_appraises GET    /appraises/list(.:format)                                                                        appraises#list
 #                                    appraises GET    /appraises(.:format)                                                                             appraises#index
 #                                              POST   /appraises(.:format)                                                                             appraises#create
-#                                 new_appraise GET    /appraises/new(.:format)                                                                         appraises#new
-#                                edit_appraise GET    /appraises/:id/edit(.:format)                                                                    appraises#edit
 #                                     appraise GET    /appraises/:id(.:format)                                                                         appraises#show
-#                                              PATCH  /appraises/:id(.:format)                                                                         appraises#update
-#                                              PUT    /appraises/:id(.:format)                                                                         appraises#update
-#                                              DELETE /appraises/:id(.:format)                                                                         appraises#destroy
 #                            manager_feedbacks GET    /manager_feedbacks(.:format)                                                                     manager_feedbacks#index
 #                                              POST   /manager_feedbacks(.:format)                                                                     manager_feedbacks#create
-#                         new_manager_feedback GET    /manager_feedbacks/new(.:format)                                                                 manager_feedbacks#new
-#                        edit_manager_feedback GET    /manager_feedbacks/:id/edit(.:format)                                                            manager_feedbacks#edit
 #                             manager_feedback GET    /manager_feedbacks/:id(.:format)                                                                 manager_feedbacks#show
 #                                              PATCH  /manager_feedbacks/:id(.:format)                                                                 manager_feedbacks#update
 #                                              PUT    /manager_feedbacks/:id(.:format)                                                                 manager_feedbacks#update
-#                                              DELETE /manager_feedbacks/:id(.:format)                                                                 manager_feedbacks#destroy
-#                                              GET    /manager_feedbacks(.:format)                                                                     manager_feedbacks#index
-#                                              POST   /manager_feedbacks(.:format)                                                                     manager_feedbacks#create
-#                                              GET    /manager_feedbacks/new(.:format)                                                                 manager_feedbacks#new
-#                                              GET    /manager_feedbacks/:id/edit(.:format)                                                            manager_feedbacks#edit
-#                                              GET    /manager_feedbacks/:id(.:format)                                                                 manager_feedbacks#show
-#                                              PATCH  /manager_feedbacks/:id(.:format)                                                                 manager_feedbacks#update
-#                                              PUT    /manager_feedbacks/:id(.:format)                                                                 manager_feedbacks#update
-#                                              DELETE /manager_feedbacks/:id(.:format)                                                                 manager_feedbacks#destroy
 #                             player_feedbacks GET    /player_feedbacks(.:format)                                                                      player_feedbacks#index
 #                                              POST   /player_feedbacks(.:format)                                                                      player_feedbacks#create
-#                          new_player_feedback GET    /player_feedbacks/new(.:format)                                                                  player_feedbacks#new
-#                         edit_player_feedback GET    /player_feedbacks/:id/edit(.:format)                                                             player_feedbacks#edit
 #                              player_feedback GET    /player_feedbacks/:id(.:format)                                                                  player_feedbacks#show
 #                                              PATCH  /player_feedbacks/:id(.:format)                                                                  player_feedbacks#update
 #                                              PUT    /player_feedbacks/:id(.:format)                                                                  player_feedbacks#update
-#                                              DELETE /player_feedbacks/:id(.:format)                                                                  player_feedbacks#destroy
 #                                       events GET    /events(.:format)                                                                                events#index
 #                                        event GET    /events/:id(.:format)                                                                            events#show
 #                    download_resource_library GET    /resource_libraries/:id/download(.:format)                                                       resource_libraries#download
@@ -421,6 +418,12 @@ end
 #                                              PUT    /talk_competition/recruits/:id(.:format)                                                         talk_competition/recruits#update
 #                                              DELETE /talk_competition/recruits/:id(.:format)                                                         talk_competition/recruits#destroy
 #                                   admin_root GET    /admin(.:format)                                                                                 admin/home#index
+#                                 admin_events GET    /admin/events(.:format)                                                                          admin/events#index
+#                                              POST   /admin/events(.:format)                                                                          admin/events#create
+#                                  admin_event GET    /admin/events/:id(.:format)                                                                      admin/events#show
+#                                              PATCH  /admin/events/:id(.:format)                                                                      admin/events#update
+#                                              PUT    /admin/events/:id(.:format)                                                                      admin/events#update
+#                                              DELETE /admin/events/:id(.:format)                                                                      admin/events#destroy
 #                                  admin_users GET    /admin/users(.:format)                                                                           admin/users#index
 #                                              POST   /admin/users(.:format)                                                                           admin/users#create
 #                               new_admin_user GET    /admin/users/new(.:format)                                                                       admin/users#new

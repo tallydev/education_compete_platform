@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161126041518) do
+ActiveRecord::Schema.define(version: 20161128064346) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",       limit: 255,             null: false
@@ -39,8 +39,10 @@ ActiveRecord::Schema.define(version: 20161126041518) do
     t.integer  "school_id",              limit: 4
     t.string   "type",                   limit: 255
     t.string   "tag",                    limit: 255
+    t.string   "authentication_token",   limit: 30
   end
 
+  add_index "admins", ["authentication_token"], name: "index_admins_on_authentication_token", unique: true, using: :btree
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
   add_index "admins", ["school_id"], name: "index_admins_on_school_id", using: :btree
