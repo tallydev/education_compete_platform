@@ -14,9 +14,11 @@
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
 #  school_id              :integer
+#  authentication_token   :string(30)
 #
 # Indexes
 #
+#  index_players_on_authentication_token  (authentication_token) UNIQUE
 #  index_players_on_phone                 (phone) UNIQUE
 #  index_players_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_players_on_school_id             (school_id)
