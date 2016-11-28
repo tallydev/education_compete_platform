@@ -1,1 +1,1 @@
-_admin_event.json.jbuilder
+json.extract! admin_event, :id, :title, :content, :classify, :picture_url, :is_competition, :picture_url, :created_at, :updated_at

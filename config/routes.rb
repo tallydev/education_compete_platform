@@ -129,7 +129,7 @@ Rails.application.routes.draw do
     root to: "home#index"
 
     #########################################
-    resources events, only: [:show, :index, :create, :update, :destroy]
+    resources :events, only: [:show, :index, :create, :update, :destroy]
     #########################################
     resources :users
     resources :activities do

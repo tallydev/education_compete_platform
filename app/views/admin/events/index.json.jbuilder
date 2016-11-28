@@ -1,10 +1,5 @@
-json.current_page @events.current_page
-json.total_pages @events.total_pages
+json.current_page @admin_events.current_page
+json.total_pages @admin_events.total_pages
 
-json.events @events, partial: 'events/event', as: :event
+json.admin_events @admin_events, partial: 'admin/events/admin_event', as: :admin_event
 
-json.bulletins @bulletins, partial: 'events/event', as: :event
-
-json.headlines @headlines, partial: 'events/event', as: :event
-
-json.activities @activities, partial: 'events/event', as: :event
