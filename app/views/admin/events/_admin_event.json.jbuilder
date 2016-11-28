@@ -1,0 +1,1 @@
+_admin_event.json.jbuilder
