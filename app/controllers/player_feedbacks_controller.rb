@@ -1,5 +1,5 @@
 class PlayerFeedbacksController < ApplicationController
-  # before_action :authenticate_user!
+  acts_as_token_authentication_handler_for Player 
   before_action :set_training_course
   before_action :set_player_feedback, only: [:create, :update]
 
