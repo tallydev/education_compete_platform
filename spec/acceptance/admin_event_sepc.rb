@@ -29,7 +29,7 @@ resource " '后台管理' 网站内容的操作" do
     let(:picture_url) {event_attrs[:picture_url]}
     let(:is_competition) {event_attrs[:is_competition]}
 
-    example "查询 网站内容 的列表成功" do
+    example "’管理员‘创建 网站内容 的列表成功" do
       do_request
       puts response_body
       expect(status).to eq(201)
@@ -48,62 +48,62 @@ resource " '后台管理' 网站内容的操作" do
       @events = create_list(:event, 5, classify: "headline")
     end
 
-  #################### index #############################
-  get '/admin/events' do
+    #################### index #############################
+    get '/admin/events' do
 
-  	parameter :page, "当前页", required: false
-  	parameter :per_page, "每页的数量", required: false
+  	  parameter :page, "当前页", required: false
+  	  parameter :per_page, "每页的数量", required: false
    
-    let(:page) {1}
-    let(:per_page) {15}
+      let(:page) {1}
+      let(:per_page) {15}
 
-    example "查询 网站内容 的列表成功" do
-      do_request
-      puts response_body
-      expect(status).to eq(200)
+      example "’管理员‘ 查询 网站内容 的列表成功" do
+        do_request
+        puts response_body
+        expect(status).to eq(200)
+      end
     end
-  end
 
-  ##################### show #############################
-  get "/admin/events/:id" do
+    ##################### show #############################
+    get "/admin/events/:id" do
 
-  	let(:id) {@events.first.id}
+  	  let(:id) {@events.first.id}
 
-  	example "查询 网站内容 的详情成功" do
-  	  do_request
-  	  puts response_body
-  	  expect(status).to eq(200)
-  	end
-  end
+  	  example "’管理员‘ 查询指定 网站内容 的详情成功" do
+  	    do_request
+  	    puts response_body
+  	    expect(status).to eq(200)
+  	  end
+    end
 
-  #  #################### index #############################
-  # get "/admin/events/:id" do
-  # 	before do
-  # 	  @events = create_list(:event, 5, classify: "headline")	
-  # 	end
+    #################### update #############################
+    put "/admin/events/:id" do
+  	  before do
+  	    @events = create_list(:event, 5, classify: "headline")	
+  	  end
 
-  # 	let(:id) {@events.first.id}
+  	  let(:id) {@events.first.id}
 
-  # 	example "查询 网站内容 的详情成功" do
-  # 	  do_request
-  # 	  puts response_body
-  # 	  expect(status).to eq(200)
-  # 	end
-  # end
+  	  example "’管理员‘ 修改指定 网站内容 成功" do
+  	    do_request
+  	    puts response_body
+  	    expect(status).to eq(201)
+  	  end
+    end
 
-  # ##################### show #############################
-  # get "/admin/events/:id" do
-  # 	before do
-  # 	  @events = create_list(:event, 5, classify: "headline")	
-  # 	end
+    ##################### delete #############################
+    delete "/admin/events/:id" do
+  	  before do
+  	    @events = create_list(:event, 5, classify: "headline")	
+  	  end
 
-  # 	let(:id) {@events.first.id}
+  	  let(:id) {@events.first.id}
 
-  # 	example "查询 网站内容 的详情成功" do
-  # 	  do_request
-  # 	  puts response_body
-  # 	  expect(status).to eq(200)
-  # 	end
-  # end
+  	  example "’管理员‘ 删除指定 网站内容 成功" do
+  	    do_request
+  	    puts response_body
+  	    expect(status).to eq(204)
+  	  end
+    end
   end
 end
