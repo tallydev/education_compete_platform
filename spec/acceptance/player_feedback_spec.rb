@@ -49,8 +49,6 @@ resource "学员反馈 操作相关API" do
   describe 'player_feedback condition is all correct' do
     admin_attrs = FactoryGirl.attributes_for(:admin)
 
-    player_attrs = FactoryGirl.attributes_for(:player)
-
     header "X-Player-Token", player_attrs[:authentication_token]
     header "X-Player-Phone", player_attrs[:phone]
 
