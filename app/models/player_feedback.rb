@@ -3,7 +3,7 @@
 # Table name: player_feedbacks
 #
 #  id                 :integer          not null, primary key
-#  user_id            :integer
+#  player_id          :integer
 #  training_course_id :integer
 #  teach              :string(255)
 #  discussion         :string(255)
@@ -18,8 +18,8 @@
 #
 # Indexes
 #
+#  index_player_feedbacks_on_player_id           (player_id)
 #  index_player_feedbacks_on_training_course_id  (training_course_id)
-#  index_player_feedbacks_on_user_id             (user_id)
 #
 
 class PlayerFeedback < ActiveRecord::Base

@@ -1,4 +1,3 @@
-
 # == Schema Information
 #
 # Table name: users
@@ -20,9 +19,11 @@
 #  school_id              :integer
 #  type                   :string(255)
 #  tag                    :string(255)
+#  authentication_token   :string(30)
 #
 # Indexes
 #
+#  index_users_on_authentication_token  (authentication_token) UNIQUE
 #  index_users_on_phone                 (phone) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_school_id             (school_id)

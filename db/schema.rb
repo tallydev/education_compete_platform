@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161128073639) do
+ActiveRecord::Schema.define(version: 20161128074100) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",       limit: 255,             null: false
@@ -266,7 +266,7 @@ ActiveRecord::Schema.define(version: 20161128073639) do
   add_index "papers", ["paperable_type", "paperable_id"], name: "index_papers_on_paperable_type_and_paperable_id", using: :btree
 
   create_table "player_feedbacks", force: :cascade do |t|
-    t.integer  "user_id",            limit: 4
+    t.integer  "player_id",          limit: 4
     t.integer  "training_course_id", limit: 4
     t.string   "teach",              limit: 255
     t.string   "discussion",         limit: 255
@@ -280,8 +280,8 @@ ActiveRecord::Schema.define(version: 20161128073639) do
     t.datetime "updated_at",                       null: false
   end
 
+  add_index "player_feedbacks", ["player_id"], name: "index_player_feedbacks_on_player_id", using: :btree
   add_index "player_feedbacks", ["training_course_id"], name: "index_player_feedbacks_on_training_course_id", using: :btree
-  add_index "player_feedbacks", ["user_id"], name: "index_player_feedbacks_on_user_id", using: :btree
 
   create_table "player_infos", force: :cascade do |t|
     t.string   "name",               limit: 255
@@ -483,8 +483,10 @@ ActiveRecord::Schema.define(version: 20161128073639) do
     t.integer  "school_id",              limit: 4
     t.string   "type",                   limit: 255
     t.string   "tag",                    limit: 255
+    t.string   "authentication_token",   limit: 30
   end
 
+  add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
   add_index "users", ["phone"], name: "index_users_on_phone", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["school_id"], name: "index_users_on_school_id", using: :btree
