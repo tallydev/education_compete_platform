@@ -29,7 +29,7 @@ resource " '后台管理' 网站内容的操作" do
     let(:picture_url) {event_attrs[:picture_url]}
     let(:is_competition) {event_attrs[:is_competition]}
 
-    example "’管理员‘创建 网站内容 的列表成功" do
+    example "’管理员‘创建 网站内容 成功" do
       do_request
       puts response_body
       expect(status).to eq(201)
