@@ -24,6 +24,13 @@
 
 FactoryGirl.define do
   factory :player_feedback do
-    
+    teach "teach"
+    discussion "discussion"
+    visiting "visiting"
+    organization "organization"
+    study_life "study_life"
+    most_value "most_value"
+    most_gain "most_gain"
+    graduate_message "graduate_message"   
   end
 end
