@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   
   resources :training_courses
-  # devise_for :school_users
-  # devise_for :experts
+  ###################### devise_for ####################
+  devise_for :school_users
+  devise_for :experts
+  devise_for :admins
   devise_for :managers
+  #######################################################
   resources :appraises, only: [:index, :show, :create] do
     collection do
       get :list
