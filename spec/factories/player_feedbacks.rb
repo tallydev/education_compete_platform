@@ -3,7 +3,7 @@
 # Table name: player_feedbacks
 #
 #  id                 :integer          not null, primary key
-#  user_id            :integer
+#  player_id          :integer
 #  training_course_id :integer
 #  teach              :string(255)
 #  discussion         :string(255)
@@ -24,6 +24,8 @@
 
 FactoryGirl.define do
   factory :player_feedback do
+    player_id 1
+    training_course_id 1
     teach "teach"
     discussion "discussion"
     visiting "visiting"

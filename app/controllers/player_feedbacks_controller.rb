@@ -1,9 +1,6 @@
 class PlayerFeedbacksController < ApplicationController
   acts_as_token_authentication_handler_for Player 
-  before_action :set_training_course
-  before_action :set_player_feedback, only: [:create, :update]
-
-  before_action :set_player_feedback, only: [:show]
+  before_action :set_player_feedback, only: [:show, :update]
 
   respond_to :json
 
@@ -19,10 +16,8 @@ class PlayerFeedbacksController < ApplicationController
   end
 
   def create
-    if @player_feedback.blank?
-      @player_feedback = @training_course.player_feedbacks.new
-      @player_feedback.user_id = current_user.id
-      @player_feedback.save
+    @player_feedback = PlayerFeedback.new(player_feedback_params)
+    if @player_feedback.save
       respond_with(@player_feedback)
     else
       @error = "反馈信息创建失败"
@@ -31,7 +26,8 @@ class PlayerFeedbacksController < ApplicationController
   end
 
   def update
-    if @player_feedback.update(player_feedback_params.merge(user_id: current_user.id))
+    if player_feedback_params.present?
+      @player_feedback.update(player_feedback_params)
       respond_with(@player_feedback)
     else
       @error = "反馈信息创建失败"
@@ -49,16 +45,11 @@ class PlayerFeedbacksController < ApplicationController
       @player_feedback = PlayerFeedback.find(params[:id])
     end
 
-    def set_training_course
-      @training_course = TrainingCourse.find(params[:training_course_id])
-    end
-
-    def set_player_feedback
-      @player_feedback = PlayerFeedback.where(training_course_id: @training_course.id, user_id: current_user.id).first
-    end
-
     def player_feedback_params
-      params.require(:player_feedback).permit(:user_id, :training_course_id, :teach, :discussion, :visiting, :organization,
-                                             :study_life, :most_value, :most_gain, :graduate_message)
+      params.require(:player_feedback).permit(
+        :player_id, :training_course_id, :teach, 
+        :discussion, :visiting, :organization,:study_life,
+        :most_value, :most_gain, :graduate_message
+        )
     end
 end

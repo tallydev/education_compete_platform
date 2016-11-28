@@ -23,7 +23,7 @@
 #
 
 class PlayerFeedback < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :player
   belongs_to :training_course
 
   #客观评价
