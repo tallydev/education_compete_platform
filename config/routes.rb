@@ -127,6 +127,10 @@ Rails.application.routes.draw do
 
   namespace :admin do 
     root to: "home#index"
+
+    #########################################
+    resources events, only: [:show, :index, :create, :update, :destroy]
+    #########################################
     resources :users
     resources :activities do
       resources :info_competitions, only: [:show, :index, :edit, :update] do

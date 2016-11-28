@@ -1,29 +1,27 @@
 class Admin::EventsController < ApplicationController
-  before_action :set_admin_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_admin_event, only: [:show, :update, :destroy]
 
   respond_to :html
 
   def index
-    @admin_events = Admin::Event.all
+    page = params[:page] || 1
+    per_page = params[:per_page] || 20
+    @admin_events = Event.all.paginate(page: page, per_page: per_page)
     respond_with(@admin_events)
   end
 
-  def show
+  def show###
     respond_with(@admin_event)
-  end
-
-  def new
-    @admin_event = Admin::Event.new
-    respond_with(@admin_event)
-  end
-
-  def edit
   end
 
   def create
-    @admin_event = Admin::Event.new(admin_event_params)
-    @admin_event.save
-    respond_with(@admin_event)
+    @admin_event = Event.new(admin_event_params)
+    if @admin_event.save
+      respond_with(@admin_event) 
+    else
+      @error = "创建网站 内容失败 ！"
+      respond_with(@error)
+    end
   end
 
   def update
@@ -38,10 +36,10 @@ class Admin::EventsController < ApplicationController
 
   private
     def set_admin_event
-      @admin_event = Admin::Event.find(params[:id])
+      @admin_event = Event.find(params[:id])
     end
 
     def admin_event_params
-      params[:admin_event]
+      params.require(:event).permit(:title, :classify, :content, :picture_url, :is_competition)
     end
 end
