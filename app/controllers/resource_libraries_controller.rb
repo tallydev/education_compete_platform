@@ -1,7 +1,7 @@
 class ResourceLibrariesController < ApplicationController
   before_action :set_resource_library, only: [:show, :destroy, :download]
 
-  respond_to :html, :json
+  respond_to :json
 
   def index
     page = params[:page] || 1

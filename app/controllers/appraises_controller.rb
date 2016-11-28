@@ -5,7 +5,7 @@ class AppraisesController < ApplicationController
 
   before_action :set_appraise, only: [:show]
 
-  respond_to :html, :json
+  respond_to :json
 
   def index####
     page = params[:page] || 1

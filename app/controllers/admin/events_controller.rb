@@ -1,7 +1,7 @@
 class Admin::EventsController < ApplicationController
   before_action :set_admin_event, only: [:show, :update, :destroy]
 
-  respond_to :html
+  respond_to :json
 
   def index
     page = params[:page] || 1

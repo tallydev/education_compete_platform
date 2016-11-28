@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show]
 
-  respond_to :html, :json
+  respond_to :json
 
   def index
     page = params[:page] || 1
