@@ -1,10 +1,13 @@
 class Admin::PlayerFeedbacksController < ApplicationController
-  before_action :set_admin_player_feedback, only: [:show, :edit, :update, :destroy]
+  acts_as_token_authentication_handler_for Admin
+  before_action :set_admin_player_feedback, only: [:show]
 
-  respond_to :html
+  respond_to :json
 
   def index
-    @admin_player_feedbacks = Admin::PlayerFeedback.all
+    page = params[:page] || 1
+    per_page = params[:per_page] || 15
+    @admin_player_feedbacks = PlayerFeedback.all.paginate(page: page, per_page: per_page)
     respond_with(@admin_player_feedbacks)
   end
 
@@ -12,36 +15,18 @@ class Admin::PlayerFeedbacksController < ApplicationController
     respond_with(@admin_player_feedback)
   end
 
-  def new
-    @admin_player_feedback = Admin::PlayerFeedback.new
-    respond_with(@admin_player_feedback)
-  end
+  # def update
+  #   @admin_player_feedback.update(admin_player_feedback_params)
+  #   respond_with(@admin_player_feedback)
+  # end
 
-  def edit
-  end
-
-  def create
-    @admin_player_feedback = Admin::PlayerFeedback.new(admin_player_feedback_params)
-    @admin_player_feedback.save
-    respond_with(@admin_player_feedback)
-  end
-
-  def update
-    @admin_player_feedback.update(admin_player_feedback_params)
-    respond_with(@admin_player_feedback)
-  end
-
-  def destroy
-    @admin_player_feedback.destroy
-    respond_with(@admin_player_feedback)
-  end
+  # def destroy
+  #   @admin_player_feedback.destroy
+  #   respond_with(@admin_player_feedback)
+  # end
 
   private
     def set_admin_player_feedback
-      @admin_player_feedback = Admin::PlayerFeedback.find(params[:id])
-    end
-
-    def admin_player_feedback_params
-      params[:admin_player_feedback]
+      @admin_player_feedback = PlayerFeedback.find(params[:id])
     end
 end
