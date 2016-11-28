@@ -78,25 +78,33 @@ resource " '后台管理' 网站内容的操作" do
 
     #################### update #############################
     put "/admin/events/:id" do
-  	  before do
-  	    @events = create_list(:event, 5, classify: "headline")	
-  	  end
+      event_attrs = FactoryGirl.attributes_for(:event)
+
+      parameter :title, "网站title",required: true, scope: :event
+      parameter :classify, "网站分类:(bulletin: 1, headline: 2, 
+                                  activity: 3, work: 4, intro: 5, contact: 
+                                  6, teaching: 7)",required: true, scope: :event
+      parameter :content, "网站内容",required: true, scope: :event
+      parameter :picture_url, "网站picture_url",required: true, scope: :event
+      parameter :is_competition, "判断是否是比赛 网站:(true, false)",required: true, scope: :event
 
   	  let(:id) {@events.first.id}
+
+      let(:title) {event_attrs[:title]}
+      let(:classify) {event_attrs[:classify]}
+      let(:content) {event_attrs[:content]}
+      let(:picture_url) {event_attrs[:picture_url]}
+      let(:is_competition) {event_attrs[:is_competition]}
 
   	  example "’管理员‘ 修改指定 网站内容 成功" do
   	    do_request
   	    puts response_body
-  	    expect(status).to eq(201)
+  	    expect(status).to eq(204)
   	  end
     end
 
     ##################### delete #############################
     delete "/admin/events/:id" do
-  	  before do
-  	    @events = create_list(:event, 5, classify: "headline")	
-  	  end
-
   	  let(:id) {@events.first.id}
 
   	  example "’管理员‘ 删除指定 网站内容 成功" do
