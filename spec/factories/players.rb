@@ -24,12 +24,14 @@
 
 FactoryGirl.define do
   factory :player do
-    phone "123456"
-    password "123456"
+    phone "13813813811"   
+    password "abcd.1234"
+    authentication_token "qwertyuiop123"
   end
 
   factory :player1, class: Player do
-    phone "123457"
-    password "123456"
+    phone "13813813812"   
+    password "abcd.1234"
+    authentication_token "qwertyuiop123"
   end
 end
