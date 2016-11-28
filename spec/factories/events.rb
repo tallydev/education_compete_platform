@@ -18,11 +18,10 @@
 
 FactoryGirl.define do
   factory :event do
-    title "MyString"
-    content "MyText"
-    classify 1
-    picture_url "MyString"
+    title "event_title"
+    content "event_content"
+    classify "bulletin"
+    picture_url {Rack::Test::UploadedFile.new('./spec/assets/会议室3.png', 'image/png')}
     is_competition false
-    picture_url ""
   end
 end
