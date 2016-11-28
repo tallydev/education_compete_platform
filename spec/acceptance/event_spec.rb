@@ -7,7 +7,7 @@ resource "网站内容的操作" do
   get '/events' do
   	
   	before do
-  	  @events = create_list(:event, 5, classify: "headline")
+  	  @events = create_list(:event, 1, classify: "headline")
   	end
 
   	parameter :page, "当前页", required: false
