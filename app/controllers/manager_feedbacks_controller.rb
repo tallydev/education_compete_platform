@@ -1,9 +1,7 @@
 class ManagerFeedbacksController < ApplicationController
-  # before_action :authenticate_user!
-  before_action :set_training_course
-  before_action :set_player_feedback, only: [:create, :update]
-
-  before_action :set_manager_feedback, only: [:show]
+  acts_as_token_authentication_handler_for Manager
+ 
+  before_action :set_manager_feedback, only: [:show, :update]
 
   respond_to :json
 
@@ -19,12 +17,11 @@ class ManagerFeedbacksController < ApplicationController
   end
 
   def create
-    if @manager_feedback.blank?
-      @manager_feedback = @training_course.build_manager_feedback
-      @manager_feedback.save
+    @manager_feedback = ManagerFeedback.new(manager_feedback_params)
+    if @manager_feedback.save
       respond_with(@manager_feedback)
     else
-      @error = "反馈信息创建失败"
+      @error = "负责人反馈信息创建失败"
       respond_with @error, template: "error"
     end
   end
@@ -33,7 +30,7 @@ class ManagerFeedbacksController < ApplicationController
     if @manager_feedback.update(manager_feedback_params)
       respond_with(@manager_feedback)
     else
-      @error = "反馈信息创建失败"
+      @error = "负责人反馈信息创建失败"
       respond_with @error, template: "error"
     end
   end
@@ -46,14 +43,6 @@ class ManagerFeedbacksController < ApplicationController
   private
     def set_manager_feedback
       @manager_feedback = ManagerFeedback.find(params[:id])
-    end
-
-    def set_training_course
-      @training_course = TrainingCourse.find(params[:training_course_id])
-    end
-
-    def set_manager_feedback
-      @manager_feedback = @training_course.manager_feedback
     end
 
     def manager_feedback_params
