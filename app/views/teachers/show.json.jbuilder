@@ -1,1 +1,1 @@
-json.extract! @teacher, :id, :created_at, :updated_at
+json.partial! 'teachers/teacher', teacher: @teacher
