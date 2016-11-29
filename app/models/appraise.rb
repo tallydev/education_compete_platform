@@ -19,15 +19,15 @@
 #
 
 class Appraise < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :admin
+  belongs_to :player
   belongs_to :training_course
   belongs_to :teacher
 
   #客观评价
 	Degree = { 
 	  '0' => '非常满意', 
-	  '1' => '满意', '2' => '一般', 
+	  '1' => '满意', 
+    '2' => '一般', 
 	  '3' => '不满意', 
 	  '4' => '非常不满意' 
 	}
