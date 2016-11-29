@@ -26,7 +26,7 @@ FactoryGirl.define do
     name "计算机老师"
     id_card "id_card"
     position "position"
-    sex true 
+    sex "male"
     remark "remark"
     address "上海XXXXXXX"
     mobile "mobile"

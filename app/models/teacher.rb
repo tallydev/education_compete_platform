@@ -30,14 +30,14 @@ class Teacher < ActiveRecord::Base
   belongs_to :school
   has_many :appraises, dependent: :destroy
 
-  enum sex: {
-  	male: true, 
-  	female: false
-  }
-  Sex = {
-  	male: '男', 
-  	female: '女'
-  }
+  # enum sex: {
+  # 	male: true, 
+  # 	female: false
+  # }
+  # Sex = {
+  # 	male: '男', 
+  # 	female: '女'
+  # }
 
   validates :name, presence: true
   validates :id_card, presence: true
