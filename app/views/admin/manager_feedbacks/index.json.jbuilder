@@ -1,4 +1,4 @@
-json.array!(@admin_manager_feedbacks) do |admin_manager_feedback|
-  json.extract! admin_manager_feedback, :id
-  json.url admin_manager_feedback_url(admin_manager_feedback, format: :json)
-end
+json.current_page @admin_manager_feedbacks.current_page
+json.total_pages @admin_manager_feedbacks.total_pages
+
+json.admin_manager_feedbacks @admin_manager_feedbacks, partial: 'admin/manager_feedbacks/admin_manager_feedback', as: :admin_manager_feedback
