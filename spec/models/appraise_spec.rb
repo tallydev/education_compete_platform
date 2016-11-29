@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Appraise, type: :model do
-  # pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to(:player) } 
+  it { should belong_to(:teacher) }
+  it { should belong_to(:training_course) }
 end
