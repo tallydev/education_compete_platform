@@ -135,7 +135,14 @@ Rails.application.routes.draw do
     root to: "home#index"
 
     #########################################
+    resources :manager_feedbacks, only: [:show, :index] do
+      collection do
+          get :list
+        end
+    end
+
     resources :player_feedbacks, only: [:show, :index]
+
     resources :events, only: [:show, :index, :create, :update, :destroy]
     #########################################
     resources :users
