@@ -21,7 +21,7 @@ FactoryGirl.define do
     title "event_title"
     content "event_content"
     classify "bulletin"
-    picture_url {Rack::Test::UploadedFile.new('./spec/assets/会议室3.png', 'image/png')}
+    picture_url {Rack::Test::UploadedFile.new('./spec/assets/测试图片3.png', 'image/png')}
     is_competition false
   end
 end

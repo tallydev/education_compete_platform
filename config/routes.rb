@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :teachers
   resources :training_courses
   ###################### devise_for ####################
   # devise_for :school_users
@@ -201,6 +202,14 @@ end
 #
 #                                       Prefix Verb   URI Pattern                                                                                      Controller#Action
 #                                      apitome        /api/docs                                                                                        Apitome::Engine
+#                                     teachers GET    /teachers(.:format)                                                                              teachers#index
+#                                              POST   /teachers(.:format)                                                                              teachers#create
+#                                  new_teacher GET    /teachers/new(.:format)                                                                          teachers#new
+#                                 edit_teacher GET    /teachers/:id/edit(.:format)                                                                     teachers#edit
+#                                      teacher GET    /teachers/:id(.:format)                                                                          teachers#show
+#                                              PATCH  /teachers/:id(.:format)                                                                          teachers#update
+#                                              PUT    /teachers/:id(.:format)                                                                          teachers#update
+#                                              DELETE /teachers/:id(.:format)                                                                          teachers#destroy
 #                             training_courses GET    /training_courses(.:format)                                                                      training_courses#index
 #                                              POST   /training_courses(.:format)                                                                      training_courses#create
 #                          new_training_course GET    /training_courses/new(.:format)                                                                  training_courses#new
@@ -239,7 +248,6 @@ end
 #                                              PATCH  /managers(.:format)                                                                              devise/registrations#update
 #                                              PUT    /managers(.:format)                                                                              devise/registrations#update
 #                                              DELETE /managers(.:format)                                                                              devise/registrations#destroy
-#                               list_appraises GET    /appraises/list(.:format)                                                                        appraises#list
 #                                    appraises GET    /appraises(.:format)                                                                             appraises#index
 #                                              POST   /appraises(.:format)                                                                             appraises#create
 #                                     appraise GET    /appraises/:id(.:format)                                                                         appraises#show
@@ -431,6 +439,9 @@ end
 #                                              PUT    /talk_competition/recruits/:id(.:format)                                                         talk_competition/recruits#update
 #                                              DELETE /talk_competition/recruits/:id(.:format)                                                         talk_competition/recruits#destroy
 #                                   admin_root GET    /admin(.:format)                                                                                 admin/home#index
+#                         list_admin_appraises GET    /admin/appraises/list(.:format)                                                                  admin/appraises#list
+#                              admin_appraises GET    /admin/appraises(.:format)                                                                       admin/appraises#index
+#                               admin_appraise GET    /admin/appraises/:id(.:format)                                                                   admin/appraises#show
 #                 list_admin_manager_feedbacks GET    /admin/manager_feedbacks/list(.:format)                                                          admin/manager_feedbacks#list
 #                      admin_manager_feedbacks GET    /admin/manager_feedbacks(.:format)                                                               admin/manager_feedbacks#index
 #                       admin_manager_feedback GET    /admin/manager_feedbacks/:id(.:format)                                                           admin/manager_feedbacks#show
