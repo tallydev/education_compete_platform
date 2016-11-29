@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   resources :training_course_teachers
-  resources :teachers
+  resources :teachers, only: [:index, :show]
   resources :training_courses
   ###################### devise_for ####################
   # devise_for :school_users
@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   ################### appraises ########################
   resources :appraises, only: [:index, :show, :create] 
   
+  ################### feedback ########################
   resources :manager_feedbacks, only: [:index, :show, :create, :update]
-
   resources :player_feedbacks, only: [:index, :show, :create, :update]
 
   resources :events, only: [:index, :show]
@@ -133,6 +133,8 @@ Rails.application.routes.draw do
     root to: "home#index"
 
     #########################################
+    resources :teachers, only: [:index, :show, :create, :update, :destroy]
+
     resources :appraises, only: [:index, :show] do
       collection do
         get :list
