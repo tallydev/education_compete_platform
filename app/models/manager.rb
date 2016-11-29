@@ -29,6 +29,14 @@
 #  index_users_on_school_id             (school_id)
 #
 
-class Manager < User
+class Manager < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable,
+         authentication_keys: [:phone]
 
+  validates_uniqueness_of :phone, on: :create, message: "用户手机号已注册"
+
+  belongs_to :school
 end
