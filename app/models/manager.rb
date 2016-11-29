@@ -39,4 +39,5 @@ class Manager < ActiveRecord::Base
   validates_uniqueness_of :phone, on: :create, message: "用户手机号已注册"
 
   belongs_to :school
+  has_many :manager_feedbacks, dependent: :destroy
 end
