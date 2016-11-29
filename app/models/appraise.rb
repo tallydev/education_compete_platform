@@ -36,7 +36,7 @@ class Appraise < ActiveRecord::Base
   scope :keyword, -> (keyword) do
     return all if keyword.blank?
     joins(:user).joins(:teacher).joins(:training_course).where(
-      'users.name LIKE ?
+      'player.name LIKE ?
        OR teachers.name LIKE ?
        OR training_courses.name LIKE ?',
       "%#{keyword}%",

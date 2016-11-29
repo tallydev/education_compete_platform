@@ -37,7 +37,7 @@ resource " '后台管理' 学员评师 相关的操作" do
     get '/admin/appraises/list' do
       parameter :keyword, "输入查询的参数：(player,teacher,training_course)", required: false
    
-      let(:keyword) {1}
+      let(:keyword) { }
 
   	  parameter :page, "当前页", required: false
   	  parameter :per_page, "每页的数量", required: false
