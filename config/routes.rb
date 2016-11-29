@@ -12,8 +12,11 @@ Rails.application.routes.draw do
       get :list
     end
   end
+  
   resources :manager_feedbacks, only: [:index, :show, :create, :update]
+
   resources :player_feedbacks, only: [:index, :show, :create, :update]
+
   resources :events, only: [:index, :show]
   #####################  resourse  ##########################
   resources :resource_libraries, only: [:show, :index, :destroy, :create] do
