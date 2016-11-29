@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :training_course_teachers
   resources :teachers
   resources :training_courses
   ###################### devise_for ####################
@@ -202,6 +203,14 @@ end
 #
 #                                       Prefix Verb   URI Pattern                                                                                      Controller#Action
 #                                      apitome        /api/docs                                                                                        Apitome::Engine
+#                     training_course_teachers GET    /training_course_teachers(.:format)                                                              training_course_teachers#index
+#                                              POST   /training_course_teachers(.:format)                                                              training_course_teachers#create
+#                  new_training_course_teacher GET    /training_course_teachers/new(.:format)                                                          training_course_teachers#new
+#                 edit_training_course_teacher GET    /training_course_teachers/:id/edit(.:format)                                                     training_course_teachers#edit
+#                      training_course_teacher GET    /training_course_teachers/:id(.:format)                                                          training_course_teachers#show
+#                                              PATCH  /training_course_teachers/:id(.:format)                                                          training_course_teachers#update
+#                                              PUT    /training_course_teachers/:id(.:format)                                                          training_course_teachers#update
+#                                              DELETE /training_course_teachers/:id(.:format)                                                          training_course_teachers#destroy
 #                                     teachers GET    /teachers(.:format)                                                                              teachers#index
 #                                              POST   /teachers(.:format)                                                                              teachers#create
 #                                  new_teacher GET    /teachers/new(.:format)                                                                          teachers#new
