@@ -1,10 +1,21 @@
 class Admin::AppraisesController < ApplicationController
-  before_action :set_admin_appraise, only: [:show, :edit, :update, :destroy]
+  acts_as_token_authentication_handler_for Admin  
+  before_action :set_admin_appraise, only: [:show]
 
-  respond_to :html
+  respond_to :json
 
-  def index
-    @admin_appraises = Admin::Appraise.all
+  def index ##
+    page = params[:page] || 1
+    per_page = params[:per_page] || 15
+    @admin_appraises = Appraise.all.paginate(page: page, per_page: per_page)
+    respond_with(@admin_appraises)
+  end
+
+  def list #搜索显示列表
+    @keyword = params[:keyword].present?? params[:keyword] : " "
+    page = params[:page] || 1
+    per_page = params[:per_page] || 15
+    @admin_appraises = Appraise.all.keyword(@keyword).paginate(page: page, per_page: per_page)
     respond_with(@admin_appraises)
   end
 
@@ -12,36 +23,8 @@ class Admin::AppraisesController < ApplicationController
     respond_with(@admin_appraise)
   end
 
-  def new
-    @admin_appraise = Admin::Appraise.new
-    respond_with(@admin_appraise)
-  end
-
-  def edit
-  end
-
-  def create
-    @admin_appraise = Admin::Appraise.new(admin_appraise_params)
-    @admin_appraise.save
-    respond_with(@admin_appraise)
-  end
-
-  def update
-    @admin_appraise.update(admin_appraise_params)
-    respond_with(@admin_appraise)
-  end
-
-  def destroy
-    @admin_appraise.destroy
-    respond_with(@admin_appraise)
-  end
-
   private
     def set_admin_appraise
-      @admin_appraise = Admin::Appraise.find(params[:id])
-    end
-
-    def admin_appraise_params
-      params[:admin_appraise]
+      @admin_appraise = Appraise.find(params[:id])
     end
 end
