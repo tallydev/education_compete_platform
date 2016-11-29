@@ -1,4 +1,4 @@
 json.extract! admin_appraise, :id, :remark, :degree, :created_at, :updated_at
-json.player_id admin_appraise.player_id
-json.teacher_id admin_appraise.teacher_id
-json.training_course_id admin_appraise.training_course_id
+json.player_name admin_appraise.player.try(:name)
+json.teacher_name admin_appraise.teacher.try(:name)
+json.training_course_name admin_appraise.training_course.try(:name)
