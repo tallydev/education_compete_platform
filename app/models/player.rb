@@ -35,6 +35,7 @@ class Player < ActiveRecord::Base
 
   belongs_to :school
   has_one :player_info, dependent: :destroy
+  has_many :player_feedbacks, dependent: :destroy
   
   #################   InfoCompetition     ########################
   has_many :info_competition_recruits, class_name: "InfoCompetition::Recruit", dependent: :destroy
