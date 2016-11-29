@@ -7,11 +7,7 @@ Rails.application.routes.draw do
   devise_for :admins
   devise_for :managers
   ################### appraises ########################
-  resources :appraises, only: [:index, :show, :create] do
-    collection do
-      get :list
-    end
-  end
+  resources :appraises, only: [:index, :show, :create] 
   
   resources :manager_feedbacks, only: [:index, :show, :create, :update]
 
@@ -135,6 +131,12 @@ Rails.application.routes.draw do
     root to: "home#index"
 
     #########################################
+    resources :appraises, only: [:index, :show] do
+      collection do
+        get :list
+      end
+    end
+
     resources :manager_feedbacks, only: [:show, :index] do
       collection do
           get :list
@@ -429,6 +431,9 @@ end
 #                                              PUT    /talk_competition/recruits/:id(.:format)                                                         talk_competition/recruits#update
 #                                              DELETE /talk_competition/recruits/:id(.:format)                                                         talk_competition/recruits#destroy
 #                                   admin_root GET    /admin(.:format)                                                                                 admin/home#index
+#                 list_admin_manager_feedbacks GET    /admin/manager_feedbacks/list(.:format)                                                          admin/manager_feedbacks#list
+#                      admin_manager_feedbacks GET    /admin/manager_feedbacks(.:format)                                                               admin/manager_feedbacks#index
+#                       admin_manager_feedback GET    /admin/manager_feedbacks/:id(.:format)                                                           admin/manager_feedbacks#show
 #                       admin_player_feedbacks GET    /admin/player_feedbacks(.:format)                                                                admin/player_feedbacks#index
 #                        admin_player_feedback GET    /admin/player_feedbacks/:id(.:format)                                                            admin/player_feedbacks#show
 #                                 admin_events GET    /admin/events(.:format)                                                                          admin/events#index

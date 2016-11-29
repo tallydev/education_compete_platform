@@ -22,7 +22,7 @@
 # Foreign Keys
 #
 #  fk_rails_2ddaa268eb  (training_course_id => training_courses.id)
-#  fk_rails_4c6f6ff238  (manager_id => admins.id)
+#  fk_rails_a6947f89ef  (manager_id => admins.id)
 #
 
 class ManagerFeedback < ActiveRecord::Base
