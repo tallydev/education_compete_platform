@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161128074100) do
+ActiveRecord::Schema.define(version: 20161129005720) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",       limit: 255,             null: false
@@ -170,7 +170,7 @@ ActiveRecord::Schema.define(version: 20161128074100) do
   add_index "info_competition_recruits", ["school_id"], name: "index_info_competition_recruits_on_school_id", using: :btree
 
   create_table "manager_feedbacks", force: :cascade do |t|
-    t.integer  "admin_id",            limit: 4
+    t.integer  "manager_id",          limit: 4
     t.integer  "training_course_id",  limit: 4
     t.string   "organizer",           limit: 255
     t.string   "total_hours",         limit: 255
@@ -182,7 +182,7 @@ ActiveRecord::Schema.define(version: 20161128074100) do
     t.datetime "updated_at",                        null: false
   end
 
-  add_index "manager_feedbacks", ["admin_id"], name: "index_manager_feedbacks_on_admin_id", using: :btree
+  add_index "manager_feedbacks", ["manager_id"], name: "index_manager_feedbacks_on_manager_id", using: :btree
   add_index "manager_feedbacks", ["training_course_id"], name: "index_manager_feedbacks_on_training_course_id", using: :btree
 
   create_table "managers", force: :cascade do |t|
@@ -493,7 +493,7 @@ ActiveRecord::Schema.define(version: 20161128074100) do
 
   add_foreign_key "admins", "schools"
   add_foreign_key "experts", "schools"
-  add_foreign_key "manager_feedbacks", "admins"
+  add_foreign_key "manager_feedbacks", "admins", column: "manager_id"
   add_foreign_key "manager_feedbacks", "training_courses"
   add_foreign_key "managers", "schools"
   add_foreign_key "school_users", "schools"

@@ -419,6 +419,8 @@ end
 #                                              PUT    /talk_competition/recruits/:id(.:format)                                                         talk_competition/recruits#update
 #                                              DELETE /talk_competition/recruits/:id(.:format)                                                         talk_competition/recruits#destroy
 #                                   admin_root GET    /admin(.:format)                                                                                 admin/home#index
+#                       admin_player_feedbacks GET    /admin/player_feedbacks(.:format)                                                                admin/player_feedbacks#index
+#                        admin_player_feedback GET    /admin/player_feedbacks/:id(.:format)                                                            admin/player_feedbacks#show
 #                                 admin_events GET    /admin/events(.:format)                                                                          admin/events#index
 #                                              POST   /admin/events(.:format)                                                                          admin/events#create
 #                                  admin_event GET    /admin/events/:id(.:format)                                                                      admin/events#show

@@ -3,7 +3,7 @@
 # Table name: manager_feedbacks
 #
 #  id                  :integer          not null, primary key
-#  admin_id            :integer
+#  manager_id          :integer
 #  training_course_id  :integer
 #  organizer           :string(255)
 #  total_hours         :string(255)
@@ -16,13 +16,13 @@
 #
 # Indexes
 #
-#  index_manager_feedbacks_on_admin_id            (admin_id)
+#  index_manager_feedbacks_on_manager_id          (manager_id)
 #  index_manager_feedbacks_on_training_course_id  (training_course_id)
 #
 # Foreign Keys
 #
 #  fk_rails_2ddaa268eb  (training_course_id => training_courses.id)
-#  fk_rails_4c6f6ff238  (admin_id => admins.id)
+#  fk_rails_4c6f6ff238  (manager_id => admins.id)
 #
 
 class ManagerFeedback < ActiveRecord::Base
