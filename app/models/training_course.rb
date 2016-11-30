@@ -69,7 +69,7 @@ class TrainingCourse < ActiveRecord::Base
                                 reject_if: proc { |attributes| attributes['name'].blank? },
                                 allow_destroy: true
 
-  scope :default_scope, -> { order("created_at DESC") }
+  default_scope { order("created_at DESC") }
   scope :scope_category, -> (params){ where(category: params) }
 
   #分类
@@ -87,27 +87,27 @@ class TrainingCourse < ActiveRecord::Base
 
   #状态机
   aasm :column => 'state' do
-	state :unchecked, :initial => true  #默认未通过审核
-	state :checked_by_expert     #通过专家审核
-	state :checked_by_seminar    #通过研究会审核
-	#state :checked_by_educator   #通过教委审核
+	  state :unchecked, :initial => true  #默认未通过审核
+	  state :checked_by_expert     #通过专家审核
+	  state :checked_by_seminar    #通过研究会审核
+	  state :checked_by_educator   #通过教委审核
 
     #暂定审核流程 专家审核 --》 研究会审核 --》 教委审核
-	event :to_unchecked do
-		transitions :from => [:checked_by_expert, :checked_by_seminar, :checked_by_educator], :to => :unchecked
-	end
+	  event :to_unchecked do
+		  transitions :from => [:checked_by_expert, :checked_by_seminar, :checked_by_educator], :to => :unchecked
+	  end
 
-	event :to_checked_by_expert do
-		transitions :from => :unchecked, :to => :checked_by_expert
-	end
+	  event :to_checked_by_expert do
+		  transitions :from => :unchecked, :to => :checked_by_expert
+	  end
 
-	event :to_checked_by_seminar do
-		ransitions :from => :checked_by_expert, :to => :checked_by_seminar
-	end
+	  event :to_checked_by_seminar do
+		  transitions :from => :checked_by_expert, :to => :checked_by_seminar
+	  end
 
-	# event :to_checked_by_educator do
-	# 	transitions :from => :checked_by_seminar, :to => :checked_by_educator
-	# end
+	  event :to_checked_by_educator do
+		  transitions :from => :checked_by_seminar, :to => :checked_by_educator
+	  end
   end
 
   #后台首页统计报名人数
