@@ -1,10 +1,22 @@
 class TrainingCoursesController < ApplicationController
-  before_action :set_training_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_training_course, only: [:show, :print]
 
   respond_to :json
 
   def index
-    @training_courses = TrainingCourse.all
+    @keyword = params[:keyword].present?? params[:keyword] : " "
+    page = params[:page] || 1
+    per_page = params[:per_page] || 15
+    @training_courses = TrainingCourse.all.keyword(@keyword).paginate(page: page, per_page: per_page)
+    respond_with(@training_courses)
+  end
+
+  def list
+    @category = params[:category].present?? params[:category] : "country"
+    @keyword = params[:keyword].present?? params[:keyword] : " "
+    page = params[:page] || 1
+    per_page = params[:per_page] || 15
+    @training_courses = TrainingCourse.all.scope_category(@category).keyword(@keyword).paginate(page: page, per_page: per_page)
     respond_with(@training_courses)
   end
 
@@ -12,36 +24,12 @@ class TrainingCoursesController < ApplicationController
     respond_with(@training_course)
   end
 
-  def new
-    @training_course = TrainingCourse.new
-    respond_with(@training_course)
-  end
-
-  def edit
-  end
-
-  def create
-    @training_course = TrainingCourse.new(training_course_params)
-    @training_course.save
-    respond_with(@training_course)
-  end
-
-  def update
-    @training_course.update(training_course_params)
-    respond_with(@training_course)
-  end
-
-  def destroy
-    @training_course.destroy
-    respond_with(@training_course)
+  def print
+    
   end
 
   private
     def set_training_course
       @training_course = TrainingCourse.find(params[:id])
-    end
-
-    def training_course_params
-      params[:training_course]
     end
 end
