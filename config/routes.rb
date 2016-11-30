@@ -140,6 +140,15 @@ Rails.application.routes.draw do
     root to: "home#index"
 
     #########################################
+    resources :training_courses,  only: [:index, :show, :create, :update] do
+      member do
+        post :unchecked #取消审核状态
+        post :checked_by_expert #专家审核状态
+        post :checked_by_seminar #研究会审核状态
+        post :checked_by_educator #教委审核状态
+      end
+    end
+
     resources :teachers, only: [:index, :show, :create, :update, :destroy]
 
     resources :appraises, only: [:index, :show] do
