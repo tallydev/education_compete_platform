@@ -13,8 +13,8 @@ resource " '后台管理' 学员反馈 相关的操作" do
     before do
       @admin = create(:admin)
       @player = create(:player)
-      @training_course = create(:training_course)
-      @player_feedbacks = create_list(:player_feedback, 5, player: @player, training_course: @training_course)
+      # @training_course = create(:training_course)
+      @player_feedbacks = create_list(:player_feedback, 5, player: @player)
     end
 
     #################### index #############################
