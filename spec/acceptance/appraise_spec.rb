@@ -13,7 +13,7 @@ resource "学员评师 操作相关API" do
 
     before do
       @player = create(:player)
-      @training_course = create(:training_course)
+      # @training_course = create(:training_course)
     end
 
   	parameter :player_id, "评师的学员",required: true, scope: :appraise
@@ -44,8 +44,8 @@ resource "学员评师 操作相关API" do
 
     before do
       @player = create(:player)
-      @training_course = create(:training_course)
-      @appraises = create_list(:appraise, 5, player: @player, training_course: @training_course)
+      # @training_course = create(:training_course)
+      @appraises = create_list(:appraise, 5, player: @player)
     end
 
     #################### index #############################
