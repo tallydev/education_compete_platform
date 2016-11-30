@@ -12,7 +12,7 @@ class TrainingCoursesController < ApplicationController
   end
 
   def list
-    @category = params[:category].present?? params[:category] : "country"
+    @category = params[:category].present?? params[:category] : "0"
     @keyword = params[:keyword].present?? params[:keyword] : " "
     page = params[:page] || 1
     per_page = params[:per_page] || 15

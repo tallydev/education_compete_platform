@@ -36,12 +36,12 @@ resource "学员 对 培训课程 内容的相关的API" do
 
     #################### list #############################
     get '/training_courses/list' do
-      parameter :category, "输入要查询的分类参数：(country: '国培培训',
-	                                          teacher: '骨干教师培训',
-	  										  manager: '专业负责人培训')", required: false
+      parameter :category, "输入要查询的分类参数：(country: '国培培训' 0,
+	                                          teacher: '骨干教师培训' 1,
+	  										  manager: '专业负责人培训' 2),默认为‘0’,输入的参数为数字 ", required: false
       parameter :keyword, "输入要查询的参数：(培训课程名称 or 学校名称 or 培训课程编号code)，默认返回all", required: false
    
-      let(:category) {"teacher"}
+      let(:category) {'1'}
       let(:keyword) {}
 
   	  parameter :page, "当前页", required: false
