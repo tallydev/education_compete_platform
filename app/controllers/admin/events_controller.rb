@@ -26,7 +26,7 @@ class Admin::EventsController < ApplicationController
 
   def update
     @admin_event.update(admin_event_params)
-    respond_with(@admin_event)
+    respond_with(@admin_event, template:"admin/events/show", status: 201)
   end
 
   def destroy

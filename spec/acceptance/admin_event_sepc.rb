@@ -99,7 +99,7 @@ resource " '后台管理' 网站内容的操作" do
   	  example "’管理员‘ 修改指定 网站内容 成功" do
   	    do_request
   	    puts response_body
-  	    expect(status).to eq(204)
+  	    expect(status).to eq(201)
   	  end
     end
 
