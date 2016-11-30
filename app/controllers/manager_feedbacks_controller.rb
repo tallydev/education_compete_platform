@@ -28,7 +28,7 @@ class ManagerFeedbacksController < ApplicationController
 
   def update
     if @manager_feedback.update(manager_feedback_params)
-      respond_with(@manager_feedback)
+      respond_with(@manager_feedback, template:"manager_feedbacks/show", status: 201)
     else
       @error = "负责人反馈信息创建失败"
       respond_with @error, template: "error"
@@ -46,7 +46,7 @@ class ManagerFeedbacksController < ApplicationController
     end
 
     def manager_feedback_params
-      params.require(:manager_feedback).permit(:training_course_id, :admin_id, :organizer, :total_hours, :total_expenses,
+      params.require(:manager_feedback).permit(:training_course_id, :manager_id, :organizer, :total_hours, :total_expenses,
                                      :total_expenses_info, :feedback, :remark)
     end
 end

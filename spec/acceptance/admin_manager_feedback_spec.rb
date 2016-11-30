@@ -13,8 +13,8 @@ resource " '后台管理' 班级负责人反馈 相关的操作" do
     before do
       @admin = create(:admin)
       @manager = create(:manager)
-      @training_course = create(:training_course)
-      @manager_feedbacks = create_list(:manager_feedback, 5, manager: @manager, training_course: @training_course)
+      # @training_course = create(:training_course)
+      @manager_feedbacks = create_list(:manager_feedback, 5, manager: @manager )
     end
 
     #################### index #############################

@@ -13,7 +13,7 @@ resource "班级负责人反馈 操作相关API" do
 
     before do
       @manager = create(:manager)
-      @training_course = create(:training_course)
+      # @training_course = create(:training_course)
     end
 
   	parameter :manager_id, "反馈的班级负责人",required: true, scope: :manager_feedback
@@ -50,8 +50,8 @@ resource "班级负责人反馈 操作相关API" do
 
     before do
       @manager = create(:manager)
-      @training_course = create(:training_course)
-      @manager_feedbacks = create_list(:manager_feedback, 5, manager: @manager, training_course: @training_course)
+      # @training_course = create(:training_course)
+      @manager_feedbacks = create_list(:manager_feedback, 5, manager: @manager)
     end
 
     #################### index #############################

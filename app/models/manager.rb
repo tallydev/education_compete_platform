@@ -35,9 +35,9 @@ class Manager < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         authentication_keys: [:phone]
+         authentication_keys: [:email]
 
-  validates_uniqueness_of :phone, on: :create, message: "用户手机号已注册"
+  validates_uniqueness_of :email, on: :create, message: "email已注册"
 
   belongs_to :school
   has_many :manager_feedbacks, dependent: :destroy

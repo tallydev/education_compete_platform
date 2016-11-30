@@ -33,7 +33,7 @@ class ManagerFeedback < ActiveRecord::Base
   scope :keyword, -> (keyword) do
     return all if keyword.blank?
     joins(:manager).joins(:training_course).where(
-      'admins.name LIKE ?
+      'managers.name LIKE ?
       OR manager_feedbacks.organizer LIKE ?
       OR training_courses.name LIKE ?',
       "%#{keyword}%",
@@ -42,3 +42,10 @@ class ManagerFeedback < ActiveRecord::Base
     )
   end
 end
+
+
+
+
+
+
+
