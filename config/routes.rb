@@ -230,21 +230,11 @@ end
 #                                              PUT    /training_course_teachers/:id(.:format)                                                          training_course_teachers#update
 #                                              DELETE /training_course_teachers/:id(.:format)                                                          training_course_teachers#destroy
 #                                     teachers GET    /teachers(.:format)                                                                              teachers#index
-#                                              POST   /teachers(.:format)                                                                              teachers#create
-#                                  new_teacher GET    /teachers/new(.:format)                                                                          teachers#new
-#                                 edit_teacher GET    /teachers/:id/edit(.:format)                                                                     teachers#edit
 #                                      teacher GET    /teachers/:id(.:format)                                                                          teachers#show
-#                                              PATCH  /teachers/:id(.:format)                                                                          teachers#update
-#                                              PUT    /teachers/:id(.:format)                                                                          teachers#update
-#                                              DELETE /teachers/:id(.:format)                                                                          teachers#destroy
+#                        list_training_courses GET    /training_courses/list(.:format)                                                                 training_courses#list
+#                        print_training_course GET    /training_courses/:id/print(.:format)                                                            training_courses#print
 #                             training_courses GET    /training_courses(.:format)                                                                      training_courses#index
-#                                              POST   /training_courses(.:format)                                                                      training_courses#create
-#                          new_training_course GET    /training_courses/new(.:format)                                                                  training_courses#new
-#                         edit_training_course GET    /training_courses/:id/edit(.:format)                                                             training_courses#edit
 #                              training_course GET    /training_courses/:id(.:format)                                                                  training_courses#show
-#                                              PATCH  /training_courses/:id(.:format)                                                                  training_courses#update
-#                                              PUT    /training_courses/:id(.:format)                                                                  training_courses#update
-#                                              DELETE /training_courses/:id(.:format)                                                                  training_courses#destroy
 #                            new_admin_session GET    /admins/sign_in(.:format)                                                                        devise/sessions#new
 #                                admin_session POST   /admins/sign_in(.:format)                                                                        devise/sessions#create
 #                        destroy_admin_session DELETE /admins/sign_out(.:format)                                                                       devise/sessions#destroy
@@ -466,6 +456,21 @@ end
 #                                              PUT    /talk_competition/recruits/:id(.:format)                                                         talk_competition/recruits#update
 #                                              DELETE /talk_competition/recruits/:id(.:format)                                                         talk_competition/recruits#destroy
 #                                   admin_root GET    /admin(.:format)                                                                                 admin/home#index
+#              unchecked_admin_training_course POST   /admin/training_courses/:id/unchecked(.:format)                                                  admin/training_courses#unchecked
+#      checked_by_expert_admin_training_course POST   /admin/training_courses/:id/checked_by_expert(.:format)                                          admin/training_courses#checked_by_expert
+#     checked_by_seminar_admin_training_course POST   /admin/training_courses/:id/checked_by_seminar(.:format)                                         admin/training_courses#checked_by_seminar
+#    checked_by_educator_admin_training_course POST   /admin/training_courses/:id/checked_by_educator(.:format)                                        admin/training_courses#checked_by_educator
+#                       admin_training_courses GET    /admin/training_courses(.:format)                                                                admin/training_courses#index
+#                                              POST   /admin/training_courses(.:format)                                                                admin/training_courses#create
+#                        admin_training_course GET    /admin/training_courses/:id(.:format)                                                            admin/training_courses#show
+#                                              PATCH  /admin/training_courses/:id(.:format)                                                            admin/training_courses#update
+#                                              PUT    /admin/training_courses/:id(.:format)                                                            admin/training_courses#update
+#                               admin_teachers GET    /admin/teachers(.:format)                                                                        admin/teachers#index
+#                                              POST   /admin/teachers(.:format)                                                                        admin/teachers#create
+#                                admin_teacher GET    /admin/teachers/:id(.:format)                                                                    admin/teachers#show
+#                                              PATCH  /admin/teachers/:id(.:format)                                                                    admin/teachers#update
+#                                              PUT    /admin/teachers/:id(.:format)                                                                    admin/teachers#update
+#                                              DELETE /admin/teachers/:id(.:format)                                                                    admin/teachers#destroy
 #                         list_admin_appraises GET    /admin/appraises/list(.:format)                                                                  admin/appraises#list
 #                              admin_appraises GET    /admin/appraises(.:format)                                                                       admin/appraises#index
 #                               admin_appraise GET    /admin/appraises/:id(.:format)                                                                   admin/appraises#show
