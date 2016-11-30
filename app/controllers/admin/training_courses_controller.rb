@@ -28,7 +28,7 @@ class Admin::TrainingCoursesController < ApplicationController
 
   def update
     @admin_training_course.update(admin_training_course_params)
-    respond_with(@admin_training_course)
+    respond_with(@admin_training_course, template:"admin/training_courses/show", status: 201)
   end
 
   ################### 培训项目的审核 ###########################
