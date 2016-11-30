@@ -27,7 +27,7 @@ class Admin::TeachersController < ApplicationController
 
   def update
     @admin_teacher.update(admin_teacher_params)
-    respond_with(@admin_teacher)
+    respond_with(@admin_teacher, template:"admin/teachers/show", status: 201)
   end
 
   def destroy

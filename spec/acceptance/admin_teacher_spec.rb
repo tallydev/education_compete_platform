@@ -129,7 +129,7 @@ resource " ’管理员‘ 对 ‘项目老师’ 内容的相关的API" do
   	  example "’管理员‘ 修改指定 项目老师信息 成功" do
   	    do_request
   	    puts response_body
-  	    expect(status).to eq(204)
+  	    expect(status).to eq(201)
   	  end
     end
 
