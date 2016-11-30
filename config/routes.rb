@@ -2,7 +2,14 @@ Rails.application.routes.draw do
   
   resources :training_course_teachers
   resources :teachers, only: [:index, :show]
-  resources :training_courses
+  resources :training_courses,  only: [:index, :show] do
+    collection do
+      get :list
+    end
+    member do
+      get :print
+    end
+  end
   ###################### devise_for ####################
   # devise_for :school_users
   # devise_for :experts
