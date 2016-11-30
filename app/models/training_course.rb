@@ -58,7 +58,7 @@ class TrainingCourse < ActiveRecord::Base
   has_many :training_course_teachers, dependent: :destroy
   has_many :teachers, through: :training_course_teachers
   has_one :manager_feedback, dependent: :destroy
-  has_many :student_feedbacks, dependent: :destroy
+  has_many :player_feedbacks, dependent: :destroy
   has_many :course_resources, dependent: :destroy
   has_many :appraises, dependent: :destroy
   has_many :journals, dependent: :destroy
