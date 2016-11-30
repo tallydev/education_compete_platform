@@ -24,9 +24,9 @@ SimpleTokenAuthentication.configure do |config|
     user: { authentication_token: 'X-User-Token', phone: 'X-User-Phone' },
     admin: { authentication_token: 'X-Admin-Token', email: 'X-Admin-Email' },
     player: { authentication_token: 'X-Player-Token', phone: 'X-Player-Phone' },
-    manager: { authentication_token: 'X-Manager-Token', phone: 'X-Manager-Phone' },
+    manager: { authentication_token: 'X-Manager-Token', email: 'X-Manager-Email' },
   }
   
-  config.identifiers = { user: :phone, admin: :email, player: :phone, manager: :phone}
+  config.identifiers = { user: :phone, admin: :email, player: :phone, manager: :email}
 
 end
