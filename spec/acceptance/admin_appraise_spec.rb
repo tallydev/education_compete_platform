@@ -13,8 +13,8 @@ resource " '后台管理' 学员评师 相关的操作" do
     before do
       @admin = create(:admin)
       @player = create(:player)
-      @training_course = create(:training_course)
-      @appraises = create_list(:appraise, 5, player: @player, training_course: @training_course)
+      # @training_course = create(:training_course)
+      @appraises = create_list(:appraise, 5, player: @player)
     end
 
     #################### index #############################
