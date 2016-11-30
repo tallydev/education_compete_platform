@@ -10,7 +10,6 @@ RSpec.describe TrainingCourse, type: :model do
   # it { should have_many(:tasks) }
   # it { should have_many(:user_training_courses) }
   it { should have_many(:training_course_teachers) }
-  it { should have_many(:manager_feedback) }
   it { should have_many(:player_feedbacks) }
   # it { should have_many(:course_resources) }
   it { should have_many(:appraises) }
