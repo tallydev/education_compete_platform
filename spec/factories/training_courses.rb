@@ -13,7 +13,7 @@
 #  state               :string(255)
 #  remark              :text(65535)
 #  info                :text(65535)
-#  training_background :text(65535)
+#  training_backgrounds :text(65535)
 #  training_target     :text(65535)
 #  training_content    :text(65535)
 #  check_method        :text(65535)
@@ -45,11 +45,11 @@ FactoryGirl.define do
     end_time "#{Time.zone.now + 120.day}"
     plan_number "1010101010"       
     training_address "training_address"
-    training_fee "1000.50"   
-    state "state"           
+    training_fee "110.50"  ### 
+    state "checked_by_expert"           
     remark "remark"            
     info "info"              
-    training_background "training_background"
+    training_backgrounds "training_backgrounds"
     training_target "training_target"    
     training_content "training_content"  
     check_method "check_method"      
@@ -57,13 +57,13 @@ FactoryGirl.define do
     contact "contact"           
     school_id  1         
     aasm_state "aasm_state"  
-    category  "category"          
+    category  "teacher"          
     grade_leader "grade_leader"      
     be_applied  "FALSE"               
     notification_id  1   
     start_apply_time  "#{Time.zone.now + 3.day}"  
     end_apply_time  "#{Time.zone.now + 9.day}"    
-    admin_id   1         
+    # admin_id   1         
     linkman "linkman"           
     phone "13813813811"              
     fax "fax"                
