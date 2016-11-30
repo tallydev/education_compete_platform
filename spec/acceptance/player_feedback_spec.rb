@@ -13,7 +13,7 @@ resource "学员反馈 操作相关API" do
 
     before do
       @player = create(:player)
-      @training_course = create(:training_course)
+      # @training_course = create(:training_course)
     end
 
   	parameter :player_id, "反馈的学员",required: true, scope: :player_feedback
@@ -54,8 +54,8 @@ resource "学员反馈 操作相关API" do
 
     before do
       @player = create(:player)
-      @training_course = create(:training_course)
-      @player_feedbacks = create_list(:player_feedback, 5, player: @player, training_course: @training_course)
+      # @training_course = create(:training_course)
+      @player_feedbacks = create_list(:player_feedback, 5, player: @player)
     end
 
     #################### index #############################
