@@ -1,6 +1,6 @@
 require 'acceptance_helper'
 
-resource "学员 对 培训课程 内容的相关的API" do
+resource "管理员 对 培训课程 内容的相关的API" do
   header "Accept", "application/json"
 
   ############### before_do ################################
@@ -11,12 +11,13 @@ resource "学员 对 培训课程 内容的相关的API" do
     header "X-Admin-Email", admin_attrs[:email]
 
     before do
+      @admin = create(:admin)
       @school = create(:school)
       @training_courses = create_list(:training_course, 5, school: @school)
     end
 
     #################### index #############################
-    get '/training_courses' do
+    get '/admin/training_courses' do
       parameter :keyword, "输入要查询的参数：(培训课程名称 or 学校名称 or 培训课程编号code)，默认返回all", required: false
    
       let(:keyword) { }
@@ -27,7 +28,7 @@ resource "学员 对 培训课程 内容的相关的API" do
       let(:page) {1}
       let(:per_page) {15}
 
-      example "学员 查询 培训课程信息 的列表成功" do
+      example "管理员 查询 培训课程信息 的列表成功" do
         do_request
         puts response_body
         expect(status).to eq(200)
@@ -35,63 +36,75 @@ resource "学员 对 培训课程 内容的相关的API" do
     end
 
     ##################### show #############################
-    get "/training_courses/:id" do
+    get "/admin/training_courses/:id" do
 
   	  let(:id) {@training_courses.first.id}
 
-  	  example " 学员 查询指定 培训课程信息 的详情成功" do
+  	  example " 管理员 查询指定 培训课程信息 的详情成功" do
   	    do_request
   	    puts response_body
   	    expect(status).to eq(200)
   	  end
     end
 
-    ##################### show #############################
-    get "/training_courses/:id" do
+    # ##################### show #############################
+    # get "/admin/training_courses/:id" do
 
-  	  let(:id) {@training_courses.first.id}
+  	 #  let(:id) {@training_courses.first.id}
 
-  	  example " 学员 查询指定 培训课程信息 的详情成功" do
-  	    do_request
-  	    puts response_body
-  	    expect(status).to eq(200)
-  	  end
-    end
+  	 #  example " 管理员 查询指定 培训课程信息 的详情成功" do
+  	 #    do_request
+  	 #    puts response_body
+  	 #    expect(status).to eq(201)
+  	 #  end
+    # end
 
-    ##################### show #############################
-    get "/training_courses/:id" do
+    # ##################### show #############################
+    # get "/admin/training_courses/:id" do
 
-  	  let(:id) {@training_courses.first.id}
+  	 #  let(:id) {@training_courses.first.id}
 
-  	  example " 学员 查询指定 培训课程信息 的详情成功" do
-  	    do_request
-  	    puts response_body
-  	    expect(status).to eq(200)
-  	  end
-    end
+  	 #  example " 管理员 查询指定 培训课程信息 的详情成功" do
+  	 #    do_request
+  	 #    puts response_body
+  	 #    expect(status).to eq(201)
+  	 #  end
+    # end
 
-    ##################### show #############################
-    get "/training_courses/:id" do
+    # ##################### show #############################
+    # get "/admin/training_courses/:id" do
 
-  	  let(:id) {@training_courses.first.id}
+  	 #  let(:id) {@training_courses.first.id}
 
-  	  example " 学员 查询指定 培训课程信息 的详情成功" do
-  	    do_request
-  	    puts response_body
-  	    expect(status).to eq(200)
-  	  end
-    end
+  	 #  example " 管理员 查询指定 培训课程信息 的详情成功" do
+  	 #    do_request
+  	 #    puts response_body
+  	 #    expect(status).to eq(201)
+  	 #  end
+    # end
 
-    ##################### show #############################
-    get "/training_courses/:id" do
+    # ##################### show #############################
+    # get "/admin/training_courses/:id" do
 
-  	  let(:id) {@training_courses.first.id}
+  	 #  let(:id) {@training_courses.first.id}
 
-  	  example " 学员 查询指定 培训课程信息 的详情成功" do
-  	    do_request
-  	    puts response_body
-  	    expect(status).to eq(200)
-  	  end
-    end
+  	 #  example " 管理员 查询指定 培训课程信息 的详情成功" do
+  	 #    do_request
+  	 #    puts response_body
+  	 #    expect(status).to eq(201)
+  	 #  end
+    # end
+
+    # ##################### show #############################
+    # get "/admin/training_courses/:id" do
+
+  	 #  let(:id) {@training_courses.first.id}
+
+  	 #  example " 管理员 查询指定 培训课程信息 的详情成功" do
+  	 #    do_request
+  	 #    puts response_body
+  	 #    expect(status).to eq(201)
+  	 #  end
+    # end
   end
 end
