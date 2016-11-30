@@ -28,7 +28,7 @@ class PlayerFeedbacksController < ApplicationController
   def update
     if player_feedback_params.present?
       @player_feedback.update(player_feedback_params)
-      respond_with(@player_feedback)
+      respond_with(@player_feedback, template:"player_feedbacks/show", status: 201)
     else
       @error = "反馈信息创建失败"
       respond_with @error, template: "error"

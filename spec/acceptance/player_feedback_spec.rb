@@ -117,7 +117,7 @@ resource "学员反馈 操作相关API" do
   	  example "’学员‘ 修改指定 反馈内容 成功" do
   	    do_request
   	    puts response_body
-  	    expect(status).to eq(204)
+  	    expect(status).to eq(201)
   	  end
     end
 
