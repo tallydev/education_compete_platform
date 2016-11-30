@@ -9,7 +9,7 @@ resource "班级负责人反馈 操作相关API" do
   	manager_attrs = FactoryGirl.attributes_for(:manager)
 
     header "X-Manager-Token", manager_attrs[:authentication_token]
-    header "X-Manager-Phone", manager_attrs[:phone]
+    header "X-Manager-Email", manager_attrs[:email]
 
     before do
       @manager = create(:manager)
@@ -46,7 +46,7 @@ resource "班级负责人反馈 操作相关API" do
     manager_attrs = FactoryGirl.attributes_for(:manager)
 
     header "X-Manager-Token", manager_attrs[:authentication_token]
-    header "X-Manager-Phone", manager_attrs[:phone]
+    header "X-Manager-Email", manager_attrs[:email]
 
     before do
       @manager = create(:manager)

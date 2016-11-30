@@ -1,5 +1,5 @@
 #  id                     :integer          not null, primary key
-#  phone                  :string(255)      default(""), not null
+#  email                  :string(255)      default(""), not null
 #  encrypted_password     :string(255)      default(""), not null
 #  email                  :string(255)
 #  reset_password_token   :string(255)
@@ -20,14 +20,14 @@
 # Indexes
 #
 #  index_users_on_authentication_token  (authentication_token) UNIQUE
-#  index_users_on_phone                 (phone) UNIQUE
+#  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_school_id             (school_id)
 #
 
 FactoryGirl.define do
   factory :manager do
-    phone "13813813811"   
+    email "13813813811@163.com"   
     password "abcd.1234"
     authentication_token "qwertyuiop123"
   end
