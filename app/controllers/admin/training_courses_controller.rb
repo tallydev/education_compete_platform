@@ -1,6 +1,6 @@
 class Admin::TrainingCoursesController < ApplicationController
   acts_as_token_authentication_handler_for Admin
-  before_action :set_admin_training_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_admin_training_course, only: [:show, :update, :unchecked, :checked_by_expert, :checked_by_seminar, :checked_by_educator]
 
   respond_to :json
 
