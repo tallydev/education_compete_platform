@@ -17,15 +17,16 @@ class TrainingNotification < ActiveRecord::Base
   has_one :training_course
   # has_one :attachment, as: :attachmentable
   default_scope { order("created_at DESC") }
+  scope :find_category, -> (params) {where(category: params)}
 
   enum category: {
-	#country: '0',
+	country: '0',
 	teacher: '1',
 	manager: '2'
   }
 
   ListCategory = {
-	#country: '国培培训',
+	country: '国培培训',
 	teacher: '骨干教师培训',
 	manager: '专业负责人培训'
   }
