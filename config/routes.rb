@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :training_notifications
   resources :training_course_teachers
   resources :teachers, only: [:index, :show]
   resources :training_courses,  only: [:index, :show] do
@@ -221,6 +222,14 @@ end
 #
 #                                       Prefix Verb   URI Pattern                                                                                      Controller#Action
 #                                      apitome        /api/docs                                                                                        Apitome::Engine
+#                       training_notifications GET    /training_notifications(.:format)                                                                training_notifications#index
+#                                              POST   /training_notifications(.:format)                                                                training_notifications#create
+#                    new_training_notification GET    /training_notifications/new(.:format)                                                            training_notifications#new
+#                   edit_training_notification GET    /training_notifications/:id/edit(.:format)                                                       training_notifications#edit
+#                        training_notification GET    /training_notifications/:id(.:format)                                                            training_notifications#show
+#                                              PATCH  /training_notifications/:id(.:format)                                                            training_notifications#update
+#                                              PUT    /training_notifications/:id(.:format)                                                            training_notifications#update
+#                                              DELETE /training_notifications/:id(.:format)                                                            training_notifications#destroy
 #                     training_course_teachers GET    /training_course_teachers(.:format)                                                              training_course_teachers#index
 #                                              POST   /training_course_teachers(.:format)                                                              training_course_teachers#create
 #                  new_training_course_teacher GET    /training_course_teachers/new(.:format)                                                          training_course_teachers#new

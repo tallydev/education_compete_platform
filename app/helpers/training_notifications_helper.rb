@@ -1,0 +1,2 @@
+module TrainingNotificationsHelper
+end
