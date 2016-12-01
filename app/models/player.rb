@@ -15,6 +15,27 @@
 #  last_sign_in_ip        :string(255)
 #  school_id              :integer
 #  authentication_token   :string(30)
+#  name                   :string(255)
+#  ID_number              :string(255)
+#  gender                 :boolean          default(TRUE)
+#  birth                  :date
+#  school                 :string(255)
+#  academy                :string(255)
+#  certificate            :string(255)
+#  city                   :string(255)
+#  nation                 :string(255)
+#  position_name          :string(255)
+#  position               :string(255)
+#  address                :string(255)
+#  zip_code               :string(255)
+#  telephone              :string(255)
+#  email                  :string(255)
+#  qq_no                  :string(255)
+#  summary                :text(65535)
+#  country                :string(255)
+#  text                   :text(65535)
+#  profssion              :string(255)
+#  role                   :integer
 #
 # Indexes
 #

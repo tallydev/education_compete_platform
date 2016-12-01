@@ -238,12 +238,7 @@ end
 #                                      apitome        /api/docs                                                                                        Apitome::Engine
 #                      player_training_courses GET    /player_training_courses(.:format)                                                               player_training_courses#index
 #                                              POST   /player_training_courses(.:format)                                                               player_training_courses#create
-#                   new_player_training_course GET    /player_training_courses/new(.:format)                                                           player_training_courses#new
-#                  edit_player_training_course GET    /player_training_courses/:id/edit(.:format)                                                      player_training_courses#edit
 #                       player_training_course GET    /player_training_courses/:id(.:format)                                                           player_training_courses#show
-#                                              PATCH  /player_training_courses/:id(.:format)                                                           player_training_courses#update
-#                                              PUT    /player_training_courses/:id(.:format)                                                           player_training_courses#update
-#                                              DELETE /player_training_courses/:id(.:format)                                                           player_training_courses#destroy
 #                       training_notifications GET    /training_notifications(.:format)                                                                training_notifications#index
 #                        training_notification GET    /training_notifications/:id(.:format)                                                            training_notifications#show
 #                     training_course_teachers GET    /training_course_teachers(.:format)                                                              training_course_teachers#index
@@ -481,6 +476,13 @@ end
 #                                              PUT    /talk_competition/recruits/:id(.:format)                                                         talk_competition/recruits#update
 #                                              DELETE /talk_competition/recruits/:id(.:format)                                                         talk_competition/recruits#destroy
 #                                   admin_root GET    /admin(.:format)                                                                                 admin/home#index
+#         applied_admin_player_training_course POST   /admin/player_training_courses/:id/applied(.:format)                                             admin/player_training_courses#applied
+#      disapplied_admin_player_training_course POST   /admin/player_training_courses/:id/disapplied(.:format)                                          admin/player_training_courses#disapplied
+#           list_admin_player_training_courses GET    /admin/player_training_courses/list(.:format)                                                    admin/player_training_courses#list
+#                admin_player_training_courses GET    /admin/player_training_courses(.:format)                                                         admin/player_training_courses#index
+#                 admin_player_training_course GET    /admin/player_training_courses/:id(.:format)                                                     admin/player_training_courses#show
+#                                              PATCH  /admin/player_training_courses/:id(.:format)                                                     admin/player_training_courses#update
+#                                              PUT    /admin/player_training_courses/:id(.:format)                                                     admin/player_training_courses#update
 #                 admin_training_notifications GET    /admin/training_notifications(.:format)                                                          admin/training_notifications#index
 #                                              POST   /admin/training_notifications(.:format)                                                          admin/training_notifications#create
 #                  admin_training_notification GET    /admin/training_notifications/:id(.:format)                                                      admin/training_notifications#show
