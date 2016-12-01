@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @player_task.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @player_task.content %>
+</p>
+
+<p>
+  <strong>Appraise:</strong>
+  <%= @player_task.appraise %>
+</p>
+
+<p>
+  <strong>Task:</strong>
+  <%= @player_task.task %>
+</p>
+
+<p>
+  <strong>Player:</strong>
+  <%= @player_task.player %>
+</p>
+
+<%= link_to 'Edit', edit_player_task_path(@player_task) %> |
+<%= link_to 'Back', player_tasks_path %>

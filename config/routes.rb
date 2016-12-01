@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :player_tasks
   resources :journals
   resources :player_training_courses, only: [:index, :show, :create]
   resources :training_notifications, only: [:index, :show]
@@ -237,6 +238,14 @@ end
 #
 #                                       Prefix Verb   URI Pattern                                                                                      Controller#Action
 #                                      apitome        /api/docs                                                                                        Apitome::Engine
+#                                 player_tasks GET    /player_tasks(.:format)                                                                          player_tasks#index
+#                                              POST   /player_tasks(.:format)                                                                          player_tasks#create
+#                              new_player_task GET    /player_tasks/new(.:format)                                                                      player_tasks#new
+#                             edit_player_task GET    /player_tasks/:id/edit(.:format)                                                                 player_tasks#edit
+#                                  player_task GET    /player_tasks/:id(.:format)                                                                      player_tasks#show
+#                                              PATCH  /player_tasks/:id(.:format)                                                                      player_tasks#update
+#                                              PUT    /player_tasks/:id(.:format)                                                                      player_tasks#update
+#                                              DELETE /player_tasks/:id(.:format)                                                                      player_tasks#destroy
 #                                     journals GET    /journals(.:format)                                                                              journals#index
 #                                              POST   /journals(.:format)                                                                              journals#create
 #                                  new_journal GET    /journals/new(.:format)                                                                          journals#new
