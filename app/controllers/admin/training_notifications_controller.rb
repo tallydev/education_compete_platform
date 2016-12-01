@@ -8,7 +8,7 @@ class Admin::TrainingNotificationsController < ApplicationController
     @keyword = params[:keyword].present?? params[:keyword] : " "
     page = params[:page] || 1
     per_page = params[:per_page] || 15
-    @admin_training_notifications = TrainingNotification.all.find_keyword(@keyword).paginate(page: page, per_page: per_page)
+    @admin_training_notifications = TrainingNotification.all.keyword(@keyword).paginate(page: page, per_page: per_page)
     respond_with(@admin_training_notifications)
   end
 
