@@ -98,4 +98,28 @@ class Player < ActiveRecord::Base
   def email_changed?
     false
   end
+
+  ######################## add #############################
+  enum gender: {
+    male: true, 
+    female: false
+  }
+
+  PlayerGender = {
+    male: '男', 
+    female: '女'
+  }
+
+  #搜索功能
+  scope :keyword, -> (keyword) do
+    return all if keyword.blank?
+    where(
+      'players.name LIKE ?
+      OR players.email LIKE ?
+      OR players.telephone LIKE ?',
+      "%#{keyword}%",
+      "%#{keyword}%",
+      "%#{keyword}%"
+    )
+  end
 end
