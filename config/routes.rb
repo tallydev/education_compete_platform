@@ -142,8 +142,17 @@ Rails.application.routes.draw do
     root to: "home#index"
 
     #########################################
-    resources :player_training_courses, only: [:index, :show, :create]
-
+    resources :player_training_courses, only: [:index, :show, :update] do
+      member do
+        post :applied #通过审核
+        post :disapplied #未通过审核
+        # post :checked_by_seminar #研究会审核状态
+        # post :checked_by_educator #教委审核状态
+      end
+      collection do
+        get :list
+      end
+    end
     resources :training_notifications, only: [:index, :show, :create, :update]
 
     resources :training_courses,  only: [:index, :show, :create, :update] do

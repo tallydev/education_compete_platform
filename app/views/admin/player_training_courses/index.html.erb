@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Admin Player Training Courses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_player_training_courses.each do |admin_player_training_course| %>
+      <tr>
+        <td><%= link_to 'Show', admin_player_training_course %></td>
+        <td><%= link_to 'Edit', edit_admin_player_training_course_path(admin_player_training_course) %></td>
+        <td><%= link_to 'Destroy', admin_player_training_course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Player training course', new_admin_player_training_course_path %>
