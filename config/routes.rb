@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :journals
   resources :player_training_courses, only: [:index, :show, :create]
   resources :training_notifications, only: [:index, :show]
   resources :training_course_teachers
@@ -236,6 +237,14 @@ end
 #
 #                                       Prefix Verb   URI Pattern                                                                                      Controller#Action
 #                                      apitome        /api/docs                                                                                        Apitome::Engine
+#                                     journals GET    /journals(.:format)                                                                              journals#index
+#                                              POST   /journals(.:format)                                                                              journals#create
+#                                  new_journal GET    /journals/new(.:format)                                                                          journals#new
+#                                 edit_journal GET    /journals/:id/edit(.:format)                                                                     journals#edit
+#                                      journal GET    /journals/:id(.:format)                                                                          journals#show
+#                                              PATCH  /journals/:id(.:format)                                                                          journals#update
+#                                              PUT    /journals/:id(.:format)                                                                          journals#update
+#                                              DELETE /journals/:id(.:format)                                                                          journals#destroy
 #                      player_training_courses GET    /player_training_courses(.:format)                                                               player_training_courses#index
 #                                              POST   /player_training_courses(.:format)                                                               player_training_courses#create
 #                       player_training_course GET    /player_training_courses/:id(.:format)                                                           player_training_courses#show

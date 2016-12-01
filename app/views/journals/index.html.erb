@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Journals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Player</th>
+      <th>Training course</th>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Add date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @journals.each do |journal| %>
+      <tr>
+        <td><%= journal.player %></td>
+        <td><%= journal.training_course %></td>
+        <td><%= journal.title %></td>
+        <td><%= journal.content %></td>
+        <td><%= journal.add_date %></td>
+        <td><%= link_to 'Show', journal %></td>
+        <td><%= link_to 'Edit', edit_journal_path(journal) %></td>
+        <td><%= link_to 'Destroy', journal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Journal', new_journal_path %>
