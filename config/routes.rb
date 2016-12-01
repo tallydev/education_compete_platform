@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :player_training_courses
+  resources :player_training_courses, only: [:index, :show, :create]
   resources :training_notifications, only: [:index, :show]
   resources :training_course_teachers
   resources :teachers, only: [:index, :show]
@@ -142,6 +142,8 @@ Rails.application.routes.draw do
     root to: "home#index"
 
     #########################################
+    resources :player_training_courses, only: [:index, :show, :create]
+
     resources :training_notifications, only: [:index, :show, :create, :update]
 
     resources :training_courses,  only: [:index, :show, :create, :update] do
