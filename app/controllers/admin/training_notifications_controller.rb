@@ -42,6 +42,6 @@ class Admin::TrainingNotificationsController < ApplicationController
     end
 
     def admin_training_notification_params
-      params.require(:training_notification).permit(:title, :sub_title, :view_count, :author, :content, :keyword)
+      params.require(:training_notification).permit(:title, :sub_title, :view_count, :author, :content, :category)
     end
 end
