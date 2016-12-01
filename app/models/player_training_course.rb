@@ -18,6 +18,7 @@
 #
 
 class PlayerTrainingCourse < ActiveRecord::Base
+  include AASM
   belongs_to :player
   belongs_to :training_course
   # belongs_to :divide
