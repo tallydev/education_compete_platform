@@ -1,47 +1,23 @@
 class TrainingNotificationsController < ApplicationController
-  before_action :set_training_notification, only: [:show, :edit, :update, :destroy]
+  before_action :set_training_notification, only: [:show]
 
-  respond_to :html
+  respond_to :json
 
   def index
-    @training_notifications = TrainingNotification.all
+    @category = params[:category].present?? params[:category] : "1"
+    page = params[:page] || 1
+    per_page = params[:per_page] || 15
+    @training_notifications = TrainingNotification.all.find_category(@category).paginate(page: page, per_page: per_page)
     respond_with(@training_notifications)
   end
 
   def show
-    respond_with(@training_notification)
-  end
-
-  def new
-    @training_notification = TrainingNotification.new
-    respond_with(@training_notification)
-  end
-
-  def edit
-  end
-
-  def create
-    @training_notification = TrainingNotification.new(training_notification_params)
-    @training_notification.save
-    respond_with(@training_notification)
-  end
-
-  def update
-    @training_notification.update(training_notification_params)
-    respond_with(@training_notification)
-  end
-
-  def destroy
-    @training_notification.destroy
+    @training_notification.update(view_count: @training_notification.view_count + 1)
     respond_with(@training_notification)
   end
 
   private
     def set_training_notification
       @training_notification = TrainingNotification.find(params[:id])
-    end
-
-    def training_notification_params
-      params[:training_notification]
     end
 end
