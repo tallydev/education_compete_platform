@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161201143545) do
+ActiveRecord::Schema.define(version: 20161201144239) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",       limit: 255,             null: false
@@ -326,6 +326,17 @@ ActiveRecord::Schema.define(version: 20161201143545) do
   add_index "player_infos", ["player_id"], name: "index_player_infos_on_player_id", using: :btree
   add_index "player_infos", ["school_id"], name: "index_player_infos_on_school_id", using: :btree
 
+  create_table "player_messages", force: :cascade do |t|
+    t.integer  "player_id",  limit: 4
+    t.integer  "message_id", limit: 4
+    t.boolean  "status"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "player_messages", ["message_id"], name: "index_player_messages_on_message_id", using: :btree
+  add_index "player_messages", ["player_id"], name: "index_player_messages_on_player_id", using: :btree
+
   create_table "player_tasks", force: :cascade do |t|
     t.string   "title",      limit: 255
     t.text     "content",    limit: 65535
@@ -616,6 +627,8 @@ ActiveRecord::Schema.define(version: 20161201143545) do
   add_foreign_key "manager_feedbacks", "admins", column: "manager_id"
   add_foreign_key "manager_feedbacks", "training_courses"
   add_foreign_key "managers", "schools"
+  add_foreign_key "player_messages", "messages"
+  add_foreign_key "player_messages", "players"
   add_foreign_key "player_tasks", "players"
   add_foreign_key "player_tasks", "tasks"
   add_foreign_key "school_users", "schools"

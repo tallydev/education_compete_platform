@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :player_messages
   resources :player_tasks
   resources :journals
   resources :player_training_courses, only: [:index, :show, :create]
@@ -238,6 +239,14 @@ end
 #
 #                                       Prefix Verb   URI Pattern                                                                                      Controller#Action
 #                                      apitome        /api/docs                                                                                        Apitome::Engine
+#                              player_messages GET    /player_messages(.:format)                                                                       player_messages#index
+#                                              POST   /player_messages(.:format)                                                                       player_messages#create
+#                           new_player_message GET    /player_messages/new(.:format)                                                                   player_messages#new
+#                          edit_player_message GET    /player_messages/:id/edit(.:format)                                                              player_messages#edit
+#                               player_message GET    /player_messages/:id(.:format)                                                                   player_messages#show
+#                                              PATCH  /player_messages/:id(.:format)                                                                   player_messages#update
+#                                              PUT    /player_messages/:id(.:format)                                                                   player_messages#update
+#                                              DELETE /player_messages/:id(.:format)                                                                   player_messages#destroy
 #                                 player_tasks GET    /player_tasks(.:format)                                                                          player_tasks#index
 #                                              POST   /player_tasks(.:format)                                                                          player_tasks#create
 #                              new_player_task GET    /player_tasks/new(.:format)                                                                      player_tasks#new

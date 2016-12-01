@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Player:</strong>
+  <%= @player_message.player %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @player_message.message %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @player_message.status %>
+</p>
+
+<%= link_to 'Edit', edit_player_message_path(@player_message) %> |
+<%= link_to 'Back', player_messages_path %>

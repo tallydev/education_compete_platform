@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Player Messages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Player</th>
+      <th>Message</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @player_messages.each do |player_message| %>
+      <tr>
+        <td><%= player_message.player %></td>
+        <td><%= player_message.message %></td>
+        <td><%= player_message.status %></td>
+        <td><%= link_to 'Show', player_message %></td>
+        <td><%= link_to 'Edit', edit_player_message_path(player_message) %></td>
+        <td><%= link_to 'Destroy', player_message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Player message', new_player_message_path %>
