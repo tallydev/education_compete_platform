@@ -20,13 +20,13 @@ class TeachersController < ApplicationController
       respond_with(@teacher) 
     else
       @error = "老师信息创建 失败 ！"
-      respond_with(@error)
+      respond_with(@error, template: "error")
     end
   end
 
   def update
     @teacher.update(teacher_params)
-    respond_with(@teacher)
+    respond_with(@teacher, template:"teachers/show", status: 201)
   end
 
   def destroy
