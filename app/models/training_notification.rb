@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: training_notifications
+# Table name: training_training_notifications
 #
 #  id         :integer          not null, primary key
 #  title      :string(255)
@@ -17,7 +17,7 @@ class TrainingNotification < ActiveRecord::Base
   has_one :training_course
   # has_one :attachment, as: :attachmentable
   default_scope { order("created_at DESC") }
-  scope :find_category, -> (params) {where(category: params)}
+  scope :find_category, -> (params){where(category: params)}
 
   enum category: {
 	country: '0',
@@ -33,8 +33,8 @@ class TrainingNotification < ActiveRecord::Base
 
   scope :keyword, -> (keyword) do
     return all if keyword.blank?
-    where("notifications.title like ?
-    OR notifications.author like ?",
+    where("training_notifications.title like ?
+    OR training_notifications.author like ?",
     "%#{keyword}%", 
     "%#{keyword}%")
   end
