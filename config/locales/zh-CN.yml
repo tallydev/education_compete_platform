@@ -23,4 +23,9 @@ resource_library_catalog:
   courseware: "课件"
   picture: "图片"
   audio: "音频"
+########### training_course ################################
+training_course_state:
+  checking: "审核中"
+  checked: "已通过"
+  unchecked: "未通过" 
 ###########################################################
