@@ -1,1 +1,1 @@
-json.extract! @player_training_course, :id, :created_at, :updated_at
+json.partial! 'player_training_courses/player_training_course', player_training_course: @player_training_cours
