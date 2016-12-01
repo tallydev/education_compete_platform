@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161201134949) do
+ActiveRecord::Schema.define(version: 20161201141757) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",       limit: 255,             null: false
@@ -234,6 +234,13 @@ ActiveRecord::Schema.define(version: 20161201134949) do
   end
 
   add_index "media", ["mediaable_type", "mediaable_id"], name: "index_media_on_mediaable_type_and_mediaable_id", using: :btree
+
+  create_table "messages", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.text     "content",    limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "news", force: :cascade do |t|
     t.string   "title",       limit: 255
