@@ -34,7 +34,7 @@ class PlayerTrainingCourse < ActiveRecord::Base
 
   #状态机,报名课程的3种状态
   aasm :column => 'aasm_state' do
-  	  state :checking, :initial => true  #默认未通过审核 ,"审核中"
+  	state :checking, :initial => true  #默认未通过审核 ,"审核中"
 	  state :checked  #"已通过"
 	  state :unchecked   #"未通过"  
 	    
