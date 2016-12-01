@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: training_training_notifications
+# Table name: training_notifications
 #
 #  id         :integer          not null, primary key
 #  title      :string(255)

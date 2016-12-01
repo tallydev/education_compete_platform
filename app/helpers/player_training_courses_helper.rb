@@ -1,0 +1,2 @@
+module PlayerTrainingCoursesHelper
+end
