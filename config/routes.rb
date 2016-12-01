@@ -141,6 +141,8 @@ Rails.application.routes.draw do
     root to: "home#index"
 
     #########################################
+    resources :training_notifications, only: [:index, :show, :create, :update]
+
     resources :training_courses,  only: [:index, :show, :create, :update] do
       member do
         post :unchecked #取消审核状态
