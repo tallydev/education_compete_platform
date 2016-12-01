@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :training_notifications
+  resources :training_notifications, only: [:index, :show]
   resources :training_course_teachers
   resources :teachers, only: [:index, :show]
   resources :training_courses,  only: [:index, :show] do
