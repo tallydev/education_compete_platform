@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161201143442) do
+ActiveRecord::Schema.define(version: 20161201143545) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",       limit: 255,             null: false
@@ -473,16 +473,23 @@ ActiveRecord::Schema.define(version: 20161201143442) do
   add_index "talk_competition_recruits", ["school_id"], name: "index_talk_competition_recruits_on_school_id", using: :btree
 
   create_table "tasks", force: :cascade do |t|
-    t.integer  "mark_id",    limit: 4
-    t.integer  "expert_id",  limit: 4
-    t.integer  "recruit_id", limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.integer  "mark_id",             limit: 4
+    t.integer  "expert_id",           limit: 4
+    t.integer  "recruit_id",          limit: 4
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "title",               limit: 255
+    t.text     "body",                limit: 65535
+    t.integer  "submit_player_count", limit: 4
+    t.integer  "training_course_id",  limit: 4
+    t.integer  "admin_id",            limit: 4
   end
 
+  add_index "tasks", ["admin_id"], name: "index_tasks_on_admin_id", using: :btree
   add_index "tasks", ["expert_id"], name: "index_tasks_on_expert_id", using: :btree
   add_index "tasks", ["mark_id"], name: "index_tasks_on_mark_id", using: :btree
   add_index "tasks", ["recruit_id"], name: "index_tasks_on_recruit_id", using: :btree
+  add_index "tasks", ["training_course_id"], name: "index_tasks_on_training_course_id", using: :btree
 
   create_table "teachers", force: :cascade do |t|
     t.string   "name",       limit: 255
