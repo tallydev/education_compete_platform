@@ -1,1 +1,1 @@
-json.partial! 'admin/admin_training_notification/admin_training_notification', admin_training_notification: @admin_training_notification
+json.partial! 'admin/training_notifications/admin_training_notification', admin_training_notification: @admin_training_notification
