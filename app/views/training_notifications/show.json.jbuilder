@@ -1,1 +1,1 @@
-json.extract! @training_notification, :id, :created_at, :updated_at
+json.partial! 'training_notifications/training_notification', training_notification: @training_notification

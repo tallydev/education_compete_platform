@@ -1,4 +1,4 @@
-json.array!(@training_notifications) do |training_notification|
-  json.extract! training_notification, :id
-  json.url training_notification_url(training_notification, format: :json)
-end
+json.current_page @training_notifications.current_page
+json.total_pages @training_notifications.total_pages
+
+json.training_notifications @training_notifications, partial: 'training_notifications/training_notification', as: :training_notification
