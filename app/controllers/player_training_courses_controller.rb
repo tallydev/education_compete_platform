@@ -1,7 +1,8 @@
 class PlayerTrainingCoursesController < ApplicationController
-  before_action :set_player_training_course, only: [:show, :edit, :update, :destroy]
+  acts_as_token_authentication_handler_for Player 
+  before_action :set_player_training_course, only: [:show]
 
-  respond_to :html
+  respond_to :json
 
   def index
     @player_training_courses = PlayerTrainingCourse.all
@@ -12,28 +13,14 @@ class PlayerTrainingCoursesController < ApplicationController
     respond_with(@player_training_course)
   end
 
-  def new
-    @player_training_course = PlayerTrainingCourse.new
-    respond_with(@player_training_course)
-  end
-
-  def edit
-  end
-
   def create
     @player_training_course = PlayerTrainingCourse.new(player_training_course_params)
-    @player_training_course.save
-    respond_with(@player_training_course)
-  end
-
-  def update
-    @player_training_course.update(player_training_course_params)
-    respond_with(@player_training_course)
-  end
-
-  def destroy
-    @player_training_course.destroy
-    respond_with(@player_training_course)
+    if @player_training_course.save
+      respond_with(@player_training_course) 
+    else
+      @error = "学员报名失败 ！"
+      respond_with(@error)
+    end
   end
 
   private
@@ -42,6 +29,6 @@ class PlayerTrainingCoursesController < ApplicationController
     end
 
     def player_training_course_params
-      params[:player_training_course]
+      params.require(:player_training_course).permit(:player_id, :training_course_id, :remark, :certificate_no)
     end
 end
