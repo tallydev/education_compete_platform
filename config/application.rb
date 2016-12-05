@@ -31,5 +31,13 @@ module EducationCompetePlatform
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.action_controller.asset_host = 'http://114.55.172.35'
+
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
+
+    config.relative_url_root = "/contest"
+
+    config.action_controller.relative_url_root = "/contest"
   end
 end
