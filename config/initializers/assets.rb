@@ -8,6 +8,9 @@ Rails.application.config.assets.version = '1.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
+
+Rails.application.config.action_controller.asset_host = 'http://114.55.172.35/'
+
 Rails.application.config.assets.precompile += %w( admin/login.css )
 Rails.application.config.assets.precompile += %w( admin/login.js )
 Rails.application.config.assets.precompile += %w( phone.js )
