@@ -155,8 +155,12 @@ Rails.application.routes.draw do
       end
     end
   end
-end
 
+######### 展示平台作品信息输出 ########
+  get 'opus_index', to: 'for_online_course#opus_index'
+  get 'opus_show', to: 'for_online_course#opus_show'
+
+end
 # == Route Map
 #
 #                                       Prefix Verb   URI Pattern                                                                                      Controller#Action
