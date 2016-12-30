@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand <%= "brand-active" if controller_action_to? params, "home", "index" %>" href="<%= root_path %>">&nbsp;&nbsp;&nbsp; 首页 &nbsp;&nbsp;&nbsp;</a>
+      <a class="navbar-brand <%= "brand-active" if controller_action_to? params, "home", "index" %>" href="http://114.55.172.35">&nbsp;&nbsp;&nbsp; 培训基地 &nbsp;&nbsp;&nbsp;</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -26,20 +26,47 @@
         <li>
           <a href="#">作品展示</a>
         </li> -->
+        <li>
+          <a class="<%= "brand-active" if controller_action_to?(params, "homes", "index") %>" href="<%= root_path %>">
+            &nbsp;&nbsp;&nbsp; 首页 &nbsp;&nbsp;&nbsp;
+          </a>
+        </li>
+        <li>
+          <a href="<%= root_path %>">&nbsp;&nbsp;&nbsp; 教师培训成果 &nbsp;&nbsp;&nbsp;</a>
+        </li>
 
         <% if current_player.present? %>
           <li>
-            <a class="<%= "brand-active" if controller_action_to? params, "centers", "show" %>" href="<%= center_path %>">&nbsp;&nbsp;&nbsp; 个人中心 &nbsp;&nbsp;&nbsp;</a>
+            <% active = 
+              controller_action_to?(params, "centers", "show") || 
+              controller_action_to?(params, "info_competitions", "show") || 
+              controller_action_to?(params, "talk_competitions", "show") || 
+              controller_action_to?(params, "talk_competition/recruits", "show") || 
+              controller_action_to?(params, "talk_competition/opuses", "show") || 
+              controller_action_to?(params, "info_competition/recruits", "show") || 
+              controller_action_to?(params, "info_competition/opuses", "show") %>
+            <a class="<%= "brand-active" if active %>" href="<%= center_path %>">&nbsp;&nbsp;&nbsp; 个人中心 &nbsp;&nbsp;&nbsp;</a>
           </li>
         <% elsif current_school_user.present? %>
           <li>
-            <a class="<%= "brand-active" if controller_action_to? params, "center", "index" %>" href="<%= school_center_path %>">&nbsp;&nbsp;&nbsp; 个人中心 &nbsp;&nbsp;&nbsp;</a>
+            <% active = 
+              controller_action_to?(params, "school_centers", "show") || 
+              controller_action_to?(params, "info_competitions", "index") || 
+              controller_action_to?(params, "talk_competitions", "index") %>
+            <a class="<%= "brand-active" if active %>" href="<%= school_center_path %>">&nbsp;&nbsp;&nbsp; 个人中心 &nbsp;&nbsp;&nbsp;</a>
           </li>
         <% elsif current_expert.present? %>
           <li>
-            <a class="<%= "brand-active" if controller_action_to? params, "center", "index" %>" href="<%= expert_center_path %>">&nbsp;&nbsp;&nbsp; 个人中心 &nbsp;&nbsp;&nbsp;</a>
+            <% active = 
+              controller_action_to?(params, "expert_centers", "show") || 
+              controller_action_to?(params, "info_competitions", "marks") || 
+              controller_action_to?(params, "talk_competitions", "marks") ||
+              controller_action_to?(params, "talk_competition/opuses", "show") ||
+              controller_action_to?(params, "info_competition/opuses", "show")%>
+            <a class="<%= "brand-active" if active %>" href="<%= expert_center_path %>">&nbsp;&nbsp;&nbsp; 个人中心 &nbsp;&nbsp;&nbsp;</a>
           </li>
         <% else %>
+
         <% end %>
       </ul>
 
