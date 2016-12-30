@@ -27,12 +27,14 @@
           <a href="#">作品展示</a>
         </li> -->
         <li>
-          <a class="<%= "brand-active" if controller_action_to?(params, "homes", "index") %>" href="<%= root_path %>">
+          <a class="<%= "brand-active" if controller_to?(params, "homes") %>" href="<%= root_path %>">
             &nbsp;&nbsp;&nbsp; 首页 &nbsp;&nbsp;&nbsp;
           </a>
         </li>
         <li>
-          <a href="<%= root_path %>">&nbsp;&nbsp;&nbsp; 教师培训成果 &nbsp;&nbsp;&nbsp;</a>
+          <a class="<%= "brand-active" if controller_to?(params, "opuses") %>" href="<%= opuses_path %>">
+            &nbsp;&nbsp;&nbsp; 教师培训成果 &nbsp;&nbsp;&nbsp;
+          </a>
         </li>
 
         <% if current_player.present? %>

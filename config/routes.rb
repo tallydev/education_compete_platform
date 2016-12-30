@@ -64,6 +64,9 @@ Rails.application.routes.draw do
   resources :marks, only: [:update]
   resources :offline_marks, only: [:edit, :update]
 
+  # 教师作品
+  resources :opuses
+
   # 信息大赛相关路由
   namespace :info_competition do
     # index用于给专家进行查看审批的列表

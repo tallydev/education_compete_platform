@@ -1,7 +1,7 @@
 <div class="center_left_nav col-md-2">
   <ul>
-  <% @activities.each do |activity| %>
-    <li class="<%= "active" if params[:controller] == 'center' && params[:action] == 'info_competition'%>">
+  <% @activities.each_with_index do |activity, index| %>
+    <li class="<%= "active" if (params[:activity_id].to_i == activity.id) || (params[:controller] == "expert_centers" && index == 0) %>">
       <%=link_to "/contest/center/activities/#{activity.id}/#{activity.route_type}/marks" do %>
         <p class="text-center"><strong class="left_nav_left_line">|</strong><span class="color_label_info"><%= activity.short_name %></span></p>
       <% end %>

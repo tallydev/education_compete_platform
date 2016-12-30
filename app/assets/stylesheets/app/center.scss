@@ -9,7 +9,8 @@ a {
   color: #9B9B9B !important;
 }
 .color_label_info {
-  color: #3D96D5 !important;
+  color: #333 !important;
+  text-indent: 14px;
 }
 .btn-join {
   background-color: #F5A623;
@@ -46,18 +47,19 @@ a {
   .center_left_nav {
     width: 20%;
     background-color: #fafafa;
+    border-right: 1px solid #fafafa;
     height: 680px;
     padding-top: 20px;
     padding-right: 0;
     .left_nav_left_line {
       font-size: 20px;
-      color: #F5A623;
+      color: transparent;
       font-weight: 800;
-      padding-right: 15px;
+      padding-right: 10px;
       line-height: 20px;
     }
     .left_nav_line {
-      margin: 20px 15px 20px 0px;
+      margin: 0px;
     }
     ul {
       padding-left: 0px;
@@ -75,7 +77,12 @@ a {
       }
     }
     .active {
-      background-color: #fff;
+      .color_label_info {
+        color: #3D96D5 !important;
+      }
+      strong {
+        color: #F5A623;
+      }
     }
   }
   // 个人中心－右侧内容栏标签样式

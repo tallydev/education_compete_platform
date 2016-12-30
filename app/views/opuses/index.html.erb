@@ -1,0 +1,68 @@
+<div class="container">
+  <ol class="breadcrumb">
+    <span>您的位置</span>
+    <li><%= link_to "首页", root_path %></li>
+    <li class="active">教师培训成果</li>
+  </ol>
+  <div class="panel panel-default tab_cotent">
+    <div class="panel-heading tab_head">
+      <%= image_tag("TabTitleBg.png", class: "bg_image")%>
+      <div class="tab_title_text">教师培训成果</div>
+    </div>
+    <div class="center_cotent row">
+      <!-- left -->
+      <div class="center_left_nav col-md-2" style="padding-left: 0px;">
+        <ul>
+        <% @activities.each_with_index do |activity, index| %>
+          <li class="<%= "active" if (params[:activity_id].to_i == activity.id) || (params[:activity_id].nil? && index == 0) %>">
+            <%=link_to opuses_path(activity_id: activity.id, type: activity.type) do %>
+              <p class="text-center"><strong class="left_nav_left_line">|</strong><span class="color_label_info"><%= activity.short_name %></span></p>
+            <% end %>
+          </li>
+          <hr class="left_nav_line">
+        <% end %>
+        </ul>
+      </div>
+      <!-- right content -->
+      <div class="center_right_content for_table col-md-10">
+        <div class="text-center name_comp">
+          <h4><%= @activity.short_name %></h4>
+          <h4>教师培训成果汇总表</h4>
+        </div>
+        <!-- 表格 -->
+        <div class="center_cotent row">
+          <table class="table table-bordered">
+            <thead class="color_label">
+              <tr>
+                <th>序号</th>
+                <th>教师姓名</th>
+                <th>课程名称</th>
+                <th>邮箱</th>
+                <th>手机</th>
+                <th>作品</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% @recruits.each_with_index do |recruit, index| %>
+              <tr>
+                <td><%= index+1 %></td>
+                <td><%= recruit.try(:player).try(:info).try(:name) %></td>
+                <td><%= recruit.name %></td>
+                <td><%= recruit.try(:player).try(:info).try(:email) %></td>
+                <td><%= recruit.try(:player).try(:phone) %></td>
+                <td>
+                  <% if recruit.opus.present? %>
+                    <%= link_to "查看作品", recruit.opus, class:"btn btn-info btn-sm" %>
+                  <% else %>
+                    <%= link_to "暂未上传", "", class:"btn btn-warning btn-sm disabled" %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div><!--end 表格-->
+      </div>
+    </div>
+  </div>
+</div>
