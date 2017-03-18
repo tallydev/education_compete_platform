@@ -31,11 +31,14 @@
             &nbsp;&nbsp;&nbsp; 首页 &nbsp;&nbsp;&nbsp;
           </a>
         </li>
-        <li>
+
+        <% unless current_player.present? %>
+          <li>
           <a class="<%= "brand-active" if controller_to?(params, "opuses") %>" href="<%= opuses_path %>">
             &nbsp;&nbsp;&nbsp; 教育比赛成果 &nbsp;&nbsp;&nbsp;
           </a>
         </li>
+        <% end %>
 
         <% if current_player.present? %>
           <li>
