@@ -1,4 +1,3 @@
-
 .homes__index {
 	// 轮播
 	.slide {
@@ -55,8 +54,7 @@
 		.right img {
 			right: 15%;
 		}
-	}
-	// 比赛入口
+	} // 比赛入口
 	.compete-entry {
 		position: relative;
 		height: auto;
@@ -91,7 +89,7 @@
 			}
 			.apply {
 				top: 90px;
-				left: 118px;
+				left: 18px;
 				height: 38px;
 				line-height: 38px;
 				width: 118px;
@@ -119,8 +117,7 @@
 				right: 60px;
 			}
 		}
-	}
-	// 赛事公告
+	} // 赛事公告
 	.broad-cast {
 		margin-bottom: 77px;
 		min-height: 160px;
@@ -137,7 +134,7 @@
 		}
 		.content-more {
 			display: block;
-			text-align: right;			
+			text-align: right;
 			color: #3E3E3E;
 		}
 	}
