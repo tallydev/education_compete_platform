@@ -22,8 +22,12 @@ class InfoCompetition::Activity < Activity
     Activity.model_name
   end
 
+  # PROJECTS = [
+  #   "信息化教学设计比赛", "信息化课堂教学比赛", "信息化实训教学比赛"
+  # ]
+
   PROJECTS = [
-    "信息化教学设计比赛", "信息化课堂教学比赛", "信息化实训教学比赛"
+    "公共基础课程组", "专业课程组"
   ]
 
   def route_type
