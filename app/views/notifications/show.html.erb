@@ -47,7 +47,7 @@
 
 				<div class="info-bottom">				
 					<%= link_to(@notification.paper.try(:url), class: "btn info-download") do %>
-						<%= image_tag "download.svg" %>&nbsp;&nbsp;比赛通知下载
+						<%= image_tag "download.svg" %> &nbsp;&nbsp;比赛通知下载
 					<% end %>
 
 					<% if @activity.recruit? current_player %>
@@ -55,22 +55,22 @@
 
 						<% if recruit.opus %>
 							<%= link_to(recruit.opus, class: "btn info-upload") do %>
-								<%= image_tag "entry.svg" %>&nbsp;&nbsp;查看作品详情
+								<%= image_tag "entry.svg" %> &nbsp;&nbsp;查看作品详情
 							<% end %>
 						<% else %>
 							<%= link_to([:new, recruit, :opus], class: "btn info-upload") do %>
-								<%= image_tag "upload.svg" %>&nbsp;&nbsp;比赛作品上传
+								<%= image_tag "upload.svg" %> &nbsp;&nbsp;比赛作品上传
 							<% end %>
 						<% end %>
 
 					<% else %>
 						<% if is_end %>
 							<%= link_to("", class: "btn apply-entry") do %>
-								<%= image_tag "entry.svg" %>&nbsp;&nbsp;报名已截止
+								<%= image_tag "entry.svg" %> &nbsp;&nbsp;报名已截止
 							<% end %>
 						<% else %>
 							<%= link_to(new_path, class: "btn apply-entry") do %>
-								<%= image_tag "entry.svg" %>&nbsp;&nbsp;马上报名
+								<%= image_tag "entry.svg" %> &nbsp;&nbsp;马上报名
 							<% end %>
 						<% end %>
 					<% end %>
