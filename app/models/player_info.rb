@@ -36,7 +36,7 @@ class PlayerInfo < ActiveRecord::Base
   after_save :set_school
 
   def age
-    Time.zone.now.year - birth.year
+    birth.nil? ? '' : Time.zone.now.year - birth.year
   end
 
   def sex_name
