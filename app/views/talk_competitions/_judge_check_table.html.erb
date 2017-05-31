@@ -10,7 +10,7 @@
           <% if current_school_user.phone == "信息化教学指导委员会" %>
             <%= link_to "打印汇总", all_talk_competition_activity_recruits_path(@activity), class: "btn btn-sm btn-info btn-pint"  %>
           <% else %>
-            <%= link_to "打印汇总", "/contest/center/activities/#{@activity}/recruits", class: "btn btn-sm btn-info btn-pint"  %>
+            <%= link_to "打印汇总", "/contest/talk_competition/activities/#{@activity.id}/recruits", class: "btn btn-sm btn-info btn-pint"  %>
           <% end %>
         </li>
         <!-- <li>导出</li> -->
