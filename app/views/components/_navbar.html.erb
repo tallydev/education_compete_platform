@@ -14,57 +14,45 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <!-- <li class="<%= "active" if controller_to? params, "notifications" %>">
-          <%= link_to "赛事公告", notifications_path %>
-        </li>
-        <li>
-          <a href="#">比赛入口</a>
-        </li>
-        <li>
-          <a href="#">通知新闻</a>
-        </li>
-        <li>
-          <a href="#">作品展示</a>
-        </li> -->
         <li>
           <a class="<%= "brand-active" if controller_to?(params, "homes") %>" href="<%= root_path %>">
             &nbsp;&nbsp;&nbsp; 首页 &nbsp;&nbsp;&nbsp;
           </a>
         </li>
 
-        <% unless current_player.present? %>
+        <% if current_expert.present? %>
           <li>
-          <a class="<%= "brand-active" if controller_to?(params, "opuses") %>" href="<%= opuses_path %>">
-            &nbsp;&nbsp;&nbsp; 教育比赛成果 &nbsp;&nbsp;&nbsp;
-          </a>
-        </li>
+            <a class="<%= "brand-active" if controller_to?(params, "opuses") %>" href="<%= opuses_path %>">
+              &nbsp;&nbsp;&nbsp; 教育比赛成果 &nbsp;&nbsp;&nbsp;
+            </a>
+          </li>
         <% end %>
 
         <% if current_player.present? %>
           <li>
-            <% active = 
-              controller_action_to?(params, "centers", "show") || 
-              controller_action_to?(params, "info_competitions", "show") || 
-              controller_action_to?(params, "talk_competitions", "show") || 
-              controller_action_to?(params, "talk_competition/recruits", "show") || 
-              controller_action_to?(params, "talk_competition/opuses", "show") || 
-              controller_action_to?(params, "info_competition/recruits", "show") || 
+            <% active =
+              controller_action_to?(params, "centers", "show") ||
+              controller_action_to?(params, "info_competitions", "show") ||
+              controller_action_to?(params, "talk_competitions", "show") ||
+              controller_action_to?(params, "talk_competition/recruits", "show") ||
+              controller_action_to?(params, "talk_competition/opuses", "show") ||
+              controller_action_to?(params, "info_competition/recruits", "show") ||
               controller_action_to?(params, "info_competition/opuses", "show") %>
             <a class="<%= "brand-active" if active %>" href="<%= center_path %>">&nbsp;&nbsp;&nbsp; 个人中心 &nbsp;&nbsp;&nbsp;</a>
           </li>
         <% elsif current_school_user.present? %>
           <li>
-            <% active = 
-              controller_action_to?(params, "school_centers", "show") || 
-              controller_action_to?(params, "info_competitions", "index") || 
+            <% active =
+              controller_action_to?(params, "school_centers", "show") ||
+              controller_action_to?(params, "info_competitions", "index") ||
               controller_action_to?(params, "talk_competitions", "index") %>
             <a class="<%= "brand-active" if active %>" href="<%= school_center_path %>">&nbsp;&nbsp;&nbsp; 个人中心 &nbsp;&nbsp;&nbsp;</a>
           </li>
         <% elsif current_expert.present? %>
           <li>
-            <% active = 
-              controller_action_to?(params, "expert_centers", "show") || 
-              controller_action_to?(params, "info_competitions", "marks") || 
+            <% active =
+              controller_action_to?(params, "expert_centers", "show") ||
+              controller_action_to?(params, "info_competitions", "marks") ||
               controller_action_to?(params, "talk_competitions", "marks") ||
               controller_action_to?(params, "talk_competition/opuses", "show") ||
               controller_action_to?(params, "info_competition/opuses", "show")%>
