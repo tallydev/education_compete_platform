@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col-md-6 push-input">
           <%= f.simple_fields_for("player_info") do |r| %>
-            <%= r.input "degree", label: false, required: true, disabled: true, input_html: { value: @talk_competition_recruit.try(:name)} %> 
+            <%= r.input "degree", label: false, required: true, disabled: true, input_html: { value: @talk_competition_recruit.try(:name)} %>
           <% end %>
         </div>
       </div>
@@ -122,7 +122,7 @@
                   <%= r.file_field :file, label: false, accept: 'application/pdf', onchange:'$("#upload-file-info4").html($(this).val());$("#upload-file-info4").css({color:"#3D96D5"})' %>
                 <% else %>
                   <%= r.file_field :file, label: false, accept: 'application/pdf', required: true, onchange:'$("#upload-file-info4").html($(this).val());$("#upload-file-info4").css({color:"#3D96D5"})' %>
-                <% end %> 
+                <% end %>
               <% end %>
             </span>
           </label>
@@ -134,6 +134,6 @@
     </div>
   </div>
   <div class="text-center form-bottom">
-    <%= f.button :submit, "提  交", class: "btn_push_sure", data: {disable_with: '提交中...'} %>
+    <%= f.button :submit, "提  交", class: "btn_push_sure", data: {disable_with: '正在提交，请勿离开...'} %>
   </div>
 <% end %>

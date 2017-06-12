@@ -1,24 +1,24 @@
 <div class="page-sidebar nav-collapse">
 
-  <!-- BEGIN SIDEBAR MENU -->        
+  <!-- BEGIN SIDEBAR MENU -->
   <ul class="page-sidebar-menu">
     <li>
       <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
       <div class="sidebar-toggler hidden-phone"></div>
       <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
     </li>
-    
+
     <li class="<%= 'active' if params[:controller] == 'admin/activities' %>">
       <%= link_to admin_activities_path do %>
-        <i class="icon-home"></i> 
+        <i class="icon-home"></i>
         <span class="title">比赛</span>
         <span class="selected"></span>
       <% end %>
     </li>
-  
+
     <li class="">
       <a href="javascript:;">
-        <i class="icon-file-text"></i> 
+        <i class="icon-file-text"></i>
         <span class="title">报名列表</span>
         <span class="arrow "></span>
       </a>
@@ -33,7 +33,7 @@
 
 <!--     <li class="">
       <a href="javascript:;">
-        <i class="icon-file-text"></i> 
+        <i class="icon-file-text"></i>
         <span class="title">参赛作品</span>
         <span class="arrow "></span>
       </a>
@@ -48,7 +48,7 @@
 
     <li class="">
       <a href="javascript:;">
-        <i class="icon-file-text"></i> 
+        <i class="icon-file-text"></i>
         <span class="title">评分结果</span>
         <span class="arrow "></span>
       </a>
@@ -64,10 +64,10 @@
         <% end %>
       </ul>
     </li>
-  
+
     <li class="<%= 'active' if params[:controller] == 'admin/news' %>">
       <%= link_to admin_news_index_path do %>
-        <i class="icon-file-text"></i> 
+        <i class="icon-file-text"></i>
         <span class="title">通知新闻</span>
         <span class="selected"></span>
       <% end %>
@@ -75,7 +75,7 @@
 
     <li class="<%= 'active' if params[:controller] == 'admin/bulletins' %>">
       <%= link_to admin_bulletins_path do %>
-        <i class="icon-file-text"></i> 
+        <i class="icon-file-text"></i>
         <span class="title">赛事公告</span>
         <span class="selected"></span>
       <% end %>
@@ -83,22 +83,19 @@
 
     <li class="">
       <a href="javascript:;">
-        <i class="icon-file-text"></i> 
+        <i class="icon-file-text"></i>
         <span class="title">作品展示</span>
         <span class="selected"></span>
       </a>
     </li>
-  
+
     <li class="">
       <a href="javascript:;">
-        <i class="icon-file-text"></i> 
+        <i class="icon-file-text"></i>
         <span class="title">管理员</span>
         <span class="arrow"></span>
       </a>
       <ul class="sub-menu">
-        <li >
-          <a href="portlet_general.html">学校管理员</a>
-        </li>
         <li >
           <a href="<%= admin_experts_path %>">评审专家</a>
         </li>
@@ -107,7 +104,7 @@
 
     <li class="<%= 'active' if params[:controller] == 'admin/users' %>">
       <%= link_to admin_users_path do %>
-        <i class="icon-file-text"></i> 
+        <i class="icon-file-text"></i>
         <span class="title">注册用户列表</span>
         <span class="selected"></span>
       <% end %>
