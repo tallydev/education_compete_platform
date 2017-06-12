@@ -26,8 +26,9 @@
           <td>院校名称</td>
           <td>专业大类名称</td>
           <td>课程名称</td>
-          <td>邮箱</td>
-          <td>&nbsp;&nbsp;手机&nbsp;&nbsp;</td>
+          <td>选手邮箱</td>
+          <td>选手手机</td>
+          <td>院校手机</td>
           <td>作品</td>
         </tr>
         <% @info_competition_recruits.each_with_index do |recruit, index| %>
@@ -39,6 +40,7 @@
             <td><%= recruit.try(:player).try(:info).try(:special) %></td>
             <td><%= recruit.try(:name) %></td>
             <td><%= recruit.try(:player).try(:info).try(:email) %></td>
+            <td><%= recruit.try(:player).try(:info).try(:phone) %></td>
             <td><%= recruit.try(:school_phone) %></td>
             <td>
               <% if recruit.opus.present? %>
@@ -57,14 +59,14 @@
 <!--endprint-->
 
 <script>
-  function preview()    
-  {    
-    bdhtml=window.document.body.innerHTML;    
-    sprnstr="<!--startprint-->";    
-    eprnstr="<!--endprint-->";    
+  function preview()
+  {
+    bdhtml=window.document.body.innerHTML;
+    sprnstr="<!--startprint-->";
+    eprnstr="<!--endprint-->";
     prnhtml=bdhtml.substring(bdhtml.indexOf(sprnstr)+17);
-    prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr));  
-    window.document.body.innerHTML=prnhtml;    
-    window.print();    
-  }  
+    prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr));
+    window.document.body.innerHTML=prnhtml;
+    window.print();
+  }
 </script>

@@ -37,9 +37,6 @@ class InfoCompetition::RecruitsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def create
     @info_competition_activity = InfoCompetition::Activity.find(params[:activity_id])
     @info_competition_recruit = @info_competition_activity.recruits.build(recruit_params)
@@ -54,9 +51,19 @@ class InfoCompetition::RecruitsController < ApplicationController
     respond_with(@info_competition_recruit)
   end
 
+  def edit
+    @first_recruit = @info_competition_recruit
+    @player = @info_competition_recruit.player.try(:info)
+    @info_competition_activity = InfoCompetition::Activity.find params[:activity_id]
+  end
+
   def update
-    @info_competition_recruit.update(info_competition_recruit_params)
-    respond_with(@info_competition_recruit)
+    @activity = InfoCompetition::Activity.find params[:activity_id]
+    @info_competition_recruit.update(recruit_params)
+    @player_info = @info_competition_recruit.player.try(:info)
+    @player_info.school_id = recruit_params[:school_id] if recruit_params[:school_id].present?
+    @player_info.update(player_params)
+    redirect_to "/contest/center/activities/#{params[:activity_id]}/#{@activity.route_type}"
   end
 
   def destroy

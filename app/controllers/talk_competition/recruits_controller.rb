@@ -37,9 +37,6 @@ class TalkCompetition::RecruitsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def create
     @talk_competition_activity = TalkCompetition::Activity.find(params[:activity_id])
     @talk_competition_recruit = @talk_competition_activity.recruits.build(recruit_params)
@@ -54,9 +51,19 @@ class TalkCompetition::RecruitsController < ApplicationController
     respond_with(@talk_competition_recruit)
   end
 
+  def edit
+    @first_recruit = @talk_competition_recruit
+    @player = @talk_competition_recruit.player.try(:info)
+    @talk_competition_activity = TalkCompetition::Activity.find(params[:activity_id])
+  end
+
   def update
+    @activity = TalkCompetition::Activity.find(params[:activity_id])
     @talk_competition_recruit.update(recruit_params)
-    respond_with(@talk_competition_recruit)
+    @player_info = @talk_competition_recruit.player.try(:info)
+    @player_info.school_id = recruit_params[:school_id] if recruit_params[:school_id].present?
+    @player_info.update(player_params)
+    redirect_to "/contest/center/activities/#{params[:activity_id]}/#{@activity.route_type}"
   end
 
   def destroy

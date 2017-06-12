@@ -2,21 +2,26 @@
   margin-top: -3px;
   padding: 2px 5px;
 }
+
 a {
   text-decoration: none !important;
 }
+
 .color_label {
   color: #9B9B9B !important;
 }
+
 .color_label_info {
   color: #333 !important;
   text-indent: 14px;
 }
+
 .btn-join {
   background-color: #F5A623;
   color: #fff;
   border: 0;
 }
+
 //个人中心－个人信息标签样式
 .center_info {
   border-right: 1px solid #e0e0e0;
@@ -24,6 +29,7 @@ a {
     font-weight: lighter;
   }
 }
+
 .center_cotent {
   margin: 0;
   overflow-x: auto;
@@ -34,16 +40,14 @@ a {
   tr {
     vertical-align: middle;
   }
-
-  .table > thead > tr > th, 
-  .table > thead > tr > td, 
-  .table > tbody > tr > th, 
-  .table > tbody > tr > td, 
-  .table > tfoot > tr > th, 
-  .table > tfoot > tr > td {
+  .table>thead>tr>th,
+  .table>thead>tr>td,
+  .table>tbody>tr>th,
+  .table>tbody>tr>td,
+  .table>tfoot>tr>th,
+  .table>tfoot>tr>td {
     vertical-align: middle;
-  }
-  // 个人中心－左侧导航栏标签样式
+  } // 个人中心－左侧导航栏标签样式
   .center_left_nav {
     width: 20%;
     background-color: #fafafa;
@@ -65,14 +69,13 @@ a {
       padding-left: 0px;
     }
     li {
-      list-style-type:none;
-      // border-left: 3px solid #F5A623;
-      padding: 5px;
-      // padding-left: 10px;
+      list-style-type: none; // border-left: 3px solid #F5A623;
+      padding: 5px; // padding-left: 10px;
       a {
         // padding: 10px 50px 10px 0;
       }
-      a:hover, a:focus{
+      a:hover,
+      a:focus {
         text-decoration: none;
       }
     }
@@ -84,8 +87,7 @@ a {
         color: #F5A623;
       }
     }
-  }
-  // 个人中心－右侧内容栏标签样式
+  } // 个人中心－右侧内容栏标签样式
   .for_table {
     padding: 5px !important;
     .name_comp {
@@ -98,7 +100,7 @@ a {
     padding: 20px;
     .center_tip {
       background-image: image_url('center_tip_bg.svg');
-      p{
+      p {
         padding-left: 20px;
       }
       .btn-join {
@@ -111,13 +113,12 @@ a {
       margin-left: 73px;
       margin-top: 8px;
       background-image: image_url('center_tip_bg.svg');
-      p{
+      p {
         padding-left: 20px;
       }
       .btn-join {
         background-color: #F5A623;
-        border: 0;
-        // margin-left: 40px;
+        border: 0; // margin-left: 40px;
       }
       .file_p {
         font-size: 12px;
@@ -157,9 +158,6 @@ a {
     }
   }
   table {
-    td {
-      line-height: 42px !important;
-    }
     tbody {
       th {
         text-align: center;

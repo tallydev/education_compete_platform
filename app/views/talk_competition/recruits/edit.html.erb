@@ -1,6 +1,11 @@
-<h1>Editing Talk Competition Recruit</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @talk_competition_recruit %> |
-<%= link_to 'Back', talk_competition_recruits_path %>
+<div class="container">
+	<div class="global-tab" style="margin-bottom: 78px;">
+		<div class="global-tab-head">
+			<div class="title">编辑选手报名信息</div>
+		</div>
+		<div class="global-tab-content">
+			<p class="text-center title"><%= @talk_competition_activity.name %><br>单项报名表</p>
+			<%= render 'form' %>
+		</div>
+	</div>
+</div>

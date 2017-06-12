@@ -18,18 +18,18 @@
     </div>
   </div>
   <div class="center_cotent row">
-    <table class="table table-bordered">
+    <table class="table table-bordered table-condensed">
       <thead class="color_label">
         <tr>
           <th>
             <input type="button" class="btn btn-info" name="select" onclick="javascript:selectAll()" value="全选"/>
           </th>
           <th>序号</th>
-          <th>参赛项目</th>
           <th>姓名</th>
+          <th>参赛项目</th>
           <th>课程名称</th>
           <th>邮箱</th>
-          <th>手机</th>
+          <th>选手手机</th>
           <th>作品</th>
           <th>操作</th>
         </tr>
@@ -45,8 +45,8 @@
             </div>
           </th>
           <td><%= index+1 %></td>
-          <td><%= recruit.project %></td>
           <td><%= recruit.try(:player).try(:info).try(:name) %></td>
+          <td><%= recruit.project %></td>
           <td><%= recruit.name %></td>
           <td><%= recruit.try(:player).try(:info).try(:email) %></td>
           <td><%= recruit.try(:player).try(:phone) %></td>
@@ -59,6 +59,7 @@
           </td>
           <td>
             <%= link_to "打印", recruit, class:"btn btn-info btn-sm" %>
+            <%= link_to "编辑", edit_info_competition_activity_recruit_path(params[:activity_id], recruit), class:"btn btn-warning btn-sm" %>
             <%= link_to '删除', recruit, class:"btn btn-danger btn-sm", method: :delete, data: { confirm: '确定删除此报名数据么？' } %>
           </td>
         </tr>

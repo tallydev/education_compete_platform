@@ -22,16 +22,16 @@
       <%= hidden_field_tag "opus_id", @info_competition_opus.id %>
       <div class="grade-range">
         <p>
-          <%= _mark_items[0][:name] %> 
+          <%= _mark_items[0][:name] %>
           <span class="dark-purple">（总分 <%= _mark_items[0][:max] %> 分）</span>
           <span class="pull-right" id="target">0分</span>
         </p>
         <%= range_field_tag :mark_one, 0, min: 0, max: _mark_items[0][:max] , step: 1, id: 'mark_one_input', onChange:'onChangeSum()' %>
       </div>
-      
+
       <div class="grade-range">
-        <p> 
-          <%= _mark_items[1][:name] %> 
+        <p>
+          <%= _mark_items[1][:name] %>
           <span class="dark-purple">（总分 <%= _mark_items[1][:max] %> 分）</span>
           <span class="pull-right" id="content">0分</span>
         </p>
@@ -63,7 +63,7 @@
       <div class="actions">
         <%= f.submit "提交评分", class: "mbtn", data: {data_with: "正在提交..."} %>
       </div>
-    <% end %> 
+    <% end %>
 	</div>
 </div>
 
