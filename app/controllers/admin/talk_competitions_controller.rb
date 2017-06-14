@@ -16,18 +16,18 @@ module Admin
     def update
       @recruit = @activity.recruits.find(params[:id])
       if @recruit.update(position: params[:position])
-        flash.now[:success] = "设置成功"
-        redirect_to "/admin/activities/#{@activity.id}/#{@activity.route_type}"
+        flash[:success] = "设置成功"
+        redirect_to "/contest/admin/activities/#{@activity.id}/#{@activity.route_type}"
       else
-        flash.now[:success] = "设置失败"
-        redirect_to "/admin/activities/#{@activity.id}/#{@activity.route_type}"
+        flash[:danger] = "设置失败"
+        redirect_to "/contest/admin/activities/#{@activity.id}/#{@activity.route_type}"
       end
     end
 
     def print
       @recruits = @activity.recruits
     end
-    
+
     private
     def set_activity
       @activity = Activity.find_by(id: params[:activity_id])

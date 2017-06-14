@@ -18,6 +18,6 @@ class Admin::AssginsController < Admin::BaseController
 		# 开始分配
 		_recruit.assgin_to_new_activity _assgin_new_activity
 
-		redirect_to "/admin/activities/#{_activity.id}/#{_activity.route_type}"
+		redirect_to "/contest/admin/activities/#{_activity.id}/#{_activity.route_type}"
 	end
 end

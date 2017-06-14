@@ -10,7 +10,7 @@ module Admin
     def assgin_activity
       @recruit = @activity.recruits.find(params[:recruit_id])
       @recruit.assgin_to_new_activity @activity
-      redirect_to "/admin/activities/#{@activity.id}/#{@activity.route_type}"
+      redirect_to "/contest/admin/activities/#{@activity.id}/#{@activity.route_type}"
     end
 
     private

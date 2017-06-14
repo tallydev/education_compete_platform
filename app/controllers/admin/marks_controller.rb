@@ -31,8 +31,9 @@ class Admin::MarksController < Admin::BaseController
 		if @selected_recruits.present?
 			respond_with @selected_recruits
 		else
+			flash[:warning] = "请勾选需要分配的选手"
 			respond_to do |format|
-				format.js { render js: "location.href = '/admin/activities/#{@activity.id}/#{@activity.route_type}'" }
+				format.js { render js: "location.href = '/contest/admin/activities/#{@activity.id}/#{@activity.route_type}'" }
 			end
 		end
 	end
@@ -44,10 +45,11 @@ class Admin::MarksController < Admin::BaseController
 			@activity_recruits = @activity.recruits.where(id: params[:selected_recruits])
 			# 创建
 			Mark.distribute_expert(@activity_recruits, params[:recruit_experts])
+			flash[:success] = "分配成功"
 		else
-			flash.now[:danger] = "请选择评委专家"
+			flash[:danger] = "分配失败"
 		end
-		redirect_to "/admin/activities/#{@activity.id}/#{@activity.route_type}"
+		redirect_to "/contest/admin/activities/#{@activity.id}/#{@activity.route_type}"
 	end
 
 	private
@@ -80,7 +82,7 @@ class Admin::MarksController < Admin::BaseController
         sheet1[count_row, 5] = obj.name
         obj.score_marks.each_with_index do |mark,index|
         	sheet1[count_row, index+6] = "#{mark.score.present? ? mark.score : 0}分"
-        end      
+        end
         count_row += 1
       end
 

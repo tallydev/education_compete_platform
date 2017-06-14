@@ -23,7 +23,7 @@
         <span class="arrow "></span>
       </a>
       <ul class="sub-menu">
-        <% Activity.all.each do |activity| %>
+        <% Activity.all.order(created_at: :desc).each do |activity| %>
           <li>
             <%= link_to activity.short_name, "/contest/admin/activities/#{activity.id}/#{activity.route_type}" %>
           </li>
@@ -53,7 +53,7 @@
         <span class="arrow "></span>
       </a>
       <ul class="sub-menu">
-        <% Activity.all.each do |activity| %>
+        <% Activity.all.order(created_at: :desc).each do |activity| %>
           <li >
             <% if 1 == activity.id %>
               <a href="<%= admin_marks_path(activity_id: activity, project: InfoCompetition::Activity::PROJECTS[0]) %>"><%= activity.short_name %></a>
