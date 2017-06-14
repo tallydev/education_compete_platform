@@ -18,10 +18,10 @@ class Activity < ActiveRecord::Base
   has_many :news, dependent: :destroy
   has_one :notification, class_name: "Bulletin"
 
-  scope :offlines, -> { where(offline: true)}
-  scope :onlines, -> { where(offline: [false, nil])}
-  scope :activate, -> { where(status: :activate) }
-  
+  scope :offlines, -> { where(offline: true).order(created_at: :desc)}
+  scope :onlines, -> { where(offline: [false, nil]).order(created_at: :desc)}
+  scope :activate, -> { where(status: :activate).order(created_at: :desc) }
+
   enum status: [:activate, :stop]
 
   def left_days

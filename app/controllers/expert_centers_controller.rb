@@ -8,9 +8,7 @@ class ExpertCentersController < ApplicationController
 
   def show
     @activities = Activity.onlines
-    @activity = InfoCompetition::Activity.first
-    @recruits = current_expert.info_competition_recruits
-    @recruits_online = @activities.first.recruits
-    respond_with(@marks)
+    @activity = @activities.first
+    redirect_to "/contest/center/activities/#{@activity.id}/#{@activity.route_type}/marks"
   end
 end

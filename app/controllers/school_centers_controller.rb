@@ -5,6 +5,7 @@ class SchoolCentersController < ApplicationController
 
   def show
     @activities = Activity.onlines
+    redirect_to "/contest/center/activities/#{@activities.first.id}/#{@activities.first.route_type}"
   end
-  
+
 end
