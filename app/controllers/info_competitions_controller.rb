@@ -29,7 +29,7 @@ class InfoCompetitionsController < ApplicationController
   private
     def set_activity
       if current_player
-        @activities = current_player.activities
+        @activities = current_player.activities.activate
       else
         @activities = Activity.activate
       end
