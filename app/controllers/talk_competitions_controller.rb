@@ -31,7 +31,7 @@ class TalkCompetitionsController < ApplicationController
       if current_player
         @activities = current_player.activities
       else
-        @activities = Activity.onlines
+        @activities = Activity.activate
       end
       @activity = TalkCompetition::Activity.find(params[:activity_id])
     end

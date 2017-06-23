@@ -31,7 +31,7 @@ class InfoCompetitionsController < ApplicationController
       if current_player
         @activities = current_player.activities
       else
-        @activities = Activity.onlines
+        @activities = Activity.activate
       end
       @activity = InfoCompetition::Activity.find(params[:activity_id])
     end

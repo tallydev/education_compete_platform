@@ -9,10 +9,8 @@ class HomesController < ApplicationController
   	if @browser == :phone
 	    @activities = Activity.offlines.activate
   	else
-  		@activities = Activity.onlines
+  		@activities = Activity.activate
 	  	@notifications = Bulletin.all
-	    @one_days = Activity.find(1).left_days
-	    @two_days = Activity.find(2).left_days
   	end
   end
 

@@ -4,7 +4,7 @@ class InfoCompetition::ActivitiesController < ApplicationController
   respond_to :html
 
   def index
-    @info_competition_activities = InfoCompetition::Activity.onlines
+    @info_competition_activities = InfoCompetition::Activity.activate
     respond_with(@info_competition_activities)
   end
 

@@ -4,7 +4,7 @@ class SchoolCentersController < ApplicationController
   respond_to :html
 
   def show
-    @activities = Activity.onlines
+    @activities = Activity.activate
     redirect_to "/contest/center/activities/#{@activities.first.id}/#{@activities.first.route_type}"
   end
 

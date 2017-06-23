@@ -30,12 +30,12 @@
           <% index = 0 %>
           <% @activities.each_with_index do |activity, index| %>
           <tr>
-            <td><%= index+1 %></td>
+            <td style="width: 70px;"><%= index+1 %></td>
             <td><%= activity.short_name %></td>
             <td><%= link_to "前往", phones_path(activity_id: activity), class: "btn btn-success btn-sm" %></td>
           </tr>
           <% end %>
-        </tbody>  
+        </tbody>
       </table>
     </div>
   </div>

@@ -4,7 +4,7 @@ class TalkCompetition::ActivitiesController < ApplicationController
   respond_to :html
 
   def index
-    @talk_competition_activities = TalkCompetition::Activity.onlines
+    @talk_competition_activities = TalkCompetition::Activity.activate
     respond_with(@talk_competition_activities)
   end
 
