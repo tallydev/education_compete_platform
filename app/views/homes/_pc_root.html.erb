@@ -52,13 +52,16 @@
 			<div class="col-md-6 text-center">
 				<div class="compete-info">
 					<span class="title">
-						<%= link_to "距#{activity.short_name}#{}上传作品截止", notification_path(activity.notification.try(:id)), "data-turbolinks" => false %>
+						<% path = activity.notification.present? ? notification_path(activity.notification.id) : "#" %>
+						<%= link_to "距#{activity.short_name}#{}上传作品截止", path, "data-turbolinks" => false %>
 					</span>
-					<% if activity.recruit? current_player %>
-						<% recruit = activity.player_recruit current_player %>
-						<span class="apply">
-							<%= link_to "上传作品", [:new, recruit, :opus] %>
-						</span>
+					<% if activity.present? %>
+						<% if activity.recruit? current_player %>
+							<% recruit = activity.player_recruit current_player %>
+							<span class="apply">
+								<%= link_to "上传作品", [:new, recruit, :opus] %>
+							</span>
+						<% end %>
 					<% end %>
 <!-- 					<span class="apply">
 						<%#= link_to "马上报名", [:new, activity, :recruit] %>
