@@ -1,11 +1,8 @@
 $body-bg: #F4F4F4;
 $text-color: #4A4A4A;
-
 $container-large-desktop: 1000px;
-
 // grid system
 $grid-gutter-width: 12px;
-
 $navbar-height: 50px;
 $navbar-margin-bottom: 0;
 $navbar-border-radius: 0;
@@ -14,7 +11,6 @@ $navbar-default-link-hover-color: #3D96D5;
 $navbar-default-link-color: #4A4A4A;
 $navbar-default-link-active-bg: #F8BD23;
 $navbar-default-link-active-color: #fff;
-
 // Breadcrumbs
 $breadcrumb-padding-vertical: 0;
 $breadcrumb-padding-horizontal: 0;
@@ -22,13 +18,10 @@ $breadcrumb-separator: ">";
 $breadcrumb-bg: transparent;
 $breadcrumb-color: #4A4A4A;
 $breadcrumb-active-color: #4A4A4A;
-
 // buttons
 $btn-border-radius-base: 0;
 $btn-default-border: transparent;
-
 // ccarousel
 $carousel-control-opacity: 0.3;
-
-// forms
-// $input-border-radius: 0;
+// tables
+$table-border-color: #333;
